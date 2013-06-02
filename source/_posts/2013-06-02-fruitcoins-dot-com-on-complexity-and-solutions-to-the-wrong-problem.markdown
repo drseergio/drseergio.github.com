@@ -10,6 +10,8 @@ About two years ago I had very little experience in programming in Python. I've 
 
 Tracking expenses has always been important for me. At the time I've relied on KMyMoney program. Frankly, I did not (and still don't) like any such programs. They're either clunky and look like Windows 95 or too complicated or too inefficient. I've decided to write my own web application in Python using the Django framework.
 
+<!-- more -->
+
 Initially, the program was called "moneypit" and I was planning to scale it infinitely (for millions of users that would flock to it!). I targeted AppEngine and made sure that I'm not using any Django constructs that would not work on the AppEngine data store. I chose ExtJS 3 as a front-end solution because it had lots of ready components that can interact in well defined ways.
 
 Once the first prototype was ready I've decided that over-engineering (especially too early) the thing is pointless so I gave up on AppEngine. I've rewritten everything from scratch and based the front-end on then new ExtJS 4. I've relied on ExtJS's MVC pattern and made the back-end work in a RESTful fashion using django-piston.

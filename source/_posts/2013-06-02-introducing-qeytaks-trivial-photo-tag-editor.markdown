@@ -10,6 +10,8 @@ In the previous post I have introduced **photofs** - a tool I have written for m
 
 With **photofs** I can easily locate photos by albums, tags, dates. But how would I add the tags in the first place? I use Adobe Lightroom and absolutely love it! I don't use it to manage photos. Lightroom is a gateway from the camera to my collection. Once I'm done processing photos Lightroom kisses them goodbye.
 
+<!-- more -->
+
 What if I mislabel something? For example, I typically use album names with the following template: "YYYY.MM.DD - &lt;album name or event name or something descriptive&gt;". I could easily make a typo or choose a wrong year. Or what if I want to add an additional tag to some of the pictures?
 
 Originally, with **photofs** I would need to somehow magically figure out what are the true paths to the files I want to alter. Then I would need to use a tool such as exiv2 to make the changes.

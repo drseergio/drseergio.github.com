@@ -8,6 +8,8 @@ categories: [projects]
 
 With yeach passing year the number of photos in my collection is growing. The trend only hockey-sticked once I got my own camera. I've tried various programs to organize and browse photos. I recall using or trying ACDSee, digiKam, Adobe Bridge, IrfanView, F-Spot, Shotwell and possibly others that I don't recall.
 
+<!-- more -->
+
 The thing I don't like about these tools is that they build an index of photos in their proprietary formats. Usually, it takes a while to generate the index and the programs will obviously work only on the computer where the program is installed. 
 
 The other problem is performance. With 15 000+ photos many of the photo organizers simply don't work well: become slow, crash and hang. Applying changes to many photos at a time is especially thorny.
