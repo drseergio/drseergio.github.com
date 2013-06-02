@@ -4,7 +4,7 @@
   <title><![CDATA[drseergio. finito.]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-06-02T15:42:21+02:00</updated>
+  <updated>2013-06-02T17:31:13+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<p>About two years ago I had very little experience in programming in Python. I&rsquo;ve heard of Django and felt excited how flexible it is and how complicated web applications can be elegantly written.</p>
 
 <p>Tracking expenses has always been important for me. At the time I&rsquo;ve relied on KMyMoney program. Frankly, I did not (and still don&rsquo;t) like any such programs. They&rsquo;re either clunky and look like Windows 95 or too complicated or too inefficient. I&rsquo;ve decided to write my own web application in Python using the Django framework.</p>
+
+<!-- more -->
+
 
 <p>Initially, the program was called &ldquo;moneypit&rdquo; and I was planning to scale it infinitely (for millions of users that would flock to it!). I targeted AppEngine and made sure that I&rsquo;m not using any Django constructs that would not work on the AppEngine data store. I chose ExtJS 3 as a front-end solution because it had lots of ready components that can interact in well defined ways.</p>
 
@@ -63,6 +66,9 @@
 
 <p>With <strong>photofs</strong> I can easily locate photos by albums, tags, dates. But how would I add the tags in the first place? I use Adobe Lightroom and absolutely love it! I don&rsquo;t use it to manage photos. Lightroom is a gateway from the camera to my collection. Once I&rsquo;m done processing photos Lightroom kisses them goodbye.</p>
 
+<!-- more -->
+
+
 <p>What if I mislabel something? For example, I typically use album names with the following template: &ldquo;YYYY.MM.DD &ndash; &lt;album name or event name or something descriptive&gt;&rdquo;. I could easily make a typo or choose a wrong year. Or what if I want to add an additional tag to some of the pictures?</p>
 
 <p>Originally, with <strong>photofs</strong> I would need to somehow magically figure out what are the true paths to the files I want to alter. Then I would need to use a tool such as exiv2 to make the changes.</p>
@@ -89,6 +95,9 @@
     <updated>2013-06-02T09:21:00+02:00</updated>
     <id>http://drseergio.github.io/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos</id>
     <content type="html"><![CDATA[<p>With yeach passing year the number of photos in my collection is growing. The trend only hockey-sticked once I got my own camera. I&rsquo;ve tried various programs to organize and browse photos. I recall using or trying ACDSee, digiKam, Adobe Bridge, IrfanView, F-Spot, Shotwell and possibly others that I don&rsquo;t recall.</p>
+
+<!-- more -->
+
 
 <p>The thing I don&rsquo;t like about these tools is that they build an index of photos in their proprietary formats. Usually, it takes a while to generate the index and the programs will obviously work only on the computer where the program is installed.</p>
 

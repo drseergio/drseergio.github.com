@@ -4,7 +4,7 @@
   <title><![CDATA[Category: projects | drseergio. finito.]]></title>
   <link href="http://drseergio.github.io/blog/categories/projects/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-06-02T15:42:21+02:00</updated>
+  <updated>2013-06-02T17:31:13+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<p>In the previous post I have introduced <strong>photofs</strong> &ndash; a tool I have written for myself that universally solves my photo management problems.</p>
 
 <p>With <strong>photofs</strong> I can easily locate photos by albums, tags, dates. But how would I add the tags in the first place? I use Adobe Lightroom and absolutely love it! I don&rsquo;t use it to manage photos. Lightroom is a gateway from the camera to my collection. Once I&rsquo;m done processing photos Lightroom kisses them goodbye.</p>
+
+<!-- more -->
+
 
 <p>What if I mislabel something? For example, I typically use album names with the following template: &ldquo;YYYY.MM.DD &ndash; &lt;album name or event name or something descriptive&gt;&rdquo;. I could easily make a typo or choose a wrong year. Or what if I want to add an additional tag to some of the pictures?</p>
 
@@ -48,6 +51,9 @@
     <updated>2013-06-02T09:21:00+02:00</updated>
     <id>http://drseergio.github.io/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos</id>
     <content type="html"><![CDATA[<p>With yeach passing year the number of photos in my collection is growing. The trend only hockey-sticked once I got my own camera. I&rsquo;ve tried various programs to organize and browse photos. I recall using or trying ACDSee, digiKam, Adobe Bridge, IrfanView, F-Spot, Shotwell and possibly others that I don&rsquo;t recall.</p>
+
+<!-- more -->
+
 
 <p>The thing I don&rsquo;t like about these tools is that they build an index of photos in their proprietary formats. Usually, it takes a while to generate the index and the programs will obviously work only on the computer where the program is installed.</p>
 
