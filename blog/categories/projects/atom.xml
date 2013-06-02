@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[drseergio. finito.]]></title>
-  <link href="http://drseergio.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: projects | drseergio. finito.]]></title>
+  <link href="http://drseergio.github.io/blog/categories/projects/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
   <updated>2013-06-02T10:31:20+02:00</updated>
   <id>http://drseergio.github.io/</id>
@@ -36,7 +36,7 @@
 
 <p>Here&rsquo;s a screen-shot of Dolphin file-manager showing 4 panels with the modes that <strong>photofs</strong> supports:</p>
 
-<p><img src="http://drseergio.github.io/images/photofs.png"></p>
+<p><img src="/images/photofs.png"></p>
 
 <p>Upon first invocation <strong>photofs</strong> generates an index and creates 4 virtual sub-folders at the mount point. Each of the sub-folders, in turn, exposes a single view of your photos:</p>
 
