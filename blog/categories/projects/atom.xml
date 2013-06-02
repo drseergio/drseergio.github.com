@@ -4,7 +4,7 @@
   <title><![CDATA[Category: projects | drseergio. finito.]]></title>
   <link href="http://drseergio.github.io/blog/categories/projects/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-06-02T10:31:20+02:00</updated>
+  <updated>2013-06-02T11:20:16+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing qeytaks: trivial photo tag editor]]></title>
+    <link href="http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/"/>
+    <updated>2013-06-02T10:38:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor</id>
+    <content type="html"><![CDATA[<p>In the previous post I have introduced <strong>photofs</strong> &ndash; a tool I have written for myself that universally solves my photo management problems.</p>
+
+<p>With <strong>photofs</strong> I can easily locate photos by albums, tags, dates. But how would I add the tags in the first place? I use Adobe Lightroom and absolutely love it! I don&rsquo;t use it to manage photos. Lightroom is a gateway from the camera to my collection. Once I&rsquo;m done processing photos Lightroom kisses them goodbye.</p>
+
+<p>What if I mislabel something? For example, I typically use album names with the following template: &ldquo;YYYY.MM.DD &ndash; &lt;album name or event name or something descriptive&gt;&rdquo;. I could easily make a typo or choose a wrong year. Or what if I want to add an additional tag to some of the pictures?</p>
+
+<p>Originally, with <strong>photofs</strong> I would need to somehow magically figure out what are the true paths to the files I want to alter. Then I would need to use a tool such as exiv2 to make the changes.</p>
+
+<p>I immediately realized that this is not a work-able solution. So instead, I&rsquo;ve added support of modifying files through the virtual view. In other words, if you edit a file that you have opened through <strong>photofs</strong> the changes will be transparently channeled to the original images.</p>
+
+<p>Furthermore, I had to implement a hack to let exiv2 library work (exiv2 is the only widely supported and maintained library for altering image photo data I could find). When a file is sufficiently large, exiv2 library wants to write its changes to a temporary file in the same folder as original and then rename it. Obviously, this cannot &ldquo;just work&rdquo; in a virtual folder so I had to implement a mechanism that tricks exiv2 into believing that a temporary file has been opened. In reality, <strong>photofs</strong> opens a file in memory and lets exiv2 write into it. When exiv2 tries to do a rename operation <strong>photofs</strong> dumps the file in memory to the original image.</p>
+
+<p><img class="left" src="images/qeytaks.png" width="400"> Back to our problem. So now we have a possibility to not only view photos in some virtual arrangements but also modify photos. In other words, it&rsquo;s now possible to locate all photos with tag &ldquo;travel&rdquo;, modify them (say, by adding tag &ldquo;fun&rdquo;) and expect the original photos to have a new tag &ldquo;fun&rdquo;!</p>
+
+<p>That&rsquo;s great but what to use for editing tags? I&rsquo;ve mentioned in my last post that I am using XMP label tag as a marker for album names. I&rsquo;m almost certain nobody else is using it in the same way. I also don&rsquo;t want to use overly complex and ugly programs for changing just 2 things.</p>
+
+<p>I&rsquo;ve decided to write my own simple tool &ndash; meet <strong>qeytaks</strong>. Essentially, <strong>qeytaks</strong> is a pane of pictures, 2 fields and a &ldquo;Save&rdquo; button. With <strong>qeytaks</strong> I can add new tags and alter existing ones. <strong>qeytaks</strong> indicates when a tag is not common to all selected pictures with a pre-pended star (*) similarly to how Lightroom does it. I&rsquo;ve added integration with KDE by creating a contextual right-click menu entry. When I am browsing photos through <strong>photofs</strong> view I can simply select some photos and open them in <strong>qeytaks</strong> for editing tags.</p>
+
+<p><strong>qeytaks</strong> is written in Python and uses PyQt4 to create the UI. I&rsquo;ve never worked with Qt before so I had to learn its concepts first. I&rsquo;ve got an impression that the Qt concepts (at least the UI part, Qt library includes a lot more than just UI) are very similar to other desktop UI frameworks (e.g. events handling).</p>
+
+<p>Again, I solved a personal problem and I am very happy with the result. I&rsquo;ve spent total of about a day working on it and learned a couple of things along the way. You can clone the github repository if you&rsquo;re interested. I&rsquo;ve documented the requirements and instructions in the README file.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Introducing photofs: FUSE file-system for browsing photos]]></title>
