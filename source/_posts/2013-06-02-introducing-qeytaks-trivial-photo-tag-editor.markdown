@@ -20,7 +20,7 @@ I immediately realized that this is not a work-able solution. So instead, I've a
 
 Furthermore, I had to implement a hack to let exiv2 library work (exiv2 is the only widely supported and maintained library for altering image photo data I could find). When a file is sufficiently large, exiv2 library wants to write its changes to a temporary file in the same folder as original and then rename it. Obviously, this cannot "just work" in a virtual folder so I had to implement a mechanism that tricks exiv2 into believing that a temporary file has been opened. In reality, **photofs** opens a file in memory and lets exiv2 write into it. When exiv2 tries to do a rename operation **photofs** dumps the file in memory to the original image.
 
-{% img left images/qeytaks.png 400 %} Back to our problem. So now we have a possibility to not only view photos in some virtual arrangements but also modify photos. In other words, it's now possible to locate all photos with tag "travel", modify them (say, by adding tag "fun") and expect the original photos to have a new tag "fun"!
+{% img left /images/qeytaks.png 400 %} Back to our problem. So now we have a possibility to not only view photos in some virtual arrangements but also modify photos. In other words, it's now possible to locate all photos with tag "travel", modify them (say, by adding tag "fun") and expect the original photos to have a new tag "fun"!
 
 That's great but what to use for editing tags? I've mentioned in my last post that I am using XMP label tag as a marker for album names. I'm almost certain nobody else is using it in the same way. I also don't want to use overly complex and ugly programs for changing just 2 things.
 

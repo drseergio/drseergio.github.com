@@ -24,7 +24,7 @@ A public instance is still available though I plan to shut it down soon because 
 
 Some screen-shots of fruitcoins.com:
 
-[{% img images/fruitcoins-login.png 150 %}](images/fruitcoins-login.png) [{% img images/fruitcoins-account-view.png 150 %}](images/fruitcoins-account-view.png) [{% img images/fruitcoins-categories.png 150 %}](images/fruitcoins-categories.png) [{% img images/fruitcoins-categories1.png 150 %}](images/fruitcoins-categories1.png) [{% img images/fruitcoins-expenses_graph.png 150 %}](images/fruitcoins-expenses_graph.png)
+[{% img /images/fruitcoins-login.png 150 %}](/images/fruitcoins-login.png) [{% img /images/fruitcoins-account-view.png 150 %}](/images/fruitcoins-account-view.png) [{% img /images/fruitcoins-categories.png 150 %}](/images/fruitcoins-categories.png) [{% img /images/fruitcoins-categories1.png 150 %}](/images/fruitcoins-categories1.png) [{% img /images/fruitcoins-expenses_graph.png 150 %}](/images/fruitcoins-expenses_graph.png)
 
 Why did I write all this? For one, I'm going to upload complete fruitcoins.com source code to github. Hopefully someone will find it useful or at least will find code samples for doing things in Django and ExtJS. Example code is terrific for learning.
 
