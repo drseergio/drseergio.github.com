@@ -4,7 +4,7 @@
   <title><![CDATA[Category: projects | drseergio. finito.]]></title>
   <link href="http://drseergio.github.io/blog/categories/projects/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-06-02T17:31:13+02:00</updated>
+  <updated>2013-06-03T17:22:01+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -33,7 +33,7 @@
 
 <p>Furthermore, I had to implement a hack to let exiv2 library work (exiv2 is the only widely supported and maintained library for altering image photo data I could find). When a file is sufficiently large, exiv2 library wants to write its changes to a temporary file in the same folder as original and then rename it. Obviously, this cannot &ldquo;just work&rdquo; in a virtual folder so I had to implement a mechanism that tricks exiv2 into believing that a temporary file has been opened. In reality, <strong>photofs</strong> opens a file in memory and lets exiv2 write into it. When exiv2 tries to do a rename operation <strong>photofs</strong> dumps the file in memory to the original image.</p>
 
-<p><img class="left" src="images/qeytaks.png" width="400"> Back to our problem. So now we have a possibility to not only view photos in some virtual arrangements but also modify photos. In other words, it&rsquo;s now possible to locate all photos with tag &ldquo;travel&rdquo;, modify them (say, by adding tag &ldquo;fun&rdquo;) and expect the original photos to have a new tag &ldquo;fun&rdquo;!</p>
+<p><img class="left" src="/images/qeytaks.png" width="400"> Back to our problem. So now we have a possibility to not only view photos in some virtual arrangements but also modify photos. In other words, it&rsquo;s now possible to locate all photos with tag &ldquo;travel&rdquo;, modify them (say, by adding tag &ldquo;fun&rdquo;) and expect the original photos to have a new tag &ldquo;fun&rdquo;!</p>
 
 <p>That&rsquo;s great but what to use for editing tags? I&rsquo;ve mentioned in my last post that I am using XMP label tag as a marker for album names. I&rsquo;m almost certain nobody else is using it in the same way. I also don&rsquo;t want to use overly complex and ugly programs for changing just 2 things.</p>
 
