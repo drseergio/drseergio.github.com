@@ -4,7 +4,7 @@
   <title><![CDATA[drseergio. finito.]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-06-03T17:22:01+02:00</updated>
+  <updated>2013-07-10T19:20:56+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Replacing preview glass on Canon 500D]]></title>
+    <link href="http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d/"/>
+    <updated>2013-07-10T18:41:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d</id>
+    <content type="html"><![CDATA[<p>Material things break all the time &ndash; one slightly wrong move and your beloved possession is cracked, damaged or shattered. My camera is no exception. Another SLR has slipped from a hand of my friend and landed on the corner of the preview screen of my Canon 500D causing an ugly crack:</p>
+
+<p><img src="http://drseergio.github.io/images/canonrepair/01.jpg"></p>
+
+<p>Many folks like to buy new things whenever old ones break or pay a lot for repair. I prefer to fix as much as I can myself. It&rsquo;s fun and very much in-line with the growing stoic inside of me.</p>
+
+<p>Is it possible to fix this problem yourself?</p>
+
+<!-- more -->
+
+
+<p>Certainly. And the process is not complicated. All you need is a couple of household tools and the actual replacement screen which you can order from eBay.</p>
+
+<h2>Tools and supplies that I have used</h2>
+
+<p>I expect you already have a hair dryer and something sharp (like a knife or a blade). Here&rsquo;s what I have used:</p>
+
+<p> Leatherman Wave knife</p>
+
+<p> <a href="http://drseergio.github.io/images/canonrepair/05.jpg"><img src="http://drseergio.github.io/images/canonrepair/05.jpg" width="150"></a></p>
+
+<p> Remington hair dryer</p>
+
+<p> <a href="http://drseergio.github.io/images/canonrepair/04.jpg"><img src="http://drseergio.github.io/images/canonrepair/04.jpg" width="150"></a></p>
+
+<p>We will also need a small suction cup with a handle/head. I did not have any so I had to order one through eBay. I have paid 12$ (with shipping to Switzerland) for a set of 6 (size 1.5 inches). 6 is the smallest quantity I found. You can search for &ldquo;suctioncups4u&rdquo; on eBay to find the seller.</p>
+
+<p><a href="http://drseergio.github.io/images/canonrepair/03.jpg"><img src="http://drseergio.github.io/images/canonrepair/03.jpg" width="150"></a></p>
+
+<p>A replacement glass can be found on eBay too. Search for &ldquo;500D outer screen window glass cover&rdquo;. I have paid 12$ (with shipping).</p>
+
+<p> <a href="http://drseergio.github.io/images/canonrepair/02.jpg"><img src="http://drseergio.github.io/images/canonrepair/02.jpg" width="150"></a></p>
+
+<h2>Step-by-step instructions</h2>
+
+<ol>
+<li><p>Heat up the sides of the preview glass for about 10-40 seconds on each edge to weaken the glue that holds the glass.
+<img src="http://drseergio.github.io/images/canonrepair/06.jpg"></p></li>
+<li><p>Carefully slide a sharp knife or blade underneath the glass and slowly push it along the side.
+<img src="http://drseergio.github.io/images/canonrepair/07.jpg"></p></li>
+<li><p>Put the suction cup on the glass and pull gently:
+<img src="http://drseergio.github.io/images/canonrepair/08.jpg"></p></li>
+<li><p>Remove the broken glass:
+<img src="http://drseergio.github.io/images/canonrepair/09.jpg"></p></li>
+<li><p>Remove residue glue:
+<img src="http://drseergio.github.io/images/canonrepair/10.jpg">
+<img src="http://drseergio.github.io/images/canonrepair/11.jpg"></p></li>
+<li><p>Take off the protective paper from the replacement glass:
+<img src="http://drseergio.github.io/images/canonrepair/12.jpg"></p></li>
+<li><p>Carefully drop the new glass. Note that it&rsquo;s not symmetrical so if it does not immediately fit rotate the glass by 180 degrees.
+<img src="http://drseergio.github.io/images/canonrepair/13.jpg"></p></li>
+</ol>
+
+
+<p>Camera fixed! Total cost of materials is 24$. The whole process took about 10 minutes. The same instructions apply equally well to some other SLRs. A YouTube video I found for Canon 5D confirms this: <a href="http://www.youtube.com/watch?v=OYBXkqvayqc">Replacing a scratched LCD cover on a Canon EOS 5D SLR</a></p>
+
+<p>With the camera fixed I am off to the next adventure. Good luck!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[fruitcoins.com: on complexity and solutions to wrong problems]]></title>
