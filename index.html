@@ -9,7 +9,7 @@
   <meta name="author" content="Sergey Pisarenko">
 
   
-  <meta name="description" content="I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using &hellip;">
+  <meta name="description" content="Recently I came up with an idea for a mobile application. To be honest, it&rsquo;s more of an excuse to try my hand at writing Android applications &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/">Build an Android app using Google Cloud Endpoints and OAuth</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-29T13:20:00+02:00" pubdate data-updated="true">Aug 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I came up with an idea for a mobile application. To be honest, it&rsquo;s more of an excuse to try my hand at writing Android applications and do something new. Since I had almost zero experience with Android I have started by reading the official Google guides and then doing some napkin grade designs of the application architecture.</p>
+
+<p>Immediately I have realized that app requires a back-end as some of the things cannot be reliably performed on the handset itself. Lurking around I have learned about Google Cloud Endpoints lets you create a REST API that clients (be that iOS, Android or JavaScript) can access. Furthermore, my application needs to know who is talking to the back-end so authentication is a hard requirement.</p>
+
+<p><img class="right" src="/images/endpoints/endpoints.png"></p>
+
+<p>I don&rsquo;t know about you but personally my productivity is high only when I have a reliable development environment that provides immediate feedback. My first goal then was to create a local environment where I could prototype with Google APIs piece by piece and proceed with building the actual app.</p>
+
+<p>It turned that there are many official pages and guides talking about Google Endpoints and the integration with Android. There is even a 1-click solution called the Mobile Backend Starter. My problem with such solutions is that I don&rsquo;t get a feel for what is being done for me so I prefer to start with the smallest amount of code possible and incrementally build on top of it.</p>
+
+<p>In this article I will guide you through creating a trivial Android application that talks to a back-end powered by Google Cloud Endpoints. Ultimately, the back-end would run on AppEngine but my immediate goal is to provide you with a reliable local development environment where you could try things out. To sum up here are our goals:</p>
+
+<ul>
+<li><p>create a dev environment for writing and exploring Android apps that talk to Google Cloud Endpoints (GCE) back-end</p></li>
+<li><p>use OAuth to authenticate the app to the back-end</p></li>
+<li><p>create a simple Android app that demonstrates Android app talking to the GCE back-end and using OAuth to authenticate against the back-end</p></li>
+</ul>
+
+
+<p>I assume you are comfortable with Java but have not done much Android programming and are not familiar with any of the Google cloud products. I assume you are a quick learner and will look things up when something isn&rsquo;t clear. I also assume you&rsquo;re running Linux. I believe instructions are the same for OSX but have no idea about Windows.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -304,6 +364,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/">Build an Android app using Google Cloud Endpoints and OAuth</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/28/impressions-from-freenas/">Building a FreeNAS computer</a>
       </li>
     
@@ -317,10 +381,6 @@
     
       <li class="post">
         <a href="/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/">Introducing qeytaks: trivial photo tag editor</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos/">Introducing photofs: FUSE file-system for browsing photos</a>
       </li>
     
   </ul>
@@ -361,6 +421,7 @@
 <section>
   <h1>More</h1>
   <p>I occasionally write about non-technical things on <a href="http://grow-slowly.com">grow-slowly.com</a> blog. Check it out.</p>
+  <p>When I&#8217;m not too irritated with tourists I take photos and post them to <a href="http://www.flickr.com/photos/68217075@N08/">flickr.com</a>. Sometimes, someone even takes a picture of me!</p>
 </section>
 
   

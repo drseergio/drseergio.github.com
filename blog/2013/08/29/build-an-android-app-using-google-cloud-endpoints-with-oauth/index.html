@@ -1,28 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[drseergio. finito.]]></title>
-  <link href="http://drseergio.github.io/atom.xml" rel="self"/>
-  <link href="http://drseergio.github.io/"/>
-  <updated>2013-08-29T21:59:43+02:00</updated>
-  <id>http://drseergio.github.io/</id>
-  <author>
-    <name><![CDATA[Sergey Pisarenko]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Build an Android app using Google Cloud Endpoints and OAuth - drseergio. finito.</title>
+  <meta name="author" content="Sergey Pisarenko">
 
   
-  <entry>
-    <title type="html"><![CDATA[Build an Android app using Google Cloud Endpoints and OAuth]]></title>
-    <link href="http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/"/>
-    <updated>2013-08-29T13:20:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth</id>
-    <content type="html"><![CDATA[<p>Recently I came up with an idea for a mobile application. To be honest, it&rsquo;s more of an excuse to try my hand at writing Android applications and do something new. Since I had almost zero experience with Android I have started by reading the official Google guides and then doing some napkin grade designs of the application architecture.</p>
+  <meta name="description" content="Recently I came up with an idea for a mobile application. To be honest, it&rsquo;s more of an excuse to try my hand at writing Android applications &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="drseergio. finito." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">drseergio. finito.</a></h1>
+  
+    <h2>personal home page</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:drseergio.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Build an Android app using Google Cloud Endpoints and OAuth</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-29T13:20:00+02:00" pubdate data-updated="true">Aug 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Recently I came up with an idea for a mobile application. To be honest, it&rsquo;s more of an excuse to try my hand at writing Android applications and do something new. Since I had almost zero experience with Android I have started by reading the official Google guides and then doing some napkin grade designs of the application architecture.</p>
 
 <p>Immediately I have realized that app requires a back-end as some of the things cannot be reliably performed on the handset itself. Lurking around I have learned about Google Cloud Endpoints lets you create a REST API that clients (be that iOS, Android or JavaScript) can access. Furthermore, my application needs to know who is talking to the back-end so authentication is a hard requirement.</p>
 
-<p><img class="right" src="http://drseergio.github.io/images/endpoints/endpoints.png"></p>
+<p><img class="right" src="/images/endpoints/endpoints.png"></p>
 
 <p>I don&rsquo;t know about you but personally my productivity is high only when I have a reliable development environment that provides immediate feedback. My first goal then was to create a local environment where I could prototype with Google APIs piece by piece and proceed with building the actual app.</p>
 
@@ -50,21 +123,21 @@
 
 <p>Once you download the bundle unpack it and execute <code>eclipse/eclipse</code> from within the ADT directory. ADT will start up:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/adt.png"></p>
+<p><img src="/images/endpoints/adt.png"></p>
 
 <p>Choose a folder where you will keep all your projects.</p>
 
 <p>Once ADT starts close the default tab and head over to menubar item <code>Help &gt; Install New Software</code>. We&rsquo;ll need to add Google Eclipse Plugin to have AppEngine integration in ADT. You&rsquo;ll need the URL of the plugin repository. You can find the URL at <a href="https://developers.google.com/eclipse/docs/getting_started">https://developers.google.com/eclipse/docs/getting_started</a>. Currently, ADT is Eclipse version 3.8/4.2 so I&rsquo;m using URL <code>http://dl.google.com/eclipse/plugin/4.2</code>. Put that URL into field <code>Work with</code> and press <code>Add</code>, then choose an arbitrary name (say, Google) and click <code>OK</code>. Make sure you select the components shown in the screen-shot below:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/gep.png"></p>
+<p><img src="/images/endpoints/gep.png"></p>
 
 <p>Click <code>Next</code>, accept the license agreements and press <code>Finish</code> to begin installation. Once the additional software is installed and ADT has restarted we&rsquo;ll need one more piece. Open <code>Window &gt; Android SDK Manager</code>. You&rsquo;ll need to select <code>Google APIs</code> for the latest Android version. In my case, the latest is 4.3:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/apis.png"></p>
+<p><img src="/images/endpoints/apis.png"></p>
 
 <p>We&rsquo;ll also need <code>Google Play Services</code> library for authenticating our app to the back-end:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/play.png"></p>
+<p><img src="/images/endpoints/play.png"></p>
 
 <p>At this point we have installed all software that we&rsquo;ll need for developing and testing our code.</p>
 
@@ -74,15 +147,15 @@
 
 <p>Head over to <a href="https://cloud.google.com/console">https://cloud.google.com/console</a> and create a new project. Choose any name you want:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/project.png"></p>
+<p><img src="/images/endpoints/project.png"></p>
 
 <p>Once the project is created click on <code>APIs &amp; auth &gt; Registered apps</code> and press on <code>REGISTER APP</code>. Next, select <code>Web Application</code> and use any name you want:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/register_web.png"></p>
+<p><img src="/images/endpoints/register_web.png"></p>
 
 <p>At this point you should note down the resulting OAuth2 client ID, we&rsquo;ll make use of it in our code:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/oauth_client.png"></p>
+<p><img src="/images/endpoints/oauth_client.png"></p>
 
 <p>In my case, the web client ID is <code>607077117986.apps.googleusercontent.com</code>.</p>
 
@@ -92,11 +165,11 @@
 
 <p>Type <code>android</code> when asked for a password and note down the value returned to you. Go back to the cloud console and press <code>REGISTER APP</code>. This time choose <code>Android</code>, specify any name you want. In addition, you will need to input the checksum we obtained earlier and specify our Android app package name. We have not yet created our app but let&rsquo;s decide on package name now. I&rsquo;ve chosen <code>net.pisarenko</code>. Unless you&rsquo;re feeling creative right now leave it as it is:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/android.png"></p>
+<p><img src="/images/endpoints/android.png"></p>
 
 <p>We&rsquo;ll need to note down the Android client ID similarly to what we have done with the web client ID:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/androidoauth.png"></p>
+<p><img src="/images/endpoints/androidoauth.png"></p>
 
 <p>In this case it&rsquo;s <code>607077117986-vg4219rv8eljhkhq3648j45ov62vran1.apps.googleusercontent.com</code>.</p>
 
@@ -108,13 +181,13 @@
 
 <p>At this point you&rsquo;ll have 2 projects. <code>MyTestApp</code> is the Android app. <code>MyTestApp-AppEngine</code> is the back-end:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/projects.png"></p>
+<p><img src="/images/endpoints/projects.png"></p>
 
 <h2>Write/alter the back-end code</h2>
 
 <p>At this point we have some generated code but as I mentioned in the introduction I don&rsquo;t like that. I prefer to start <em>really minimal</em> so that I understand what&rsquo;s happening. Let&rsquo;s start by deleting all files under <code>MyTestApp-AppEngine &gt; src &gt; net.pisarenko</code> so it looks like this:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/deleted.png"></p>
+<p><img src="/images/endpoints/deleted.png"></p>
 
 <p>By doing this we have deleted the default endpoints provided by the template. Now we&rsquo;ll write our own endpoint. First, it&rsquo;s important to realize that Cloud endpoints operate on POJO objects (basically Java objects with getters and setters) so you can&rsquo;t just send a string or expect a string in return from the back-end. We&rsquo;ll start by defining some simple objects. Let&rsquo;s create one class to represent a request argument and another class for the return value. Create a class <code>MyRequest</code> with the following code:</p>
 
@@ -252,7 +325,7 @@
 
 <p>After you make changes to the back-end you must regenerate client libraries before you run the back-end or try to use new/changed functionality in the client. To regenerate simply right click the back-end project and choose <code>Google &gt; Generate Cloud Endpoint Library</code>:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/generate.png"></p>
+<p><img src="/images/endpoints/generate.png"></p>
 
 <h3>API explorer</h3>
 
@@ -260,15 +333,15 @@
 
 <p>First, we&rsquo;ll need to start our back-end locally. Click <code>Run &gt; Run</code>. Unless port 8888 is used on your machine the back-end will start and you&rsquo;ll see output in Eclipse console:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/appengine.png"></p>
+<p><img src="/images/endpoints/appengine.png"></p>
 
 <p>Note that I&rsquo;m running my back-end on port 8080 as port 8888 is occupied on my machine for something else. Now, the magic part. Point your browser to <a href="https://developers.google.com/apis-explorer/?base=http://localhost:8888/_ah/api#p/">https://developers.google.com/apis-explorer/?base=http://localhost:8888/_ah/api#p/</a> and you&rsquo;ll see your endpoint magically appearing:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/api1.png"></p>
+<p><img src="/images/endpoints/api1.png"></p>
 
 <p>You can make interactive calls to your local back-end right in the explorer and observe the output (again, note that I&rsquo;m using port 8080 and not 8888):</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/api2.png"></p>
+<p><img src="/images/endpoints/api2.png"></p>
 
 <p>Observe that when you&rsquo;re doing these calls the console output in ADT logs a line <code>API CALLED</code> which confirms that we&rsquo;re executing it! Without API explorer it would be harder to test and develop endpoints. You would need to craft complicated HTTP requests or write a test client.</p>
 
@@ -386,13 +459,13 @@
 
 <p>Then, click the <code>Authorize requests using OAuth 2.0</code> button on the right of the API explorer. You&rsquo;ll be present with the following dialog:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/scopes.png"></p>
+<p><img src="/images/endpoints/scopes.png"></p>
 
 <p>Select both scopes and click <code>Authorize</code>. This basically means that you grant your own back-end to access certain information from your Google account. Another dialog might appear asking whether you grant access or not. Allow it.</p>
 
 <p>Do another call again. Notice that the return value is different this time. Your e-mail is now returned! Well, in the case of API explorer the value will always be <code>example@example.com</code>:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/scopes2.png"></p>
+<p><img src="/images/endpoints/scopes2.png"></p>
 
 <p>Nevertheless, realize that we now have a fully functioning back-end that is authenticated with OAuth2! And we&rsquo;re running the back-end locally and accessing it through API explorer. Let&rsquo;s get our Android app working.</p>
 
@@ -402,7 +475,7 @@
 
 <p>First, we&rsquo;ll create a virtual Android device on which we&rsquo;ll run our app. Open virtual device manager by clicking <code>Window &gt; Android Virtual Device Manager</code>. You can choose any name you want. It is important to choose target as <code>Google APIs</code>. If you don&rsquo;t see such option you need to make sure that you have installed Google APIs and Play services. Re-read this guide and possibly restart ADT. Here are some example settings:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/virtual.png"></p>
+<p><img src="/images/endpoints/virtual.png"></p>
 
 <p>Once the device is created start it by selecting it from the device manager and pressing <code>Start...</code>. It takes a while to start it even on a relatively powerful computer. Usually, the emulator is not fast.</p>
 
@@ -412,7 +485,7 @@
 
 <p>Right click the Android app project and choose <code>Properties</code>. Then, navigate to <code>Android</code>. You will need to set the build target as <code>Google APIs</code> and add the <code>google-play-services_lib</code> library:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/libs.png"></p>
+<p><img src="/images/endpoints/libs.png"></p>
 
 <h3>Delete template code</h3>
 
@@ -454,7 +527,7 @@
 
 <p>First, let&rsquo;s add a button. Double click on <code>res/layout/activity_main.xml</code>. You&rsquo;ll be presented with the graphical UI editor for the app&rsquo;s default (and, in our case, only) screen. Drag a button from the left panel somewhere on the screen and save the result:</p>
 
-<p><img src="http://drseergio.github.io/images/endpoints/button.png"></p>
+<p><img src="/images/endpoints/button.png"></p>
 
 <p>If you double-click the button you will be shown the underlying XML code for the user interface. You&rsquo;ll see that the button is given ID <code>button1</code>. We&rsquo;ll need this to execute a custom action when the button is pressed.</p>
 
@@ -687,311 +760,176 @@
 <p>Congrats! You now have the whole development stack running on your machine. You can continue experimenting by adding new endpoints to your back-end and building the Android app. As a next step try deploying your code to AppEngine and make the Android emulator talk to it instead!</p>
 
 <p>P.S. I have deleted all mentioned projects and IDs from the console after finishing this tutorial.</p>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Building a FreeNAS computer]]></title>
-    <link href="http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas/"/>
-    <updated>2013-08-28T13:49:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas</id>
-    <content type="html"><![CDATA[<p>I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution &ndash; acer easyStore H340.</p>
 
-<p><a href="http://drseergio.github.io/images/freenas/acer.jpg"><img class="right" src="http://drseergio.github.io/images/freenas/acer.jpg" width="200"></a></p>
+<span class="byline author vcard">Posted by <span class="fn">Sergey Pisarenko</span></span>
 
-<p><a href="http://www.trustedreviews.com/Acer-easyStore-H340-2TB_Peripheral_review">Acer H340</a> has 4 hot-swappable SATA slots, occupies little space and looks well. The on-board Atom N230 CPU is not powerful but has low TDP (4W). I have replaced the stock fan with a quieter one and the stock PSU with a passive one to make the server quieter.</p>
-
-<p>In terms of software I had installed gentoo Linux with tons of different packages: file-sharing through NFS/CIFS, DNS server, OpenVPN, Bittorrent sync, transmission-web, BackupPC, various proxies and even Pandora ripper! I&rsquo;ve run a RAID5 on 3 disks using mdadm and used the 4th drive for backups.</p>
-
-<p>But recently I&rsquo;ve decided to switch to a custom-built solution:</p>
-
-<p><a href="http://drseergio.github.io/images/freenas/7.jpg"><img src="http://drseergio.github.io/images/freenas/7.jpg" width="450"></a></p>
-
-<p> <!-- more --></p>
-
-<h2>Why change?</h2>
-
-<ul>
-<li><p>it&rsquo;s mostly an irrational desire to upgrade and build something</p></li>
-<li><p>in the hot summer time the Acer started to overheat. The symptoms were seemingly failed drives but as later SMART tests confirmed the drives were alright. Likely the SATA controller was going crazy because of heat and caused software RAID crashes.</p></li>
-<li><p>to overcome heating issues I have tried to spin the fan faster which apparently solved the heat problem but introduced intolerable noise. Since I keep the server running 24x7 in the living room excessive noise is not acceptable.</p></li>
-<li><p>I had spare computer parts available. I had a PSU, RAM and 6 2TB hard disks (4 of which were installed in Acer) and a 60GB SSD.</p></li>
-<li><p>I wanted a solution which would minimize software maintenance. Although you can argue that it&rsquo;s possible to keep gentoo running without upgrading it I couldn&rsquo;t keep updates too far behind. Once in a while I broke things and compiling is not particularly fast on slow hardware, not too mention the hassle of connecting a monitor when the kernel does not boot.</p></li>
-</ul>
+      
 
 
-<h2>Alternatives</h2>
-
-<p><a href="http://drseergio.github.io/images/freenas/qnap.jpg"><img class="right" src="http://drseergio.github.io/images/freenas/qnap.jpg" width="200"></a></p>
-
-<p>My initial idea was to purchase a used QNAP. QNAP looks nice and require absolutely no fiddling with the internals. After diving into classifieds I have realized that the price of even a used one is much higher than assembling something custom. I could not find any offers for 4-bay models lower than approximately 350$. Not only QNAP is expensive but the read/write performance is worse than reported by users of custom NASes.</p>
-
-<p>Luckily, I have stumbled upon <a href="http://www.freenas.org">FreeNAS</a>! FreeNAS is a FreeBSD distribution intended for running NAS servers. FreeNAS provides a friendly yet functional <a href="http://www.freenas.org/about/screenshot.html">web-interface</a> for managing most of its aspects so once it&rsquo;s up and running it should be no harder to manage than a QNAP.</p>
-
-<h2>Hardware</h2>
-
-<p>The next step was to decide on hardware and components. As it turns out, there are a few things to keep in mind. For one, FreeNAS has ZFS file-system available which is very flexible and reliable but requires lots of RAM. 8GB is the absolute minimum.</p>
-
-<p>In the end I have settled on the following hardware:</p>
-
-<ul>
-<li><p>Fractal Node 304 miniITX case. The case has space for 6 3.5&#8221; hard drives. The case itself is nicely polished and the design is minimalistic. The build quality is very high. The only down-side is that drives are not hot-swappable so you would need to open the case to remove a failed drive.</p></li>
-<li><p>6 2TB Western Digital Caviar Green hard drives. Not very high grade but replacing them with better ones would be prohibitively expensive at this point.</p></li>
-<li><p>ASRock E350M-1 motherboard with CPU and GPU on-board, max 16GB memory, 4 SATA connectors, 1GBit Realtek. It is not easy to find a miniITX board which fits all requirements (6 SATA, >8GB RAM, Intel network adapter, low power consumption, reasonably priced) so I had to compromise. This board is inexpensive and draws little power (18W CPU TDP) but has not enough SATA ports and is of consumer grade. Since I&rsquo;m building this for home use I believe the trade-offs are fine.</p></li>
-<li><p>LSI MegaRAID SAS 9240-4i SATA controller. This is probably the most expensive part. Luckily, I could get a used one from a colleague. This gives me a total of 8 SATA ports (4 on the board + 4 on the controller).</p></li>
-<li><p>2x8GB Kingston RAM. Maxed out the motherboard. Also, I could not find a miniITX board that supports more than 16GB.</p></li>
-<li><p>16GB external flash drive for the FreeNAS distribution. That&rsquo;s the way FreeNAS is usually run &ndash; you write the image to a USB drive and boot off of it. Most of FreeNAS is kept in RAM while it&rsquo;s running. There&rsquo;s no need to waste a SATA port. Also, after you back-up FreeNAS configuration it&rsquo;s easier to replace the O/S should anything go wrong &ndash; just plug in another USB drive.</p></li>
-<li><p>60GB corsair SSD (had one lying around). Used it for running jails and custom software &ndash; sort of like virtualization in FreeBSD world. I was familiar with lxc (Linux containers) so the concept is a familiar one.</p></li>
-<li><p>Seasonic 400W passively-cooled PSU. I&rsquo;m a big fan of Seasonic PSUs. All computers in my household use Seasonic PSUs. 400W is a bit of an overkill for the purpose of NAS but I had one lying around with no use.</p></li>
-</ul>
 
 
-<h2>Assembled view</h2>
-
-<p>This is how the assembled NAS looks like:</p>
-
-<p><a href="http://drseergio.github.io/images/freenas/2.jpg"><img src="http://drseergio.github.io/images/freenas/2.jpg" width="160"></a>
-<a href="http://drseergio.github.io/images/freenas/3.jpg"><img src="http://drseergio.github.io/images/freenas/3.jpg" width="160"></a>
-<a href="http://drseergio.github.io/images/freenas/4.jpg"><img src="http://drseergio.github.io/images/freenas/4.jpg" width="160"></a>
-<a href="http://drseergio.github.io/images/freenas/6.jpg"><img src="http://drseergio.github.io/images/freenas/6.jpg" width="160"></a></p>
-
-<p>I have removed the stock fan from the motherboard and instead put a 120mm fan attached by 2-sided sticky tape to the PSU so that the fan sits on top of the CPU heat-sink. The fan spins slowly and hardly makes any noise. The built-in case fans have adjustable speed. I run them at lowest speed and the system/drive temperatures are much lower than in Acer. I believe that&rsquo;s because the airflow is much better and there&rsquo;s more space between the drives.</p>
-
-<p>The NAS looks discrete in the living room and fits with the rest of the interior:</p>
-
-<p><a href="http://drseergio.github.io/images/freenas/8.jpg"><img src="http://drseergio.github.io/images/freenas/8.jpg" width="300"></a></p>
-
-<h2>FreeNAS impressions</h2>
-
-<p>I have never worked with FreeBSD before. Getting up to speed is not difficult and the available documentation covers everything I have needed. Specifically, the handbooks are worth to read through if you&rsquo;re just starting out:</p>
-
-<ul>
-<li><p>FreeBSD handbook <a href="http://www.freebsd.org/handbook">http://www.freebsd.org/handbook</a></p></li>
-<li><p>FreeNAS handbook <a href="http://doc.freenas.org/">http://doc.freenas.org/</a></p></li>
-</ul>
 
 
-<h3>Setup</h3>
-
-<p>Initial setup has been very quick. I&rsquo;ve used a monitor and a keyboard to set-up the IP address. For the rest I&rsquo;ve relied on the UI.</p>
-
-<p>A huge advantage of FreeNAS is the ZFS file-system. ZFS is reliable, flexible and functional. The features I&rsquo;ve been most impressed with are: snapshots, pools (that obliterate need for RAID) and deduplication.</p>
-
-<p>I&rsquo;ve configured a so-called RAID-Z2 on 6 drives which is similar to a RAID6. This leaves usable space of 4 drives and allows failure of 2 drives.</p>
-
-<p>One of the challenges I have faced is moving data from the previous NAS. Luckily, all of my data has fit on a single 2TB drive. I&rsquo;ve taken the following strategy:</p>
-
-<ol>
-<li><p>copy all of my data to a single drive</p></li>
-<li><p>using CLI initialize a 6-drive RAID-Z2 with a virtual drive</p></li>
-<li><p>fail the virtual drive</p></li>
-<li><p>transfer files from the drive containing data to the new array</p></li>
-<li><p>format the drive with data and put it into the array</p></li>
-<li><p>import the array into FreeNAS UI</p></li>
-</ol>
 
 
-<p>The article that I&rsquo;ve relied on is available at <a href="http://forums.freenas.org/threads/quick-and-dirty-creating-a-degraded-raidz-3-of-4-drives-i-e-to-allow-migration.7748/#post-31106">http://forums.freenas.org/threads/quick-and-dirty-creating-a-degraded-raidz-3-of-4-drives-i-e-to-allow-migration.7748/#post-31106</a>.</p>
-
-<h3>Software</h3>
-
-<p>Once I&rsquo;d completed the install I&rsquo;ve configured NFS, CIFS, AFP (for talking with Apple computers) and set user rights. Setting this up was a breeze!</p>
-
-<p>Then I&rsquo;ve configured backup for all computers in my home network. I&rsquo;ve used scheduled rsync + ZFS snapshots to backup Linux computers. For Apple machines I rely on Time Machine using AFP-shared volume. On Windows 8 I use File History with a iSCSI drive.</p>
-
-<p>Finally, I needed to run custom applications. As it turns out, it&rsquo;s really easy to setup in FreeNAS. First, you create so-called jails which are basically virtual environments that appear as separate computers. Jails can have their own IP addresses. Inside of the jail you can install software using ports or any way you want. I&rsquo;ve created a jail for running bind DNS server, Bittorrent sync. I&rsquo;ve also installed midnight commander to move files around the NAS locally.</p>
-
-<h3>Conclusions</h3>
-
-<p>All in all, I&rsquo;m a very satisfied user of FreeNAS. So far the server has been running for 11 days and I had no issues whatsoever. I expect the machine to continue running without requiring any maintenance or updates. The only change I intend is to install additional services, like OpenVPN and git repositories.</p>
-]]></content>
-  </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Replacing preview glass on Canon 500D]]></title>
-    <link href="http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d/"/>
-    <updated>2013-07-10T18:41:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d</id>
-    <content type="html"><![CDATA[<p>Material things break all the time &ndash; one slightly wrong move and your beloved possession is cracked, damaged or shattered. My camera is no exception. Another SLR has slipped from a hand of my friend and landed on the corner of the preview screen of my Canon 500D causing an ugly crack:</p>
-
-<p><img src="http://drseergio.github.io/images/canonrepair/01.jpg"></p>
-
-<p>Many folks like to buy new things whenever old ones break or pay a lot for repair. I prefer to fix as much as I can myself. It&rsquo;s fun and very much in-line with the growing stoic inside of me.</p>
-
-<p>Is it possible to fix this problem yourself?</p>
-
-<!-- more -->
 
 
-<p>Certainly. And the process is not complicated. All you need is a couple of household tools and the actual replacement screen which you can order from eBay.</p>
-
-<h2>Tools and supplies that I have used</h2>
-
-<p>I expect you already have a hair dryer and something sharp (like a knife or a blade). Here&rsquo;s what I have used:</p>
-
-<p> Leatherman Wave knife</p>
-
-<p> <a href="http://drseergio.github.io/images/canonrepair/05.jpg"><img src="http://drseergio.github.io/images/canonrepair/05.jpg" width="150"></a></p>
-
-<p> Remington hair dryer</p>
-
-<p> <a href="http://drseergio.github.io/images/canonrepair/04.jpg"><img src="http://drseergio.github.io/images/canonrepair/04.jpg" width="150"></a></p>
-
-<p>We will also need a small suction cup with a handle/head. I did not have any so I had to order one through eBay. I have paid 12$ (with shipping to Switzerland) for a set of 6 (size 1.5 inches). 6 is the smallest quantity I found. You can search for &ldquo;suctioncups4u&rdquo; on eBay to find the seller.</p>
-
-<p><a href="http://drseergio.github.io/images/canonrepair/03.jpg"><img src="http://drseergio.github.io/images/canonrepair/03.jpg" width="150"></a></p>
-
-<p>A replacement glass can be found on eBay too. Search for &ldquo;500D outer screen window glass cover&rdquo;. I have paid 12$ (with shipping).</p>
-
-<p> <a href="http://drseergio.github.io/images/canonrepair/02.jpg"><img src="http://drseergio.github.io/images/canonrepair/02.jpg" width="150"></a></p>
-
-<h2>Step-by-step instructions</h2>
-
-<ol>
-<li><p>Heat up the sides of the preview glass for about 10-40 seconds on each edge to weaken the glue that holds the glass.
-<img src="http://drseergio.github.io/images/canonrepair/06.jpg"></p></li>
-<li><p>Carefully slide a sharp knife or blade underneath the glass and slowly push it along the side.
-<img src="http://drseergio.github.io/images/canonrepair/07.jpg"></p></li>
-<li><p>Put the suction cup on the glass and pull gently:
-<img src="http://drseergio.github.io/images/canonrepair/08.jpg"></p></li>
-<li><p>Remove the broken glass:
-<img src="http://drseergio.github.io/images/canonrepair/09.jpg"></p></li>
-<li><p>Remove residue glue:
-<img src="http://drseergio.github.io/images/canonrepair/10.jpg">
-<img src="http://drseergio.github.io/images/canonrepair/11.jpg"></p></li>
-<li><p>Take off the protective paper from the replacement glass:
-<img src="http://drseergio.github.io/images/canonrepair/12.jpg"></p></li>
-<li><p>Carefully drop the new glass. Note that it&rsquo;s not symmetrical so if it does not immediately fit rotate the glass by 180 degrees.
-<img src="http://drseergio.github.io/images/canonrepair/13.jpg"></p></li>
-</ol>
+<time datetime="2013-08-29T13:20:00+02:00" pubdate data-updated="true">Aug 29<span>th</span>, 2013</time>
+      
 
 
-<p>Camera fixed! Total cost of materials is 24$. The whole process took about 10 minutes. The same instructions apply equally well to some other SLRs. A YouTube video I found for Canon 5D confirms this: <a href="http://www.youtube.com/watch?v=OYBXkqvayqc">Replacing a scratched LCD cover on a Canon EOS 5D SLR</a></p>
-
-<p>With the camera fixed I am off to the next adventure. Good luck!</p>
-]]></content>
-  </entry>
+    </p>
+    
+      <div class="sharing">
   
-  <entry>
-    <title type="html"><![CDATA[fruitcoins.com: on complexity and solutions to wrong problems]]></title>
-    <link href="http://drseergio.github.io/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/"/>
-    <updated>2013-06-02T13:59:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem</id>
-    <content type="html"><![CDATA[<p>About two years ago I had very little experience in programming in Python. I&rsquo;ve heard of Django and felt excited how flexible it is and how complicated web applications can be elegantly written.</p>
-
-<p>Tracking expenses has always been important for me. At the time I&rsquo;ve relied on KMyMoney program. Frankly, I did not (and still don&rsquo;t) like any such programs. They&rsquo;re either clunky and look like Windows 95 or too complicated or too inefficient. I&rsquo;ve decided to write my own web application in Python using the Django framework.</p>
-
-<!-- more -->
-
-
-<p>Initially, the program was called &ldquo;moneypit&rdquo; and I was planning to scale it infinitely (for millions of users that would flock to it!). I targeted AppEngine and made sure that I&rsquo;m not using any Django constructs that would not work on the AppEngine data store. I chose ExtJS 3 as a front-end solution because it had lots of ready components that can interact in well defined ways.</p>
-
-<p>Once the first prototype was ready I&rsquo;ve decided that over-engineering (especially too early) the thing is pointless so I gave up on AppEngine. I&rsquo;ve rewritten everything from scratch and based the front-end on then new ExtJS 4. I&rsquo;ve relied on ExtJS&rsquo;s MVC pattern and made the back-end work in a RESTful fashion using django-piston.</p>
-
-<p>fruitcoins.com is my first experience of using my own product. I made sure fruitcoins.com satisfies my needs: easy too use, efficient, does not stand in the way. I also wrote a fully-functional importer/exporter for KMyMoney format so that I can migrate easily.</p>
-
-<p>fruitcoins.com is an assembly of following pieces: django framework, celery/rabbitmq queue for asynchronous tasks, REST API through django-piston, MVC ExtJS 4 front-end, MVC Sencha mobile front-end, OAuth integration, PhoneGap client for iOS (though never released), fabric deployment and so on.</p>
-
-<p>A public instance is still available though I plan to shut it down soon because nobody using it except for me. I have a private &ldquo;beta&rdquo; instance running at home all to myself.</p>
-
-<p>Some screen-shots of fruitcoins.com:</p>
-
-<p><a href="http://drseergio.github.io/images/fruitcoins-login.png"><img src="http://drseergio.github.io/images/fruitcoins-login.png" width="150"></a> <a href="http://drseergio.github.io/images/fruitcoins-account-view.png"><img src="http://drseergio.github.io/images/fruitcoins-account-view.png" width="150"></a> <a href="http://drseergio.github.io/images/fruitcoins-categories.png"><img src="http://drseergio.github.io/images/fruitcoins-categories.png" width="150"></a> <a href="http://drseergio.github.io/images/fruitcoins-categories1.png"><img src="http://drseergio.github.io/images/fruitcoins-categories1.png" width="150"></a> <a href="http://drseergio.github.io/images/fruitcoins-expenses_graph.png"><img src="http://drseergio.github.io/images/fruitcoins-expenses_graph.png" width="150"></a></p>
-
-<p>Why did I write all this? For one, I&rsquo;m going to upload complete fruitcoins.com source code to github. Hopefully someone will find it useful or at least will find code samples for doing things in Django and ExtJS. Example code is terrific for learning.</p>
-
-<p>Recently, I&rsquo;ve decided that I should finally implement support for tracking investments in fruitcoins.com because I&rsquo;d like to have an overview of wealth in one spot. With that I went to clone the repository and get working. What surprised me is the complexity of the whole thing. For 2 years I&rsquo;ve been happily using fruitcoins.com and I forgot that it&rsquo;s actually 3 or 4 different programs tied together. There&rsquo;s the back-end, then there&rsquo;s the REST API, main front-end written in ExtJS and a mobile one in Sencha mobile! Basically, 4 different programs written in different languages/frameworks.</p>
-
-<p>My initial reaction was disbelief. I could not believe I have written all that. I don&rsquo;t work with any of the frameworks in my day-to-day work. Seeing what&rsquo;s inside reminded me of ExtJS complexity, numerous parameters and widgets. I think if I have continued with ExtJS or Django I could have become a decent programmer for ExtJS/Django. But that does not matter because I don&rsquo;t personally like the idea of being narrowly specialized in one framework.</p>
-
-<p>To play with the code I had to build a new development environment. I had to go through a long list of dependencies to get the thing running (nginx, mysql, uwsgi&hellip;). Several hours into this task I realized something important.</p>
-
-<p><em>I&rsquo;m looking at the wrong problem</em>. I&rsquo;m thinking like a programmer too much. There&rsquo;s a simpler solution to my problem. I&rsquo;ve been substituting one problem with another. The original problem was to track my wealth and keep my expenses in order. Instead, I&rsquo;ve substituted it with &ldquo;need to have investments support in fruitcoins.com&rdquo;. I found a solution but far from the simplest one. Perhaps, a technical solution is not even needed here.</p>
-
-<p>I&rsquo;ve then paused and reflected. Writing &ldquo;fruitcoins.com&rdquo; has been a great learning experience. I have included learning in the the utility of the project when commencing. I have not developed fruitcoins.com because its improvements over alternatives correspond to the spent effort. By all means, it&rsquo;s an irrational undertaking. And right now, the future utility does not include learning. What I need a simplest solution to my problem. Developing fruitcoins.com might be fulfilling in some ways but in reality it&rsquo;s a sunk-cost effort.</p>
-
-<p>The very moment I realized this I stopped working on it. I have decided to rely on the platform of the investment bank to know where I stand with open positions. Furthermore, I re-evaluated the utility of keeping track of expenses the way I do right now. I seriously consider changing it to something like <a href="http://www.youneedabudget.com/">YNAB</a>.</p>
-
-<p>In any case, if you&rsquo;re interested have a look in the fruitcoins.com github repository.</p>
-]]></content>
-  </entry>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/" data-via="" data-counturl="http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/" >Tweet</a>
   
-  <entry>
-    <title type="html"><![CDATA[Introducing qeytaks: trivial photo tag editor]]></title>
-    <link href="http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/"/>
-    <updated>2013-06-02T10:38:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor</id>
-    <content type="html"><![CDATA[<p>In the previous post I have introduced <strong>photofs</strong> &ndash; a tool I have written for myself that universally solves my photo management problems.</p>
-
-<p>With <strong>photofs</strong> I can easily locate photos by albums, tags, dates. But how would I add the tags in the first place? I use Adobe Lightroom and absolutely love it! I don&rsquo;t use it to manage photos. Lightroom is a gateway from the camera to my collection. Once I&rsquo;m done processing photos Lightroom kisses them goodbye.</p>
-
-<!-- more -->
-
-
-<p>What if I mislabel something? For example, I typically use album names with the following template: &ldquo;YYYY.MM.DD &ndash; &lt;album name or event name or something descriptive&gt;&rdquo;. I could easily make a typo or choose a wrong year. Or what if I want to add an additional tag to some of the pictures?</p>
-
-<p>Originally, with <strong>photofs</strong> I would need to somehow magically figure out what are the true paths to the files I want to alter. Then I would need to use a tool such as exiv2 to make the changes.</p>
-
-<p>I immediately realized that this is not a work-able solution. So instead, I&rsquo;ve added support of modifying files through the virtual view. In other words, if you edit a file that you have opened through <strong>photofs</strong> the changes will be transparently channeled to the original images.</p>
-
-<p>Furthermore, I had to implement a hack to let exiv2 library work (exiv2 is the only widely supported and maintained library for altering image photo data I could find). When a file is sufficiently large, exiv2 library wants to write its changes to a temporary file in the same folder as original and then rename it. Obviously, this cannot &ldquo;just work&rdquo; in a virtual folder so I had to implement a mechanism that tricks exiv2 into believing that a temporary file has been opened. In reality, <strong>photofs</strong> opens a file in memory and lets exiv2 write into it. When exiv2 tries to do a rename operation <strong>photofs</strong> dumps the file in memory to the original image.</p>
-
-<p><img class="left" src="http://drseergio.github.io/images/qeytaks.png" width="400"> Back to our problem. So now we have a possibility to not only view photos in some virtual arrangements but also modify photos. In other words, it&rsquo;s now possible to locate all photos with tag &ldquo;travel&rdquo;, modify them (say, by adding tag &ldquo;fun&rdquo;) and expect the original photos to have a new tag &ldquo;fun&rdquo;!</p>
-
-<p>That&rsquo;s great but what to use for editing tags? I&rsquo;ve mentioned in my last post that I am using XMP label tag as a marker for album names. I&rsquo;m almost certain nobody else is using it in the same way. I also don&rsquo;t want to use overly complex and ugly programs for changing just 2 things.</p>
-
-<p>I&rsquo;ve decided to write my own simple tool &ndash; meet <strong>qeytaks</strong>. Essentially, <strong>qeytaks</strong> is a pane of pictures, 2 fields and a &ldquo;Save&rdquo; button. With <strong>qeytaks</strong> I can add new tags and alter existing ones. <strong>qeytaks</strong> indicates when a tag is not common to all selected pictures with a pre-pended star (*) similarly to how Lightroom does it. I&rsquo;ve added integration with KDE by creating a contextual right-click menu entry. When I am browsing photos through <strong>photofs</strong> view I can simply select some photos and open them in <strong>qeytaks</strong> for editing tags.</p>
-
-<p><strong>qeytaks</strong> is written in Python and uses PyQt4 to create the UI. I&rsquo;ve never worked with Qt before so I had to learn its concepts first. I&rsquo;ve got an impression that the Qt concepts (at least the UI part, Qt library includes a lot more than just UI) are very similar to other desktop UI frameworks (e.g. events handling).</p>
-
-<p>Again, I solved a personal problem and I am very happy with the result. I&rsquo;ve spent total of about a day working on it and learned a couple of things along the way. You can clone the github repository if you&rsquo;re interested. I&rsquo;ve documented the requirements and instructions in the README file.</p>
-]]></content>
-  </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Introducing photofs: FUSE file-system for browsing photos]]></title>
-    <link href="http://drseergio.github.io/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos/"/>
-    <updated>2013-06-02T09:21:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos</id>
-    <content type="html"><![CDATA[<p>With yeach passing year the number of photos in my collection is growing. The trend only hockey-sticked once I got my own camera. I&rsquo;ve tried various programs to organize and browse photos. I recall using or trying ACDSee, digiKam, Adobe Bridge, IrfanView, F-Spot, Shotwell and possibly others that I don&rsquo;t recall.</p>
-
-<!-- more -->
-
-
-<p>The thing I don&rsquo;t like about these tools is that they build an index of photos in their proprietary formats. Usually, it takes a while to generate the index and the programs will obviously work only on the computer where the program is installed.</p>
-
-<p>The other problem is performance. With 15 000+ photos many of the photo organizers simply don&rsquo;t work well: become slow, crash and hang. Applying changes to many photos at a time is especially thorny.</p>
-
-<p>Finally, I like to have photos to be neatly organized not only in the indexes inside of the photo management programs but also on disk. It&rsquo;s quite possible that I will switch to another program in future (or to another operating system altogether). Having a manageable folder structure is crucial. Otherwise, I need to go through re-organizing all photos every time this happens.</p>
-
-<p>My first attempt of solving this issue was to write a simple desktop program that imports photographs and sorts them nicely on disk in a well-defined folder structure. This is convenient because I can browse the collection on any computer running any operating system.</p>
-
-<p>However, I quickly realized that there is not a single definitive way of arrangement that would be useful in all occasions. Sometimes, I want to look at pictures taken in certain years. Most of the time I really care about albums. I also like the idea of tags. It&rsquo;s obvious that a static arrangement won&rsquo;t answer all useful queries.</p>
-
-<p>Couple of weeks ago an idea struck me. Why not to create a virtual file-system that would take meta-data information from the photos (dates, tags, album names, camera settings) and create a hierarchy that would be transparent to the operating system. You would simply browse a folder with your favorite file manager or photo viewer and photos would be neatly organized in various ways. Furthermore, if you store photos on a NAS you could run the virtual file-system on it and the view would be exposed to all clients of the NAS.</p>
-
-<p>And that&rsquo;s exactly what I have done in <strong>photofs</strong> project. Simply put, <strong>photofs</strong> takes a path to folder with your photos and creates a set of virtual views of the photos at a specified mount point. Internally, it creates an index similarly to how the other photo management tools do it. The advantage, however, is that in the end you seemingly get a regular folder with files in it. You can browse photos using a terminal, any file-manager or even expose the view via network to other computers.</p>
-
-<p>Here&rsquo;s a screen-shot of Dolphin file-manager showing 4 panels with the modes that <strong>photofs</strong> supports:</p>
-
-<p><img src="http://drseergio.github.io/images/photofs.png"></p>
-
-<p>Upon first invocation <strong>photofs</strong> generates an index and creates 4 virtual sub-folders at the mount point. Each of the sub-folders, in turn, exposes a single view of your photos:</p>
-
-<ul>
-<li><strong>albums</strong> lists all albums in your photo collection as folders. To determine what album a photo belongs to <strong>photofs</strong> reads XMP label. This is what I have decided to use as an album marker. Each album sub-folder has a <em>selects</em> sub-folder. That is intended for separating really good pictures from the rest. A picture is deemed as <em>select</em> if it has IPTC keyword &ldquo;select&rdquo; (IPTC is what almost all photo management tools use for storing tags in photos).</li>
-<li><strong>date</strong> creates a hierarchy of date information: YYYY/MM/DD. At each level you can view all photos for that period by going into <em>all</em> sub-folder (e.g. all photos for year 2012).</li>
-<li><strong>camera</strong> creates a hierarchy based on camera settings that had been used when a photo has been taken. For example, you could find photos taken at 2.8F on a 55mm using Canon camera with this view.</li>
-<li><strong>tags</strong> exposes a tag view. You can choose photos based on intersection of tags. For example, to find photos that have tags &ldquo;milan&rdquo; and &ldquo;racing&rdquo; you would go into sub-folder milan/racing.</li>
-</ul>
-
-
-<p><strong>photofs</strong> is written in Python and runs on Linux only because it relies on inotify kernel feature of Linux to know when certain files have changed without doing full traversals of the photo folder. The core of <strong>photofs</strong> is built on top of FUSE &ndash; a Linux kernel feature that allows user-land programs to act as file-systems. I believe <strong>photofs</strong> could be adapted to OSX by using an alternative to inotify (not sure what that is in OSX). The index is stored as a sqlite database.</p>
-
-<p>You can argue that what I have done with <strong>photofs</strong> is yet another program that runs on one O/S only and also has a proprietary index. However, I believe it&rsquo;s different because <strong>photofs</strong> exposes a file-system. At home, I expose a virtual <strong>photofs</strong> view via NFS and Samba to other computers and it works well enough.</p>
-
-<p> <strong>photofs</strong> is not perfect. First and foremost, it solves a problem I personally had. If you believe you can make use of it or even improve it &ndash; go ahead and clone the github repository. Requirements and installations steps are documented in the README file.</p>
-]]></content>
-  </entry>
   
-</feed>
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/28/impressions-from-freenas/" title="Previous Post: Building a FreeNAS computer">&laquo; Building a FreeNAS computer</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/">Build an Android app using Google Cloud Endpoints and OAuth</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/28/impressions-from-freenas/">Building a FreeNAS computer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/10/replacing-preview-glass-on-canon-500d/">Replacing preview glass on Canon 500D</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/">fruitcoins.com: on complexity and solutions to wrong problems</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/">Introducing qeytaks: trivial photo tag editor</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/drseergio">@drseergio</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'drseergio',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+<section>
+  <h1>More</h1>
+  <p>I occasionally write about non-technical things on <a href="http://grow-slowly.com">grow-slowly.com</a> blog. Check it out.</p>
+  <p>When I'm not too irritated with tourists I take photos and post them to <a href="http://www.flickr.com/photos/68217075@N08/">flickr.com</a>. Sometimes, someone even takes a picture of me!</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Sergey Pisarenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'drseergio';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/';
+        var disqus_url = 'http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
