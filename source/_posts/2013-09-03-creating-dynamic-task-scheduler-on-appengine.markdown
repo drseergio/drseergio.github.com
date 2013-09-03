@@ -10,7 +10,7 @@ categories:
 
 I've been working on a simple hobby project. The goal is to build an Android application which, as it turns out, requires a backend. The most important task of the backend is to perform certain things at specified times in future.
 
-In this post I will explain how I've designed a simple scheduler which relies on AppEngine cron, tasks and the datastore. We will make a new trivial AppEngine application that ties everything together. Although I normally prefer Python I've chosen Java for this project. I guess that's because I wanted some consistency with the Android counter-part that I'm also developing.
+In this post I will explain how I've designed a simple scheduler which relies on AppEngine cron, tasks and the datastore. We will make a new trivial AppEngine application that ties everything together. Although I normally prefer Python but I've chosen Java for this project. I guess that's because I wanted some consistency with the Android counter-part that I'm also developing.
 
 <!-- more -->
 
