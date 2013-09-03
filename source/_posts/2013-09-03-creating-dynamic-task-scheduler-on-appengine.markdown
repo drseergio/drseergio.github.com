@@ -74,7 +74,7 @@ public class TestGenerator extends HttpServlet {
 }
 {% endcodeblock %}
 
-All the code does is it creates a new AppEngine data-store entity of kind `NotificationJob` when a HTTP GET request is made to this handler. Notice that I use UNIX timestamp as the specification when to run the task. I also take precautions to ensure that written data is consistent by setting a non-existent parent to the saved entity. If you're not familiar with AppEngine's data-store I highly recommend reading about [eventual consistency](https://developers.google.com/appengine/docs/java/datastore/structuring_for_strong_consistency) as AppEngine data-store is very different from RDBMS and you must have the rind mindset when designing storage for your system.
+All the code does is it creates a new AppEngine data-store entity of kind `NotificationJob` when a HTTP GET request is made to this handler. Notice that I use UNIX timestamp as the specification when to run the task. I also take precautions to ensure that written data is consistent by setting a non-existent parent to the saved entity. If you're not familiar with AppEngine's data-store I highly recommend reading about [eventual consistency](https://developers.google.com/appengine/docs/java/datastore/structuring_for_strong_consistency) as AppEngine data-store is very different from RDBMS and you must have the right mindset when designing storage for your system.
 
 The intent of the test scheduled task is to execute 6 times within 10 second interval and start in 10 seconds from the moment the handler is called.
 
