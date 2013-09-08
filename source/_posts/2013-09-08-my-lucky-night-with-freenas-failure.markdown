@@ -26,7 +26,7 @@ The last step took embarassingly long time. None of the images that I had writte
 
 {% img left /images/msata.jpg %}
 
-Finally, I found a spare mSATA SSD drive lying around with no use (a leftover from an upgrade to a notebook). I also had a mSATA adapter so I've put them together inside of the NAS to use as a boot device for FreeNAS. Now the NAS has 8 SATA devices (6 HDDs and 2 SSDs) maxing out all available SATA ports in the system.
+Finally, I found a spare mSATA SSD drive lying around with no use (a leftover from a notebook upgrade). I also had a mSATA adapter so I've put them together inside of the NAS to use as a boot device for FreeNAS. Now the NAS has 8 SATA devices (6 HDDs and 2 SSDs) maxing out all available SATA ports in the system.
 
 Once I have successfully booted the server and got to the web UI and initiated import of the recovered configuration database file. Then the server rebooted twice and everything was back!
 
