@@ -8,7 +8,7 @@ categories:
 
 It's 1:35am right now and something really bad has happened about 4 hours ago. First, Time Machine on my Mac Mini complained that the backup network disk became inaccessible. Then network shares have stopped responding on all computers. This means something wrong has happened with the wonderful reliable NAS server that I had built weeks ago.
 
-First, I connect to the server via SSH and start poking around. Once I notice that file-system commands, such as `ls` cause sessions to hang I become worrisome. I do a reboot hoping that solves the problem. 10 minutes pass. The server does not start.
+First, I connect to the server via SSH and start poking around. Once I notice that file-system commands, such as `ls`, cause sessions to hang I become worrisome. I do a reboot hoping that solves the problem. 10 minutes pass. The server does not start.
 
 <!-- more -->
 
