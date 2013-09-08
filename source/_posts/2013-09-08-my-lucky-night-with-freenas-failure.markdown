@@ -14,9 +14,9 @@ First, I connect to the server via SSH and start poking around. Once I notice th
 
 {% img right /images/chinese_monitor.jpg %}
 
-Once I've connected a handy [8" VGA monitor](http://dx.com/p/8-tft-lcd-car-reverse-rear-view-color-monitor-w-vga-bnc-cable-black-149114) I noticed SCSI driver related problems. As it turns out, the USB drive on which FreeNAS had been installed failed. This monitor is really handy for troubleshooting problems with servers - small, easy to carry and occupies little space in the toolbox. The picture quality is god-awful but good enough for reading terminal output.
+Once I've connected a handy [8" VGA monitor](http://dx.com/p/8-tft-lcd-car-reverse-rear-view-color-monitor-w-vga-bnc-cable-black-149114) I noticed SCSI driver related problems in the kernel logs. As it turns out, the USB drive on which FreeNAS had been installed has failed. This monitor is really handy for troubleshooting problems with servers - small, easy to carry and occupies little space in the toolbox. The picture quality is god-awful but good enough for reading terminal output.
 
-I have been expecting the worse - that I would need to re-configure everything. After a quick search on the Internet I found out that FreeNAS keeps configuration in a SQLite database file on the 4th partition in `freenas-v1.db` file. A bleak hope ran through my mind. I've connected the flash disk to a Linux computer and started poking around. All I needed to do was to compile UFS file-system support in kernel and then mount the partition with:
+I have been expecting the worst - that I would need to re-configure everything. After a quick search on the Internet I found out that FreeNAS keeps configuration in a SQLite database file on the 4th partition in `freenas-v1.db` file. A bleak hope ran through my mind. I've connected the flash disk to a Linux computer and started poking around. All I needed to do was to compile UFS file-system support in kernel and then mount the partition with:
 
 `mount -r -t ufs -o ufstype=44bsd /dev/sdc4 /tmp/mm`
 
