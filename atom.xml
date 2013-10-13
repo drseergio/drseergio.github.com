@@ -4,7 +4,7 @@
   <title><![CDATA[drseergio. finito.]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-09-08T02:39:12+02:00</updated>
+  <updated>2013-10-13T10:53:18+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -16,20 +16,20 @@
   <entry>
     <title type="html"><![CDATA[My lucky night with a FreeNAS failure]]></title>
     <link href="http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure/"/>
-    <updated>2013-09-08T01:34:00+02:00</updated>
+    <updated>2013-09-08T01:34:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure</id>
     <content type="html"><![CDATA[<p>It&rsquo;s 1:35am right now and something really bad has happened about 4 hours ago. First, Time Machine on my Mac Mini complained that the backup network disk became inaccessible. Then network shares have stopped responding on all computers. This means something wrong has happened with the wonderful reliable NAS server that I had built weeks ago.</p>
 
-<p>First, I connect to the server via SSH and start poking around. Once I notice that file-system commands, such as <code>ls</code> cause sessions to hang I become worrisome. I do a reboot hoping that solves the problem. 10 minutes pass. The server does not start.</p>
+<p>First, I connect to the server via SSH and start poking around. Once I notice that file-system commands, such as <code>ls</code>, cause sessions to hang I become worrisome. I do a reboot hoping that solves the problem. 10 minutes pass. The server does not start.</p>
 
 <!-- more -->
 
 
 <p><img class="right" src="http://drseergio.github.io/images/chinese_monitor.jpg"></p>
 
-<p>Once I&rsquo;ve connected a handy <a href="http://dx.com/p/8-tft-lcd-car-reverse-rear-view-color-monitor-w-vga-bnc-cable-black-149114">8&#8221; VGA monitor</a> I noticed SCSI driver related problems. As it turns out, the USB drive on which FreeNAS had been installed failed. This monitor is really handy for troubleshooting problems with servers &ndash; small, easy to carry and occupies little space in the toolbox. The picture quality is god-awful but good enough for reading terminal output.</p>
+<p>Once I&rsquo;ve connected a handy <a href="http://dx.com/p/8-tft-lcd-car-reverse-rear-view-color-monitor-w-vga-bnc-cable-black-149114">8&#8221; VGA monitor</a> I noticed SCSI driver related problems in the kernel logs. As it turns out, the USB drive on which FreeNAS had been installed has failed. This monitor is really handy for troubleshooting problems with servers &ndash; small, easy to carry and occupies little space in the toolbox. The picture quality is god-awful but good enough for reading terminal output.</p>
 
-<p>I have been expecting the worse &ndash; that I would need to re-configure everything. After a quick search on the Internet I found out that FreeNAS keeps configuration in a SQLite database file on the 4th partition in <code>freenas-v1.db</code> file. A bleak hope ran through my mind. I&rsquo;ve connected the flash disk to a Linux computer and started poking around. All I needed to do was to compile UFS file-system support in kernel and then mount the partition with:</p>
+<p>I have been expecting the worst &ndash; that I would need to re-configure everything. After a quick search on the Internet I found out that FreeNAS keeps configuration in a SQLite database file on the 4th partition in <code>freenas-v1.db</code> file. A bleak hope ran through my mind. I&rsquo;ve connected the flash disk to a Linux computer and started poking around. All I needed to do was to compile UFS file-system support in kernel and then mount the partition with:</p>
 
 <p><code>mount -r -t ufs -o ufstype=44bsd /dev/sdc4 /tmp/mm</code></p>
 
@@ -39,7 +39,7 @@
 
 <p><img class="left" src="http://drseergio.github.io/images/msata.jpg"></p>
 
-<p>Finally, I found a spare mSATA SSD drive lying around with no use (a leftover from an upgrade to a notebook). I also had a mSATA adapter so I&rsquo;ve put them together inside of the NAS to use as a boot device for FreeNAS. Now the NAS has 8 SATA devices (6 HDDs and 2 SSDs) maxing out all available SATA ports in the system.</p>
+<p>Finally, I found a spare mSATA SSD drive lying around with no use (a leftover from a notebook upgrade). I also had a mSATA adapter so I&rsquo;ve put them together inside of the NAS to use as a boot device for FreeNAS. Now the NAS has 8 SATA devices (6 HDDs and 2 SSDs) maxing out all available SATA ports in the system.</p>
 
 <p>Once I have successfully booted the server and got to the web UI and initiated import of the recovered configuration database file. Then the server rebooted twice and everything was back!</p>
 
@@ -50,7 +50,7 @@
   <entry>
     <title type="html"><![CDATA[Creating dynamic task scheduler on AppEngine]]></title>
     <link href="http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/"/>
-    <updated>2013-09-03T21:14:00+02:00</updated>
+    <updated>2013-09-03T21:14:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine</id>
     <content type="html"><![CDATA[<p><img class="right" src="http://drseergio.github.io/images/app-engine.png"></p>
 
@@ -498,7 +498,7 @@
   <entry>
     <title type="html"><![CDATA[HTPC build I'm proud of]]></title>
     <link href="http://drseergio.github.io/blog/2013/09/01/htpc-build-i-slash-m-proud-of/"/>
-    <updated>2013-09-01T17:38:00+02:00</updated>
+    <updated>2013-09-01T17:38:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/09/01/htpc-build-i-slash-m-proud-of</id>
     <content type="html"><![CDATA[<p>If you follow what I write here and on <a href="http://grow-slowly.com">http://grow-slowly.com</a> you will notice that I am somewhat obsessed with reducing the number of possessions in my life. This directly contradicts another, though negative, characteristic of mine &ndash; to get more gadgets and possessions.</p>
 
@@ -564,7 +564,7 @@
   <entry>
     <title type="html"><![CDATA[Build an Android app using Google Cloud Endpoints and OAuth]]></title>
     <link href="http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/"/>
-    <updated>2013-08-29T13:20:00+02:00</updated>
+    <updated>2013-08-29T13:20:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth</id>
     <content type="html"><![CDATA[<p>Recently I came up with an idea for a mobile application. To be honest, it&rsquo;s more of an excuse to try my hand at writing Android applications and do something new. Since I had almost zero experience with Android I have started by reading the official Google guides and then doing some napkin grade designs of the application architecture.</p>
 
@@ -1241,7 +1241,7 @@
   <entry>
     <title type="html"><![CDATA[Building a FreeNAS computer]]></title>
     <link href="http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas/"/>
-    <updated>2013-08-28T13:49:00+02:00</updated>
+    <updated>2013-08-28T13:49:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas</id>
     <content type="html"><![CDATA[<p>I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution &ndash; acer easyStore H340.</p>
 
@@ -1358,7 +1358,7 @@
   <entry>
     <title type="html"><![CDATA[Replacing preview glass on Canon 500D]]></title>
     <link href="http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d/"/>
-    <updated>2013-07-10T18:41:00+02:00</updated>
+    <updated>2013-07-10T18:41:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d</id>
     <content type="html"><![CDATA[<p>Material things break all the time &ndash; one slightly wrong move and your beloved possession is cracked, damaged or shattered. My camera is no exception. Another SLR has slipped from a hand of my friend and landed on the corner of the preview screen of my Canon 500D causing an ugly crack:</p>
 
@@ -1423,7 +1423,7 @@
   <entry>
     <title type="html"><![CDATA[fruitcoins.com: on complexity and solutions to wrong problems]]></title>
     <link href="http://drseergio.github.io/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/"/>
-    <updated>2013-06-02T13:59:00+02:00</updated>
+    <updated>2013-06-02T13:59:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem</id>
     <content type="html"><![CDATA[<p>About two years ago I had very little experience in programming in Python. I&rsquo;ve heard of Django and felt excited how flexible it is and how complicated web applications can be elegantly written.</p>
 
@@ -1467,7 +1467,7 @@
   <entry>
     <title type="html"><![CDATA[Introducing qeytaks: trivial photo tag editor]]></title>
     <link href="http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/"/>
-    <updated>2013-06-02T10:38:00+02:00</updated>
+    <updated>2013-06-02T10:38:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor</id>
     <content type="html"><![CDATA[<p>In the previous post I have introduced <strong>photofs</strong> &ndash; a tool I have written for myself that universally solves my photo management problems.</p>
 
@@ -1499,7 +1499,7 @@
   <entry>
     <title type="html"><![CDATA[Introducing photofs: FUSE file-system for browsing photos]]></title>
     <link href="http://drseergio.github.io/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos/"/>
-    <updated>2013-06-02T09:21:00+02:00</updated>
+    <updated>2013-06-02T09:21:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos</id>
     <content type="html"><![CDATA[<p>With yeach passing year the number of photos in my collection is growing. The trend only hockey-sticked once I got my own camera. I&rsquo;ve tried various programs to organize and browse photos. I recall using or trying ACDSee, digiKam, Adobe Bridge, IrfanView, F-Spot, Shotwell and possibly others that I don&rsquo;t recall.</p>
 
