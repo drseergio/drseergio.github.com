@@ -3,7 +3,7 @@ layout: post
 title: "fruitcoins.com: on complexity and solutions to wrong problems"
 date: 2013-06-02 13:59
 comments: true
-categories: 
+categories: tech
 ---
 
 About two years ago I had very little experience in programming in Python. I've heard of Django and felt excited how flexible it is and how complicated web applications can be elegantly written.

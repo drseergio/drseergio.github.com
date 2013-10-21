@@ -3,7 +3,7 @@ layout: post
 title: "Introducing photofs: FUSE file-system for browsing photos"
 date: 2013-06-02 09:21
 comments: true
-categories: [projects]
+categories: tech
 ---
 
 With yeach passing year the number of photos in my collection is growing. The trend only hockey-sticked once I got my own camera. I've tried various programs to organize and browse photos. I recall using or trying ACDSee, digiKam, Adobe Bridge, IrfanView, F-Spot, Shotwell and possibly others that I don't recall.

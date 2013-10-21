@@ -3,7 +3,7 @@ layout: post
 title: "Introducing qeytaks: trivial photo tag editor"
 date: 2013-06-02 10:38
 comments: true
-categories: [projects]
+categories: tech
 ---
 
 In the previous post I have introduced **photofs** - a tool I have written for myself that universally solves my photo management problems.

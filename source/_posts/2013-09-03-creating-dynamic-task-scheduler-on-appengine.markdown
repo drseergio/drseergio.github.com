@@ -3,7 +3,7 @@ layout: post
 title: "Creating dynamic task scheduler on AppEngine"
 date: 2013-09-03 21:14
 comments: true
-categories: 
+categories: tech
 ---
 
 {% img right /images/app-engine.png %}

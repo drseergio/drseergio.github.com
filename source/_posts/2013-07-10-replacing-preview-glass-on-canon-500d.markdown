@@ -3,7 +3,7 @@ layout: post
 title: "Replacing preview glass on Canon 500D"
 date: 2013-07-10 18:41
 comments: true
-categories: 
+categories: tech
 ---
 
 Material things break all the time - one slightly wrong move and your beloved possession is cracked, damaged or shattered. My camera is no exception. Another SLR has slipped from a hand of my friend and landed on the corner of the preview screen of my Canon 500D causing an ugly crack:

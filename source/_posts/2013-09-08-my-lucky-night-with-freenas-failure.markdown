@@ -3,7 +3,7 @@ layout: post
 title: "My lucky night with a FreeNAS failure"
 date: 2013-09-08 01:34
 comments: true
-categories: 
+categories: tech
 ---
 
 It's 1:35am right now and something really bad has happened about 4 hours ago. First, Time Machine on my Mac Mini complained that the backup network disk became inaccessible. Then network shares have stopped responding on all computers. This means something wrong has happened with the wonderful reliable NAS server that I had built weeks ago.

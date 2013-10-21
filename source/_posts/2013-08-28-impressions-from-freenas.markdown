@@ -3,7 +3,7 @@ layout: post
 title: "Building a FreeNAS computer"
 date: 2013-08-28 13:49
 comments: true
-categories: 
+categories: tech
 ---
 
 I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution - acer easyStore H340.

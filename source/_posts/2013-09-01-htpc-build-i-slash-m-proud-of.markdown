@@ -3,7 +3,7 @@ layout: post
 title: "HTPC build I\'m proud of"
 date: 2013-09-01 17:38
 comments: true
-categories: 
+categories: tech
 ---
 
 If you follow what I write here and on [http://grow-slowly.com](http://grow-slowly.com) you will notice that I am somewhat obsessed with reducing the number of possessions in my life. This directly contradicts another, though negative, characteristic of mine - to get more gadgets and possessions.

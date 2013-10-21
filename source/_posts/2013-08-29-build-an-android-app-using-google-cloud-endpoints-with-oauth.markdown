@@ -3,7 +3,7 @@ layout: post
 title: "Build an Android app using Google Cloud Endpoints and OAuth"
 date: 2013-08-29 13:20
 comments: true
-categories: 
+categories: tech
 ---
 
 Recently I came up with an idea for a mobile application. To be honest, it's more of an excuse to try my hand at writing Android applications and do something new. Since I had almost zero experience with Android I have started by reading the official Google guides and then doing some napkin grade designs of the application architecture.
