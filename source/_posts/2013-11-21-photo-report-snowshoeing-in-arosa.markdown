@@ -3,7 +3,7 @@ layout: post
 title: "Photo report - snowshoeing in Arosa"
 date: 2013-11-21 22:29
 comments: true
-categories: photos
+categories: photo
 ---
 
 I've been sick in and out with all kinds of cold during past several weeks. I had a lucky break last weekend and went for a snowshoe hike in Arosa, Switzerland.
