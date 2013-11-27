@@ -4,7 +4,7 @@
   <title><![CDATA[Category: photo | Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/blog/categories/photo/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-11-27T19:27:21+00:00</updated>
+  <updated>2013-11-27T20:01:58+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Enigmatic encounter]]></title>
+    <link href="http://drseergio.github.io/blog/2013/11/27/enigmatic-encounter/"/>
+    <updated>2013-11-27T19:57:00+00:00</updated>
+    <id>http://drseergio.github.io/blog/2013/11/27/enigmatic-encounter</id>
+    <content type="html"><![CDATA[<p>A rising star of the division.</p>
+
+<p><a href="http://www.flickr.com/photos/68217075@N08/11089494096/">{% img http://farm6.staticflickr.com/5533/11089494096_116ed321d9.jpg 500 %}</a></p>
+
+<p>And a man of thousand tales.</p>
+
+<p><a href="http://www.flickr.com/photos/68217075@N08/11089334325/">{% img http://farm8.staticflickr.com/7406/11089334325_3ee405ef40.jpg 500 %}</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Photo report - snowshoeing in Arosa]]></title>
@@ -24,21 +39,21 @@
 
 <p>The hike itself has been rather easy and there was not much snow. However, it has been a good opportunity to get used to the snowshoes.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10984441523"><img src="http://farm8.staticflickr.com/7370/10984441523_6bb5bff50f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10984441523">{% img http://farm8.staticflickr.com/7370/10984441523_6bb5bff50f.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10984229385/"><img src="http://farm6.staticflickr.com/5541/10984229385_427cedd1fd.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10984229385/">{% img http://farm6.staticflickr.com/5541/10984229385_427cedd1fd.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10984238225/"><img src="http://farm3.staticflickr.com/2810/10984238225_4afe4a194f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10984238225/">{% img http://farm3.staticflickr.com/2810/10984238225_4afe4a194f.jpg 500 %}</a></p>
 
 <p>We have spent the day bathing in sun above a fog that covered most of central Switzerland. On our way back there was a 2 minute opportunity to shoot the fog and the sunset before descending back into fog&rsquo;s vast but short-lived kingdom (we were changing train to bus as the regular train route was blocked by a rockfall).</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10984454594"><img src="http://farm3.staticflickr.com/2812/10984454594_4c62b44c3d.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10984454594">{% img http://farm3.staticflickr.com/2812/10984454594_4c62b44c3d.jpg 500 %}</a></p>
 
 <p>And this time someone took a photo of me!</p>
 
-<p><a href="/images/arosa/arosa_me_01_full.jpg"><img src="/images/arosa/arosa_me_01_small.jpg" width="500"></a></p>
+<p><a href="/images/arosa/arosa_me_01_full.jpg">{% img /images/arosa/arosa_me_01_small.jpg 500 %}</a></p>
 
-<p><img src="/images/arosa/arosa_me_02_small.jpg"></p>
+<p>{% img /images/arosa/arosa_me_02_small.jpg %}</p>
 
 <h3>Links to photo albums in Flickr</h3>
 
@@ -61,15 +76,15 @@
 
 <p>According the alpine log book there were no other climbers that day.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10650891073/"><img src="http://farm6.staticflickr.com/5471/10650891073_9c9d90e8e9.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10650891073/">{% img http://farm6.staticflickr.com/5471/10650891073_9c9d90e8e9.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10650877443/"><img src="http://farm4.staticflickr.com/3667/10650877443_b435560c6f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10650877443/">{% img http://farm4.staticflickr.com/3667/10650877443_b435560c6f.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10649733453/"><img src="http://farm3.staticflickr.com/2865/10649733453_0f1da9acda.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10649733453/">{% img http://farm3.staticflickr.com/2865/10649733453_0f1da9acda.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10649518066/"><img src="http://farm3.staticflickr.com/2808/10649518066_327bc5537f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10649518066/">{% img http://farm3.staticflickr.com/2808/10649518066_327bc5537f.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10649641416/in/set-72157637265758456"><img src="http://farm4.staticflickr.com/3718/10649641416_32d76bc92d.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10649641416/in/set-72157637265758456">{% img http://farm4.staticflickr.com/3718/10649641416_32d76bc92d.jpg 500 %}</a></p>
 
 <h3>Links to photo albums in Flickr</h3>
 
@@ -90,19 +105,19 @@
     <id>http://drseergio.github.io/blog/2013/10/31/photo-report-halloween-special</id>
     <content type="html"><![CDATA[<p>I had inspiration to work on something creative today. I have decided to experiment with pseudo black back-drop shots. The idea is to setup a camera so that it picks-up light from the flash only. I have produced a video and a couple of photographs. See below!</p>
 
-<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/MG5LqIHvHDk "></iframe></div></p>
+<p>{% youtube MG5LqIHvHDk %}</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10598689133/"><img src="http://farm4.staticflickr.com/3823/10598689133_85e0a27c11.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10598689133/">{% img http://farm4.staticflickr.com/3823/10598689133_85e0a27c11.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10598445314/"><img src="http://farm4.staticflickr.com/3723/10598445314_c1f1a3a664.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10598445314/">{% img http://farm4.staticflickr.com/3723/10598445314_c1f1a3a664.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10598435805/"><img src="http://farm4.staticflickr.com/3751/10598435805_bc34c720bb.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10598435805/">{% img http://farm4.staticflickr.com/3751/10598435805_bc34c720bb.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10598445536/"><img src="http://farm4.staticflickr.com/3834/10598445536_aa6e716a1e.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10598445536/">{% img http://farm4.staticflickr.com/3834/10598445536_aa6e716a1e.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10598433905/"><img src="http://farm6.staticflickr.com/5550/10598433905_4ef734f132.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10598433905/">{% img http://farm6.staticflickr.com/5550/10598433905_4ef734f132.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10598440204/"><img src="http://farm6.staticflickr.com/5543/10598440204_27104c7173.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10598440204/">{% img http://farm6.staticflickr.com/5543/10598440204_27104c7173.jpg 500 %}</a></p>
 ]]></content>
   </entry>
   
@@ -115,21 +130,21 @@
 
 <p>The weather was phenomenally good for late October. Air temperature has risen to almost 20C! Possibly, this has been the last day of the year in Switzerland to do such a climb. I&rsquo;ll be happy to do more via ferrata climbs next year &ndash; there are hundreds of routes throughout the country.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10517919016/"><img src="http://farm4.staticflickr.com/3742/10517919016_c7b5b061bb.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10517919016/">{% img http://farm4.staticflickr.com/3742/10517919016_c7b5b061bb.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10518125663/"><img src="http://farm3.staticflickr.com/2809/10518125663_2a9d3e6d3f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10518125663/">{% img http://farm3.staticflickr.com/2809/10518125663_2a9d3e6d3f.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10518192946/"><img src="http://farm8.staticflickr.com/7434/10518192946_febfdc56dc.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10518192946/">{% img http://farm8.staticflickr.com/7434/10518192946_febfdc56dc.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10518409383/"><img src="http://farm4.staticflickr.com/3684/10518409383_b93729c5e5.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10518409383/">{% img http://farm4.staticflickr.com/3684/10518409383_b93729c5e5.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10518258406/"><img src="http://farm4.staticflickr.com/3831/10518258406_c620acfb78.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10518258406/">{% img http://farm4.staticflickr.com/3831/10518258406_c620acfb78.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10518468453/"><img src="http://farm6.staticflickr.com/5495/10518468453_588c9d71da.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10518468453/">{% img http://farm6.staticflickr.com/5495/10518468453_588c9d71da.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10518252485/"><img src="http://farm4.staticflickr.com/3828/10518252485_c610f6590e.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10518252485/">{% img http://farm4.staticflickr.com/3828/10518252485_c610f6590e.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10518291764/"><img src="http://farm8.staticflickr.com/7391/10518291764_3daf8225d7.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10518291764/">{% img http://farm8.staticflickr.com/7391/10518291764_3daf8225d7.jpg 500 %}</a></p>
 
 <h3>Links to photo albums in Flickr</h3>
 
