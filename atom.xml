@@ -4,7 +4,7 @@
   <title><![CDATA[Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-11-30T10:32:33+00:00</updated>
+  <updated>2013-12-14T22:21:04+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Updated news sources]]></title>
+    <link href="http://drseergio.github.io/blog/2013/12/14/updated-news-sources/"/>
+    <updated>2013-12-14T22:02:00+00:00</updated>
+    <id>http://drseergio.github.io/blog/2013/12/14/updated-news-sources</id>
+    <content type="html"><![CDATA[<p>I have added a couple of sites and online magazines to my subscription list. Check out the <a href="http://drseergio.github.io/news-sources">News sources</a> page for the full updated list:</p>
+
+<ul>
+<li><p><a href="http://aeon.co/">Aeon magazine</a> &ndash; Aeon Magazine is an online magazine about nature, culture and ideas.</p></li>
+<li><p><a href="http://aeon.co/film/">Aeon film</a> &ndash; Aeon Film screens contemporary and classic short documentaries, exploring the intersections between nature, culture and ideas.</p></li>
+<li><p><a href="http://habrahabr.ru/">Habrahabr</a> &ndash; (Russian) an online tech-oriented community/aggregator. Most of the articles are written from scratch, rather than republished. I had to spend considerable amount of time unsubscribing from different channels to bring volume down to a manageable level. But apart from that inconvenince there is lots of interesting material that is not published anywhere else.</p></li>
+<li><p><a href="http://digital-photography-school.com/">Digital Photography School</a> &ndash; regular tips and guides on digital photography. I like the amount of published material. Frequent enough to be intersting to follow but not as much to become overwhelming.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Matt and Jessica]]></title>
+    <link href="http://drseergio.github.io/blog/2013/12/14/matt-and-jessica/"/>
+    <updated>2013-12-14T21:58:00+00:00</updated>
+    <id>http://drseergio.github.io/blog/2013/12/14/matt-and-jessica</id>
+    <content type="html"><![CDATA[<p>The title says it all. Matt:</p>
+
+<p><a href="http://www.flickr.com/photos/68217075@N08/11371591986/"><img src="http://farm8.staticflickr.com/7353/11371591986_4e05a91d8f.jpg" width="500"></a></p>
+
+<p>And Jessica:</p>
+
+<p><a href="http://www.flickr.com/photos/68217075@N08/11371555715/"><img src="http://farm6.staticflickr.com/5516/11371555715_be88a80d8a.jpg" width="500"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Photo report - snowshoeing in Braunwald]]></title>
+    <link href="http://drseergio.github.io/blog/2013/12/14/photo-report-snowshoeing-in-braunwald/"/>
+    <updated>2013-12-14T21:44:00+00:00</updated>
+    <id>http://drseergio.github.io/blog/2013/12/14/photo-report-snowshoeing-in-braunwald</id>
+    <content type="html"><![CDATA[<p>The weather on weekends has been excellent lately. On December 8th me and my friend John went for a snowshoe hike close to Braunwald.</p>
+
+<p>It was so warm that we took off our jackets.</p>
+
+<p><a href="http://www.flickr.com/photos/68217075@N08/11372768584/in/set-72157638673432686/"><img src="http://farm4.staticflickr.com/3811/11372768584_33b3da0775.jpg" width="500"></a></p>
+
+<p><a href="http://www.flickr.com/photos/68217075@N08/11372707455/"><img src="http://farm4.staticflickr.com/3800/11372707455_ae6d4a135e.jpg" width="500"></a></p>
+
+<p><a href="http://www.flickr.com/photos/68217075@N08/11372738856/"><img src="http://farm8.staticflickr.com/7433/11372738856_7c232818c5.jpg" width="500"></a></p>
+
+<p>The hike took about 4 hours. There&rsquo;s plenty of snow and we got our snowshoes on in about 35 minutes after beginning the trek.</p>
+
+<h2>GPS track</h2>
+
+<p>The route we have followed was originally created by Kathleen from <a href="http://www.meetup.com/Zurich-Swiss-Trail-Club/">Swiss Trail Club</a>.</p>
+
+<ul>
+<li><p><a href="http://drseergio.github.io/files/braunwald-snowshoe-route-part1.gpx">GPS track part 1</a></p></li>
+<li><p><a href="http://drseergio.github.io/files/braunwald-snowshoe-route-part2.gpx">GPS track part 2</a></p></li>
+</ul>
+
+
+<h3>Links to photo albums in Flickr</h3>
+
+<ul>
+<li><a href="http://www.flickr.com/photos/68217075@N08/sets/72157638673432686/">Braundwald snowshoe hike</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Investment portfolio update - November 2013]]></title>
@@ -1947,147 +2015,6 @@
 <h3>Conclusions</h3>
 
 <p>All in all, I&rsquo;m a very satisfied user of FreeNAS. So far the server has been running for 11 days and I had no issues whatsoever. I expect the machine to continue running without requiring any maintenance or updates. The only change I intend is to install additional services, like OpenVPN and git repositories.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Replacing preview glass on Canon 500D]]></title>
-    <link href="http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d/"/>
-    <updated>2013-07-10T18:41:00+00:00</updated>
-    <id>http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d</id>
-    <content type="html"><![CDATA[<p>Material things break all the time &ndash; one slightly wrong move and your beloved possession is cracked, damaged or shattered. My camera is no exception. Another SLR has slipped from a hand of my friend and landed on the corner of the preview screen of my Canon 500D causing an ugly crack:</p>
-
-<p><img src="http://drseergio.github.io/images/canonrepair/01.jpg"></p>
-
-<p>Many folks like to buy new things whenever old ones break or pay a lot for repair. I prefer to fix as much as I can myself. It&rsquo;s fun and very much in-line with the growing stoic inside of me.</p>
-
-<p>Is it possible to fix this problem yourself?</p>
-
-<!-- more -->
-
-
-<p>Certainly. And the process is not complicated. All you need is a couple of household tools and the actual replacement screen which you can order from eBay.</p>
-
-<h2>Tools and supplies that I have used</h2>
-
-<p>I expect you already have a hair dryer and something sharp (like a knife or a blade). Here&rsquo;s what I have used:</p>
-
-<p> Leatherman Wave knife</p>
-
-<p> <a href="http://drseergio.github.io/images/canonrepair/05.jpg"><img src="http://drseergio.github.io/images/canonrepair/05.jpg" width="150"></a></p>
-
-<p> Remington hair dryer</p>
-
-<p> <a href="http://drseergio.github.io/images/canonrepair/04.jpg"><img src="http://drseergio.github.io/images/canonrepair/04.jpg" width="150"></a></p>
-
-<p>We will also need a small suction cup with a handle/head. I did not have any so I had to order one through eBay. I have paid 12$ (with shipping to Switzerland) for a set of 6 (size 1.5 inches). 6 is the smallest quantity I found. You can search for &ldquo;suctioncups4u&rdquo; on eBay to find the seller.</p>
-
-<p><a href="http://drseergio.github.io/images/canonrepair/03.jpg"><img src="http://drseergio.github.io/images/canonrepair/03.jpg" width="150"></a></p>
-
-<p>A replacement glass can be found on eBay too. Search for &ldquo;500D outer screen window glass cover&rdquo;. I have paid 12$ (with shipping).</p>
-
-<p> <a href="http://drseergio.github.io/images/canonrepair/02.jpg"><img src="http://drseergio.github.io/images/canonrepair/02.jpg" width="150"></a></p>
-
-<h2>Step-by-step instructions</h2>
-
-<ol>
-<li><p>Heat up the sides of the preview glass for about 10-40 seconds on each edge to weaken the glue that holds the glass.
-<img src="http://drseergio.github.io/images/canonrepair/06.jpg"></p></li>
-<li><p>Carefully slide a sharp knife or blade underneath the glass and slowly push it along the side.
-<img src="http://drseergio.github.io/images/canonrepair/07.jpg"></p></li>
-<li><p>Put the suction cup on the glass and pull gently:
-<img src="http://drseergio.github.io/images/canonrepair/08.jpg"></p></li>
-<li><p>Remove the broken glass:
-<img src="http://drseergio.github.io/images/canonrepair/09.jpg"></p></li>
-<li><p>Remove residue glue:
-<img src="http://drseergio.github.io/images/canonrepair/10.jpg">
-<img src="http://drseergio.github.io/images/canonrepair/11.jpg"></p></li>
-<li><p>Take off the protective paper from the replacement glass:
-<img src="http://drseergio.github.io/images/canonrepair/12.jpg"></p></li>
-<li><p>Carefully drop the new glass. Note that it&rsquo;s not symmetrical so if it does not immediately fit rotate the glass by 180 degrees.
-<img src="http://drseergio.github.io/images/canonrepair/13.jpg"></p></li>
-</ol>
-
-
-<p>Camera fixed! Total cost of materials is 24$. The whole process took about 10 minutes. The same instructions apply equally well to some other SLRs. A YouTube video I found for Canon 5D confirms this: <a href="http://www.youtube.com/watch?v=OYBXkqvayqc">Replacing a scratched LCD cover on a Canon EOS 5D SLR</a></p>
-
-<p>With the camera fixed I am off to the next adventure. Good luck!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[fruitcoins.com: on complexity and solutions to wrong problems]]></title>
-    <link href="http://drseergio.github.io/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/"/>
-    <updated>2013-06-02T13:59:00+00:00</updated>
-    <id>http://drseergio.github.io/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem</id>
-    <content type="html"><![CDATA[<p>About two years ago I had very little experience in programming in Python. I&rsquo;ve heard of Django and felt excited how flexible it is and how complicated web applications can be elegantly written.</p>
-
-<p>Tracking expenses has always been important for me. At the time I&rsquo;ve relied on KMyMoney program. Frankly, I did not (and still don&rsquo;t) like any such programs. They&rsquo;re either clunky and look like Windows 95 or too complicated or too inefficient. I&rsquo;ve decided to write my own web application in Python using the Django framework.</p>
-
-<!-- more -->
-
-
-<p>Initially, the program was called &ldquo;moneypit&rdquo; and I was planning to scale it infinitely (for millions of users that would flock to it!). I targeted AppEngine and made sure that I&rsquo;m not using any Django constructs that would not work on the AppEngine data store. I chose ExtJS 3 as a front-end solution because it had lots of ready components that can interact in well defined ways.</p>
-
-<p>Once the first prototype was ready I&rsquo;ve decided that over-engineering (especially too early) the thing is pointless so I gave up on AppEngine. I&rsquo;ve rewritten everything from scratch and based the front-end on then new ExtJS 4. I&rsquo;ve relied on ExtJS&rsquo;s MVC pattern and made the back-end work in a RESTful fashion using django-piston.</p>
-
-<p>fruitcoins.com is my first experience of using my own product. I made sure fruitcoins.com satisfies my needs: easy too use, efficient, does not stand in the way. I also wrote a fully-functional importer/exporter for KMyMoney format so that I can migrate easily.</p>
-
-<p>fruitcoins.com is an assembly of following pieces: django framework, celery/rabbitmq queue for asynchronous tasks, REST API through django-piston, MVC ExtJS 4 front-end, MVC Sencha mobile front-end, OAuth integration, PhoneGap client for iOS (though never released), fabric deployment and so on.</p>
-
-<p>A public instance is still available though I plan to shut it down soon because nobody using it except for me. I have a private &ldquo;beta&rdquo; instance running at home all to myself.</p>
-
-<p>Some screen-shots of fruitcoins.com:</p>
-
-<p><a href="http://drseergio.github.io/images/fruitcoins-login.png"><img src="http://drseergio.github.io/images/fruitcoins-login.png" width="150"></a> <a href="http://drseergio.github.io/images/fruitcoins-account-view.png"><img src="http://drseergio.github.io/images/fruitcoins-account-view.png" width="150"></a> <a href="http://drseergio.github.io/images/fruitcoins-categories.png"><img src="http://drseergio.github.io/images/fruitcoins-categories.png" width="150"></a> <a href="http://drseergio.github.io/images/fruitcoins-categories1.png"><img src="http://drseergio.github.io/images/fruitcoins-categories1.png" width="150"></a> <a href="http://drseergio.github.io/images/fruitcoins-expenses_graph.png"><img src="http://drseergio.github.io/images/fruitcoins-expenses_graph.png" width="150"></a></p>
-
-<p>Why did I write all this? For one, I&rsquo;m going to upload complete fruitcoins.com source code to github. Hopefully someone will find it useful or at least will find code samples for doing things in Django and ExtJS. Example code is terrific for learning.</p>
-
-<p>Recently, I&rsquo;ve decided that I should finally implement support for tracking investments in fruitcoins.com because I&rsquo;d like to have an overview of wealth in one spot. With that I went to clone the repository and get working. What surprised me is the complexity of the whole thing. For 2 years I&rsquo;ve been happily using fruitcoins.com and I forgot that it&rsquo;s actually 3 or 4 different programs tied together. There&rsquo;s the back-end, then there&rsquo;s the REST API, main front-end written in ExtJS and a mobile one in Sencha mobile! Basically, 4 different programs written in different languages/frameworks.</p>
-
-<p>My initial reaction was disbelief. I could not believe I have written all that. I don&rsquo;t work with any of the frameworks in my day-to-day work. Seeing what&rsquo;s inside reminded me of ExtJS complexity, numerous parameters and widgets. I think if I have continued with ExtJS or Django I could have become a decent programmer for ExtJS/Django. But that does not matter because I don&rsquo;t personally like the idea of being narrowly specialized in one framework.</p>
-
-<p>To play with the code I had to build a new development environment. I had to go through a long list of dependencies to get the thing running (nginx, mysql, uwsgi&hellip;). Several hours into this task I realized something important.</p>
-
-<p><em>I&rsquo;m looking at the wrong problem</em>. I&rsquo;m thinking like a programmer too much. There&rsquo;s a simpler solution to my problem. I&rsquo;ve been substituting one problem with another. The original problem was to track my wealth and keep my expenses in order. Instead, I&rsquo;ve substituted it with &ldquo;need to have investments support in fruitcoins.com&rdquo;. I found a solution but far from the simplest one. Perhaps, a technical solution is not even needed here.</p>
-
-<p>I&rsquo;ve then paused and reflected. Writing &ldquo;fruitcoins.com&rdquo; has been a great learning experience. I have included learning in the the utility of the project when commencing. I have not developed fruitcoins.com because its improvements over alternatives correspond to the spent effort. By all means, it&rsquo;s an irrational undertaking. And right now, the future utility does not include learning. What I need a simplest solution to my problem. Developing fruitcoins.com might be fulfilling in some ways but in reality it&rsquo;s a sunk-cost effort.</p>
-
-<p>The very moment I realized this I stopped working on it. I have decided to rely on the platform of the investment bank to know where I stand with open positions. Furthermore, I re-evaluated the utility of keeping track of expenses the way I do right now. I seriously consider changing it to something like <a href="http://www.youneedabudget.com/">YNAB</a>.</p>
-
-<p>In any case, if you&rsquo;re interested have a look in the fruitcoins.com github repository.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Introducing qeytaks: trivial photo tag editor]]></title>
-    <link href="http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/"/>
-    <updated>2013-06-02T10:38:00+00:00</updated>
-    <id>http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor</id>
-    <content type="html"><![CDATA[<p>In the previous post I have introduced <strong>photofs</strong> &ndash; a tool I have written for myself that universally solves my photo management problems.</p>
-
-<p>With <strong>photofs</strong> I can easily locate photos by albums, tags, dates. But how would I add the tags in the first place? I use Adobe Lightroom and absolutely love it! I don&rsquo;t use it to manage photos. Lightroom is a gateway from the camera to my collection. Once I&rsquo;m done processing photos Lightroom kisses them goodbye.</p>
-
-<!-- more -->
-
-
-<p>What if I mislabel something? For example, I typically use album names with the following template: &ldquo;YYYY.MM.DD &ndash; &lt;album name or event name or something descriptive&gt;&rdquo;. I could easily make a typo or choose a wrong year. Or what if I want to add an additional tag to some of the pictures?</p>
-
-<p>Originally, with <strong>photofs</strong> I would need to somehow magically figure out what are the true paths to the files I want to alter. Then I would need to use a tool such as exiv2 to make the changes.</p>
-
-<p>I immediately realized that this is not a work-able solution. So instead, I&rsquo;ve added support of modifying files through the virtual view. In other words, if you edit a file that you have opened through <strong>photofs</strong> the changes will be transparently channeled to the original images.</p>
-
-<p>Furthermore, I had to implement a hack to let exiv2 library work (exiv2 is the only widely supported and maintained library for altering image photo data I could find). When a file is sufficiently large, exiv2 library wants to write its changes to a temporary file in the same folder as original and then rename it. Obviously, this cannot &ldquo;just work&rdquo; in a virtual folder so I had to implement a mechanism that tricks exiv2 into believing that a temporary file has been opened. In reality, <strong>photofs</strong> opens a file in memory and lets exiv2 write into it. When exiv2 tries to do a rename operation <strong>photofs</strong> dumps the file in memory to the original image.</p>
-
-<p><img class="left" src="http://drseergio.github.io/images/qeytaks.png" width="400"> Back to our problem. So now we have a possibility to not only view photos in some virtual arrangements but also modify photos. In other words, it&rsquo;s now possible to locate all photos with tag &ldquo;travel&rdquo;, modify them (say, by adding tag &ldquo;fun&rdquo;) and expect the original photos to have a new tag &ldquo;fun&rdquo;!</p>
-
-<p>That&rsquo;s great but what to use for editing tags? I&rsquo;ve mentioned in my last post that I am using XMP label tag as a marker for album names. I&rsquo;m almost certain nobody else is using it in the same way. I also don&rsquo;t want to use overly complex and ugly programs for changing just 2 things.</p>
-
-<p>I&rsquo;ve decided to write my own simple tool &ndash; meet <strong>qeytaks</strong>. Essentially, <strong>qeytaks</strong> is a pane of pictures, 2 fields and a &ldquo;Save&rdquo; button. With <strong>qeytaks</strong> I can add new tags and alter existing ones. <strong>qeytaks</strong> indicates when a tag is not common to all selected pictures with a pre-pended star (*) similarly to how Lightroom does it. I&rsquo;ve added integration with KDE by creating a contextual right-click menu entry. When I am browsing photos through <strong>photofs</strong> view I can simply select some photos and open them in <strong>qeytaks</strong> for editing tags.</p>
-
-<p><strong>qeytaks</strong> is written in Python and uses PyQt4 to create the UI. I&rsquo;ve never worked with Qt before so I had to learn its concepts first. I&rsquo;ve got an impression that the Qt concepts (at least the UI part, Qt library includes a lot more than just UI) are very similar to other desktop UI frameworks (e.g. events handling).</p>
-
-<p>Again, I solved a personal problem and I am very happy with the result. I&rsquo;ve spent total of about a day working on it and learned a couple of things along the way. You can clone the github repository if you&rsquo;re interested. I&rsquo;ve documented the requirements and instructions in the README file.</p>
 ]]></content>
   </entry>
   
