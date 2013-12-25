@@ -4,7 +4,7 @@
   <title><![CDATA[Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2013-12-14T22:21:04+00:00</updated>
+  <updated>2013-12-25T22:52:23+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[On goals and purpose]]></title>
+    <link href="http://drseergio.github.io/blog/2013/12/25/on-goals-and-purpose/"/>
+    <updated>2013-12-25T19:58:00+00:00</updated>
+    <id>http://drseergio.github.io/blog/2013/12/25/on-goals-and-purpose</id>
+    <content type="html"><![CDATA[<p>Christmas and New Year&rsquo;s Eve evoke mass hysteria to reflect and to resolve to change unlike any other time of the year. People write down goals for themselves, think about their purpose in life. Planning and goal setting are praised important even outside of the festivities.</p>
+
+<p>I believe it&rsquo;s mostly harmless but also pointless. I look back to the moment I first embraced the Western custom of goal setting and I don&rsquo;t have much to show for it. Most of the things I have written down for myself became either unimportant or neglected. Any remarkable moments and achievements have been unexpected, spontaneous or had very little to do with the planning.</p>
+
+<p>For one, goals are thought to be an explicit expression of one&rsquo;s desires and life values. It follows that we are fully aware of what is truly important to us and that it&rsquo;s possible to translate our priorities into conscious plans. However, I personally find a significant disconnect between conscious thought and implicit life values. It&rsquo;s difficult to crystallize the  value &ldquo;compass&rdquo; in words. Plans that come out of a rational mind can be in conflict with  governing values.</p>
+
+<p>I have a personal illustration. I have never put the relationship with my wife as a priority or in any of the goals. However, in moments of distress I have dropped everything to take care of her. None of the goals mattered in that instant. I realize now just how important she is for me. Consciously, I did not rank the relationship high in my list of priorities and goals. But subconsciously I knew what is going to rule my behavior, especially in times of difficulty.</p>
+
+<p>Secondly, goals have costs. It is one thing to write goals down. It is another to accept sacrifices that might be required to make them happen. I&rsquo;ve heard complaints about lines of work that are not terribly exciting. Along the complaints came aspirations for entrepreneurship and exhilarating work at emerging start-ups. I confess that the thought is contagious. I entertained it myself. But then I realized that this change has a cost and that I highly value what I already have.</p>
+
+<p>Taken together, these two factors are responsible for destroying many naive goal setting efforts. Symptoms may differ but at the core the problem is that goals simply don&rsquo;t truly matter to the person setting them. It won&rsquo;t help to break down a goal into smaller goals or to have regular progress reviews. It just doesn&rsquo;t work that way.</p>
+
+<p>I often recall an episode when I was about 10 years old. Two of my friends were coached by their parents to think about their lives and set goals and do all sorts of ridiculous &ldquo;self development&rdquo; exercises. I haven&rsquo;t done any of that. Yet all of the things I appreciate this very day did not come out of any priority list.</p>
+
+<p>I believe there is a place for planning but life is not one of them. I see goals useful when an issue is well understood. Setting goals to win a specific sports competition is a technical matter. On the other hand, setting a goal to enter a competition in the first place is an entirely different thing.</p>
+
+<p>My resolution for this NY is to stop doing useless bullshit personal goal setting crap.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Updated news sources]]></title>
@@ -1898,123 +1923,6 @@
 <p>Congrats! You now have the whole development stack running on your machine. You can continue experimenting by adding new endpoints to your back-end and building the Android app. As a next step try deploying your code to AppEngine and make the Android emulator talk to it instead!</p>
 
 <p>P.S. I have deleted all mentioned projects and IDs from the console after finishing this tutorial.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Building a FreeNAS computer]]></title>
-    <link href="http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas/"/>
-    <updated>2013-08-28T13:49:00+00:00</updated>
-    <id>http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas</id>
-    <content type="html"><![CDATA[<p>I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution &ndash; acer easyStore H340.</p>
-
-<p><a href="http://drseergio.github.io/images/freenas/acer.jpg"><img class="right" src="http://drseergio.github.io/images/freenas/acer.jpg" width="200"></a></p>
-
-<p><a href="http://www.trustedreviews.com/Acer-easyStore-H340-2TB_Peripheral_review">Acer H340</a> has 4 hot-swappable SATA slots, occupies little space and looks well. The on-board Atom N230 CPU is not powerful but has low TDP (4W). I have replaced the stock fan with a quieter one and the stock PSU with a passive one to make the server quieter.</p>
-
-<p>In terms of software I had installed gentoo Linux with tons of different packages: file-sharing through NFS/CIFS, DNS server, OpenVPN, Bittorrent sync, transmission-web, BackupPC, various proxies and even Pandora ripper! I&rsquo;ve run a RAID5 on 3 disks using mdadm and used the 4th drive for backups.</p>
-
-<p>But recently I&rsquo;ve decided to switch to a custom-built solution:</p>
-
-<p><a href="http://drseergio.github.io/images/freenas/7.jpg"><img src="http://drseergio.github.io/images/freenas/7.jpg" width="450"></a></p>
-
-<p> <!-- more --></p>
-
-<h2>Why change?</h2>
-
-<ul>
-<li><p>it&rsquo;s mostly an irrational desire to upgrade and build something</p></li>
-<li><p>in the hot summer time the Acer started to overheat. The symptoms were seemingly failed drives but as later SMART tests confirmed the drives were alright. Likely the SATA controller was going crazy because of heat and caused software RAID crashes.</p></li>
-<li><p>to overcome heating issues I have tried to spin the fan faster which apparently solved the heat problem but introduced intolerable noise. Since I keep the server running 24x7 in the living room excessive noise is not acceptable.</p></li>
-<li><p>I had spare computer parts available. I had a PSU, RAM and 6 2TB hard disks (4 of which were installed in Acer) and a 60GB SSD.</p></li>
-<li><p>I wanted a solution which would minimize software maintenance. Although you can argue that it&rsquo;s possible to keep gentoo running without upgrading it I couldn&rsquo;t keep updates too far behind. Once in a while I broke things and compiling is not particularly fast on slow hardware, not too mention the hassle of connecting a monitor when the kernel does not boot.</p></li>
-</ul>
-
-
-<h2>Alternatives</h2>
-
-<p><a href="http://drseergio.github.io/images/freenas/qnap.jpg"><img class="right" src="http://drseergio.github.io/images/freenas/qnap.jpg" width="200"></a></p>
-
-<p>My initial idea was to purchase a used QNAP. QNAP looks nice and require absolutely no fiddling with the internals. After diving into classifieds I have realized that the price of even a used one is much higher than assembling something custom. I could not find any offers for 4-bay models lower than approximately 350$. Not only QNAP is expensive but the read/write performance is worse than reported by users of custom NASes.</p>
-
-<p>Luckily, I have stumbled upon <a href="http://www.freenas.org">FreeNAS</a>! FreeNAS is a FreeBSD distribution intended for running NAS servers. FreeNAS provides a friendly yet functional <a href="http://www.freenas.org/about/screenshot.html">web-interface</a> for managing most of its aspects so once it&rsquo;s up and running it should be no harder to manage than a QNAP.</p>
-
-<h2>Hardware</h2>
-
-<p>The next step was to decide on hardware and components. As it turns out, there are a few things to keep in mind. For one, FreeNAS has ZFS file-system available which is very flexible and reliable but requires lots of RAM. 8GB is the absolute minimum.</p>
-
-<p>In the end I have settled on the following hardware:</p>
-
-<ul>
-<li><p>Fractal Node 304 miniITX case. The case has space for 6 3.5&#8221; hard drives. The case itself is nicely polished and the design is minimalistic. The build quality is very high. The only down-side is that drives are not hot-swappable so you would need to open the case to remove a failed drive.</p></li>
-<li><p>6 2TB Western Digital Caviar Green hard drives. Not very high grade but replacing them with better ones would be prohibitively expensive at this point.</p></li>
-<li><p>ASRock E350M-1 motherboard with CPU and GPU on-board, max 16GB memory, 4 SATA connectors, 1GBit Realtek. It is not easy to find a miniITX board which fits all requirements (6 SATA, >8GB RAM, Intel network adapter, low power consumption, reasonably priced) so I had to compromise. This board is inexpensive and draws little power (18W CPU TDP) but has not enough SATA ports and is of consumer grade. Since I&rsquo;m building this for home use I believe the trade-offs are fine.</p></li>
-<li><p>LSI MegaRAID SAS 9240-4i SATA controller. This is probably the most expensive part. Luckily, I could get a used one from a colleague. This gives me a total of 8 SATA ports (4 on the board + 4 on the controller).</p></li>
-<li><p>2x8GB Kingston RAM. Maxed out the motherboard. Also, I could not find a miniITX board that supports more than 16GB.</p></li>
-<li><p>16GB external flash drive for the FreeNAS distribution. That&rsquo;s the way FreeNAS is usually run &ndash; you write the image to a USB drive and boot off of it. Most of FreeNAS is kept in RAM while it&rsquo;s running. There&rsquo;s no need to waste a SATA port. Also, after you back-up FreeNAS configuration it&rsquo;s easier to replace the O/S should anything go wrong &ndash; just plug in another USB drive.</p></li>
-<li><p>60GB corsair SSD (had one lying around). Used it for running jails and custom software &ndash; sort of like virtualization in FreeBSD world. I was familiar with lxc (Linux containers) so the concept is a familiar one.</p></li>
-<li><p>Seasonic 400W passively-cooled PSU. I&rsquo;m a big fan of Seasonic PSUs. All computers in my household use Seasonic PSUs. 400W is a bit of an overkill for the purpose of NAS but I had one lying around with no use.</p></li>
-</ul>
-
-
-<h2>Assembled view</h2>
-
-<p>This is how the assembled NAS looks like:</p>
-
-<p><a href="http://drseergio.github.io/images/freenas/2.jpg"><img src="http://drseergio.github.io/images/freenas/2.jpg" width="160"></a>
-<a href="http://drseergio.github.io/images/freenas/3.jpg"><img src="http://drseergio.github.io/images/freenas/3.jpg" width="160"></a>
-<a href="http://drseergio.github.io/images/freenas/4.jpg"><img src="http://drseergio.github.io/images/freenas/4.jpg" width="160"></a>
-<a href="http://drseergio.github.io/images/freenas/6.jpg"><img src="http://drseergio.github.io/images/freenas/6.jpg" width="160"></a></p>
-
-<p>I have removed the stock fan from the motherboard and instead put a 120mm fan attached by 2-sided sticky tape to the PSU so that the fan sits on top of the CPU heat-sink. The fan spins slowly and hardly makes any noise. The built-in case fans have adjustable speed. I run them at lowest speed and the system/drive temperatures are much lower than in Acer. I believe that&rsquo;s because the airflow is much better and there&rsquo;s more space between the drives.</p>
-
-<p>The NAS looks discrete in the living room and fits with the rest of the interior:</p>
-
-<p><a href="http://drseergio.github.io/images/freenas/8.jpg"><img src="http://drseergio.github.io/images/freenas/8.jpg" width="300"></a></p>
-
-<h2>FreeNAS impressions</h2>
-
-<p>I have never worked with FreeBSD before. Getting up to speed is not difficult and the available documentation covers everything I have needed. Specifically, the handbooks are worth to read through if you&rsquo;re just starting out:</p>
-
-<ul>
-<li><p>FreeBSD handbook <a href="http://www.freebsd.org/handbook">http://www.freebsd.org/handbook</a></p></li>
-<li><p>FreeNAS handbook <a href="http://doc.freenas.org/">http://doc.freenas.org/</a></p></li>
-</ul>
-
-
-<h3>Setup</h3>
-
-<p>Initial setup has been very quick. I&rsquo;ve used a monitor and a keyboard to set-up the IP address. For the rest I&rsquo;ve relied on the UI.</p>
-
-<p>A huge advantage of FreeNAS is the ZFS file-system. ZFS is reliable, flexible and functional. The features I&rsquo;ve been most impressed with are: snapshots, pools (that obliterate need for RAID) and deduplication.</p>
-
-<p>I&rsquo;ve configured a so-called RAID-Z2 on 6 drives which is similar to a RAID6. This leaves usable space of 4 drives and allows failure of 2 drives.</p>
-
-<p>One of the challenges I have faced is moving data from the previous NAS. Luckily, all of my data has fit on a single 2TB drive. I&rsquo;ve taken the following strategy:</p>
-
-<ol>
-<li><p>copy all of my data to a single drive</p></li>
-<li><p>using CLI initialize a 6-drive RAID-Z2 with a virtual drive</p></li>
-<li><p>fail the virtual drive</p></li>
-<li><p>transfer files from the drive containing data to the new array</p></li>
-<li><p>format the drive with data and put it into the array</p></li>
-<li><p>import the array into FreeNAS UI</p></li>
-</ol>
-
-
-<p>The article that I&rsquo;ve relied on is available at <a href="http://forums.freenas.org/threads/quick-and-dirty-creating-a-degraded-raidz-3-of-4-drives-i-e-to-allow-migration.7748/#post-31106">http://forums.freenas.org/threads/quick-and-dirty-creating-a-degraded-raidz-3-of-4-drives-i-e-to-allow-migration.7748/#post-31106</a>.</p>
-
-<h3>Software</h3>
-
-<p>Once I&rsquo;d completed the install I&rsquo;ve configured NFS, CIFS, AFP (for talking with Apple computers) and set user rights. Setting this up was a breeze!</p>
-
-<p>Then I&rsquo;ve configured backup for all computers in my home network. I&rsquo;ve used scheduled rsync + ZFS snapshots to backup Linux computers. For Apple machines I rely on Time Machine using AFP-shared volume. On Windows 8 I use File History with a iSCSI drive.</p>
-
-<p>Finally, I needed to run custom applications. As it turns out, it&rsquo;s really easy to setup in FreeNAS. First, you create so-called jails which are basically virtual environments that appear as separate computers. Jails can have their own IP addresses. Inside of the jail you can install software using ports or any way you want. I&rsquo;ve created a jail for running bind DNS server, Bittorrent sync. I&rsquo;ve also installed midnight commander to move files around the NAS locally.</p>
-
-<h3>Conclusions</h3>
-
-<p>All in all, I&rsquo;m a very satisfied user of FreeNAS. So far the server has been running for 11 days and I had no issues whatsoever. I expect the machine to continue running without requiring any maintenance or updates. The only change I intend is to install additional services, like OpenVPN and git repositories.</p>
 ]]></content>
   </entry>
   
