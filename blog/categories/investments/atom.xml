@@ -4,7 +4,7 @@
   <title><![CDATA[Category: investments | Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/blog/categories/investments/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2014-01-02T13:48:46+00:00</updated>
+  <updated>2014-01-07T22:38:15+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -24,57 +24,85 @@
 
 <p>The quick solution is to check-out latest code and build the package from source. The alternative is to wait until CRAN includes quantmod with the fix applied. Here&rsquo;s how I fixed the problem:</p>
 
-<p>{% codeblock %}</p>
-
-<h1>check-out latest quantmod code using subversion</h1>
-
-<p>$ svn checkout svn://svn.r-forge.r-project.org/svnroot/quantmod/</p>
-
-<h1>build and install the package from a local folder</h1>
-
-<p>$ R CMD INSTALL quantmod/pkg/</p>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>check-out latest quantmod code using subversion&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>$ svn checkout svn://svn.r-forge.r-project.org/svnroot/quantmod/&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>build and install the package from a local folder&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>$ R CMD INSTALL quantmod/pkg/&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>As of <strong>2013-12-31</strong> the best performing instruments are:</p>
 
-<p>{% codeblock %}</p>
-
-<pre><code> VBK      VBR      VTV
-</code></pre>
-
-<p>16.97135 16.93180 14.93496
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> VBK      VBR      VTV
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>16.97135 16.93180 14.93496</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>No changes in positions.</p>
 
 <p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
 
-<p>{% codeblock %}
-  VBK  VBR  VTV
-TRUE TRUE TRUE
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VBK  VBR  VTV
+</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
 
 <p>As of <strong>2013-12-31</strong> the calculated returns for each instrument are presented below(*):</p>
 
-<p>{% codeblock %}
-symbol        1          3          6           12           avg
-VBK   2.50607661  7.5353908 19.5737192   38.270209   16.97134895
-VBR   2.75432672  9.9108251 18.4982354   36.563815   16.93180053
-VTV   2.09836942 10.1672916 14.3905361   33.083624   14.93495520
-VEA   1.90709046  5.8674117 18.1740856   21.800117   11.93717618
-VWO  -0.29083858  3.0819344  7.5274438   -4.944547    1.34349811
-IGOV -0.07978458  0.1900000  4.9219814   -1.368380    0.91595429
-GSG   1.35390428 -0.5867820  4.5129870   -1.829826    0.86257079
-VCIT -0.48134777  0.6450043  1.9603008   -1.897983    0.05649348
-VNQ   0.10854396 -0.8599509 -3.7136465    2.297576   -0.54186944
-VGIT -1.43194335 -1.0426540 -0.5398539   -2.687587   -1.42550967
-VGLT -2.00551133 -3.3665459 -5.4505170  -12.458972   -5.82038644
-IAU  -3.70981039 -9.3871218 -2.5854879  -28.255528  -10.98448709
-MTUM  2.68559699 11.8085305 17.7058824 -999.000000 -241.69999755
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
+</span><span class='line'>VBK   2.50607661  7.5353908 19.5737192   38.270209   16.97134895
+</span><span class='line'>VBR   2.75432672  9.9108251 18.4982354   36.563815   16.93180053
+</span><span class='line'>VTV   2.09836942 10.1672916 14.3905361   33.083624   14.93495520
+</span><span class='line'>VEA   1.90709046  5.8674117 18.1740856   21.800117   11.93717618
+</span><span class='line'>VWO  -0.29083858  3.0819344  7.5274438   -4.944547    1.34349811
+</span><span class='line'>IGOV -0.07978458  0.1900000  4.9219814   -1.368380    0.91595429
+</span><span class='line'>GSG   1.35390428 -0.5867820  4.5129870   -1.829826    0.86257079
+</span><span class='line'>VCIT -0.48134777  0.6450043  1.9603008   -1.897983    0.05649348
+</span><span class='line'>VNQ   0.10854396 -0.8599509 -3.7136465    2.297576   -0.54186944
+</span><span class='line'>VGIT -1.43194335 -1.0426540 -0.5398539   -2.687587   -1.42550967
+</span><span class='line'>VGLT -2.00551133 -3.3665459 -5.4505170  -12.458972   -5.82038644
+</span><span class='line'>IAU  -3.70981039 -9.3871218 -2.5854879  -28.255528  -10.98448709
+</span><span class='line'>MTUM  2.68559699 11.8085305 17.7058824 -999.000000 -241.69999755</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
@@ -98,43 +126,60 @@ MTUM  2.68559699 11.8085305 17.7058824 -999.000000 -241.69999755
 
 <p>As of <strong>2013-11-30</strong> the best performing instruments are:</p>
 
-<p>{% codeblock %}</p>
-
-<pre><code> VBK      VBR      VTV
-</code></pre>
-
-<p>16.93042 16.68999 14.38888
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> VBK      VBR      VTV
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>16.93042 16.68999 14.38888</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Last month&rsquo;s VEA&rsquo;s position has been taken by VTV.</p>
 
 <p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
 
-<p>{% codeblock %}
-  VBK  VBR  VTV
-TRUE TRUE TRUE
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VBK  VBR  VTV
+</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
 
 <p>As of <strong>2013-11-30</strong> the calculated returns for each instrument are presented below(*):</p>
 
-<p>{% codeblock %}
-symbol        1          3          6           12           avg
-VBK   2.3614663  11.351201 15.5519199   38.4571033   16.93042264
-VBR   2.9323950  12.637106 13.8594008   37.3310570   16.68998975
-VTV   3.1785176  10.376667 10.8967751   33.1035702   14.38888252
-VEA   0.6609547  12.043597 12.7502056   24.6060606   12.51520442
-VWO  -0.9314545  10.879444  2.0418204    2.0669291    3.51418476
-IGOV -1.0908019   3.167282  2.6517083   -0.6808763    1.01182796
-VCIT -0.1190193   2.579147 -0.6275903   -1.5832063    0.06233274
-VGIT -0.2032838   1.672774 -0.5919003   -1.8153846   -0.23444878
-VNQ  -5.2509764   2.487874 -5.7146970    6.0042078   -0.61839801
-GSG  -0.4700721  -5.335320  3.0834145   -3.6407767   -1.59068868
-VGLT -2.3997615  -1.072670 -6.8165647  -12.6234321   -5.72810697
-IAU  -5.6031128 -10.347376 -9.8811293  -27.2781775  -13.27744894
-MTUM  3.1469761  12.179732 13.6795195 -999.0000000 -242.49844303
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
+</span><span class='line'>VBK   2.3614663  11.351201 15.5519199   38.4571033   16.93042264
+</span><span class='line'>VBR   2.9323950  12.637106 13.8594008   37.3310570   16.68998975
+</span><span class='line'>VTV   3.1785176  10.376667 10.8967751   33.1035702   14.38888252
+</span><span class='line'>VEA   0.6609547  12.043597 12.7502056   24.6060606   12.51520442
+</span><span class='line'>VWO  -0.9314545  10.879444  2.0418204    2.0669291    3.51418476
+</span><span class='line'>IGOV -1.0908019   3.167282  2.6517083   -0.6808763    1.01182796
+</span><span class='line'>VCIT -0.1190193   2.579147 -0.6275903   -1.5832063    0.06233274
+</span><span class='line'>VGIT -0.2032838   1.672774 -0.5919003   -1.8153846   -0.23444878
+</span><span class='line'>VNQ  -5.2509764   2.487874 -5.7146970    6.0042078   -0.61839801
+</span><span class='line'>GSG  -0.4700721  -5.335320  3.0834145   -3.6407767   -1.59068868
+</span><span class='line'>VGLT -2.3997615  -1.072670 -6.8165647  -12.6234321   -5.72810697
+</span><span class='line'>IAU  -5.6031128 -10.347376 -9.8811293  -27.2781775  -13.27744894
+</span><span class='line'>MTUM  3.1469761  12.179732 13.6795195 -999.0000000 -242.49844303</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
@@ -200,57 +245,108 @@ MTUM  3.1469761  12.179732 13.6795195 -999.0000000 -242.49844303
 
 <p>It does not matter what tool you use to calculate the results. I prefer R so I have written few functions to do the calculation for me. I present the code below. I assume you have R installed along with the &ldquo;quantmod&rdquo; package. By default, quantmod relies on Yahoo! Finance as the source for price data.</p>
 
-<p>{% codeblock R lang:r %}</p>
-
-<blockquote><p>require(quantmod)
-end &lt;&ndash; &lsquo;2013-10-30&rsquo; # specify the last trading day of the month
-instruments &lt;&ndash; c(&lsquo;VTV&rsquo;, &lsquo;MTUM&rsquo;, &lsquo;VBR&rsquo;, &lsquo;VBK&rsquo;, &lsquo;VEA&rsquo;, &lsquo;VWO&rsquo;, &lsquo;VGIT&rsquo;, &lsquo;IGOV&rsquo;, &lsquo;VCIT&rsquo;, &lsquo;VGLT&rsquo;, &lsquo;GSG&rsquo;, &lsquo;IAU&rsquo;, &lsquo;VNQ&rsquo;) # instruments we have chosen before
-retFunc &lt;&ndash; function(X, returns) {
-  if (X > nrow(returns)) {</p>
-
-<pre><code>return(-999)
-</code></pre>
-
-<p>  } else {</p>
-
-<pre><code>return((prod(returns[paste(index(returns[1+nrow(returns)-X]), '::', end, sep='')]+1) - 1) * 100)
-</code></pre>
-
-<p>  }
-} # function calculates return for a given X-month period, returns -999 if not enough data is available
-getAvgRet &lt;&ndash; function(instrument, end=end) {
-  prices &lt;&ndash; getSymbols(instrument, auto.assign=FALSE)
-  returns &lt;&ndash; monthlyReturn(Ad(prices))[paste(&lsquo;2001-01-01::&rsquo;, end, sep=&lsquo;&rsquo;)]
-  return(mean(sapply(c(1,3,6,12), FUN=retFunc, returns=returns)))
-} # function calculates an average of returns for an instrument for the last 1, 3, 6, 12 months
-topInstruments &lt;&ndash; function(results) {
-  ndx &lt;&ndash; order(results, decreasing=T)[1:3]
-  return(results[ndx])
-} # function returns top 3 instruments
-checkSMA &lt;&ndash; function(instrument) {
-  prices &lt;&ndash; Ad(getSymbols(instrument, auto.assign=FALSE))
-  return(tail(prices, n=1) > SMA(prices, n=200))
-} # verifies if current instrument price is above 10-month SMA
-results &lt;&ndash; topInstruments(sapply(instruments, FUN=getAvgRet, end=end))
-sapply(names(results), FUN=checkSMA)
-retTable &lt;&ndash; function(instruments, end) {
-  calcRow &lt;&ndash; function(instrument, end=end) {</p>
-
-<pre><code>prices &lt;- getSymbols(instrument, auto.assign=FALSE)
-returns &lt;- monthlyReturn(Ad(prices))[paste('2001-01-01::', end, sep='')]
-return(sapply(c(1,3,6,12), FUN=retFunc, returns=returns))
-</code></pre>
-
-<p>  }</p></blockquote>
-
-<p>  tempTable &lt;&ndash; sapply(instruments, FUN=calcRow, end=end)
-  tempTable &lt;&ndash; rbind(tempTable, colMeans(tempTable))
-  tempTable &lt;&ndash; t(tempTable)</p>
-
-<p>  colnames(tempTable) &lt;&ndash; c(&lsquo;1&rsquo;,&lsquo;3&rsquo;,&lsquo;6&rsquo;,&lsquo;12&rsquo;,&lsquo;avg&rsquo;)
-  return(tempTable[order(tempTable[,5], decreasing=T),])
-} # function to print returns for all instruments
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>R </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class='r'><span class='line'><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>blockquote<span class="o">&gt;&lt;</span>p<span class="o">&gt;</span>require<span class="p">(</span>quantmod<span class="p">)</span>
+</span><span class='line'>end <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> <span class="o">&amp;</span>lsquo<span class="p">;</span><span class="m">2013-10-30</span><span class="o">&amp;</span>rsquo<span class="p">;</span> <span class="c1"># specify the last trading day of the month</span>
+</span><span class='line'>instruments <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> c<span class="p">(</span><span class="o">&amp;</span>lsquo<span class="p">;</span>VTV<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>MTUM<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>VBR<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>VBK<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>VEA<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>VWO<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>VGIT<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>IGOV<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>VCIT<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>VGLT<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>GSG<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>IAU<span class="o">&amp;</span>rsquo<span class="p">;,</span> <span class="o">&amp;</span>lsquo<span class="p">;</span>VNQ<span class="o">&amp;</span>rsquo<span class="p">;)</span> <span class="c1"># instruments we have chosen before</span>
+</span><span class='line'>retFunc <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> <span class="kr">function</span><span class="p">(</span>X<span class="p">,</span> returns<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kr">if</span> <span class="p">(</span>X <span class="o">&gt;</span> nrow<span class="p">(</span>returns<span class="p">))</span> <span class="p">{</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>pre<span class="o">&gt;&lt;</span>code<span class="o">&gt;</span><span class="kr">return</span><span class="p">(</span><span class="m">-999</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span>code<span class="o">&gt;&lt;/</span>pre<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>p<span class="o">&gt;</span>  <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>pre<span class="o">&gt;&lt;</span>code<span class="o">&gt;</span><span class="kr">return</span><span class="p">((</span>prod<span class="p">(</span>returns<span class="p">[</span>paste<span class="p">(</span>index<span class="p">(</span>returns<span class="p">[</span><span class="m">1</span><span class="o">+</span>nrow<span class="p">(</span>returns<span class="p">)</span><span class="o">-</span>X<span class="p">]),</span> <span class="s">&#39;::&#39;</span><span class="p">,</span> end<span class="p">,</span> sep<span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)]</span><span class="m">+1</span><span class="p">)</span> <span class="o">-</span> <span class="m">1</span><span class="p">)</span> <span class="o">*</span> <span class="m">100</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span>code<span class="o">&gt;&lt;/</span>pre<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>p<span class="o">&gt;</span>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span> <span class="c1"># function calculates return for a given X-month period, returns -999 if not enough data is available</span>
+</span><span class='line'>getAvgRet <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> <span class="kr">function</span><span class="p">(</span>instrument<span class="p">,</span> end<span class="o">=</span>end<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  prices <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> getSymbols<span class="p">(</span>instrument<span class="p">,</span> auto.assign<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+</span><span class='line'>  returns <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> monthlyReturn<span class="p">(</span>Ad<span class="p">(</span>prices<span class="p">))[</span>paste<span class="p">(</span><span class="o">&amp;</span>lsquo<span class="p">;</span><span class="m">2001-01-01</span><span class="o">::&amp;</span>rsquo<span class="p">;,</span> end<span class="p">,</span> sep<span class="o">=&amp;</span>lsquo<span class="p">;</span><span class="o">&amp;</span>rsquo<span class="p">;)]</span>
+</span><span class='line'>  <span class="kr">return</span><span class="p">(</span>mean<span class="p">(</span>sapply<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">12</span><span class="p">),</span> FUN<span class="o">=</span>retFunc<span class="p">,</span> returns<span class="o">=</span>returns<span class="p">)))</span>
+</span><span class='line'><span class="p">}</span> <span class="c1"># function calculates an average of returns for an instrument for the last 1, 3, 6, 12 months</span>
+</span><span class='line'>topInstruments <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> <span class="kr">function</span><span class="p">(</span>results<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  ndx <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> order<span class="p">(</span>results<span class="p">,</span> decreasing<span class="o">=</span><span class="k-Variable">T</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+</span><span class='line'>  <span class="kr">return</span><span class="p">(</span>results<span class="p">[</span>ndx<span class="p">])</span>
+</span><span class='line'><span class="p">}</span> <span class="c1"># function returns top 3 instruments</span>
+</span><span class='line'>checkSMA <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> <span class="kr">function</span><span class="p">(</span>instrument<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  prices <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> Ad<span class="p">(</span>getSymbols<span class="p">(</span>instrument<span class="p">,</span> auto.assign<span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span>
+</span><span class='line'>  <span class="kr">return</span><span class="p">(</span>tail<span class="p">(</span>prices<span class="p">,</span> n<span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="o">&gt;</span> SMA<span class="p">(</span>prices<span class="p">,</span> n<span class="o">=</span><span class="m">200</span><span class="p">))</span>
+</span><span class='line'><span class="p">}</span> <span class="c1"># verifies if current instrument price is above 10-month SMA</span>
+</span><span class='line'>results <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> topInstruments<span class="p">(</span>sapply<span class="p">(</span>instruments<span class="p">,</span> FUN<span class="o">=</span>getAvgRet<span class="p">,</span> end<span class="o">=</span>end<span class="p">))</span>
+</span><span class='line'>sapply<span class="p">(</span>names<span class="p">(</span>results<span class="p">),</span> FUN<span class="o">=</span>checkSMA<span class="p">)</span>
+</span><span class='line'>retTable <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> <span class="kr">function</span><span class="p">(</span>instruments<span class="p">,</span> end<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  calcRow <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> <span class="kr">function</span><span class="p">(</span>instrument<span class="p">,</span> end<span class="o">=</span>end<span class="p">)</span> <span class="p">{</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>pre<span class="o">&gt;&lt;</span>code<span class="o">&gt;</span>prices <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">-</span> getSymbols<span class="p">(</span>instrument<span class="p">,</span> auto.assign<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+</span><span class='line'>returns <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">-</span> monthlyReturn<span class="p">(</span>Ad<span class="p">(</span>prices<span class="p">))[</span>paste<span class="p">(</span><span class="s">&#39;2001-01-01::&#39;</span><span class="p">,</span> end<span class="p">,</span> sep<span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)]</span>
+</span><span class='line'><span class="kr">return</span><span class="p">(</span>sapply<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">12</span><span class="p">),</span> FUN<span class="o">=</span>retFunc<span class="p">,</span> returns<span class="o">=</span>returns<span class="p">))</span>
+</span><span class='line'><span class="o">&lt;/</span>code<span class="o">&gt;&lt;/</span>pre<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>p<span class="o">&gt;</span>  <span class="p">}</span><span class="o">&lt;/</span>p<span class="o">&gt;&lt;/</span>blockquote<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>p<span class="o">&gt;</span>  tempTable <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> sapply<span class="p">(</span>instruments<span class="p">,</span> FUN<span class="o">=</span>calcRow<span class="p">,</span> end<span class="o">=</span>end<span class="p">)</span>
+</span><span class='line'>  tempTable <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> rbind<span class="p">(</span>tempTable<span class="p">,</span> colMeans<span class="p">(</span>tempTable<span class="p">))</span>
+</span><span class='line'>  tempTable <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> t<span class="p">(</span>tempTable<span class="p">)</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span>p<span class="o">&gt;</span>  colnames<span class="p">(</span>tempTable<span class="p">)</span> <span class="o">&amp;</span>lt<span class="p">;</span><span class="o">&amp;</span>ndash<span class="p">;</span> c<span class="p">(</span><span class="o">&amp;</span>lsquo<span class="p">;</span><span class="m">1</span><span class="o">&amp;</span>rsquo<span class="p">;,</span><span class="o">&amp;</span>lsquo<span class="p">;</span><span class="m">3</span><span class="o">&amp;</span>rsquo<span class="p">;,</span><span class="o">&amp;</span>lsquo<span class="p">;</span><span class="m">6</span><span class="o">&amp;</span>rsquo<span class="p">;,</span><span class="o">&amp;</span>lsquo<span class="p">;</span><span class="m">12</span><span class="o">&amp;</span>rsquo<span class="p">;,</span><span class="o">&amp;</span>lsquo<span class="p">;</span>avg<span class="o">&amp;</span>rsquo<span class="p">;)</span>
+</span><span class='line'>  <span class="kr">return</span><span class="p">(</span>tempTable<span class="p">[</span>order<span class="p">(</span>tempTable<span class="p">[,</span><span class="m">5</span><span class="p">],</span> decreasing<span class="o">=</span><span class="k-Variable">T</span><span class="p">),])</span>
+</span><span class='line'><span class="p">}</span> <span class="c1"># function to print returns for all instruments</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The output of the function returns names of top 3 instruments and whether they should be invested in. &ldquo;checkSMA&rdquo; will cause a failure if an instrument does not have enough past trading data.</p>
 
@@ -258,41 +354,58 @@ return(sapply(c(1,3,6,12), FUN=retFunc, returns=returns))
 
 <p>As of <strong>2013-10-30</strong> the best performing instruments are:</p>
 
-<p>{% codeblock %}</p>
-
-<pre><code> VBK      VBR      VEA
-</code></pre>
-
-<p>18.03609 15.64619 13.12281
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> VBK      VBR      VEA
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>18.03609 15.64619 13.12281</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
 
-<p>{% codeblock %}
- VBK  VBR  VEA
-TRUE TRUE TRUE
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VBK  VBR  VEA
+</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VEA</strong>.</p>
 
 <p>As of <strong>2013-10-30</strong> the calculated returns for each instrument are presented below(*):</p>
 
-<p>{% codeblock %}
-symbol        1         3          6           12          avg
-VBK   4.1411847  8.432639 19.7628856   39.8076472   18.0360891
-VBR   5.0531915  6.004696 15.3004135   36.2264693   15.6461927
-VEA   4.1182415 10.482574  9.6302208   28.2601930   13.1228073
-VTV   5.4878922  3.939009 11.2084592   29.1578947   12.4483138
-VWO   5.5569399  9.344347 -1.0742644    5.5569399    4.8459906
-VNQ   6.0326580  2.066657 -5.0886453   13.2041969    4.0537167
-IGOV  1.8086058  3.989038  0.9658027   -0.0390282    1.6811045
-GSG  -0.8956146 -1.382913  2.5567274   -1.0789149   -0.2001789
-VCIT  1.5943419  1.789575 -3.2202809   -0.9929907   -0.2073387
-VGIT  0.7220217  1.182592 -2.0155749   -0.8651321   -0.2440233
-VGLT  1.6029963  1.208775 -9.8378091   -8.9297704   -3.9889521
-IAU   1.3188518  1.555210 -8.9895470  -22.0763723   -7.0479644
-MTUM  6.4959169  5.789086 11.5257532 -999.0000000 -243.7973111
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1         3          6           12          avg
+</span><span class='line'>VBK   4.1411847  8.432639 19.7628856   39.8076472   18.0360891
+</span><span class='line'>VBR   5.0531915  6.004696 15.3004135   36.2264693   15.6461927
+</span><span class='line'>VEA   4.1182415 10.482574  9.6302208   28.2601930   13.1228073
+</span><span class='line'>VTV   5.4878922  3.939009 11.2084592   29.1578947   12.4483138
+</span><span class='line'>VWO   5.5569399  9.344347 -1.0742644    5.5569399    4.8459906
+</span><span class='line'>VNQ   6.0326580  2.066657 -5.0886453   13.2041969    4.0537167
+</span><span class='line'>IGOV  1.8086058  3.989038  0.9658027   -0.0390282    1.6811045
+</span><span class='line'>GSG  -0.8956146 -1.382913  2.5567274   -1.0789149   -0.2001789
+</span><span class='line'>VCIT  1.5943419  1.789575 -3.2202809   -0.9929907   -0.2073387
+</span><span class='line'>VGIT  0.7220217  1.182592 -2.0155749   -0.8651321   -0.2440233
+</span><span class='line'>VGLT  1.6029963  1.208775 -9.8378091   -8.9297704   -3.9889521
+</span><span class='line'>IAU   1.3188518  1.555210 -8.9895470  -22.0763723   -7.0479644
+</span><span class='line'>MTUM  6.4959169  5.789086 11.5257532 -999.0000000 -243.7973111</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
