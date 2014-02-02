@@ -4,7 +4,7 @@
   <title><![CDATA[Category: photo | Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/blog/categories/photo/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2014-02-02T12:52:20+00:00</updated>
+  <updated>2014-02-02T13:06:53+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -22,47 +22,47 @@
 
 <p>Leaving from train station in Zurich:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11675156726"><img src="http://farm6.staticflickr.com/5501/11675156726_f2a46a740e.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11675156726">{% img http://farm6.staticflickr.com/5501/11675156726_f2a46a740e.jpg 500 %}</a></p>
 
 <p>Arriving at the hotel in Leukerbad:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674144615"><img src="http://farm8.staticflickr.com/7445/11674144615_7ab8639d70.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674144615">{% img http://farm8.staticflickr.com/7445/11674144615_7ab8639d70.jpg 500 %}</a></p>
 
 <p>Downtown Leukerbad:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674519814"><img src="http://farm6.staticflickr.com/5494/11674519814_43cee99fd0.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674519814">{% img http://farm6.staticflickr.com/5494/11674519814_43cee99fd0.jpg 500 %}</a></p>
 
 <p>Fooling around in the evening:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11672626495"><img src="http://farm4.staticflickr.com/3750/11672626495_582b6d12ef.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11672626495">{% img http://farm4.staticflickr.com/3750/11672626495_582b6d12ef.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673004054"><img src="http://farm6.staticflickr.com/5518/11673004054_f9394970c3.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673004054">{% img http://farm6.staticflickr.com/5518/11673004054_f9394970c3.jpg 500 %}</a></p>
 
 <p>Outdoor swimming pool with hot spring water:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674540723"><img src="http://farm4.staticflickr.com/3743/11674540723_90a615bc53.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674540723">{% img http://farm4.staticflickr.com/3743/11674540723_90a615bc53.jpg 500 %}</a></p>
 
 <p>Going up and snowshoeing:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673853326"><img src="http://farm6.staticflickr.com/5519/11673853326_388807ef2f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673853326">{% img http://farm6.staticflickr.com/5519/11673853326_388807ef2f.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673333583"><img src="http://farm4.staticflickr.com/3761/11673333583_f61f4317c5.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673333583">{% img http://farm4.staticflickr.com/3761/11673333583_f61f4317c5.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673865836"><img src="http://farm6.staticflickr.com/5486/11673865836_5462f58cd3.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673865836">{% img http://farm6.staticflickr.com/5486/11673865836_5462f58cd3.jpg 500 %}</a></p>
 
 <p>In the middle of the route my wife had a minor panic attack and was angry until we got back:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673331123"><img src="http://farm4.staticflickr.com/3738/11673331123_02cb800b4a.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673331123">{% img http://farm4.staticflickr.com/3738/11673331123_02cb800b4a.jpg 500 %}</a></p>
 
 <p>Enjoying town:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11672899003"><img src="http://farm6.staticflickr.com/5493/11672899003_32358a12be.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11672899003">{% img http://farm6.staticflickr.com/5493/11672899003_32358a12be.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673430976"><img src="http://farm3.staticflickr.com/2814/11673430976_4a5c765e77.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673430976">{% img http://farm3.staticflickr.com/2814/11673430976_4a5c765e77.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674156605"><img src="http://farm6.staticflickr.com/5518/11674156605_1b011324da.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674156605">{% img http://farm6.staticflickr.com/5518/11674156605_1b011324da.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674529694"><img src="http://farm8.staticflickr.com/7370/11674529694_45ec755a2d.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674529694">{% img http://farm8.staticflickr.com/7370/11674529694_45ec755a2d.jpg 500 %}</a></p>
 
 <h2>GPS track</h2>
 
@@ -81,11 +81,11 @@
     <id>http://drseergio.github.io/blog/2013/12/14/matt-and-jessica</id>
     <content type="html"><![CDATA[<p>The title says it all. Matt:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11371591986/"><img src="http://farm8.staticflickr.com/7353/11371591986_4e05a91d8f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11371591986/">{% img http://farm8.staticflickr.com/7353/11371591986_4e05a91d8f.jpg 500 %}</a></p>
 
 <p>And Jessica:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11371555715/"><img src="http://farm6.staticflickr.com/5516/11371555715_be88a80d8a.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11371555715/">{% img http://farm6.staticflickr.com/5516/11371555715_be88a80d8a.jpg 500 %}</a></p>
 ]]></content>
   </entry>
   
@@ -98,11 +98,11 @@
 
 <p>It was so warm that we took off our jackets.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11372768584/in/set-72157638673432686/"><img src="http://farm4.staticflickr.com/3811/11372768584_33b3da0775.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11372768584/in/set-72157638673432686/">{% img http://farm4.staticflickr.com/3811/11372768584_33b3da0775.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11372707455/"><img src="http://farm4.staticflickr.com/3800/11372707455_ae6d4a135e.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11372707455/">{% img http://farm4.staticflickr.com/3800/11372707455_ae6d4a135e.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11372738856/"><img src="http://farm8.staticflickr.com/7433/11372738856_7c232818c5.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11372738856/">{% img http://farm8.staticflickr.com/7433/11372738856_7c232818c5.jpg 500 %}</a></p>
 
 <p>The hike took about 4 hours. There&rsquo;s plenty of snow and we got our snowshoes on in about 35 minutes after beginning the trek.</p>
 
@@ -132,11 +132,11 @@
     <id>http://drseergio.github.io/blog/2013/11/27/enigmatic-encounter</id>
     <content type="html"><![CDATA[<p>A rising star of the division.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11089494096/"><img src="http://farm6.staticflickr.com/5533/11089494096_116ed321d9.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11089494096/">{% img http://farm6.staticflickr.com/5533/11089494096_116ed321d9.jpg 500 %}</a></p>
 
 <p>And a man of thousand tales.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11089334325/"><img src="http://farm8.staticflickr.com/7406/11089334325_3ee405ef40.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11089334325/">{% img http://farm8.staticflickr.com/7406/11089334325_3ee405ef40.jpg 500 %}</a></p>
 ]]></content>
   </entry>
   
@@ -151,21 +151,21 @@
 
 <p>The hike itself has been rather easy and there was not much snow. However, it has been a good opportunity to get used to the snowshoes.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10984441523"><img src="http://farm8.staticflickr.com/7370/10984441523_6bb5bff50f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10984441523">{% img http://farm8.staticflickr.com/7370/10984441523_6bb5bff50f.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10984229385/"><img src="http://farm6.staticflickr.com/5541/10984229385_427cedd1fd.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10984229385/">{% img http://farm6.staticflickr.com/5541/10984229385_427cedd1fd.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10984238225/"><img src="http://farm3.staticflickr.com/2810/10984238225_4afe4a194f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10984238225/">{% img http://farm3.staticflickr.com/2810/10984238225_4afe4a194f.jpg 500 %}</a></p>
 
 <p>We have spent the day bathing in sun above a fog that covered most of central Switzerland. On our way back there was a 2 minute opportunity to shoot the fog and the sunset before descending back into fog&rsquo;s vast but short-lived kingdom (we were changing train to bus as the regular train route was blocked by a rockfall).</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/10984454594"><img src="http://farm3.staticflickr.com/2812/10984454594_4c62b44c3d.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/10984454594">{% img http://farm3.staticflickr.com/2812/10984454594_4c62b44c3d.jpg 500 %}</a></p>
 
 <p>And this time someone took a photo of me!</p>
 
-<p><a href="/images/arosa/arosa_me_01_full.jpg"><img src="/images/arosa/arosa_me_01_small.jpg" width="500"></a></p>
+<p><a href="/images/arosa/arosa_me_01_full.jpg">{% img /images/arosa/arosa_me_01_small.jpg 500 %}</a></p>
 
-<p><img src="/images/arosa/arosa_me_02_small.jpg"></p>
+<p>{% img /images/arosa/arosa_me_02_small.jpg %}</p>
 
 <h3>Links to photo albums in Flickr</h3>
 

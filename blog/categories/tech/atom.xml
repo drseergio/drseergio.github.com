@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tech | Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2014-02-02T12:52:20+00:00</updated>
+  <updated>2014-02-02T13:06:53+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -27,11 +27,11 @@
 
 <p>Long story short I&rsquo;ve never intended this to happen. My goal was to reduce number of gadgets. Instead of a full-size tower PC and an Apple MacMini I wanted a single powerful machine running OSX. My idea was to buy a new motherboard with Thunderbolt ports (to connect two 27" Apple displays) and install OSX on to it. It&rsquo;s not an officially supported thing to do but I could not care less. The upcoming Apple MacPro is going to cost a fortune anyway and there is absolutely no way for me to justify such a steep price.</p>
 
-<p><a href="/images/win8/3.jpg"><img src="/images/win8/3_s.jpg" width="500"></a></p>
+<p><a href="/images/win8/3.jpg">{% img /images/win8/3_s.jpg 500 %}</a></p>
 
 <p>As you probably expect things did not go according to plan. It turned out that the motherboard I have ordered includes a Thunderbolt controller (DSL4510/4410) that is not yet supported by OSX (not even the latest Mavericks version). That left any attempts to install OSX out in the cold.</p>
 
-<p><a href="/images/win8/9.jpg"><img src="/images/win8/9_s.jpg" width="500"></a></p>
+<p><a href="/images/win8/9.jpg">{% img /images/win8/9_s.jpg 500 %}</a></p>
 
 <p>The reason I had an Apple computer in the first place was to natively run software that does not exist on Linux, such as Adobe imaging products. So I&rsquo;ve decided to install Windows and use all the same software on it. After all, the hardware I had put together has &ldquo;designed for Windows 8&rdquo; written all over it.</p>
 
@@ -62,7 +62,7 @@
 
 <p>The machine is exquisite! It&rsquo;s extremely quiet &ndash; it has only a single 120mm fan on the CPU heat-sink (I removed all the other fans). There are no extension cards and everything else is cooled passively. There&rsquo;s just one SSD and no vibrating hard disks. I can&rsquo;t tell if the computer is running or not! The Apple screens are gorgeous. I&rsquo;ve added a Logitech trackpad to do the touch gestures.</p>
 
-<p><a href="/images/win8/4.jpg"><img src="/images/win8/4_s.jpg" width="500"></a></p>
+<p><a href="/images/win8/4.jpg">{% img /images/win8/4_s.jpg 500 %}</a></p>
 
 <p>While I believe OSX might eventually support the Thunderbolt controller I don&rsquo;t plan to switch. The desktop experience is great and all the software I need works well. I&rsquo;ve sold all the gadgets, computers and computer parts I wanted through a local online auction. I feel much better now!</p>
 
@@ -97,7 +97,7 @@
 <!-- more -->
 
 
-<p><img class="right" src="/images/chinese_monitor.jpg"></p>
+<p>{% img right /images/chinese_monitor.jpg %}</p>
 
 <p>Once I&rsquo;ve connected a handy <a href="http://dx.com/p/8-tft-lcd-car-reverse-rear-view-color-monitor-w-vga-bnc-cable-black-149114">8" VGA monitor</a> I noticed SCSI driver related problems in the kernel logs. As it turns out, the USB drive on which FreeNAS had been installed has failed. This monitor is really handy for troubleshooting problems with servers &ndash; small, easy to carry and occupies little space in the toolbox. The picture quality is god-awful but good enough for reading terminal output.</p>
 
@@ -109,7 +109,7 @@
 
 <p>The last step took embarassingly long time. None of the images that I had written either on Linux or Mac would boot. FreeNAS would get to an error saying <code>corrupt or invalid GPT detected.</code>. No matter what I did the outcome was the same. The solution was to delete GPT by running parted from Linux and doing <code>mklabel msdos</code>, followed by write of the disk image. I believe this problem occurred because I had previously used the drives for experimentation with Chromebook and some GPT headers apparently remained there.</p>
 
-<p><img class="left" src="/images/msata.jpg"></p>
+<p>{% img left /images/msata.jpg %}</p>
 
 <p>Finally, I found a spare mSATA SSD drive lying around with no use (a leftover from a notebook upgrade). I also had a mSATA adapter so I&rsquo;ve put them together inside of the NAS to use as a boot device for FreeNAS. Now the NAS has 8 SATA devices (6 HDDs and 2 SSDs) maxing out all available SATA ports in the system.</p>
 
@@ -124,7 +124,7 @@
     <link href="http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/"/>
     <updated>2013-09-03T21:14:00+00:00</updated>
     <id>http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/images/app-engine.png"></p>
+    <content type="html"><![CDATA[<p>{% img right /images/app-engine.png %}</p>
 
 <p>I&rsquo;ve been working on a simple hobby project. The goal is to build an Android application which, as it turns out, requires a backend. The most important task of the backend is to perform certain things at specified times in future.</p>
 
@@ -155,84 +155,46 @@
 
 <p>In order to test our scheduler we must be able to create some tasks first. So our first goal is to create a handler which creates scheduled tasks. I&rsquo;ve called my test class <code>TestGenerator</code>:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>TestGenerator.java </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreService</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreServiceFactory</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Entity</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Key</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.KeyFactory</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@SuppressWarnings</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">serial</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestGenerator</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">TestGenerator</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">JOB_PARENT</span> <span class="o">=</span> <span class="s">&quot;notification_job_parent&quot;</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-</span><span class='line'>    <span class="c1">// set parent to ensure data consistency</span>
-</span><span class='line'>    <span class="n">Key</span> <span class="n">jobKey</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="o">.</span><span class="na">createKey</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">JOB_PARENT</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">Entity</span> <span class="n">job</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Entity</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">jobKey</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span><span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span> <span class="o">+</span> <span class="mi">10</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;frequency&quot;</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">datastore</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Created new job to run every 10 seconds 5 times&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock TestGenerator.java lang:java %}
+package net.pisarenko.backend.scheduler;</p>
+
+<p>import java.io.IOException;
+import java.util.logging.Logger;</p>
+
+<p>import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;</p>
+
+<p>import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;</p>
+
+<p>@SuppressWarnings(&ldquo;serial&rdquo;)
+public class TestGenerator extends HttpServlet {</p>
+
+<pre><code>private static final Logger log = Logger.getLogger(TestGenerator.class.getName());
+public static final String JOB_PARENT = "notification_job_parent";
+
+public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    // set parent to ensure data consistency
+    Key jobKey = KeyFactory.createKey("NotificationJob", JOB_PARENT);
+    Entity job = new Entity("NotificationJob", jobKey);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
+    job.setProperty("next_run_ts", System.currentTimeMillis() / 1000L + 10);
+    job.setProperty("frequency", 10);
+    job.setProperty("remaining", 5);
+
+    datastore.put(job);
+
+    log.severe("Created new job to run every 10 seconds 5 times");
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>All the code does is it creates a new AppEngine data-store entity of kind <code>NotificationJob</code> when a HTTP GET request is made to this handler. Notice that I use UNIX timestamp as the specification when to run the task. I also take precautions to ensure that written data is consistent by setting a non-existent parent to the saved entity. If you&rsquo;re not familiar with AppEngine&rsquo;s data-store I highly recommend reading about <a href="https://developers.google.com/appengine/docs/java/datastore/structuring_for_strong_consistency">eventual consistency</a> as AppEngine data-store is very different from RDBMS and you must have the right mindset when designing storage for your system.</p>
 
@@ -242,42 +204,28 @@
 
 <p>Let&rsquo;s register our handler at <code>/test</code> by modifying the <code>web.xml</code> file under <code>war/WEB-INF/</code> in the project structure:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>web.xml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>servlet<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>test<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-class<span class="ni">&amp;gt;</span>net.pisarenko.backend.scheduler.TestGenerator<span class="ni">&amp;lt;</span>/servlet-class<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/servlet<span class="ni">&amp;gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="ni">&amp;lt;</span>servlet-mapping<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>test<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>url-pattern<span class="ni">&amp;gt;</span>/test<span class="ni">&amp;lt;</span>/url-pattern<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/servlet-mapping<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;hellip;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock web.xml %}
+&hellip;</p>
+
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;test&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;net.pisarenko.backend.scheduler.TestGenerator&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;test&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/test&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre>
+
+<p>&hellip;
+{% endcodeblock %}</p>
 
 <p>For testing/development/debugging purposes I&rsquo;ve put a log statement. Let&rsquo;s try our generator. Run the project by pressing Ctrl+F11. By default, the development server starts at <code>http://127.0.0.1:8888</code> so our handler is accessible at <code>http://127.0.0.1:8888/test</code>.</p>
 
 <p>Access the test handler and check the output of console in Eclipse. You should see something like this:</p>
 
-<p><img src="/images/scheduler/console.png"></p>
+<p>{% img /images/scheduler/console.png %}</p>
 
 <p>Our test scheduled task has been saved! Now let&rsquo;s finish this off with the actual task handler.</p>
 
@@ -285,212 +233,117 @@
 
 <p>To run our scheduler loop every minute using AppEngine&rsquo;s cron we must create a <code>cron.xml</code> config file in <code>war/WEB-INF</code>:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>cron.xml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;lt;</span>?xml version=<span class="ni">&amp;ldquo;</span>1.0<span class="ni">&amp;rdquo;</span> encoding=<span class="ni">&amp;ldquo;</span>UTF-8<span class="ni">&amp;rdquo;</span>?&gt;
-</span><span class='line'><span class="nt">&lt;cronentries&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;cron&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>url<span class="ni">&amp;gt;</span>/cron<span class="ni">&amp;lt;</span>/url<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>description<span class="ni">&amp;gt;</span>Send pending notifications<span class="ni">&amp;lt;</span>/description<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>schedule<span class="ni">&amp;gt;</span>every 1 minute<span class="ni">&amp;lt;</span>/schedule<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>  <span class="nt">&lt;/cron&gt;</span>
-</span><span class='line'><span class="nt">&lt;/cronentries&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock cron.xml %}
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?>
+<cronentries>
+  <cron></p>
+
+<pre><code>&lt;url&gt;/cron&lt;/url&gt;
+&lt;description&gt;Send pending notifications&lt;/description&gt;
+&lt;schedule&gt;every 1 minute&lt;/schedule&gt;
+</code></pre>
+
+<p>  </cron>
+</cronentries>
+{% endcodeblock %}</p>
 
 <p>Effectively, this will execute <code>/cron</code> endpoint every minute. Note that development server will not run cron so we will manually trigger it through the browser by accessing <code>http://127.0.0.1:8888/cron</code>.</p>
 
 <p>Now let&rsquo;s write the code behind the <code>/cron</code> endpoint. The code will check current time, retrieve all scheduled tasks which have next run either in the past or right now and execute them. If the task is supposed to be run several times we will reduce the remaining run counter, calculate the next execution time and save the changes. If the task has no more runs we delete the entity from the data-store:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>NotificationScheduler.java </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreService</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreServiceFactory</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Entity</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Key</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.KeyFactory</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.PreparedQuery</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query.FilterPredicate</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query.FilterOperator</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.appengine.api.taskqueue.Queue</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.taskqueue.QueueFactory</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">appengine</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">taskqueue</span><span class="o">.</span><span class="na">TaskOptions</span><span class="o">.</span><span class="na">Builder</span><span class="o">.*;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@SuppressWarnings</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">serial</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotificationScheduler</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">NotificationScheduler</span><span class="o">.</span><span class="na">class</span>
-</span><span class='line'>        <span class="o">.</span><span class="na">getName</span><span class="o">());</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
-</span><span class='line'>        <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Running cron loop&quot;</span><span class="o">);</span>
-</span><span class='line'>    <span class="kt">long</span> <span class="n">currentTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span><span class="o">;</span>
-</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Current time: &quot;</span> <span class="o">+</span> <span class="n">currentTime</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span>
-</span><span class='line'>            <span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">Key</span> <span class="n">jobKey</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="o">.</span><span class="na">createKey</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span>
-</span><span class='line'>            <span class="n">TestGenerator</span><span class="o">.</span><span class="na">JOB_PARENT</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">jobKey</span><span class="o">)</span>
-</span><span class='line'>            <span class="o">.</span><span class="na">setAncestor</span><span class="o">(</span><span class="n">jobKey</span><span class="o">)</span>
-</span><span class='line'>            <span class="o">.</span><span class="na">setFilter</span><span class="o">(</span>
-</span><span class='line'>                    <span class="k">new</span> <span class="nf">FilterPredicate</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span>
-</span><span class='line'>                            <span class="n">FilterOperator</span><span class="o">.</span><span class="na">LESS_THAN_OR_EQUAL</span><span class="o">,</span> <span class="n">currentTime</span><span class="o">));</span>
-</span><span class='line'>    <span class="n">PreparedQuery</span> <span class="n">pq</span> <span class="o">=</span> <span class="n">datastore</span><span class="o">.</span><span class="na">prepare</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">for</span> <span class="o">(</span><span class="n">Entity</span> <span class="n">job</span> <span class="o">:</span> <span class="n">pq</span><span class="o">.</span><span class="na">asIterable</span><span class="o">())</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">processJob</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">private</span> <span class="kt">void</span> <span class="nf">processJob</span><span class="o">(</span><span class="n">Entity</span> <span class="n">job</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">Queue</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">QueueFactory</span><span class="o">.</span><span class="na">getDefaultQueue</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">withUrl</span><span class="o">(</span><span class="s">&quot;/sender&quot;</span><span class="o">).</span><span class="na">param</span><span class="o">(</span><span class="s">&quot;job_id&quot;</span><span class="o">,</span> <span class="s">&quot;job_id&quot;</span><span class="o">));</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span>
-</span><span class='line'>            <span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">,</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span> <span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">))</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">if</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">datastore</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">getKey</span><span class="o">());</span>
-</span><span class='line'>    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span>
-</span><span class='line'>            <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">))</span> <span class="o">+</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;frequency&quot;</span><span class="o">)));</span>
-</span><span class='line'>        <span class="n">datastore</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock NotificationScheduler.java lang:java %}
+package net.pisarenko.backend.scheduler;</p>
+
+<p>import java.io.IOException;
+import java.util.logging.Logger;</p>
+
+<p>import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;</p>
+
+<p>import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.Query.FilterOperator;</p>
+
+<p>import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import static com.google.appengine.api.taskqueue.TaskOptions.Builder.*;</p>
+
+<p>@SuppressWarnings(&ldquo;serial&rdquo;)
+public class NotificationScheduler extends HttpServlet {</p>
+
+<pre><code>private static final Logger log = Logger.getLogger(NotificationScheduler.class
+        .getName());
+
+public void doGet(HttpServletRequest req, HttpServletResponse resp)
+        throws IOException {
+    log.severe("Running cron loop");
+    long currentTime = System.currentTimeMillis() / 1000L;
+    log.severe("Current time: " + currentTime);
+
+    DatastoreService datastore = DatastoreServiceFactory
+            .getDatastoreService();
+    Key jobKey = KeyFactory.createKey("NotificationJob",
+            TestGenerator.JOB_PARENT);
+    Query query = new Query("NotificationJob", jobKey)
+            .setAncestor(jobKey)
+            .setFilter(
+                    new FilterPredicate("next_run_ts",
+                            FilterOperator.LESS_THAN_OR_EQUAL, currentTime));
+    PreparedQuery pq = datastore.prepare(query);
+
+    for (Entity job : pq.asIterable()) {
+        processJob(job);
+    }
+}
+
+private void processJob(Entity job) {
+    Queue queue = QueueFactory.getDefaultQueue();
+    queue.add(withUrl("/sender").param("job_id", "job_id"));
+
+    DatastoreService datastore = DatastoreServiceFactory
+            .getDatastoreService();
+    job.setProperty("remaining", ((Long) job.getProperty("remaining")) - 1);
+
+    if ((Long)job.getProperty("remaining") == 0) {
+        datastore.delete(job.getKey());
+    } else {
+        job.setProperty("next_run_ts",
+            ((Long)job.getProperty("next_run_ts")) + ((Long)job.getProperty("frequency"))); 
+        datastore.put(job);
+    }
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>The handler executes a query against the data-store to retrieve due scheduled tasks. Note that it uses ancestor query to ensure that return values are consistent. Then we iterate through retrieved scheduled tasks and execute <code>processJob</code> method. The <code>processJob</code> introduces AppEngine default queue which we use for executing our scheduled tasks in the background.</p>
 
 <p>Update <code>web.xml</code> for the new handler:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>web.xml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>servlet<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>cron<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-class<span class="ni">&amp;gt;</span>net.pisarenko.backend.scheduler.NotificationScheduler<span class="ni">&amp;lt;</span>/servlet-class<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/servlet<span class="ni">&amp;gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="ni">&amp;lt;</span>servlet-mapping<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>cron<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>url-pattern<span class="ni">&amp;gt;</span>/cron<span class="ni">&amp;lt;</span>/url-pattern<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/servlet-mapping<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;hellip;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock web.xml %}
+&hellip;</p>
+
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;cron&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;net.pisarenko.backend.scheduler.NotificationScheduler&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;cron&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/cron&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre>
+
+<p>&hellip;
+{% endcodeblock %}</p>
 
 <p>At this point the code won&rsquo;t work because the <code>processJob</code> method is creating queue tasks (not to confuse with our custom scheduled tasks) to be run in the background. Let&rsquo;s fix that!</p>
 
@@ -502,81 +355,47 @@
 
 <p>The code for the <code>/sender</code> handler:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>NotificationSender.java </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@SuppressWarnings</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">serial</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotificationSender</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">NotificationSender</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;EXECUTING TASK FROM QUEUE &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&quot;job_id&quot;</span><span class="o">));</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock NotificationSender.java lang:java %}
+package net.pisarenko.backend.scheduler;</p>
+
+<p>import java.io.IOException;
+import java.util.logging.Logger;</p>
+
+<p>import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;</p>
+
+<p>@SuppressWarnings(&ldquo;serial&rdquo;)
+public class NotificationSender extends HttpServlet {</p>
+
+<pre><code>private static final Logger log = Logger.getLogger(NotificationSender.class.getName());
+
+public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    log.severe("EXECUTING TASK FROM QUEUE " + req.getParameter("job_id"));
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>As you see, it does not do much but it provides the almighty log statement which we will use to confirm that our code is working as we want it to. Finally, update <code>web.xml</code> with <code>/sender</code>:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>web.xml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>servlet<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>sender<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-class<span class="ni">&amp;gt;</span>net.pisarenko.backend.scheduler.NotificationSender<span class="ni">&amp;lt;</span>/servlet-class<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/servlet<span class="ni">&amp;gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="ni">&amp;lt;</span>servlet-mapping<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>sender<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>url-pattern<span class="ni">&amp;gt;</span>/sender<span class="ni">&amp;lt;</span>/url-pattern<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/servlet-mapping<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;hellip;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock web.xml %}
+&hellip;</p>
+
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;sender&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;net.pisarenko.backend.scheduler.NotificationSender&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;sender&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/sender&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre>
+
+<p>&hellip;
+{% endcodeblock %}</p>
 
 <h2>Final run</h2>
 
@@ -599,7 +418,7 @@
 
 <p>One of my recent projects was to combine several devices into one. I&rsquo;ve got rid of Sony Playstation 3 and merged 2 computers together. Here&rsquo;s the end-result:</p>
 
-<p><a href="/images/htpc/2.jpg"><img src="/images/htpc/2.jpg" width="500"></a></p>
+<p><a href="/images/htpc/2.jpg">{% img /images/htpc/2.jpg 500 %}</a></p>
 
 <!-- more -->
 
@@ -636,7 +455,7 @@
 
 <p>The final under-the-hood view of the build:</p>
 
-<p><a href="/images/htpc/4.jpg"><img src="/images/htpc/4.jpg" width="500"></a></p>
+<p><a href="/images/htpc/4.jpg">{% img /images/htpc/4.jpg 500 %}</a></p>
 
 <p>I&rsquo;ve installed Windows 7 on a separate SSD. When I want to play games I have to reboot the machine into Windows 7. The down-side is that the server is temporarily unavailable. It&rsquo;s an acceptable solution for my purposes as I&rsquo;m the only user of the server and I don&rsquo;t actively need the server while I&rsquo;m playing. In addition, I play only a couple of hours every other week.</p>
 
@@ -646,7 +465,7 @@
 
 <p>Now I can play games, watch movies and perform computational tasks all from one machine. And most importantly it fits well within the interior:</p>
 
-<p><a href="/images/htpc/3.jpg"><img src="/images/htpc/3.jpg" width="300"></a> <a href="/images/htpc/1.jpg"><img src="/images/htpc/1.jpg" width="300"></a></p>
+<p><a href="/images/htpc/3.jpg">{% img /images/htpc/3.jpg 300 %}</a> <a href="/images/htpc/1.jpg">{% img /images/htpc/1.jpg 300 %}</a></p>
 
 <p>It is clear to me that in future this machine will get obsolete as newer games require faster hardware. This means that I&rsquo;ll likely need to upgrade graphics cards. The issue is that newer cards are also likely to be long so I&rsquo;ll need a different case. When that happens I have my eyes on Antec Fusion Remote Max. The &ldquo;Max&rdquo; version should have enough space.</p>
 
@@ -663,7 +482,7 @@
 
 <p>Immediately I have realized that app requires a back-end as some of the things cannot be reliably performed on the handset itself. Lurking around I have learned about Google Cloud Endpoints lets you create a REST API that clients (be that iOS, Android or JavaScript) can access. Furthermore, my application needs to know who is talking to the back-end so authentication is a hard requirement.</p>
 
-<p><img class="right" src="/images/endpoints/endpoints.png"></p>
+<p>{% img right /images/endpoints/endpoints.png %}</p>
 
 <p>I don&rsquo;t know about you but personally my productivity is high only when I have a reliable development environment that provides immediate feedback. My first goal then was to create a local environment where I could prototype with Google APIs piece by piece and proceed with building the actual app.</p>
 
@@ -691,21 +510,21 @@
 
 <p>Once you download the bundle unpack it and execute <code>eclipse/eclipse</code> from within the ADT directory. ADT will start up:</p>
 
-<p><img src="/images/endpoints/adt.png"></p>
+<p>{% img /images/endpoints/adt.png %}</p>
 
 <p>Choose a folder where you will keep all your projects.</p>
 
 <p>Once ADT starts close the default tab and head over to menubar item <code>Help &gt; Install New Software</code>. We&rsquo;ll need to add Google Eclipse Plugin to have AppEngine integration in ADT. You&rsquo;ll need the URL of the plugin repository. You can find the URL at <a href="https://developers.google.com/eclipse/docs/getting_started">https://developers.google.com/eclipse/docs/getting_started</a>. Currently, ADT is Eclipse version 3.8/4.2 so I&rsquo;m using URL <code>http://dl.google.com/eclipse/plugin/4.2</code>. Put that URL into field <code>Work with</code> and press <code>Add</code>, then choose an arbitrary name (say, Google) and click <code>OK</code>. Make sure you select the components shown in the screen-shot below:</p>
 
-<p><img src="/images/endpoints/gep.png"></p>
+<p>{% img /images/endpoints/gep.png %}</p>
 
 <p>Click <code>Next</code>, accept the license agreements and press <code>Finish</code> to begin installation. Once the additional software is installed and ADT has restarted we&rsquo;ll need one more piece. Open <code>Window &gt; Android SDK Manager</code>. You&rsquo;ll need to select <code>Google APIs</code> for the latest Android version. In my case, the latest is 4.3:</p>
 
-<p><img src="/images/endpoints/apis.png"></p>
+<p>{% img /images/endpoints/apis.png %}</p>
 
 <p>We&rsquo;ll also need <code>Google Play Services</code> library for authenticating our app to the back-end:</p>
 
-<p><img src="/images/endpoints/play.png"></p>
+<p>{% img /images/endpoints/play.png %}</p>
 
 <p>At this point we have installed all software that we&rsquo;ll need for developing and testing our code.</p>
 
@@ -715,15 +534,15 @@
 
 <p>Head over to <a href="https://cloud.google.com/console">https://cloud.google.com/console</a> and create a new project. Choose any name you want:</p>
 
-<p><img src="/images/endpoints/project.png"></p>
+<p>{% img /images/endpoints/project.png %}</p>
 
 <p>Once the project is created click on <code>APIs &amp; auth &gt; Registered apps</code> and press on <code>REGISTER APP</code>. Next, select <code>Web Application</code> and use any name you want:</p>
 
-<p><img src="/images/endpoints/register_web.png"></p>
+<p>{% img /images/endpoints/register_web.png %}</p>
 
 <p>At this point you should note down the resulting OAuth2 client ID, we&rsquo;ll make use of it in our code:</p>
 
-<p><img src="/images/endpoints/oauth_client.png"></p>
+<p>{% img /images/endpoints/oauth_client.png %}</p>
 
 <p>In my case, the web client ID is <code>607077117986.apps.googleusercontent.com</code>.</p>
 
@@ -733,11 +552,11 @@
 
 <p>Type <code>android</code> when asked for a password and note down the value returned to you. Go back to the cloud console and press <code>REGISTER APP</code>. This time choose <code>Android</code>, specify any name you want. In addition, you will need to input the checksum we obtained earlier and specify our Android app package name. We have not yet created our app but let&rsquo;s decide on package name now. I&rsquo;ve chosen <code>net.pisarenko</code>. Unless you&rsquo;re feeling creative right now leave it as it is:</p>
 
-<p><img src="/images/endpoints/android.png"></p>
+<p>{% img /images/endpoints/android.png %}</p>
 
 <p>We&rsquo;ll need to note down the Android client ID similarly to what we have done with the web client ID:</p>
 
-<p><img src="/images/endpoints/androidoauth.png"></p>
+<p>{% img /images/endpoints/androidoauth.png %}</p>
 
 <p>In this case it&rsquo;s <code>607077117986-vg4219rv8eljhkhq3648j45ov62vran1.apps.googleusercontent.com</code>.</p>
 
@@ -749,172 +568,103 @@
 
 <p>At this point you&rsquo;ll have 2 projects. <code>MyTestApp</code> is the Android app. <code>MyTestApp-AppEngine</code> is the back-end:</p>
 
-<p><img src="/images/endpoints/projects.png"></p>
+<p>{% img /images/endpoints/projects.png %}</p>
 
 <h2>Write/alter the back-end code</h2>
 
 <p>At this point we have some generated code but as I mentioned in the introduction I don&rsquo;t like that. I prefer to start <em>really minimal</em> so that I understand what&rsquo;s happening. Let&rsquo;s start by deleting all files under <code>MyTestApp-AppEngine &gt; src &gt; net.pisarenko</code> so it looks like this:</p>
 
-<p><img src="/images/endpoints/deleted.png"></p>
+<p>{% img /images/endpoints/deleted.png %}</p>
 
 <p>By doing this we have deleted the default endpoints provided by the template. Now we&rsquo;ll write our own endpoint. First, it&rsquo;s important to realize that Cloud endpoints operate on POJO objects (basically Java objects with getters and setters) so you can&rsquo;t just send a string or expect a string in return from the back-end. We&rsquo;ll start by defining some simple objects. Let&rsquo;s create one class to represent a request argument and another class for the return value. Create a class <code>MyRequest</code> with the following code:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>MyRequest.java </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@Entity</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyRequest</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">message</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock MyRequest.java lang:java %}
+package net.pisarenko;</p>
+
+<p>import javax.persistence.Entity;</p>
+
+<p>@Entity
+public class MyRequest {</p>
+
+<pre><code>private String message;
+
+public String getMessage() {
+    return message;
+}
+
+public void setMessage(String message) {
+    this.message = message;
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>Note the use of <code>@Entity</code> annotation. And a similar class for the result value:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>MyResult.java </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@Entity</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyResult</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="n">String</span> <span class="n">value</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="nf">MyResult</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="n">String</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setValue</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock MyResult.java lang:java %}
+package net.pisarenko;</p>
+
+<p>import javax.persistence.Entity;</p>
+
+<p>@Entity
+public class MyResult {</p>
+
+<pre><code>private String value;
+
+public MyResult(String value) {
+    this.value = value;
+}
+
+public String getValue() {
+    return value;
+}
+
+public void setValue(String value) {
+    this.value = value;
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>Now let&rsquo;s create a simple endpoint. I&rsquo;ve called it <code>MyEndpoint</code>. Take note of annotations, I believe most of them are self-explanatory:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>MyEndpoint.java </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.api.server.spi.config.Api</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.api.server.spi.config.ApiMethod</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.api.server.spi.config.ApiNamespace</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@Api</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">myendpoint</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="n">namespace</span> <span class="o">=</span> <span class="nd">@ApiNamespace</span><span class="o">(&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">ownerDomain</span> <span class="o">=</span> <span class="s">&quot;pisarenko.net&quot;</span><span class="o">,</span>
-</span><span class='line'><span class="n">ownerName</span> <span class="o">=</span> <span class="s">&quot;pisarenko.net&quot;</span><span class="o">,</span> <span class="n">packagePath</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">))</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyEndpoint</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span>
-</span><span class='line'>    <span class="n">MyEndpoint</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
-</span><span class='line'>
-</span><span class='line'><span class="nd">@ApiMethod</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;compute&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="kd">public</span> <span class="n">MyResult</span> <span class="nf">compute</span><span class="o">(</span><span class="n">MyRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;API CALLED&quot;</span><span class="o">);</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="nf">MyResult</span><span class="o">(</span><span class="s">&quot;HELLO &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock MyEndpoint.java lang:java %}
+package net.pisarenko;</p>
+
+<p>import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiMethod;
+import com.google.api.server.spi.config.ApiNamespace;</p>
+
+<p>import java.util.logging.Logger;</p>
+
+<p>@Api(name = &ldquo;myendpoint&rdquo;, namespace = @ApiNamespace(</p>
+
+<pre><code>ownerDomain = "pisarenko.net",
+ownerName = "pisarenko.net", packagePath = ""))
+</code></pre>
+
+<p>public class MyEndpoint {</p>
+
+<pre><code>private static final Logger log = Logger.getLogger(
+    MyEndpoint.class.getName());
+
+@ApiMethod(name = "compute")
+public MyResult compute(MyRequest req) {
+    log.severe("API CALLED");
+    return new MyResult("HELLO " + req.getMessage());
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>As you see, the API will be exposed under name <code>myendpoint</code> and the endpoint is going to be called <code>compute</code>. The endpoint logs the call, takes the input value and returns a string wrapped into a <code>MyResult</code> POJO.</p>
 
 <p>After you make changes to the back-end you must regenerate client libraries before you run the back-end or try to use new/changed functionality in the client. To regenerate simply right click the back-end project and choose <code>Google &gt; Generate Cloud Endpoint Library</code>:</p>
 
-<p><img src="/images/endpoints/generate.png"></p>
+<p>{% img /images/endpoints/generate.png %}</p>
 
 <h3>API explorer</h3>
 
@@ -922,15 +672,15 @@
 
 <p>First, we&rsquo;ll need to start our back-end locally. Click <code>Run &gt; Run</code>. Unless port 8888 is used on your machine the back-end will start and you&rsquo;ll see output in Eclipse console:</p>
 
-<p><img src="/images/endpoints/appengine.png"></p>
+<p>{% img /images/endpoints/appengine.png %}</p>
 
 <p>Note that I&rsquo;m running my back-end on port 8080 as port 8888 is occupied on my machine for something else. Now, the magic part. Point your browser to <a href="https://developers.google.com/apis-explorer/?base=http://localhost:8888/_ah/api#p/">https://developers.google.com/apis-explorer/?base=http://localhost:8888/_ah/api#p/</a> and you&rsquo;ll see your endpoint magically appearing:</p>
 
-<p><img src="/images/endpoints/api1.png"></p>
+<p>{% img /images/endpoints/api1.png %}</p>
 
 <p>You can make interactive calls to your local back-end right in the explorer and observe the output (again, note that I&rsquo;m using port 8080 and not 8888):</p>
 
-<p><img src="/images/endpoints/api2.png"></p>
+<p>{% img /images/endpoints/api2.png %}</p>
 
 <p>Observe that when you&rsquo;re doing these calls the console output in ADT logs a line <code>API CALLED</code> which confirms that we&rsquo;re executing it! Without API explorer it would be harder to test and develop endpoints. You would need to craft complicated HTTP requests or write a test client.</p>
 
@@ -940,113 +690,62 @@
 
 <p>We&rsquo;ll need to include client IDs that we had generated previously and update our endpoint. Let&rsquo;s create constants for the client IDs. I&rsquo;ll create a separate class called <code>Ids</code>:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Ids.java </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ids</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">WEB_CLIENT_ID</span> <span class="o">=</span>
-</span><span class='line'>        <span class="s">&quot;607077117986.apps.googleusercontent.com&quot;</span><span class="o">;</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ANDROID_CLIENT_ID</span> <span class="o">=</span>
-</span><span class='line'>        <span class="s">&quot;607077117986-vg4219rv8eljhkhq3648j45ov62vran1.apps.googleusercontent.com&quot;</span><span class="o">;</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ANDROID_AUDIENCE</span> <span class="o">=</span> <span class="n">WEB_CLIENT_ID</span><span class="o">;</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock Ids.java lang:java %}
+package net.pisarenko;</p>
+
+<p>public class Ids {</p>
+
+<pre><code>public static final String WEB_CLIENT_ID =
+        "607077117986.apps.googleusercontent.com";                     
+public static final String ANDROID_CLIENT_ID =
+        "607077117986-vg4219rv8eljhkhq3648j45ov62vran1.apps.googleusercontent.com";                                                                                                  
+public static final String ANDROID_AUDIENCE = WEB_CLIENT_ID;                                
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>Remember, these are the same IDs that we previously got from the cloud console. Next, we need to update the endpoint code to use authentication:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>MyEndpoint.java(updated) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.api.server.spi.config.Api</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.api.server.spi.config.ApiMethod</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.api.server.spi.config.ApiNamespace</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.users.User</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">static</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">spi</span><span class="o">.</span><span class="na">Constant</span><span class="o">.</span><span class="na">API_EXPLORER_CLIENT_ID</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@Api</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">myendpoint</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="n">namespace</span> <span class="o">=</span> <span class="nd">@ApiNamespace</span><span class="o">(</span><span class="n">ownerDomain</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">pisarenko</span><span class="o">.</span><span class="na">net</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="n">ownerName</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">pisarenko</span><span class="o">.</span><span class="na">net</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="n">packagePath</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;&amp;</span><span class="n">rdquo</span><span class="o">;))</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyEndpoint</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">MyEndpoint</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
-</span><span class='line'>
-</span><span class='line'><span class="nd">@ApiMethod</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;compute&quot;</span><span class="o">,</span>
-</span><span class='line'>        <span class="n">clientIds</span> <span class="o">=</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">Ids</span><span class="o">.</span><span class="na">WEB_CLIENT_ID</span><span class="o">,</span>
-</span><span class='line'>            <span class="n">Ids</span><span class="o">.</span><span class="na">ANDROID_CLIENT_ID</span><span class="o">,</span>
-</span><span class='line'>            <span class="n">API_EXPLORER_CLIENT_ID</span> <span class="o">},</span>
-</span><span class='line'>        <span class="n">audiences</span> <span class="o">=</span> <span class="o">{</span> <span class="n">Ids</span><span class="o">.</span><span class="na">WEB_CLIENT_ID</span><span class="o">,</span> <span class="n">Ids</span><span class="o">.</span><span class="na">ANDROID_CLIENT_ID</span> <span class="o">},</span>
-</span><span class='line'>        <span class="n">scopes</span> <span class="o">=</span> <span class="o">{</span>
-</span><span class='line'>            <span class="s">&quot;https://www.googleapis.com/auth/userinfo.email&quot;</span><span class="o">,</span>
-</span><span class='line'>            <span class="s">&quot;https://www.googleapis.com/auth/userinfo.profile&quot;</span> <span class="o">})</span>
-</span><span class='line'><span class="kd">public</span> <span class="n">MyResult</span> <span class="nf">compute</span><span class="o">(</span><span class="n">MyRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;CALLING&quot;</span><span class="o">);</span>
-</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">user</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">MyResult</span><span class="o">(</span><span class="s">&quot;HELLO &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-</span><span class='line'>    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">MyResult</span><span class="o">(</span><span class="s">&quot;HELLO &quot;</span> <span class="o">+</span> <span class="n">user</span><span class="o">.</span><span class="na">getEmail</span><span class="o">());</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock MyEndpoint.java(updated) lang:java %}</p>
+
+<p>package net.pisarenko;</p>
+
+<p>import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiMethod;
+import com.google.api.server.spi.config.ApiNamespace;
+import com.google.appengine.api.users.User;</p>
+
+<p>import static com.google.api.server.spi.Constant.API_EXPLORER_CLIENT_ID;</p>
+
+<p>import java.util.logging.Logger;</p>
+
+<p>@Api(name = &ldquo;myendpoint&rdquo;, namespace = @ApiNamespace(ownerDomain = &ldquo;pisarenko.net&rdquo;, ownerName = &ldquo;pisarenko.net&rdquo;, packagePath = &ldquo;&rdquo;))
+public class MyEndpoint {</p>
+
+<pre><code>private static final Logger log = Logger.getLogger(MyEndpoint.class.getName());
+
+@ApiMethod(name = "compute",
+        clientIds = {
+            Ids.WEB_CLIENT_ID,
+            Ids.ANDROID_CLIENT_ID,
+            API_EXPLORER_CLIENT_ID },
+        audiences = { Ids.WEB_CLIENT_ID, Ids.ANDROID_CLIENT_ID },
+        scopes = {
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://www.googleapis.com/auth/userinfo.profile" })
+public MyResult compute(MyRequest req, User user) {
+    log.severe("CALLING");
+    if (user == null) {
+        return new MyResult("HELLO " + req.getMessage());
+    } else {
+        return new MyResult("HELLO " + user.getEmail());            
+    }
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>Observe what we have introduced:</p>
 
@@ -1062,13 +761,13 @@
 
 <p>Then, click the <code>Authorize requests using OAuth 2.0</code> button on the right of the API explorer. You&rsquo;ll be present with the following dialog:</p>
 
-<p><img src="/images/endpoints/scopes.png"></p>
+<p>{% img /images/endpoints/scopes.png %}</p>
 
 <p>Select both scopes and click <code>Authorize</code>. This basically means that you grant your own back-end to access certain information from your Google account. Another dialog might appear asking whether you grant access or not. Allow it.</p>
 
 <p>Do another call again. Notice that the return value is different this time. Your e-mail is now returned! Well, in the case of API explorer the value will always be <code>example@example.com</code>:</p>
 
-<p><img src="/images/endpoints/scopes2.png"></p>
+<p>{% img /images/endpoints/scopes2.png %}</p>
 
 <p>Nevertheless, realize that we now have a fully functioning back-end that is authenticated with OAuth2! And we&rsquo;re running the back-end locally and accessing it through API explorer. Let&rsquo;s get our Android app working.</p>
 
@@ -1078,7 +777,7 @@
 
 <p>First, we&rsquo;ll create a virtual Android device on which we&rsquo;ll run our app. Open virtual device manager by clicking <code>Window &gt; Android Virtual Device Manager</code>. You can choose any name you want. It is important to choose target as <code>Google APIs</code>. If you don&rsquo;t see such option you need to make sure that you have installed Google APIs and Play services. Re-read this guide and possibly restart ADT. Here are some example settings:</p>
 
-<p><img src="/images/endpoints/virtual.png"></p>
+<p>{% img /images/endpoints/virtual.png %}</p>
 
 <p>Once the device is created start it by selecting it from the device manager and pressing <code>Start...</code>. It takes a while to start it even on a relatively powerful computer. Usually, the emulator is not fast.</p>
 
@@ -1088,48 +787,30 @@
 
 <p>Right click the Android app project and choose <code>Properties</code>. Then, navigate to <code>Android</code>. You will need to set the build target as <code>Google APIs</code> and add the <code>google-play-services_lib</code> library:</p>
 
-<p><img src="/images/endpoints/libs.png"></p>
+<p>{% img /images/endpoints/libs.png %}</p>
 
 <h3>Delete template code</h3>
 
 <p>We will delete some of the template code similarly to what we have done with the back-end. Delete classes <code>GCMIntentService.java</code> and <code>RegisterActivity.java</code>. Then, delete code from <code>MainActivity.java</code> so it looks like this:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>MainActivity.java </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="nd">@Override</span>
-</span><span class='line'><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock MainActivity.java lang:java %}</p>
+
+<p>package net.pisarenko;</p>
+
+<p>import android.os.Bundle;
+import android.app.Activity;</p>
+
+<p>public class MainActivity extends Activity {</p>
+
+<pre><code>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>Delete the file <code>activity_register.xml</code> from <code>res/layout</code> folder. At this point we have an app which shows <code>Hello world!</code> when started. Nevertheless, let&rsquo;s confirm that it&rsquo;s working by clicking <code>Run &gt; Run As &gt; Android Application</code>. Make sure that the Android project is selected.</p>
 
@@ -1139,7 +820,7 @@
 
 <p>First, let&rsquo;s add a button. Double click on <code>res/layout/activity_main.xml</code>. You&rsquo;ll be presented with the graphical UI editor for the app&rsquo;s default (and, in our case, only) screen. Drag a button from the left panel somewhere on the screen and save the result:</p>
 
-<p><img src="/images/endpoints/button.png"></p>
+<p>{% img /images/endpoints/button.png %}</p>
 
 <p>If you double-click the button you will be shown the underlying XML code for the user interface. You&rsquo;ll see that the button is given ID <code>button1</code>. We&rsquo;ll need this to execute a custom action when the button is pressed.</p>
 
@@ -1147,222 +828,115 @@
 
 <p>Open <code>MainActivity.java</code> and put the following code in:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>MainActivity.java(updated) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.api.client.extensions.android.http.AndroidHttp</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.api.client.json.jackson.JacksonFactory</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">net.pisarenko.myendpoint.Myendpoint</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">net.pisarenko.myendpoint.model.MyRequest</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">net.pisarenko.myendpoint.model.MyResult</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.os.AsyncTask</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.widget.Button</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.view.View.OnClickListener</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.accounts.AccountManager</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="n">Myendpoint</span> <span class="n">endpoint</span><span class="o">;</span>
-</span><span class='line'><span class="kd">private</span> <span class="n">GoogleAccountCredential</span> <span class="n">credential</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">REQUEST_ACCOUNT_PICKER</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-</span><span class='line'><span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">WEB_CLIENT_ID</span> <span class="o">=</span> <span class="s">&quot;607077117986.apps.googleusercontent.com&quot;</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nd">@Override</span>
-</span><span class='line'><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">credential</span> <span class="o">=</span> <span class="n">GoogleAccountCredential</span><span class="o">.</span><span class="na">usingAudience</span><span class="o">(</span><span class="k">this</span><span class="o">,</span>
-</span><span class='line'>            <span class="s">&quot;server:client_id:&quot;</span> <span class="o">+</span> <span class="n">WEB_CLIENT_ID</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">chooseAccount</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">Myendpoint</span><span class="o">.</span><span class="na">Builder</span> <span class="n">endpointBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Myendpoint</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span>
-</span><span class='line'>        <span class="n">AndroidHttp</span><span class="o">.</span><span class="na">newCompatibleTransport</span><span class="o">(),</span>
-</span><span class='line'>        <span class="k">new</span> <span class="nf">JacksonFactory</span><span class="o">(),</span>
-</span><span class='line'>        <span class="n">credential</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">endpoint</span> <span class="o">=</span> <span class="n">CloudEndpointUtils</span><span class="o">.</span><span class="na">updateBuilder</span><span class="o">(</span><span class="n">endpointBuilder</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">Button</span> <span class="n">button</span> <span class="o">=</span> <span class="o">(</span><span class="n">Button</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">button1</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">button</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">new</span> <span class="n">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">new</span> <span class="nf">DoSomethingAsync</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">endpoint</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">});</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nd">@Override</span>
-</span><span class='line'><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onActivityResult</span><span class="o">(</span><span class="n">requestCode</span><span class="o">,</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">data</span><span class="o">);</span>
-</span><span class='line'>    <span class="k">switch</span> <span class="o">(</span><span class="n">requestCode</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">case</span> <span class="nl">REQUEST_ACCOUNT_PICKER:</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">data</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">data</span><span class="o">.</span><span class="na">getExtras</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">String</span> <span class="n">accountName</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span>
-</span><span class='line'>                    <span class="n">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_NAME</span><span class="o">);</span>
-</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">accountName</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="n">credential</span><span class="o">.</span><span class="na">setSelectedAccountName</span><span class="o">(</span><span class="n">accountName</span><span class="o">);</span>
-</span><span class='line'>                <span class="c1">// User is authorized.</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="k">break</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">private</span> <span class="kt">void</span> <span class="nf">chooseAccount</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">startActivityForResult</span><span class="o">(</span><span class="n">credential</span><span class="o">.</span><span class="na">newChooseAccountIntent</span><span class="o">(),</span>
-</span><span class='line'>            <span class="n">REQUEST_ACCOUNT_PICKER</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">private</span> <span class="kd">class</span> <span class="nc">DoSomethingAsync</span> <span class="kd">extends</span> <span class="n">AsyncTask</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Void</span><span class="o">,</span> <span class="n">Void</span><span class="o">,</span> <span class="n">MyResult</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Myendpoint</span> <span class="n">endpoint</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">DoSomethingAsync</span><span class="o">(</span><span class="n">OnClickListener</span> <span class="n">onClickListener</span><span class="o">,</span>
-</span><span class='line'>            <span class="n">Myendpoint</span> <span class="n">endpoint</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">endpoint</span> <span class="o">=</span> <span class="n">endpoint</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">protected</span> <span class="n">MyResult</span> <span class="nf">doInBackground</span><span class="o">(</span><span class="n">Void</span><span class="o">...</span> <span class="n">params</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">try</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">MyRequest</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyRequest</span><span class="o">();</span>
-</span><span class='line'>            <span class="n">r</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">&quot;Tesla&quot;</span><span class="o">);</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">endpoint</span><span class="o">.</span><span class="na">compute</span><span class="o">(</span><span class="n">r</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
-</span><span class='line'>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-</span><span class='line'>            <span class="n">MyResult</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyResult</span><span class="o">();</span>
-</span><span class='line'>            <span class="n">r</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">&quot;EXCEPTION&quot;</span><span class="o">);</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">r</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPostExecute</span><span class="o">(</span><span class="n">MyResult</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">TextView</span> <span class="n">t</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">textView1</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">t</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock MainActivity.java(updated) lang:java %}
+package net.pisarenko;</p>
+
+<p>import java.io.IOException;</p>
+
+<p>import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.json.jackson.JacksonFactory;</p>
+
+<p>import net.pisarenko.myendpoint.Myendpoint;
+import net.pisarenko.myendpoint.model.MyRequest;
+import net.pisarenko.myendpoint.model.MyResult;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
+import android.accounts.AccountManager;
+import android.app.Activity;
+import android.content.Intent;</p>
+
+<p>public class MainActivity extends Activity {</p>
+
+<pre><code>private Myendpoint endpoint;
+private GoogleAccountCredential credential;
+
+static final int REQUEST_ACCOUNT_PICKER = 2;
+static final String WEB_CLIENT_ID = "607077117986.apps.googleusercontent.com";
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    credential = GoogleAccountCredential.usingAudience(this,
+            "server:client_id:" + WEB_CLIENT_ID);
+
+    chooseAccount();
+
+    Myendpoint.Builder endpointBuilder = new Myendpoint.Builder(
+        AndroidHttp.newCompatibleTransport(),
+        new JacksonFactory(),
+        credential);
+    endpoint = CloudEndpointUtils.updateBuilder(endpointBuilder).build();
+
+    Button button = (Button) findViewById(R.id.button1);
+
+    button.setOnClickListener(new OnClickListener() {
+        public void onClick(View v) {
+            new DoSomethingAsync(this, endpoint).execute();
+        }
+    });
+}
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    switch (requestCode) {
+    case REQUEST_ACCOUNT_PICKER:
+        if (data != null &amp;&amp; data.getExtras() != null) {
+            String accountName = data.getExtras().getString(
+                    AccountManager.KEY_ACCOUNT_NAME);
+            if (accountName != null) {
+                credential.setSelectedAccountName(accountName);
+                // User is authorized.
+            }
+        }
+        break;
+    }
+}
+
+private void chooseAccount() {
+    startActivityForResult(credential.newChooseAccountIntent(),
+            REQUEST_ACCOUNT_PICKER);
+}
+
+private class DoSomethingAsync extends AsyncTask&lt;Void, Void, MyResult&gt; {
+    private Myendpoint endpoint;
+
+    public DoSomethingAsync(OnClickListener onClickListener,
+            Myendpoint endpoint) {
+        this.endpoint = endpoint;
+    }
+
+    @Override
+    protected MyResult doInBackground(Void... params) {
+        try {
+            MyRequest r = new MyRequest();
+            r.setMessage("Tesla");
+            return endpoint.compute(r).execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+            MyResult r = new MyResult();
+            r.setValue("EXCEPTION");
+            return r;
+        }
+    }
+
+    @Override
+    protected void onPostExecute(MyResult r) {
+        TextView t = (TextView) findViewById(R.id.textView1);
+        t.setText(r.getValue());
+    }
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>OK, there are quite some things going on. We include the web client ID as static field (<code>WEB_CLIENT_ID</code>). Note that it&rsquo;s the same value we got from the cloud console.</p>
 
