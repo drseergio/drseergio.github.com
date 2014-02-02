@@ -70,6 +70,8 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/news-sources">News sources</a></li>
+  <li><a href="http://www.flickr.com/photos/68217075@N08/">Photo gallery</a></li>
+  <li><a href="/about">About</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
@@ -157,8 +159,8 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://drseergio.github.io/blog/2013/10/21/why-write-at-all/" data-via="" data-counturl="http://drseergio.github.io/blog/2013/10/21/why-write-at-all/" >Tweet</a>
   
+  <div class="g-plusone" data-size="medium"></div>
   
   
 </div>
@@ -212,44 +214,16 @@
   </ul>
 </section>
 
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/drseergio">@drseergio</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'drseergio',
-            count: 3,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+SergeyBelkin?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
 </section>
 
 
-
-
-<section>
-  <h1>More</h1>
-  <p>When I'm not too irritated with tourists I take photos and post them to <a href="http://www.flickr.com/photos/68217075@N08/">flickr.com</a>. Sometimes, someone even takes a picture of me!</p>
-  <p>On rare occasions I produce videos and publish them under my <a href="https://www.youtube.com/user/koshukeman/videos">YouTube profile</a>.</p>
-  <p>You can find out what I'm reading by following my <a href="https://www.goodreads.com/user/show/5111037-sergey">Goodreads profile</a>.</p>
-</section>
 
   
 </aside>
@@ -285,17 +259,15 @@
 
 
 
-
-
   <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
     })();
   </script>
+
+
 
 
 
