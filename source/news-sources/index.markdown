@@ -2,8 +2,8 @@
 layout: page
 title: "News sources"
 date: 2013-11-26 23:15
-comments: true
-sharing: true
+comments: false
+sharing: false
 footer: true
 ---
 
@@ -11,7 +11,9 @@ I find it difficult to find quality sources of news, thought provoking essays an
 
 I hope you discover something new. I know my search is not over. I'd like to know what are your most valued sources.
 
-Last updated on: **2013-12-25**.
+Reading books is another joy of mine. You can find out what I'm reading by following my [Goodreads profile](https://www.goodreads.com/user/show/5111037-sergey).
+
+Last updated on: **2014-02-02**.
 
 ## Fueling curiosity
 
@@ -25,7 +27,7 @@ Last updated on: **2013-12-25**.
 
  * [Aeon film](http://aeon.co/film/) - Aeon Film screens contemporary and classic short documentaries, exploring the intersections between nature, culture and ideas.
 
- * [Dan Ariely](http://danariely.com/feed/) - blog of a well known behavioral economics researcher and the author of "Predictably irrational".
+ * [Jacobin magazine](https://www.jacobinmag.com) - Jacobin is a leading voice of the American left, offering socialist perspectives on politics, economics, and culture.
 
  * [Derek Sivers](http://sivers.org/en.atom) - blog of the creator of CD baby.
 
@@ -66,5 +68,7 @@ Last updated on: **2013-12-25**.
 ## Purged/deprecated
 
 At some point I have been subscribed to the feeds below but I no longer follow them:
+
+ * [Dan Ariely](http://danariely.com/feed/) - <strike>blog of a well known behavioral economics researcher and the author of "Predictably irrational".</strike>
 
  * [Habrahabr](http://habrahabr.ru/) - <strike>(in Russian) an online tech-oriented community/aggregator. Most of the articles are written from scratch, rather than republished. I had to spent considerable amount of time unsubscribing from different channels to bring volume down to a manageable level. But apart from that inconvenience there is lots of interesting material that is not published in any other source that I read.</strike> Too much material to subscribe to. Might return to it if I find a narrow niche.
