@@ -4,7 +4,7 @@
   <title><![CDATA[Category: photo | Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/blog/categories/photo/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2014-02-07T19:01:46+00:00</updated>
+  <updated>2014-03-01T07:50:17+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -20,7 +20,7 @@
     <id>http://drseergio.github.io/blog/2014/02/07/sinister-camper</id>
     <content type="html"><![CDATA[<p>This sinister camper is found terrorizing streets of Zürich:</p>
 
-<p><a href="http://www.flickr.com/photos/tentaclephotos/12368177534"><img src="http://farm3.staticflickr.com/2848/12368177534_2be25b6943_c.jpg" width="800"></a></p>
+<p><a href="http://www.flickr.com/photos/tentaclephotos/12368177534">{% img http://farm3.staticflickr.com/2848/12368177534_2be25b6943_c.jpg 800 %}</a></p>
 ]]></content>
   </entry>
   
@@ -37,17 +37,17 @@
 
 <p>I love trains. It turns out that I love making pictures of them too! I suspect that together with landscapes and abandoned places trains are my favorite subjects.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12248701365"><img src="http://farm3.staticflickr.com/2862/12248701365_0cff763be3_c.jpg" width="800"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12248701365">{% img http://farm3.staticflickr.com/2862/12248701365_0cff763be3_c.jpg 800 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12248668105"><img src="http://farm8.staticflickr.com/7305/12248668105_ab33bde7be_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12248850553"><img src="http://farm6.staticflickr.com/5485/12248850553_2167955d74_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12248671175"><img src="http://farm4.staticflickr.com/3800/12248671175_349365dcb4_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12248664195"><img src="http://farm6.staticflickr.com/5506/12248664195_5d66f5709d_q.jpg" width="150"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12248668105">{% img http://farm8.staticflickr.com/7305/12248668105_ab33bde7be_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12248850553">{% img http://farm6.staticflickr.com/5485/12248850553_2167955d74_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12248671175">{% img http://farm4.staticflickr.com/3800/12248671175_349365dcb4_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12248664195">{% img http://farm6.staticflickr.com/5506/12248664195_5d66f5709d_q.jpg 150 %}</a></p>
 
 <p>I have asked a colleague to provide a map with markers to local trainspotting places. On a Saturday morning I packed the gear and went walking along one of the major lines.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12248656935"><img src="http://farm4.staticflickr.com/3738/12248656935_7a8f7bf725_z.jpg" width="640"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12248656935">{% img http://farm4.staticflickr.com/3738/12248656935_7a8f7bf725_z.jpg 640 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12249263096"><img src="http://farm4.staticflickr.com/3781/12249263096_f822922ec8_z.jpg" width="640"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12249263096">{% img http://farm4.staticflickr.com/3781/12249263096_f822922ec8_z.jpg 640 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12249122624"><img src="http://farm8.staticflickr.com/7344/12249122624_b9421dfc87_z.jpg" width="640"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12249122624">{% img http://farm8.staticflickr.com/7344/12249122624_b9421dfc87_z.jpg 640 %}</a></p>
 
 <p>I did not feel safe. Everywhere I found signs saying that trespassing is illegal and that BNSF police is going to arrest me. I was careful not to cross any legal lines. I wish I could get closer.</p>
 
@@ -55,9 +55,9 @@
 
 <p>For the second project I took pictures of clocks I could find in our Seattle office. The building screams with interesting art objects and decorations.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12249639094"><img src="http://farm8.staticflickr.com/7434/12249639094_a5c66cc3f1_c.jpg" width="800"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12249639094">{% img http://farm8.staticflickr.com/7434/12249639094_a5c66cc3f1_c.jpg 800 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12249204355"><img src="http://farm4.staticflickr.com/3712/12249204355_6ff341e06a_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12249636794"><img src="http://farm4.staticflickr.com/3788/12249636794_2551b0ca0f_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12249643254"><img src="http://farm3.staticflickr.com/2877/12249643254_7bdaa8e9f8_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12249768446"><img src="http://farm8.staticflickr.com/7340/12249768446_2c87c64358_q.jpg" width="150"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12249204355">{% img http://farm4.staticflickr.com/3712/12249204355_6ff341e06a_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12249636794">{% img http://farm4.staticflickr.com/3788/12249636794_2551b0ca0f_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12249643254">{% img http://farm3.staticflickr.com/2877/12249643254_7bdaa8e9f8_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12249768446">{% img http://farm8.staticflickr.com/7340/12249768446_2c87c64358_q.jpg 150 %}</a></p>
 ]]></content>
   </entry>
   
@@ -68,13 +68,13 @@
     <id>http://drseergio.github.io/blog/2014/02/02/photo-report-essential-seattle</id>
     <content type="html"><![CDATA[<p>Visiting Seattle for the first time has been an unexpectedly pleasant experience.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12253777934"><img src="http://farm3.staticflickr.com/2872/12253777934_0750e120d5_c.jpg" width="800"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12253777934">{% img http://farm3.staticflickr.com/2872/12253777934_0750e120d5_c.jpg 800 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12253417785"><img src="http://farm8.staticflickr.com/7454/12253417785_76421992d7_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12253405445"><img src="http://farm4.staticflickr.com/3827/12253405445_43dab938b7_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12253615903"><img src="http://farm6.staticflickr.com/5544/12253615903_406075b80b_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12253957076"><img src="http://farm8.staticflickr.com/7290/12253957076_c1ef14bef8_q.jpg" width="150"></a> <a href="http://www.flickr.com/photos/68217075@N08/12253774264"><img src="http://farm4.staticflickr.com/3771/12253774264_64d3b09a4b_q.jpg" width="150"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12253417785">{% img http://farm8.staticflickr.com/7454/12253417785_76421992d7_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12253405445">{% img http://farm4.staticflickr.com/3827/12253405445_43dab938b7_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12253615903">{% img http://farm6.staticflickr.com/5544/12253615903_406075b80b_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12253957076">{% img http://farm8.staticflickr.com/7290/12253957076_c1ef14bef8_q.jpg 150 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12253774264">{% img http://farm4.staticflickr.com/3771/12253774264_64d3b09a4b_q.jpg 150 %}</a></p>
 
 <p>The city is walkable and has great infrastructure. I found bike lanes everywhere and public transport. It&rsquo;s the first US city that I find appealing.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12253560863"><img src="http://farm4.staticflickr.com/3683/12253560863_26b1f97b32_n.jpg" width="320"></a> <a href="http://www.flickr.com/photos/68217075@N08/12253790984"><img src="http://farm6.staticflickr.com/5522/12253790984_1cac831c33_n.jpg" width="320"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/12253560863">{% img http://farm4.staticflickr.com/3683/12253560863_26b1f97b32_n.jpg 320 %}</a> <a href="http://www.flickr.com/photos/68217075@N08/12253790984">{% img http://farm6.staticflickr.com/5522/12253790984_1cac831c33_n.jpg 320 %}</a></p>
 ]]></content>
   </entry>
   
@@ -87,47 +87,47 @@
 
 <p>Leaving from train station in Zurich:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11675156726"><img src="http://farm6.staticflickr.com/5501/11675156726_f2a46a740e.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11675156726">{% img http://farm6.staticflickr.com/5501/11675156726_f2a46a740e.jpg 500 %}</a></p>
 
 <p>Arriving at the hotel in Leukerbad:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674144615"><img src="http://farm8.staticflickr.com/7445/11674144615_7ab8639d70.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674144615">{% img http://farm8.staticflickr.com/7445/11674144615_7ab8639d70.jpg 500 %}</a></p>
 
 <p>Downtown Leukerbad:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674519814"><img src="http://farm6.staticflickr.com/5494/11674519814_43cee99fd0.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674519814">{% img http://farm6.staticflickr.com/5494/11674519814_43cee99fd0.jpg 500 %}</a></p>
 
 <p>Fooling around in the evening:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11672626495"><img src="http://farm4.staticflickr.com/3750/11672626495_582b6d12ef.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11672626495">{% img http://farm4.staticflickr.com/3750/11672626495_582b6d12ef.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673004054"><img src="http://farm6.staticflickr.com/5518/11673004054_f9394970c3.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673004054">{% img http://farm6.staticflickr.com/5518/11673004054_f9394970c3.jpg 500 %}</a></p>
 
 <p>Outdoor swimming pool with hot spring water:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674540723"><img src="http://farm4.staticflickr.com/3743/11674540723_90a615bc53.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674540723">{% img http://farm4.staticflickr.com/3743/11674540723_90a615bc53.jpg 500 %}</a></p>
 
 <p>Going up and snowshoeing:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673853326"><img src="http://farm6.staticflickr.com/5519/11673853326_388807ef2f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673853326">{% img http://farm6.staticflickr.com/5519/11673853326_388807ef2f.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673333583"><img src="http://farm4.staticflickr.com/3761/11673333583_f61f4317c5.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673333583">{% img http://farm4.staticflickr.com/3761/11673333583_f61f4317c5.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673865836"><img src="http://farm6.staticflickr.com/5486/11673865836_5462f58cd3.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673865836">{% img http://farm6.staticflickr.com/5486/11673865836_5462f58cd3.jpg 500 %}</a></p>
 
 <p>In the middle of the route my wife had a minor panic attack and was angry until we got back:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673331123"><img src="http://farm4.staticflickr.com/3738/11673331123_02cb800b4a.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673331123">{% img http://farm4.staticflickr.com/3738/11673331123_02cb800b4a.jpg 500 %}</a></p>
 
 <p>Enjoying town:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11672899003"><img src="http://farm6.staticflickr.com/5493/11672899003_32358a12be.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11672899003">{% img http://farm6.staticflickr.com/5493/11672899003_32358a12be.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11673430976"><img src="http://farm3.staticflickr.com/2814/11673430976_4a5c765e77.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11673430976">{% img http://farm3.staticflickr.com/2814/11673430976_4a5c765e77.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674156605"><img src="http://farm6.staticflickr.com/5518/11674156605_1b011324da.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674156605">{% img http://farm6.staticflickr.com/5518/11674156605_1b011324da.jpg 500 %}</a></p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11674529694"><img src="http://farm8.staticflickr.com/7370/11674529694_45ec755a2d.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11674529694">{% img http://farm8.staticflickr.com/7370/11674529694_45ec755a2d.jpg 500 %}</a></p>
 
 <h2>GPS track</h2>
 
@@ -146,11 +146,11 @@
     <id>http://drseergio.github.io/blog/2013/12/14/matt-and-jessica</id>
     <content type="html"><![CDATA[<p>The title says it all. Matt:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11371591986/"><img src="http://farm8.staticflickr.com/7353/11371591986_4e05a91d8f.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11371591986/">{% img http://farm8.staticflickr.com/7353/11371591986_4e05a91d8f.jpg 500 %}</a></p>
 
 <p>And Jessica:</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/11371555715/"><img src="http://farm6.staticflickr.com/5516/11371555715_be88a80d8a.jpg" width="500"></a></p>
+<p><a href="http://www.flickr.com/photos/68217075@N08/11371555715/">{% img http://farm6.staticflickr.com/5516/11371555715_be88a80d8a.jpg 500 %}</a></p>
 ]]></content>
   </entry>
   
