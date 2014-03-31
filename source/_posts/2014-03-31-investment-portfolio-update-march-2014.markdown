@@ -1,18 +1,18 @@
 ---
 layout: post
-title: "Investment portfolio update February 2014"
-date: 2014-03-01 07:44
+title: "Investment portfolio update March 2014"
+date: 2014-03-31 17:06
 comments: true
 categories: investments
 ---
 
-### February's update
+### March update
 
-As of **2014-02-28** the best performing instruments are:
+As of **2014-03-31** the best performing instruments are:
 
 {% codeblock %}
-     VBK      VBR      VTV
-16.14136 14.18598 10.67624
+     VTV      VBR      VBK
+9.185716 8.977934 6.721709
 {% endcodeblock %}
 
 No changes to positions since last month.
@@ -20,13 +20,13 @@ No changes to positions since last month.
 We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:
 
 {% codeblock %}
-  VBK  VBR  VTV
+  VTV  VBR  VBK
 TRUE TRUE TRUE
 {% endcodeblock %}
 
 This means portfolio should be fully invested in **VBK**, **VBR**, **VTV**.
 
-As of **2014-02-28** the calculated returns for each instrument are presented below(*):
+As of **2014-03-31** the calculated returns for each instrument are presented below(*):
 
 {% codeblock %}
 symbol        1          3          6           12           avg
