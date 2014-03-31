@@ -4,7 +4,7 @@
   <title><![CDATA[Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2014-03-01T07:49:33+00:00</updated>
+  <updated>2014-03-31T17:13:45+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Investment portfolio update March 2014]]></title>
+    <link href="http://drseergio.github.io/blog/2014/03/31/investment-portfolio-update-march-2014/"/>
+    <updated>2014-03-31T17:06:00+00:00</updated>
+    <id>http://drseergio.github.io/blog/2014/03/31/investment-portfolio-update-march-2014</id>
+    <content type="html"><![CDATA[<h3>March update</h3>
+
+<p>As of <strong>2014-03-31</strong> the best performing instruments are:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VTV      VBR      VBK
+</span><span class='line'>9.185716 8.977934 6.721709</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No changes to positions since last month.</p>
+
+<p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VTV  VBR  VBK
+</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
+
+<p>As of <strong>2014-03-31</strong> the calculated returns for each instrument are presented below(*):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
+</span><span class='line'>VTV   1.73547200  1.855995788 12.2262509  20.9251446  9.18571581
+</span><span class='line'>VBR  -0.34225891  1.694915254 11.7759964  22.7830832  8.97793399
+</span><span class='line'>VBK  -3.79258793 -0.008177952  7.5184664  23.1691347  6.72170880
+</span><span class='line'>MTUM -4.53819112 -0.483091787 11.2683926  18.6258936  6.21825082
+</span><span class='line'>VEA  -0.91743119 -0.484966052  5.3658537  16.7235495  5.17175148
+</span><span class='line'>VNQ  -0.34153978  9.183037106  8.2380216   3.4111045  5.12265588
+</span><span class='line'>IGOV  0.20443925  2.971188475  3.1672848   4.6887714  2.75792096
+</span><span class='line'>VGLT  0.88326218  7.666928515  4.0382572  -4.0599188  2.13213227
+</span><span class='line'>VCIT -0.14120970  3.160709944  3.8169807   0.6881822  1.88116579
+</span><span class='line'>GSG  -0.03031222  2.454178316  1.8529957   0.2431611  1.13000572
+</span><span class='line'>VWO   3.84119618 -1.827930782  1.1806079  -3.2660903 -0.01805425
+</span><span class='line'>VGIT -0.73737057  1.264404609  0.2058917  -1.7546584 -0.25543317
+</span><span class='line'>IAU  -2.49027237  7.277397260 -2.7928627 -19.2654639 -4.31780043</span></code></pre></td></tr></table></div></figure>
+
+
+<p>* Instruments that have insufficient data are penalized with large negative returns.</p>
+
+<h3>Resources</h3>
+
+<ul>
+<li><p><a href="http://drseergio.github.io/blog/2013/10/30/investment-portfolio-update-october-2013/">Original post explaining this strategy</a></p></li>
+<li><p><a href="http://investingforaliving.wordpress.com/">Investing for a living blog</a></p></li>
+<li><p><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai0xPgGdCts3dEhZVUVXTFQtOEdsRUYwSmRLN3M0NHc&amp;usp=sharing#gid=1">Alternative Ivy Portfolio tracking spreadsheet</a></p></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Investment portfolio update February 2014]]></title>
@@ -57,22 +129,20 @@
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
-</span><span class='line'>VBK  5.1364764  6.5375911 18.639164   34.2522180   16.1413623
-</span><span class='line'>VBR  4.9651384  4.8543689 18.102936   28.8214702   14.1859784
-</span><span class='line'>VTV  3.9690091  2.2320235 12.833751   23.6701698   10.6762384
-</span><span class='line'>VEA  5.9478613  2.3471883 14.653520   19.1913440   10.5349783
-</span><span class='line'>VNQ  5.0653595  9.6759187 12.394724    6.7461515    8.4705385
-</span><span class='line'>IGOV 2.2063208  2.6859710  5.933251    3.9838220    3.7023412
-</span><span class='line'>VCIT 1.2357414  2.7992278  5.445545    1.2116892    2.6730508
-</span><span class='line'>GSG  4.7966963  3.8727960 -1.669151    1.3829133    2.0958138
-</span><span class='line'>VGLT 0.5016969  4.5754645  3.447752   -5.0069735    0.8794850
-</span><span class='line'>VGIT 0.2986013  0.5356018  2.226494   -0.8544353    0.5515654
-</span><span class='line'>VWO  3.2386514 -5.7440620  4.514915   -8.0397257   -1.5075552
-</span><span class='line'>IAU  6.4623032  5.9356966 -5.025868  -16.3955758   -2.2558611
-</span><span class='line'>MTUM 6.7189632  7.0475539 20.069071 -999.0000000 -241.2911029</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>VTV   1.73547200  1.855995788 12.2262509  20.9251446  9.18571581
+</span><span class='line'>VBR  -0.34225891  1.694915254 11.7759964  22.7830832  8.97793399
+</span><span class='line'>VBK  -3.79258793 -0.008177952  7.5184664  23.1691347  6.72170880
+</span><span class='line'>MTUM -4.53819112 -0.483091787 11.2683926  18.6258936  6.21825082
+</span><span class='line'>VEA  -0.91743119 -0.484966052  5.3658537  16.7235495  5.17175148
+</span><span class='line'>VNQ  -0.34153978  9.183037106  8.2380216   3.4111045  5.12265588
+</span><span class='line'>IGOV  0.20443925  2.971188475  3.1672848   4.6887714  2.75792096
+</span><span class='line'>VGLT  0.88326218  7.666928515  4.0382572  -4.0599188  2.13213227
+</span><span class='line'>VCIT -0.14120970  3.160709944  3.8169807   0.6881822  1.88116579
+</span><span class='line'>GSG  -0.03031222  2.454178316  1.8529957   0.2431611  1.13000572
+</span><span class='line'>VWO   3.84119618 -1.827930782  1.1806079  -3.2660903 -0.01805425
+</span><span class='line'>VGIT -0.73737057  1.264404609  0.2058917  -1.7546584 -0.25543317
+</span><span class='line'>IAU  -2.49027237  7.277397260 -2.7928627 -19.2654639 -4.31780043</span></code></pre></td></tr></table></div></figure>
 
-
-<p>No changes to positions.</p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
@@ -738,37 +808,6 @@
 <ul>
 <li><p><a href="http://www.flickr.com/photos/68217075@N08/sets/72157637918523355/">Color photos</a></p></li>
 <li><p><a href="http://www.flickr.com/photos/68217075@N08/sets/72157637919444363/">B&amp;W photos</a></p></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Photo report - climbing up via ferrata Feurenwand]]></title>
-    <link href="http://drseergio.github.io/blog/2013/11/03/photo-report-climbing-up-via-ferrata-feurenwand/"/>
-    <updated>2013-11-03T17:37:00+00:00</updated>
-    <id>http://drseergio.github.io/blog/2013/11/03/photo-report-climbing-up-via-ferrata-feurenwand</id>
-    <content type="html"><![CDATA[<p>Via ferratas come in different difficulty levels. Last week I&rsquo;ve done a K2 climb. Yesterday I went to Fuerenalp along with two friends and did a K4 climb. The route is a lot more exciting. Wet and slippery stones and supports presented an additional challenge.</p>
-
-<p>According the alpine log book there were no other climbers that day.</p>
-
-<p><a href="http://www.flickr.com/photos/68217075@N08/10650891073/"><img src="http://farm6.staticflickr.com/5471/10650891073_9c9d90e8e9.jpg" width="500"></a></p>
-
-<p><a href="http://www.flickr.com/photos/68217075@N08/10650877443/"><img src="http://farm4.staticflickr.com/3667/10650877443_b435560c6f.jpg" width="500"></a></p>
-
-<p><a href="http://www.flickr.com/photos/68217075@N08/10649733453/"><img src="http://farm3.staticflickr.com/2865/10649733453_0f1da9acda.jpg" width="500"></a></p>
-
-<p><a href="http://www.flickr.com/photos/68217075@N08/10649518066/"><img src="http://farm3.staticflickr.com/2808/10649518066_327bc5537f.jpg" width="500"></a></p>
-
-<p><a href="http://www.flickr.com/photos/68217075@N08/10649641416/in/set-72157637265758456"><img src="http://farm4.staticflickr.com/3718/10649641416_32d76bc92d.jpg" width="500"></a></p>
-
-<h3>Links to photo albums in Flickr</h3>
-
-<p>I&rsquo;ve split the pictures into 2 thematic albums:</p>
-
-<ul>
-<li><p><a href="http://www.flickr.com/photos/68217075@N08/sets/72157637268821823/">Scenic photos/landscapes</a></p></li>
-<li><p><a href="http://www.flickr.com/photos/68217075@N08/sets/72157637265758456/">Climbing photos</a></p></li>
 </ul>
 
 ]]></content>

@@ -9,10 +9,10 @@
   <meta name="author" content="Sergey Pisarenko">
 
   
-  <meta name="description" content="February&rsquo;s update As of 2014-02-28 the best performing instruments are: 1
+  <meta name="description" content="March update As of 2014-03-31 the best performing instruments are: 1
 2
-VBK VBR VTV
-16.14136 14.18598 10.67624 No changes to positions &hellip;">
+VTV VBR VBK
+9.185716 8.977934 6.721709 No changes to positions since last &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,105 @@ VBK VBR VTV
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/03/31/investment-portfolio-update-march-2014/">Investment portfolio update March 2014</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-31T17:06:00+00:00" pubdate data-updated="true">Mar 31<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>March update</h3>
+
+<p>As of <strong>2014-03-31</strong> the best performing instruments are:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VTV      VBR      VBK
+</span><span class='line'>9.185716 8.977934 6.721709</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No changes to positions since last month.</p>
+
+<p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VTV  VBR  VBK
+</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
+
+<p>As of <strong>2014-03-31</strong> the calculated returns for each instrument are presented below(*):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
+</span><span class='line'>VTV   1.73547200  1.855995788 12.2262509  20.9251446  9.18571581
+</span><span class='line'>VBR  -0.34225891  1.694915254 11.7759964  22.7830832  8.97793399
+</span><span class='line'>VBK  -3.79258793 -0.008177952  7.5184664  23.1691347  6.72170880
+</span><span class='line'>MTUM -4.53819112 -0.483091787 11.2683926  18.6258936  6.21825082
+</span><span class='line'>VEA  -0.91743119 -0.484966052  5.3658537  16.7235495  5.17175148
+</span><span class='line'>VNQ  -0.34153978  9.183037106  8.2380216   3.4111045  5.12265588
+</span><span class='line'>IGOV  0.20443925  2.971188475  3.1672848   4.6887714  2.75792096
+</span><span class='line'>VGLT  0.88326218  7.666928515  4.0382572  -4.0599188  2.13213227
+</span><span class='line'>VCIT -0.14120970  3.160709944  3.8169807   0.6881822  1.88116579
+</span><span class='line'>GSG  -0.03031222  2.454178316  1.8529957   0.2431611  1.13000572
+</span><span class='line'>VWO   3.84119618 -1.827930782  1.1806079  -3.2660903 -0.01805425
+</span><span class='line'>VGIT -0.73737057  1.264404609  0.2058917  -1.7546584 -0.25543317
+</span><span class='line'>IAU  -2.49027237  7.277397260 -2.7928627 -19.2654639 -4.31780043</span></code></pre></td></tr></table></div></figure>
+
+
+<p>* Instruments that have insufficient data are penalized with large negative returns.</p>
+
+<h3>Resources</h3>
+
+<ul>
+<li><p><a href="/blog/2013/10/30/investment-portfolio-update-october-2013/">Original post explaining this strategy</a></p></li>
+<li><p><a href="http://investingforaliving.wordpress.com/">Investing for a living blog</a></p></li>
+<li><p><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai0xPgGdCts3dEhZVUVXTFQtOEdsRUYwSmRLN3M0NHc&amp;usp=sharing#gid=1">Alternative Ivy Portfolio tracking spreadsheet</a></p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/03/01/investment-portfolio-update-february-2014/">Investment portfolio update February 2014</a></h1>
     
     
@@ -151,22 +250,20 @@ VBK VBR VTV
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
-</span><span class='line'>VBK  5.1364764  6.5375911 18.639164   34.2522180   16.1413623
-</span><span class='line'>VBR  4.9651384  4.8543689 18.102936   28.8214702   14.1859784
-</span><span class='line'>VTV  3.9690091  2.2320235 12.833751   23.6701698   10.6762384
-</span><span class='line'>VEA  5.9478613  2.3471883 14.653520   19.1913440   10.5349783
-</span><span class='line'>VNQ  5.0653595  9.6759187 12.394724    6.7461515    8.4705385
-</span><span class='line'>IGOV 2.2063208  2.6859710  5.933251    3.9838220    3.7023412
-</span><span class='line'>VCIT 1.2357414  2.7992278  5.445545    1.2116892    2.6730508
-</span><span class='line'>GSG  4.7966963  3.8727960 -1.669151    1.3829133    2.0958138
-</span><span class='line'>VGLT 0.5016969  4.5754645  3.447752   -5.0069735    0.8794850
-</span><span class='line'>VGIT 0.2986013  0.5356018  2.226494   -0.8544353    0.5515654
-</span><span class='line'>VWO  3.2386514 -5.7440620  4.514915   -8.0397257   -1.5075552
-</span><span class='line'>IAU  6.4623032  5.9356966 -5.025868  -16.3955758   -2.2558611
-</span><span class='line'>MTUM 6.7189632  7.0475539 20.069071 -999.0000000 -241.2911029</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>VTV   1.73547200  1.855995788 12.2262509  20.9251446  9.18571581
+</span><span class='line'>VBR  -0.34225891  1.694915254 11.7759964  22.7830832  8.97793399
+</span><span class='line'>VBK  -3.79258793 -0.008177952  7.5184664  23.1691347  6.72170880
+</span><span class='line'>MTUM -4.53819112 -0.483091787 11.2683926  18.6258936  6.21825082
+</span><span class='line'>VEA  -0.91743119 -0.484966052  5.3658537  16.7235495  5.17175148
+</span><span class='line'>VNQ  -0.34153978  9.183037106  8.2380216   3.4111045  5.12265588
+</span><span class='line'>IGOV  0.20443925  2.971188475  3.1672848   4.6887714  2.75792096
+</span><span class='line'>VGLT  0.88326218  7.666928515  4.0382572  -4.0599188  2.13213227
+</span><span class='line'>VCIT -0.14120970  3.160709944  3.8169807   0.6881822  1.88116579
+</span><span class='line'>GSG  -0.03031222  2.454178316  1.8529957   0.2431611  1.13000572
+</span><span class='line'>VWO   3.84119618 -1.827930782  1.1806079  -3.2660903 -0.01805425
+</span><span class='line'>VGIT -0.73737057  1.264404609  0.2058917  -1.7546584 -0.25543317
+</span><span class='line'>IAU  -2.49027237  7.277397260 -2.7928627 -19.2654639 -4.31780043</span></code></pre></td></tr></table></div></figure>
 
-
-<p>No changes to positions.</p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
@@ -714,121 +811,6 @@ VBK VBR VTV
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/02/investment-portfolio-update-december-2013/">Investment portfolio update - December 2013</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-02T10:49:00+00:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>December&rsquo;s update</h3>
-
-<p>The R script does not work anymore! It turns out that Yahoo has disabled URL &ldquo;charts.yahoo.com&rdquo;. However, &ldquo;icharts.finance.yahoo.com&rdquo; works fine. The problem is that the URL is hard coded into <strong>quantmod</strong> package.</p>
-
-<p>The quick solution is to check-out latest code and build the package from source. The alternative is to wait until CRAN includes quantmod with the fix applied. Here&rsquo;s how I fixed the problem:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># check-out latest quantmod code using subversion
-</span><span class='line'>$ svn checkout svn://svn.r-forge.r-project.org/svnroot/quantmod/
-</span><span class='line'>
-</span><span class='line'># build and install the package from a local folder
-</span><span class='line'>$ R CMD INSTALL quantmod/pkg/</span></code></pre></td></tr></table></div></figure>
-
-
-<p>As of <strong>2013-12-31</strong> the best performing instruments are:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VBK      VBR      VTV
-</span><span class='line'>16.97135 16.93180 14.93496</span></code></pre></td></tr></table></div></figure>
-
-
-<p>No changes in positions.</p>
-
-<p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VBK  VBR  VTV
-</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
-
-<p>As of <strong>2013-12-31</strong> the calculated returns for each instrument are presented below(*):</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
-</span><span class='line'>VBK   2.50607661  7.5353908 19.5737192   38.270209   16.97134895
-</span><span class='line'>VBR   2.75432672  9.9108251 18.4982354   36.563815   16.93180053
-</span><span class='line'>VTV   2.09836942 10.1672916 14.3905361   33.083624   14.93495520
-</span><span class='line'>VEA   1.90709046  5.8674117 18.1740856   21.800117   11.93717618
-</span><span class='line'>VWO  -0.29083858  3.0819344  7.5274438   -4.944547    1.34349811
-</span><span class='line'>IGOV -0.07978458  0.1900000  4.9219814   -1.368380    0.91595429
-</span><span class='line'>GSG   1.35390428 -0.5867820  4.5129870   -1.829826    0.86257079
-</span><span class='line'>VCIT -0.48134777  0.6450043  1.9603008   -1.897983    0.05649348
-</span><span class='line'>VNQ   0.10854396 -0.8599509 -3.7136465    2.297576   -0.54186944
-</span><span class='line'>VGIT -1.43194335 -1.0426540 -0.5398539   -2.687587   -1.42550967
-</span><span class='line'>VGLT -2.00551133 -3.3665459 -5.4505170  -12.458972   -5.82038644
-</span><span class='line'>IAU  -3.70981039 -9.3871218 -2.5854879  -28.255528  -10.98448709
-</span><span class='line'>MTUM  2.68559699 11.8085305 17.7058824 -999.000000 -241.69999755</span></code></pre></td></tr></table></div></figure>
-
-
-<p>* Instruments that have insufficient data are penalized with large negative returns.</p>
-
-<h3>Resources</h3>
-
-<ul>
-<li><p><a href="/blog/2013/10/30/investment-portfolio-update-october-2013/">Original post explaining this strategy</a></p></li>
-<li><p><a href="http://investingforaliving.wordpress.com/">Investing for a living blog</a></p></li>
-<li><p><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai0xPgGdCts3dEhZVUVXTFQtOEdsRUYwSmRLN3M0NHc&amp;usp=sharing#gid=1">Alternative Ivy Portfolio tracking spreadsheet</a></p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -842,6 +824,10 @@ VBK VBR VTV
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/31/investment-portfolio-update-march-2014/">Investment portfolio update March 2014</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/01/investment-portfolio-update-february-2014/">Investment portfolio update February 2014</a>
@@ -877,10 +863,6 @@ VBK VBR VTV
     
       <li class="post">
         <a href="/blog/2014/01/02/photo-report-snowshoeing-in-leukerbad/">Photo report - snowshoeing in Leukerbad</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/02/investment-portfolio-update-december-2013/">Investment portfolio update - December 2013</a>
       </li>
     
   </ul>
