@@ -3,7 +3,7 @@ layout: post
 title: "6 months on a bike"
 date: 2014-01-02 13:15
 comments: true
-categories: 
+categories: bicycle
 ---
 
 I like bicycles. I like riding them, I like fiddling with them. But for some reason I never consistently commuted by bicycle. 6 months ago I made a decision to commute by bicycle every single day regardless of the weather. Even if it rains or storms or snows.
