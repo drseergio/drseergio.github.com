@@ -4,7 +4,7 @@
   <title><![CDATA[Category: investments | Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/blog/categories/investments/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2014-04-04T18:02:14+00:00</updated>
+  <updated>2014-04-07T16:44:18+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -22,60 +22,43 @@
 
 <p>As of <strong>2014-03-31</strong> the best performing instruments are:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code> VTV      VBR      VBK
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>9.185716 8.977934 6.721709</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}</p>
+
+<pre><code> VTV      VBR      VBK
+</code></pre>
+
+<p>9.185716 8.977934 6.721709
+{% endcodeblock %}</p>
 
 <p>No changes to positions since last month.</p>
 
 <p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VTV  VBR  VBK
-</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+  VTV  VBR  VBK
+TRUE TRUE TRUE
+{% endcodeblock %}</p>
 
 <p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
 
 <p>As of <strong>2014-03-31</strong> the calculated returns for each instrument are presented below(*):</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
-</span><span class='line'>VTV   1.73547200  1.855995788 12.2262509  20.9251446  9.18571581
-</span><span class='line'>VBR  -0.34225891  1.694915254 11.7759964  22.7830832  8.97793399
-</span><span class='line'>VBK  -3.79258793 -0.008177952  7.5184664  23.1691347  6.72170880
-</span><span class='line'>MTUM -4.53819112 -0.483091787 11.2683926  18.6258936  6.21825082
-</span><span class='line'>VEA  -0.91743119 -0.484966052  5.3658537  16.7235495  5.17175148
-</span><span class='line'>VNQ  -0.34153978  9.183037106  8.2380216   3.4111045  5.12265588
-</span><span class='line'>IGOV  0.20443925  2.971188475  3.1672848   4.6887714  2.75792096
-</span><span class='line'>VGLT  0.88326218  7.666928515  4.0382572  -4.0599188  2.13213227
-</span><span class='line'>VCIT -0.14120970  3.160709944  3.8169807   0.6881822  1.88116579
-</span><span class='line'>GSG  -0.03031222  2.454178316  1.8529957   0.2431611  1.13000572
-</span><span class='line'>VWO   3.84119618 -1.827930782  1.1806079  -3.2660903 -0.01805425
-</span><span class='line'>VGIT -0.73737057  1.264404609  0.2058917  -1.7546584 -0.25543317
-</span><span class='line'>IAU  -2.49027237  7.277397260 -2.7928627 -19.2654639 -4.31780043</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+symbol        1          3          6           12           avg
+VTV   1.73547200  1.855995788 12.2262509  20.9251446  9.18571581
+VBR  -0.34225891  1.694915254 11.7759964  22.7830832  8.97793399
+VBK  -3.79258793 -0.008177952  7.5184664  23.1691347  6.72170880
+MTUM -4.53819112 -0.483091787 11.2683926  18.6258936  6.21825082
+VEA  -0.91743119 -0.484966052  5.3658537  16.7235495  5.17175148
+VNQ  -0.34153978  9.183037106  8.2380216   3.4111045  5.12265588
+IGOV  0.20443925  2.971188475  3.1672848   4.6887714  2.75792096
+VGLT  0.88326218  7.666928515  4.0382572  -4.0599188  2.13213227
+VCIT -0.14120970  3.160709944  3.8169807   0.6881822  1.88116579
+GSG  -0.03031222  2.454178316  1.8529957   0.2431611  1.13000572
+VWO   3.84119618 -1.827930782  1.1806079  -3.2660903 -0.01805425
+VGIT -0.73737057  1.264404609  0.2058917  -1.7546584 -0.25543317
+IAU  -2.49027237  7.277397260 -2.7928627 -19.2654639 -4.31780043
+{% endcodeblock %}</p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
@@ -99,60 +82,43 @@
 
 <p>As of <strong>2014-02-28</strong> the best performing instruments are:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code> VBK      VBR      VTV
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>16.14136 14.18598 10.67624</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}</p>
+
+<pre><code> VBK      VBR      VTV
+</code></pre>
+
+<p>16.14136 14.18598 10.67624
+{% endcodeblock %}</p>
 
 <p>No changes to positions since last month.</p>
 
 <p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VBK  VBR  VTV
-</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+  VBK  VBR  VTV
+TRUE TRUE TRUE
+{% endcodeblock %}</p>
 
 <p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
 
 <p>As of <strong>2014-02-28</strong> the calculated returns for each instrument are presented below(*):</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
-</span><span class='line'>VTV   1.73547200  1.855995788 12.2262509  20.9251446  9.18571581
-</span><span class='line'>VBR  -0.34225891  1.694915254 11.7759964  22.7830832  8.97793399
-</span><span class='line'>VBK  -3.79258793 -0.008177952  7.5184664  23.1691347  6.72170880
-</span><span class='line'>MTUM -4.53819112 -0.483091787 11.2683926  18.6258936  6.21825082
-</span><span class='line'>VEA  -0.91743119 -0.484966052  5.3658537  16.7235495  5.17175148
-</span><span class='line'>VNQ  -0.34153978  9.183037106  8.2380216   3.4111045  5.12265588
-</span><span class='line'>IGOV  0.20443925  2.971188475  3.1672848   4.6887714  2.75792096
-</span><span class='line'>VGLT  0.88326218  7.666928515  4.0382572  -4.0599188  2.13213227
-</span><span class='line'>VCIT -0.14120970  3.160709944  3.8169807   0.6881822  1.88116579
-</span><span class='line'>GSG  -0.03031222  2.454178316  1.8529957   0.2431611  1.13000572
-</span><span class='line'>VWO   3.84119618 -1.827930782  1.1806079  -3.2660903 -0.01805425
-</span><span class='line'>VGIT -0.73737057  1.264404609  0.2058917  -1.7546584 -0.25543317
-</span><span class='line'>IAU  -2.49027237  7.277397260 -2.7928627 -19.2654639 -4.31780043</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+symbol        1          3          6           12           avg
+VTV   1.73547200  1.855995788 12.2262509  20.9251446  9.18571581
+VBR  -0.34225891  1.694915254 11.7759964  22.7830832  8.97793399
+VBK  -3.79258793 -0.008177952  7.5184664  23.1691347  6.72170880
+MTUM -4.53819112 -0.483091787 11.2683926  18.6258936  6.21825082
+VEA  -0.91743119 -0.484966052  5.3658537  16.7235495  5.17175148
+VNQ  -0.34153978  9.183037106  8.2380216   3.4111045  5.12265588
+IGOV  0.20443925  2.971188475  3.1672848   4.6887714  2.75792096
+VGLT  0.88326218  7.666928515  4.0382572  -4.0599188  2.13213227
+VCIT -0.14120970  3.160709944  3.8169807   0.6881822  1.88116579
+GSG  -0.03031222  2.454178316  1.8529957   0.2431611  1.13000572
+VWO   3.84119618 -1.827930782  1.1806079  -3.2660903 -0.01805425
+VGIT -0.73737057  1.264404609  0.2058917  -1.7546584 -0.25543317
+IAU  -2.49027237  7.277397260 -2.7928627 -19.2654639 -4.31780043
+{% endcodeblock %}</p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
@@ -176,60 +142,43 @@
 
 <p>As of <strong>2014-01-31</strong> the best performing instruments are:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>  VBK       VBR       VTV
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>10.523511  8.138919  5.699153</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}</p>
+
+<pre><code>  VBK       VBR       VTV
+</code></pre>
+
+<p>10.523511  8.138919  5.699153
+{% endcodeblock %}</p>
 
 <p>No changes to positions since last month.</p>
 
 <p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VBK  VBR  VTV
-</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+  VBK  VBR  VTV
+TRUE TRUE TRUE
+{% endcodeblock %}</p>
 
 <p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
 
 <p>As of <strong>2014-01-31</strong> the calculated returns for each instrument are presented below(*):</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
-</span><span class='line'>VBK  -1.144726  3.73230373 10.6838781   28.8225892   10.5235112
-</span><span class='line'>VBR  -2.783198  2.81307701  7.8254927   24.7003030    8.1389186
-</span><span class='line'>VTV  -3.691583  1.44787645  4.5325377   20.5077805    5.6991530
-</span><span class='line'>VEA  -5.206334 -2.75658381  6.4959569   11.2018013    2.4337101
-</span><span class='line'>VCIT  2.031439  1.41826923  2.8773470    0.7763048    1.7758400
-</span><span class='line'>VGLT  6.186533  1.55386224  2.2258986   -4.3215090    1.4111963
-</span><span class='line'>VNQ   4.275093 -1.10180696 -0.5025126    2.8257217    1.3741238
-</span><span class='line'>VGIT  1.708174  0.04711055  1.0948905   -0.4997657    0.5876023
-</span><span class='line'>IGOV  0.548957 -0.62148565  2.9009193   -0.9828976    0.4613733
-</span><span class='line'>GSG  -2.205654 -1.34753996 -3.2575292   -8.1948090   -3.7513830
-</span><span class='line'>VWO  -8.434614 -9.55582233 -2.2320270  -13.0223967   -8.3112149
-</span><span class='line'>IAU   3.339041 -6.07003891 -6.1430793  -25.4938272   -8.5919761
-</span><span class='line'>MTUM -2.315509  3.45800988  8.4921369 -999.0000000 -247.3413405</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+symbol        1          3          6           12           avg
+VBK  -1.144726  3.73230373 10.6838781   28.8225892   10.5235112
+VBR  -2.783198  2.81307701  7.8254927   24.7003030    8.1389186
+VTV  -3.691583  1.44787645  4.5325377   20.5077805    5.6991530
+VEA  -5.206334 -2.75658381  6.4959569   11.2018013    2.4337101
+VCIT  2.031439  1.41826923  2.8773470    0.7763048    1.7758400
+VGLT  6.186533  1.55386224  2.2258986   -4.3215090    1.4111963
+VNQ   4.275093 -1.10180696 -0.5025126    2.8257217    1.3741238
+VGIT  1.708174  0.04711055  1.0948905   -0.4997657    0.5876023
+IGOV  0.548957 -0.62148565  2.9009193   -0.9828976    0.4613733
+GSG  -2.205654 -1.34753996 -3.2575292   -8.1948090   -3.7513830
+VWO  -8.434614 -9.55582233 -2.2320270  -13.0223967   -8.3112149
+IAU   3.339041 -6.07003891 -6.1430793  -25.4938272   -8.5919761
+MTUM -2.315509  3.45800988  8.4921369 -999.0000000 -247.3413405
+{% endcodeblock %}</p>
 
 <p>There&rsquo;s a drop in prices across invested instruments in January.</p>
 
@@ -257,85 +206,57 @@
 
 <p>The quick solution is to check-out latest code and build the package from source. The alternative is to wait until CRAN includes quantmod with the fix applied. Here&rsquo;s how I fixed the problem:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;h1>check-out latest quantmod code using subversion&lt;/h1>
-</span><span class='line'>
-</span><span class='line'>&lt;p>$ svn checkout svn://svn.r-forge.r-project.org/svnroot/quantmod/&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;h1>build and install the package from a local folder&lt;/h1>
-</span><span class='line'>
-</span><span class='line'>&lt;p>$ R CMD INSTALL quantmod/pkg/&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}</p>
+
+<h1>check-out latest quantmod code using subversion</h1>
+
+<p>$ svn checkout svn://svn.r-forge.r-project.org/svnroot/quantmod/</p>
+
+<h1>build and install the package from a local folder</h1>
+
+<p>$ R CMD INSTALL quantmod/pkg/</p>
+
+<p>{% endcodeblock %}</p>
 
 <p>As of <strong>2013-12-31</strong> the best performing instruments are:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code> VBK      VBR      VTV
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>16.97135 16.93180 14.93496</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}</p>
+
+<pre><code> VBK      VBR      VTV
+</code></pre>
+
+<p>16.97135 16.93180 14.93496
+{% endcodeblock %}</p>
 
 <p>No changes in positions.</p>
 
 <p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VBK  VBR  VTV
-</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+  VBK  VBR  VTV
+TRUE TRUE TRUE
+{% endcodeblock %}</p>
 
 <p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
 
 <p>As of <strong>2013-12-31</strong> the calculated returns for each instrument are presented below(*):</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
-</span><span class='line'>VBK   2.50607661  7.5353908 19.5737192   38.270209   16.97134895
-</span><span class='line'>VBR   2.75432672  9.9108251 18.4982354   36.563815   16.93180053
-</span><span class='line'>VTV   2.09836942 10.1672916 14.3905361   33.083624   14.93495520
-</span><span class='line'>VEA   1.90709046  5.8674117 18.1740856   21.800117   11.93717618
-</span><span class='line'>VWO  -0.29083858  3.0819344  7.5274438   -4.944547    1.34349811
-</span><span class='line'>IGOV -0.07978458  0.1900000  4.9219814   -1.368380    0.91595429
-</span><span class='line'>GSG   1.35390428 -0.5867820  4.5129870   -1.829826    0.86257079
-</span><span class='line'>VCIT -0.48134777  0.6450043  1.9603008   -1.897983    0.05649348
-</span><span class='line'>VNQ   0.10854396 -0.8599509 -3.7136465    2.297576   -0.54186944
-</span><span class='line'>VGIT -1.43194335 -1.0426540 -0.5398539   -2.687587   -1.42550967
-</span><span class='line'>VGLT -2.00551133 -3.3665459 -5.4505170  -12.458972   -5.82038644
-</span><span class='line'>IAU  -3.70981039 -9.3871218 -2.5854879  -28.255528  -10.98448709
-</span><span class='line'>MTUM  2.68559699 11.8085305 17.7058824 -999.000000 -241.69999755</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+symbol        1          3          6           12           avg
+VBK   2.50607661  7.5353908 19.5737192   38.270209   16.97134895
+VBR   2.75432672  9.9108251 18.4982354   36.563815   16.93180053
+VTV   2.09836942 10.1672916 14.3905361   33.083624   14.93495520
+VEA   1.90709046  5.8674117 18.1740856   21.800117   11.93717618
+VWO  -0.29083858  3.0819344  7.5274438   -4.944547    1.34349811
+IGOV -0.07978458  0.1900000  4.9219814   -1.368380    0.91595429
+GSG   1.35390428 -0.5867820  4.5129870   -1.829826    0.86257079
+VCIT -0.48134777  0.6450043  1.9603008   -1.897983    0.05649348
+VNQ   0.10854396 -0.8599509 -3.7136465    2.297576   -0.54186944
+VGIT -1.43194335 -1.0426540 -0.5398539   -2.687587   -1.42550967
+VGLT -2.00551133 -3.3665459 -5.4505170  -12.458972   -5.82038644
+IAU  -3.70981039 -9.3871218 -2.5854879  -28.255528  -10.98448709
+MTUM  2.68559699 11.8085305 17.7058824 -999.000000 -241.69999755
+{% endcodeblock %}</p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
@@ -359,60 +280,43 @@
 
 <p>As of <strong>2013-11-30</strong> the best performing instruments are:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code> VBK      VBR      VTV
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>16.93042 16.68999 14.38888</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}</p>
+
+<pre><code> VBK      VBR      VTV
+</code></pre>
+
+<p>16.93042 16.68999 14.38888
+{% endcodeblock %}</p>
 
 <p>Last month&rsquo;s VEA&rsquo;s position has been taken by VTV.</p>
 
 <p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VBK  VBR  VTV
-</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+  VBK  VBR  VTV
+TRUE TRUE TRUE
+{% endcodeblock %}</p>
 
 <p>This means portfolio should be fully invested in <strong>VBK</strong>, <strong>VBR</strong>, <strong>VTV</strong>.</p>
 
 <p>As of <strong>2013-11-30</strong> the calculated returns for each instrument are presented below(*):</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
-</span><span class='line'>VBK   2.3614663  11.351201 15.5519199   38.4571033   16.93042264
-</span><span class='line'>VBR   2.9323950  12.637106 13.8594008   37.3310570   16.68998975
-</span><span class='line'>VTV   3.1785176  10.376667 10.8967751   33.1035702   14.38888252
-</span><span class='line'>VEA   0.6609547  12.043597 12.7502056   24.6060606   12.51520442
-</span><span class='line'>VWO  -0.9314545  10.879444  2.0418204    2.0669291    3.51418476
-</span><span class='line'>IGOV -1.0908019   3.167282  2.6517083   -0.6808763    1.01182796
-</span><span class='line'>VCIT -0.1190193   2.579147 -0.6275903   -1.5832063    0.06233274
-</span><span class='line'>VGIT -0.2032838   1.672774 -0.5919003   -1.8153846   -0.23444878
-</span><span class='line'>VNQ  -5.2509764   2.487874 -5.7146970    6.0042078   -0.61839801
-</span><span class='line'>GSG  -0.4700721  -5.335320  3.0834145   -3.6407767   -1.59068868
-</span><span class='line'>VGLT -2.3997615  -1.072670 -6.8165647  -12.6234321   -5.72810697
-</span><span class='line'>IAU  -5.6031128 -10.347376 -9.8811293  -27.2781775  -13.27744894
-</span><span class='line'>MTUM  3.1469761  12.179732 13.6795195 -999.0000000 -242.49844303</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+symbol        1          3          6           12           avg
+VBK   2.3614663  11.351201 15.5519199   38.4571033   16.93042264
+VBR   2.9323950  12.637106 13.8594008   37.3310570   16.68998975
+VTV   3.1785176  10.376667 10.8967751   33.1035702   14.38888252
+VEA   0.6609547  12.043597 12.7502056   24.6060606   12.51520442
+VWO  -0.9314545  10.879444  2.0418204    2.0669291    3.51418476
+IGOV -1.0908019   3.167282  2.6517083   -0.6808763    1.01182796
+VCIT -0.1190193   2.579147 -0.6275903   -1.5832063    0.06233274
+VGIT -0.2032838   1.672774 -0.5919003   -1.8153846   -0.23444878
+VNQ  -5.2509764   2.487874 -5.7146970    6.0042078   -0.61839801
+GSG  -0.4700721  -5.335320  3.0834145   -3.6407767   -1.59068868
+VGLT -2.3997615  -1.072670 -6.8165647  -12.6234321   -5.72810697
+IAU  -5.6031128 -10.347376 -9.8811293  -27.2781775  -13.27744894
+MTUM  3.1469761  12.179732 13.6795195 -999.0000000 -242.49844303
+{% endcodeblock %}</p>
 
 <p>* Instruments that have insufficient data are penalized with large negative returns.</p>
 
