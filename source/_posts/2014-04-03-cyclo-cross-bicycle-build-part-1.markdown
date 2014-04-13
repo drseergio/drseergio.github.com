@@ -102,3 +102,5 @@ I look forward to the disassembly and assembly processes. Working with hands and
 On May 1 me and a couple of friends are going on a bicycle tour from Andermatt, Switzerland to Rotherdam, Netherlands. The route goes along the river Rhine and is about 1200km in length. We plan to finish this route in 10 days. I personally hope to finish this bike before the trip but as I have already made clear I won't rush. In the worst case, I'll go on my trusted hybrid.
 
 This concludes the part 1 of my custom cyclo-cross bicycle build series. I don't know yet what I will write about in part 2 but I suspect it is going to be about the disassembly process of Cube Cross Disc.
+
+[Continue to part 2](/blog/2014/04/13/cyclo-cross-bicycle-build-part-2/).
