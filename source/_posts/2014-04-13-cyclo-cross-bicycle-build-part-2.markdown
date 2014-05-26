@@ -72,3 +72,5 @@ Did I mention that Stan's 3.30 hubs freewheel sound gorgeous?
 ##Newly discovered alternatives
 
 I discovered that it is possible to buy decent bicycle frames directly from Chinese manufacturers. Initially, I was skeptical but as I read people's reports it appears that the quality is acceptable. A carbon cyclocross frame costs 500-600$ - much lower than about 2000$ most manufacturers would ask for. It's also possible to slap a custom paint job on it!
+
+[Continue to part 3](/blog/2014/05/26/cyclo-cross-bicycle-build-part-3/).
