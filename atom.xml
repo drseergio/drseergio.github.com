@@ -4,7 +4,7 @@
   <title><![CDATA[Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2014-05-29T17:25:09+00:00</updated>
+  <updated>2014-07-01T05:59:16+00:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Investment portfolio update June 2014]]></title>
+    <link href="http://drseergio.github.io/blog/2014/07/01/investment-portfolio-update-june-2014/"/>
+    <updated>2014-07-01T05:36:00+00:00</updated>
+    <id>http://drseergio.github.io/blog/2014/07/01/investment-portfolio-update-june-2014</id>
+    <content type="html"><![CDATA[<h3>June update</h3>
+
+<p>As of <strong>2014-06-30</strong> the best performing instruments are:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VBR       VNQ      MTUM
+</span><span class='line'>11.486434  9.813685  9.438370</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the change in instruments.</p>
+
+<p>We avoid investing if price is below 10 month SMA. Running through 10-month SMA check we get:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VBR  VNQ MTUM
+</span><span class='line'>TRUE TRUE TRUE</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This means portfolio should be fully invested in <strong>VBR</strong>, <strong>VNQ</strong>, <strong>MTUM</strong>.</p>
+
+<p>As of <strong>2014-06-30</strong> the calculated returns for each instrument are presented below(*):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>symbol        1          3          6           12           avg
+</span><span class='line'>VBR   4.3211708 4.829094  8.371854 28.423615 11.486434
+</span><span class='line'>VNQ   1.1351351 6.960126 17.765539 13.393939  9.813685
+</span><span class='line'>MTUM  2.0651823 5.170407  5.892200 24.625690  9.438370
+</span><span class='line'>VBK   5.8144364 2.543669  4.178934 24.562433  9.274868
+</span><span class='line'>VTV   1.9136346 4.209578  7.161769 22.577226  8.965552
+</span><span class='line'>VEA   1.0438909 4.438450  4.515337 23.520882  8.379640
+</span><span class='line'>VWO   3.1818182 7.315253  6.153089 14.130722  7.695220
+</span><span class='line'>IAU   6.1830173 3.536977 10.273973  7.422852  6.854205
+</span><span class='line'>VGLT -0.1407658 4.461788 12.282368  6.165819  5.692302
+</span><span class='line'>GSG   2.3845457 2.881407  5.374340 10.129870  5.192541
+</span><span class='line'>IGOV  1.2115385 2.592593  5.661514 10.870023  5.083917
+</span><span class='line'>VCIT  0.1504107 2.680902  6.078431  8.145927  4.263918
+</span><span class='line'>VGIT -0.1404275 1.474552  2.794732  2.252756  1.595403</span></code></pre></td></tr></table></div></figure>
+
+
+<p>* Instruments that have insufficient data are penalized with large negative returns.</p>
+
+<h3>Resources</h3>
+
+<ul>
+<li><p><a href="http://drseergio.github.io/blog/2013/10/30/investment-portfolio-update-october-2013/">Original post explaining this strategy</a></p></li>
+<li><p><a href="http://investingforaliving.wordpress.com/">Investing for a living blog</a></p></li>
+<li><p><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai0xPgGdCts3dEhZVUVXTFQtOEdsRUYwSmRLN3M0NHc&amp;usp=sharing#gid=1">Alternative Ivy Portfolio tracking spreadsheet</a></p></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[To the north]]></title>
@@ -1001,31 +1073,6 @@ I reversed the <a href="http://www.parktool.com/blog/repair-help/new-bike-assemb
 <li><p><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai0xPgGdCts3dEhZVUVXTFQtOEdsRUYwSmRLN3M0NHc&amp;usp=sharing#gid=1">Alternative Ivy Portfolio tracking spreadsheet</a></p></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[On goals and purpose]]></title>
-    <link href="http://drseergio.github.io/blog/2013/12/25/on-goals-and-purpose/"/>
-    <updated>2013-12-25T19:58:00+00:00</updated>
-    <id>http://drseergio.github.io/blog/2013/12/25/on-goals-and-purpose</id>
-    <content type="html"><![CDATA[<p>Christmas and New Year&rsquo;s Eve evoke mass hysteria to reflect and to resolve to change unlike any other time of the year. People write down goals for themselves, think about their purpose in life. Planning and goal setting are praised important even outside of the festivities.</p>
-
-<p>I believe it&rsquo;s mostly harmless but also pointless. I look back to the moment I first embraced the Western custom of goal setting and I don&rsquo;t have much to show for it. Most of the things I have written down for myself became either unimportant or neglected. Any remarkable moments and achievements have been unexpected, spontaneous or had very little to do with the planning.</p>
-
-<p>For one, goals are thought to be an explicit expression of one&rsquo;s desires and life values. It follows that we are fully aware of what is truly important to us and that it&rsquo;s possible to translate our priorities into conscious plans. However, I personally find a significant disconnect between conscious thought and implicit life values. It&rsquo;s difficult to crystallize the  value &ldquo;compass&rdquo; in words. Plans that come out of a rational mind can be in conflict with  governing values.</p>
-
-<p>I have a personal illustration. I have never put the relationship with my wife as a priority or in any of the goals. However, in moments of distress I have dropped everything to take care of her. None of the goals mattered in that instant. I realize now just how important she is for me. Consciously, I did not rank the relationship high in my list of priorities and goals. But subconsciously I knew what is going to rule my behavior, especially in times of difficulty.</p>
-
-<p>Secondly, goals have costs. It is one thing to write goals down. It is another to accept sacrifices that might be required to make them happen. I&rsquo;ve heard complaints about lines of work that are not terribly exciting. Along the complaints came aspirations for entrepreneurship and exhilarating work at emerging start-ups. I confess that the thought is contagious. I entertained it myself. But then I realized that this change has a cost and that I highly value what I already have.</p>
-
-<p>Taken together, these two factors are responsible for destroying many naive goal setting efforts. Symptoms may differ but at the core the problem is that goals simply don&rsquo;t truly matter to the person setting them. It won&rsquo;t help to break down a goal into smaller goals or to have regular progress reviews. It just doesn&rsquo;t work that way.</p>
-
-<p>I often recall an episode when I was about 10 years old. Two of my friends were coached by their parents to think about their lives and set goals and do all sorts of ridiculous &ldquo;self development&rdquo; exercises. I haven&rsquo;t done any of that. Yet all of the things I appreciate this very day did not come out of any priority list.</p>
-
-<p>I believe there is a place for planning but life is not one of them. I see goals useful when an issue is well understood. Setting goals to win a specific sports competition is a technical matter. On the other hand, setting a goal to enter a competition in the first place is an entirely different thing.</p>
-
-<p>My resolution for this NY is to stop doing useless bullshit personal goal setting crap.</p>
 ]]></content>
   </entry>
   
