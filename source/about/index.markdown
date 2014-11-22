@@ -19,4 +19,4 @@ At the moment I find myself working in technology sector, solving technical prob
 
 I'm a two-wheel enthusiast. I commute by bicycle, take long road bike rides, go downhill mountain bike trails and explore remote places by motorbike. I seldom spend time at home. Instead, I enjoy being in great Swiss outdoors: hiking, cycling, snowboarding and rock climbing, among other things.
 
-Although I don't read news I love reading books and provoking thoughtful essays! You can find out what I'm reading by following my [Goodreads profile](https://www.goodreads.com/user/show/5111037-sergey). Furthermore, I share my daily subscription list at [News sources](/news-sources).
+Although I don't read news I love reading books and provoking thoughtful essays! You can find out what I'm reading by following my [Goodreads profile](https://www.goodreads.com/user/show/5111037-sergey).
