@@ -156,4 +156,4 @@ while you are fresh. This goes hand in hand with the previous insight. It's cruc
 
 ## To be continued
 
-The rest will follow in part 2!
+The rest will follow in [part 2](/blog/2014/12/15/what-i-learned-from-a-10-day-bicycle-tour/)!
