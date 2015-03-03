@@ -18,5 +18,3 @@ I used to believe one is defined by what he does for a living. I feel ecstatic t
 At the moment I find myself working in technology sector, solving technical problems. I'm lucky big time for being part of a company that lets me stay true to myself.
 
 I'm a two-wheel enthusiast. I commute by bicycle, take long road bike rides, go downhill mountain bike trails and explore remote places by motorbike. I seldom spend time at home. Instead, I enjoy being in great Swiss outdoors: hiking, cycling, snowboarding and rock climbing, among other things.
-
-Although I don't read news I love reading books and provoking thoughtful essays! You can find out what I'm reading by following my [Goodreads profile](https://www.goodreads.com/user/show/5111037-sergey).
