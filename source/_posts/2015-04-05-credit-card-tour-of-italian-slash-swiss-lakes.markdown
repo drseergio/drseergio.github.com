@@ -54,7 +54,7 @@ There are lots of voiced opinions about dangers of riding in Italian traffic. I 
 
 We rode until we got to a city called Verbania. 5km to Verbania I caught a flat tire, probably due to debris on the road.
 
-[{% img https://farm8.staticflickr.com/7608/16421527564_2051a0eac9_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/16421527564)
+[{% img https://farm8.staticflickr.com/7608/16854705579_3bcf41c3e0_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/16854705579)
 
 After a lunch in Verbania we took a ferry Intra-Levano. Don't ask me why the ferry is not called Verbania-Levano.
 
