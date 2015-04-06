@@ -26,9 +26,11 @@ The final route took the following shape (gpx tracks are available from Strava):
 
 *Difficulty*: easy+ (100km per day relaxed pace with some climbs)
 
+{% youtube 9ACUk4aOL-s %}
+
 ## Day 1: Bellinzona - Verbania - Varese (109.5km, 1317m)
 
-[Download GPS track for day 1](https://www.strava.com/activities/279756763)
+[Download GPS track for day 1](https://www.strava.com/activities/279756763) [direct](/files/italy_easter_tour_day1.gpx)
 
 Woke up at 5:00. Everything was already packed and prepared for departure.
 
@@ -64,7 +66,7 @@ At about 21:00 we reached our 4-star hotel in Varese close to the hippodrome. Th
 
 ## Day 2: Varese - Como - Lugano (97.3km, 1393m)
 
-[Download GPS track for day 2](https://www.strava.com/activities/279757682)
+[Download GPS track for day 2](https://www.strava.com/activities/279757682) [direct](/files/italy_easter_tour_day2.gpx)
 
 We slept until 10:00 to compensate for the prior sleep deprivation. After having breakfast we left the hotel at about 11:30.
 
