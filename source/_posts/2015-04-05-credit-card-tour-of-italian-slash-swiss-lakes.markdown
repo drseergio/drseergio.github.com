@@ -30,7 +30,7 @@ The final route took the following shape (gpx tracks are available from Strava):
 
 ## Day 1: Bellinzona - Verbania - Varese (109.5km, 1317m)
 
-[Download GPS track for day 1](https://www.strava.com/activities/279756763) [direct](/files/italy_easter_tour_day1.gpx)
+
 
 Woke up at 5:00. Everything was already packed and prepared for departure.
 
