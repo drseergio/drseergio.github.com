@@ -46,7 +46,7 @@ The road along the lake was not busy and the breeze from water felt refreshing. 
 
 On a descent to Locarno I felt wiggling of the front wheel. On one of the hairpins I almost lost balance of the bike and went slightly into the opposite lane. I had a puncture but the air was escaping steadily. I decided to fix it once we got to Locarno.
 
-In Locarno Riccardo left us and went to see his family who were visiting the region. Me and Codrin continued to Bellinzona in a fast pace to make it to the next train.
+In Locarno Riccardo left us and went to see his girlfriend's family who were visiting the region. Me and Codrin continued to Bellinzona in a fast pace to make it to the next train.
 
 If you haven't yet ridden this route I suggest you take a train and do it. The views alone are worth it.
 
