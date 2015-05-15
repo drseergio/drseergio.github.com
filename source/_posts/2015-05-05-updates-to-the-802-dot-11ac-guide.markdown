@@ -3,7 +3,7 @@ layout: post
 title: "Updates to the 802.11ac guide"
 date: 2015-05-05 18:16
 comments: true
-categories: 
+categories: diy
 ---
 
 I have previuosly written a [guide to configure a 802.11ac access point using hostapd in gentoo linux](/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/). Another enthusiast discovered that my guide does not lead to a working access point. Turns out I missed crucial steps to configure DFS which is required for operating on higher frequencies. In this guide I diagnose the problem and correct the mistakes. I also show how to increase transmission (TX) power of the wireless card.
