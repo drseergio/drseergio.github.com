@@ -16,7 +16,7 @@ My route follows a slightly shortened version of the official Swiss route number
 
 The preparations are off to a rocky start. After thoroughly cleaning the bike and relubing mechanical parts I couldn't get flat pedals off. I'd like to ride this distance with clipless pedals for higher efficiency.
 
-[{% img https://farm1.staticflickr.com/368/19079701705_205b11b28d_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19079701705)[{% img https://farm1.staticflickr.com/497/18459001303_9bf408922f.jpg 480 %}](https://www.flickr.com/photos/tentaclephotos/18459001303)
+[{% img https://farm1.staticflickr.com/368/19079701705_b4b79347b8.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19079701705)[{% img https://farm1.staticflickr.com/497/18459001303_24d1ceb4e1_n.jpg 480 %}](https://www.flickr.com/photos/tentaclephotos/18459001303)
 
 I'm going to pay a visit to a local bike shop today and see if they can get them off. If not I'll have to keep using the flat pedals and possibly replace the whole crankset upon returning. That's an expensive way to learn to apply liberal amounts of anti-seize compound! Anyway, I've somehow managed to ride 300km on the flats last year so perhaps it's not such a big problem after all.
 
