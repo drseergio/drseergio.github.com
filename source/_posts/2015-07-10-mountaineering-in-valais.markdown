@@ -8,21 +8,21 @@ categories: photo
 
 There comes a moment in a life of a dormant adventurer when the curtains of undesired comfort are torn away and the world is finally seen through wide-open eyes, fueled by challenge and gore, excitement and joy. In this very moment feelings of inadequacy and out-of-placeness give way to sincere enthusiasm and appreciation and beauty of the world. I am boundlessly joyful to cross that imaginary line and thirstily imbibe from the cup of mountaineering and alpine beauty.
 
-Such life-changing shift of perception comes from just a single adventure that I have had the tremenedous luck to be a part of. Last Saturday I joined company of JD, Samuel and Clément to trek for 5 days through a mountain range in the French canton Valais of Switzerland, through ice, snow and rock. In the best tradition of Sergey the journey has been one of the hardest things he has ever done in his life.
+Such life-changing shift of perception comes from just a single adventure that I have had the tremendous luck to be a part of. Last Saturday I joined company of JD, Samuel and Clément to trek for 5 days through a mountain range in the French canton Valais of Switzerland, through ice, snow and rock. In the best tradition of Sergey the journey has been one of the hardest things he has ever done in his life.
 
 ## Preparation (lack of thereof)
 
-An invitiation to join the expedition came from my friend JD unexpectedly following the 420km bicycle challenge that I completed few weeks ago. I knew JD went on awesome mountaineering trips before so I had repeatedly pestered him to invite me next time he goes. Over a phone call he congratulated me on the achievement and casually mentioned that he's going on a 5-day mountaineering trip and wondered if I may be interested. I suspect he did not expect my overeager enthusiasm nor participation.
+An invitation to join the expedition came from my friend JD unexpectedly following the 420km bicycle challenge that I completed few weeks ago. I knew JD went on awesome mountaineering trips before so I had repeatedly pestered him to invite me next time he goes. Over a phone call he congratulated me on the achievement and casually mentioned that he's going on a 5-day mountaineering trip and wondered if I may be interested. I suspect he did not expect my overeager enthusiasm nor participation.
 
-But contrary to my outer timidity I immediately lighted up with excitement in my mind like a deranged gasoline-soaked self-immolester. Though I could satisfactory climb in the gym I knew very little about mountaineering: what to bring, what to wear, how to navigate glaciers and snow, how and why to use the rope, what to do with the ice axe and when to wear the crampons. Nor did I have much time to fill the gaps. Instead, I trusted experience of my companions and hesitated very little to ask stupid questions.
+But contrary to my outer timidity I immediately lit up with excitement in my mind like a deranged gasoline-soaked martyr. Though I could satisfactory climb in the gym I knew very little about mountaineering: what to bring, what to wear, how to navigate glaciers and snow, how and why to use the rope, what to do with the ice axe and when to wear the crampons. Nor did I have much time to fill the gaps. Instead, I trusted experience of my companions and hesitated very little to ask stupid questions.
 
 Since the invitiation was on a short notice there have been only a couple of available days between other trips. JD and me went to a climbing gym once to practice ropes and lead climbing so that I could demonstrate my satisfactory skill and both of us could get a warm-up.
 
-While I already own a relatively impressive set of outdoor equipment I lacked essential items required for mountaineering. Specifically, my supposedly bad-ass high-cut hiking boots were unsuitable for crampons due to excessive flexibility. So I had to get a new pair of steel-stiff shoes. I also had to purchase: an ice axe (plus a blade protector so that I don't accidentally murder a bystanding old lady in a train), crampons (plus a protector bag so I don't rip my backpack open) and an ice screw (existence of which puzzled me at first). Initially I felt that all the stuff is excessive. However, as soon as we hit the high-altitude track usefulness of every piece of gear became readily apparent.
+While I already own a relatively impressive set of outdoor equipment I lacked essential items required for mountaineering. Specifically, my supposedly bad-ass high-cut hiking boots were unsuitable for crampons due to excessive flexibility. So I had to get a new pair of steel-stiff shoes. I also had to purchase: an ice axe (plus a blade protector so that I didn't accidentally murder a bystanding old lady in a train), crampons (plus a protector bag so I didn't rip my backpack open) and an ice screw (existence of which puzzled me at first). Initially I felt that all the stuff is excessive. However, as soon as we hit the high-altitude track usefulness of every piece of gear became readily apparent.
 
 I am proud to not only have carried the required gear but also to not have brought too much unnecessary bits and bobs. I erred on the side of bringing too little. So I had only one set of everything which sounds slightly unhygienic and off-putting. The arguably good thing about mountains is that there are very few connoisseurs and, in general, people.
 
-## Day 1: from Arolla to Cabanes de Vignettes (3200m)
+## Day 1: from Arolla to Cabane des Vignettes (3200m)
 
 [{% img /images/arolla/day-1.png 300 %}](https://www.strava.com/activities/341653806)
 
@@ -34,19 +34,38 @@ I am proud to not only have carried the required gear but also to not have broug
 
 **Total time:** 4:01'45.1
 
+We met 8 in the morning and went on a 4-hour car ride to the town of Arolla (2006m) from which we needed to climb to our first hut "Cabane des Vignettes" (3157m).
+
 [{% img https://farm1.staticflickr.com/454/19396916240_7204d49735.jpg 320 %}](https://www.flickr.com/photos/tentaclephotos/19396916240) [{% img https://farm1.staticflickr.com/288/19558716196_003a5f463e_n.jpg 320 %}](https://www.flickr.com/photos/tentaclephotos/19558716196)
+
+After consulting with my experienced companions I have unloaded 10% of gear and learned how to correctly attach an ice axe to a backpack (the photo shows incorrect axe placement).
 
 [{% img https://farm4.staticflickr.com/3677/18962326704_eae7247a8c_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/18962326704) [{% img https://farm1.staticflickr.com/295/18962368554_034e6e971c_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/18962368554) [{% img https://farm1.staticflickr.com/467/18964030073_73487bb76b_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/18964030073)
 
+Most of the way on the first day was hiking. The first 300-400 vertical meters felt really tough and in my head I wondered whether I will ever make it. Fortunately, my experience from all other difficult activities told me to ignore the first steps. First steps are always hard. I don't know if the body adjusts or the mind changes perception. When it gets really hard I look one step ahead and keep my head down not to see just how high our destination is. At some point the moves got automatic: step, breathe, step, panic, step, breathe, step, ad nauseam. As little thinking as possible. These moments of utter concentration are a total blessing compared to anxiety-induced modern existence.
+
 [{% img https://farm1.staticflickr.com/339/19584905205_e10e6cb348_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19584905205) [{% img https://farm1.staticflickr.com/364/19398332399_faebdd746a_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19398332399) [{% img https://farm4.staticflickr.com/3742/19578027852_3508a5344b_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19578027852)
 
-[{% img https://farm1.staticflickr.com/523/19398402569_e05be53d23_c.jpg 800 %}](https://www.flickr.com/photos/tentaclephotos/19398402569)
+After 600m of climbing the body adjusted sufficiently that I did not feel like I'm going to faint. Relief. I felt surprisingly comfortable in the new stiff shoes though I held no illusions about upcoming blisters: new shoes are always a bad idea.
+
+At some point we approached snow and I got my first taste of mountaineering. We got all roped together. The rope is a safety device against a risk of hidden crevices (cracks in the ice). Crevices themselves are not that dangerous because you can see them and avoid them (or jump over) but when crevices are hidden underneath the snow you could accidentally fall through. That's when your buddies are going to pull you out. As the least experienced I was put second, the most experienced went to the front and the end of our life-saving connection. We kept about 10m of rope between each other. It's important to keep the rope sufficiently tight so that in an event of a fall the rope does not create a too strong of a jerk.
+
+We then slogged through snow until we reached our first hut. Crampons (I much prefer the Russian word for it, "kittens") were not necessary yet because the snow was slushy. Crampons are useful when the snow is hard or icy. I closely followed the footsteps of Clément because sliding sideways and falling wastes precious energy. I learned how to hold an ice axe and what is it for. An ice axe is mainly a stability and a braking device. An ice axe is held against the slope. It is also an effective brake when you're either sliding down a slope or your comrade is falling in a crevice. The lower part of an ice axe is used the most: an ice axe is like a hiking pole. You don't use an ice axe crazily swinging it around. So I was a bit disappointed because of that. I still had no idea what an ice screw was for.
+
+On the way to the hut an ambitious Swiss duo accidentally injured JD by sticking an ice axe into his leg. I really can't think of a way you accidentally stick an ice axe into someone's leg but the person apologized at the top and gave his contact information so that he could pay for mending JD's brand new pair of mountaineering trousers. Fortunately, the damage to the leg was limited to a couple of nasty scratches.
 
 [{% img https://farm1.staticflickr.com/354/19558789636_6bfe198ce6_c.jpg 800 %}](https://www.flickr.com/photos/tentaclephotos/19558789636)
 
+Reaching the hut rewarded us with splendid views on the surrounding peaks and glaciers though, as I learned later, the views are not what mountaineering and hiking are all about.
+
+Views from the hut area, note The Bishop (l'évêque) peak close to the left edge - we ascended it on the second day:
+[{% img https://farm1.staticflickr.com/523/19398402569_e05be53d23_c.jpg 800 %}](https://www.flickr.com/photos/tentaclephotos/19398402569)
+
 [{% img https://farm1.staticflickr.com/437/19558817716_6fe36b8686.jpg 500 %}](https://www.flickr.com/photos/tentaclephotos/19558817716) [{% img https://farm1.staticflickr.com/439/19589304621_cbfb9dc2a0.jpg 500 %}](https://www.flickr.com/photos/tentaclephotos/19589304621)
 
-liken to difficulty of first steps and compare to other areas of life; similar to biking 420km;
+I have never stayed in a mountain hut before. Swiss mountain huts are impressively equipped. Some of the huts even offer microbrewery beers. Prices reflect the difficulty of bringing the stuff up to high altitudes. Normally, a hut provides a bunk bed, breakfast and dinner. The food was delicious: a thick minestrone soup followed by pasta bolognese. Mountain food is high on calories because climbing mountains ain't easy.
+
+Overall, I found the experience of the first day highly reminiscent of any other challenge I had faced in my life. Looking back I am astonished at how transferable are the skills of sports to everyday adversities. I made a mental note to look back at physical challenges in search of answers and motivation next time I run up against a wall of life's conundrums.
 
 ## Day 2: The Bishop climb (3707m)
 
@@ -60,20 +79,36 @@ liken to difficulty of first steps and compare to other areas of life; similar t
 
 **Total time:** 7:04'38.7
 
+Mountains run on their own time. I coin this peculiar phenomenon "mountain time". Normal people wake up at 7 or 8. Mountain people, though, finish with their breakfast at 4 and are all packed up ready to go at 4:30. And I used to think I am an early riser... The reasons have to do with weather conditions and snow. It's better to have extra time for unexpected adversity than to get stuck in the dark. I've been told that if it's 6pm and you're still out there you are clearly red lining and in very real danger.
+
+Actually the second day was a bit of luxury as we had breakfast at 4:30 and left the hut at 5:15. Our goal was a peak called "The Bishop" (l'évêque) which was clearly seen from the hut the day before. There is another mountain phenomenon I call "mountain scale". Apparently, human brain cannot judge the sheer vastness of mountains and the perception of distance is seriously distorted. Mountains seem much closer than they really are and only with some points of reference can the real size be understood. For example, tiny humans (that seems more like ants) put things into perspective.
+
 [{% img https://farm4.staticflickr.com/3771/19398433189_e2ff6eb29d_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/19398433189)
 
 [{% img https://farm4.staticflickr.com/3731/19397041088_fd6f06b0f6_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/19397041088)
 
+I couldn't grasp how far The Bishop was. The first part of the ascent was very difficult for me. My body still haven't fully adapted to walking up with a heavy backpack. At some point I felt taste of blood in my mouth (seems similar to taste of metal). It's a sign that I'm doing an honest exercise. The second part was much steeper but felt easier due to short rhythmic movements. We wore crampons from the start as the snow was just in the right shape for them.
+
 [{% img https://farm1.staticflickr.com/539/19398450589_b30335ca48_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/19398450589)
+
+The final part of the ascent involved an easy rock climbing section. Grabbing rock edges and moving above thousands of meters is breathtaking. At 09:00 we reached the top of The Bishop (3707m). At the top I learned another unusual fact about mountaineering and hiking. I thought we're going to marvel at the surroundings for hours so just to confirm my obvious expectation I asked Sam how long are we going to stay at the summit. He answered briefly: "about 10 minutes". After an awkward pause I calmly said: "So we had climbed for 4 hours up. We stay on the summit for 10 minutes. Then we climb down for another 3 hours. Is this a fair summary of what we're doing?". Obviously, there's a reason. It's better to go back as soon as possible because the weather is somewhat unpredictable and snow gets slushy quickly. Climbing, mountaineering, hiking are not about the summit (goal). It's more about the journey itself.
 
 [{% img https://farm1.staticflickr.com/401/19585025825_ddb4549644_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19585025825) [{% img https://farm4.staticflickr.com/3681/19589341891_59ba03ff6f_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19589341891) [{% img https://farm1.staticflickr.com/524/19578145332_180cb7d095_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19578145332)
 
 Panorama from the top of The Bishop:
 [{% img https://farm4.staticflickr.com/3711/19589363141_dc2817975f_c.jpg 800 %}](https://www.flickr.com/photos/tentaclephotos/19589363141)
 
+On the way back I ran out of water. I had 1.5L with me which was clearly not enough. That whole time I was dreaming of an ice cold bottle filled with sparkling water. On subsequent days I've squeezed in 2.5L of water. As you imagine, on those days I had more than 1L left. And I finally earned two big blisters at the back of my heels. As I said, new shoes are always a bad idea.
+
+We got back to the hut at about noon. Clément went down to Arolla with another group as he was joining us only for a weekend. We ordered a portion of Rösti which was served on a single plate and looked MASSIVE:
+
 [{% img https://farm1.staticflickr.com/540/18964181283_7d89bccb8c_z.jpg 427 %}](https://www.flickr.com/photos/tentaclephotos/18964181283)
 
-## Day 3: Pigne d'Arolla (3788m) and Cabanes de Dix
+Each of us took a shower that costs almost as much as a service of a prostitute (6CHF/minute). We then slept from about 14:00 till 16:30. It felt great. We played French scrabble with English words. It felt less great. At 18:30 we had dinner similar to the one the day before though it was complemented with Cordon Bleus. There were only 4 more guests besides us that night. The Vignettes hut has capacity for about a hundred.
+
+Once again I was puzzled to observe that most mountaineers stayed indoors and slept pretty much the whole day. Why do you wake up at 4, climb non-stop for 7-10 hours (leaving no more than 10 minutes to awe at the scenery) and then recess inside from the sun feeling bored? I suppose I'm too green to know the answer yet.
+
+## Day 3: Pigne d'Arolla (3788m) and Cabane des Dix
 
 [{% img /images/arolla/day-3.png 300 %}](https://www.strava.com/activities/341653818)
 
@@ -85,7 +120,9 @@ Panorama from the top of The Bishop:
 
 **Total time:** 5:36'58.3
 
-Cabanes de Vignettes seen from afar:
+The day started a bit earlier. Our goal of the day was to climb peak Pigne d'Arolla and then get to the next hut Cabane des Dix. The third day felt markedly easier and I could enjoy the process and pay attention to the surroundings. Walking up became more natural. Rope and an axe became my perfect accomplices. The route was also slightly easier than on the days before.
+
+Cabane des Vignettes seen from afar:
 [{% img https://farm1.staticflickr.com/407/19578208872_86d6d197aa_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/19578208872)
 
 [{% img https://farm1.staticflickr.com/551/19397137400_d684f28ee1_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/19397137400)
@@ -96,7 +133,15 @@ Cabanes de Vignettes seen from afar:
 
 [{% img https://farm1.staticflickr.com/343/18962590944_d6d60d0e13_c.jpg 800 %}](https://www.flickr.com/photos/tentaclephotos/18962590944)
 
-Cabanes de Dix upclose:
+On the way I couldn't stop noticing dormant insects in the snow and ice. How do the insects get there? What's their story? I also wondered what do the blackbirds feed on at such high altitudes. I suppose on those very insects.
+
+I realized that 3 weeks have passed since I left my job. These 3 weeks felt like a year, full of adventure and new experiences. Despite the spike of energy and enthusiasm I felt that a short vacation cannot heal the damage from long-term stress. I am not yet ready to get back into the professional world. I am glad I had an opportunity to discuss my departure plans with a healthcare professional who shared valuable pieces of wisdom. One of the pearls is to plan at least a 6 month retreat. Otherwise you are almost guaranteed to run into the same issues that plagued you.
+
+We finished our day quite early: at 10:45 we reached the hut. The rest of the day was spent either sleeping, reading or eating. I saw a massive serac separate from the mountain top and go down with a loud bang.
+
+Admittedly, the food in Dix was worse than in Vignettes: blander and less of it. Though Dix offered a nice selection of Belgian-style beers and their paid lunch-time food offerings were delicious.
+
+Cabane des Dix upclose:
 [{% img https://farm1.staticflickr.com/450/18962604874_5e03521122_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/18962604874)
 
 ## Day 4: Mont Blanc Cheilon climb (3850m)
@@ -111,11 +156,31 @@ Cabanes de Dix upclose:
 
 **Total time:** 9:24'38.7
 
+Dix served breakfast at 4 so we woke up at 3:40. By the fourth day I got used to waking up at 4 and going to bed at 8. I felt rested and fresh. I was also pretty certain that I handle altitude sickness pretty well. I felt no major headache and felt sufficiently energized.
+
+We left the hut in the darkness, head torches illuminating our way. Far away in the distance I could see groups of alpine fireflies wrestling their way up. They must have left the hut even earlier. JD forgot to take water. Luckily he realized it soon enough.
+
+The pre-dawn sky was illuminated by lightnings, another majestic spectacle of nature. The day started windy and cold. The wind on the north face of the mountain added fierceness and a hardcore atmosphere to our ascent. By all measures the longest and hardest day lay ahead.
+
+Following a long stretch of snow lay an icy surface. I looked at Sam to see why did he stop and what he was doing. It was about the time I learn what an ice screw is for. Sam screwed the ice screw into the surface of the ice and attached a quick-draw to it and then routed his rope through the quick-draw. The edifice served as a stability and safety device. Basically, an ice screw serves a belaying purpose and protects a climber in a case of a fall. As the last person in the group, JD has undone the ice screw and put it into this backpack. Permanently leaving expensive equipment in the ice ain't cool.
+
 [{% img https://farm1.staticflickr.com/524/19589486631_b2b4f9d0ea_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/19589486631)
 
 [{% img https://farm1.staticflickr.com/353/19589511721_b9bb748abb.jpg 333 %}](https://www.flickr.com/photos/tentaclephotos/19589511721) [{% img https://farm1.staticflickr.com/559/19397268730_228be73498.jpg 333 %}](https://www.flickr.com/photos/tentaclephotos/19397268730)
 
+We approached the rock and took off crampons. The final 100 or so meters involved climbing up the rock ridge. The experience of climbing at almost 4000 meters is very different from climbing at the gym. For one, the mountaineering shoes are not as responsive and trustworthy as the climbing shoes. Second, the backpack is heavy and restricts some of the movements. There were a couple of moves when we had to take the backpacks off and pass them on.
+
+I added a couple of scratches to my helmet as it saved my head from numerous concussions hitting the rock during some of the moves. What a fantastic piece of equipment a helmet is!
+
+The climb felt like an eternity. I can't say I was afraid of the heights or falling down but there were a couple of really gnarly moves when I hesitated a little. At 9:24 we reached Mont Blanc de Cheilon (3850m). Sitting on the calm south face, I ate some gummy bears and nuts to replenish my energy reserves. I congratulated my companions on the successful ascent. Despite minor annoyances we have been extremely lucky to have almost the perfect weather conditions the whole 5 days.
+
 [{% img https://farm4.staticflickr.com/3754/19585219335_2fe7b60b2c_c.jpg 800 %}](https://www.flickr.com/photos/tentaclephotos/19585219335)
+
+Going down proved to be harder than climbing up. My brain was really tired from finding paths between the untrustworthy rock. I could barely understand what I was doing. I felt anger and exhaustion building up. Hard moves were actually easier because my muscles had plenty of capacity. My mind was the real bottleneck. I was glad once the rock section was over. That moment I knew that it's all downhill from there.
+
+On the way back Sam said it would be nice to practice slides on the slope to learn to properly use an ice axe for emergency braking. We were away from the dangerous parts and had our crampons packed. I made a false move and slipped on a patch of ice. Before I realized I was picking up speed and sliding down. Instinctively, I grabbed the axe and tried to stop. Miraculously, I stopped just a few meters short of a fall to a large piece of rock. Sam and JD thought I did that intentionally. They thought I'm an impatient learner. The effective technique is to push the axe with both hands into the slope while trying to stand up. I accidentally slipped again so I had yet another opportunity to practice. I said, of course, that the second incident was absolutely intentional and totally controlled.
+
+We were back in the hut at 14:00. I felt really tired and relieved. We had a delicious French crouton with cheese and egg. It was our last day in the mountains so we hoped to take night-time photos of the starlit sky. Unfortunately, thunderstorms came at 20:00 and we ran out of patience to wait for the skies to clear. Instead, we made the best use of the dusk-lit clouds and dramatic light.
 
 [{% img https://farm1.staticflickr.com/343/19398682479_98312e60f3_c.jpg 800 %}](https://www.flickr.com/photos/tentaclephotos/19398682479)
 
@@ -131,6 +196,8 @@ Cabanes de Dix upclose:
 
 **Total time:** 3:24'19.3
 
+On our final day we woke up at 7. The way back was a piece of cake compared to what we had done on the days before. We crossed small rivers and snow patches and climbed the Pas de Chèvres before trekking down to Arolla.
+
 [{% img https://farm1.staticflickr.com/286/19397321700_470f7acc47_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19397321700) [{% img https://farm1.staticflickr.com/340/18964367173_08c9d2c877_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/18964367173) [{% img https://farm1.staticflickr.com/368/19589594251_0994e0f921_n.jpg 213 %}](https://www.flickr.com/photos/tentaclephotos/19589594251)
 
 [{% img https://farm1.staticflickr.com/449/19397321168_fda2b71b93_z.jpg 640 %}](https://www.flickr.com/photos/tentaclephotos/19397321168)
@@ -143,7 +210,7 @@ Panorama from *Pas de Chèvres* before we descend back to Arolla:
 Panorama on the way back to Arolla:
 [{% img https://farm1.staticflickr.com/542/19578454902_c9d1b3405e_c.jpg 800 %}](https://www.flickr.com/photos/tentaclephotos/19578454902)
 
-A nice surprise at the parking lot, just in time for zombie apocalypse:
+A nice surprise at the parking lot, just in time for a zombie apocalypse:
 [{% img https://farm1.staticflickr.com/463/18962778214_e357672b0c_n.jpg 320 %}](https://www.flickr.com/photos/tentaclephotos/18962778214) [{% img https://farm4.staticflickr.com/3819/18962783654_cebba175c2_n.jpg 320 %}](https://www.flickr.com/photos/tentaclephotos/18962783654)
 
 
