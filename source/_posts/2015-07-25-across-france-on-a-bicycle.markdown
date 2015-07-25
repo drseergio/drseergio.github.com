@@ -51,11 +51,14 @@ From the outset our gear list is much shorter than last year which is plenty rem
  * arm warmers
  * one extra set of socks
  * medicine
+ * compact digital camera (not shown)
 
 This is the stuff I'm going to wear on me (helmet is not shown):
 
 [{% img https://farm1.staticflickr.com/396/19815037210_82c57f6492_z.jpg 427 %}](https://www.flickr.com/photos/tentaclephotos/19815037210)
 
 This time I'm not taking any kind of rain gear because it is pointless in summer heat. I'm also not taking any food. Instead, we'll scout for grocery stores along the way.
+
+I won't publish anything during the ride but I'll keep some notes for a report upon our return. Wish us good luck!
 
 [1] walking, hiking, climbing are the other preferred means
