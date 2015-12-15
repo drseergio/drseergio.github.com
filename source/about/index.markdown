@@ -7,7 +7,7 @@ sharing: false
 footer: true
 ---
 
-My name is Sergey Pisarenko. Sometimes I call myself Sergey Belkin. I live happily in Zürich, Switzerland with my wife Anna. I speak a little Züritusch and German besides my native Russian along with English and Latvian.
+My name is Sergey Pisarenko. Sometimes I call myself Sergey Belkin. I live happily in Zürich, Switzerland with my wife Anna. I speak a little Züritutsch and German besides my native Russian along with English and Latvian.
 
 You can reach me by e-mail at **sergey** at this domain.
 
