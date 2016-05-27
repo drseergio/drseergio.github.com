@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Creating dynamic task scheduler on AppEngine - Sergey Pisarenko</title>
+  <meta name="author" content="Sergey Pisarenko">
+
+  
+  <meta name="description" content="I&rsquo;ve been working on a simple hobby project. The goal is to build an Android application which, as it turns out, requires a backend. The most &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Sergey Pisarenko" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-45212877-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sergey Pisarenko</a></h1>
+  
+    <h2>personal home page</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:drseergio.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="http://www.flickr.com/photos/68217075@N08/">Photo gallery</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Creating dynamic task scheduler on AppEngine</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-03T21:14:00+02:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/app-engine.png"></p>
+
+<p>I&rsquo;ve been working on a simple hobby project. The goal is to build an Android application which, as it turns out, requires a backend. The most important task of the backend is to perform certain things at specified times in future.</p>
+
+<p>In this post I will explain how I&rsquo;ve designed a simple scheduler which relies on AppEngine cron, tasks and the datastore. We will make a new trivial AppEngine application that ties everything together. Although I normally prefer Python but I&rsquo;ve chosen Java for this project. I guess that&rsquo;s because I wanted some consistency with the Android counter-part that I&rsquo;m also developing.</p>
+
+<!-- more -->
+
+
+<h2>Why do we need scheduler in the first place?</h2>
+
+<p>To implement the app that I&rsquo;m developing I must be able to send several notifications to selected users starting at a certain time within a specified interval. For example, send 5 notifications to user John with a 2 hour interval starting at 2pm. I believe such mechanism might be generally useful.</p>
+
+<h2>Scheduler design</h2>
+
+<p>My number one goal with the project I&rsquo;m working on is simplicity. I want to make it work. I want to learn few things. I want to end up with fewest lines of code possible. Projects can easily get out of scope and become too much to manage, especially when done out of curiosity and not with a commercial intent. This means scheduler must be as simple as possible and rely on as few parts as possible.</p>
+
+<p>I propose to chiefly rely on the built-in AppEngine cron. Define a cron job that is executed every minute. In that cron job execute scheduled tasks. Each scheduled task has a <code>next_run_ts</code> parameter that specifies when is the next occurrence due. Whenever the cron is run it checks for all tasks that either have <code>next_run_ts</code> equal to current time or are already in the past. For every due scheduled task the cron job creates a background task to execute actual instructions.</p>
+
+<p>The down-side of my design is that the scheduler is only accurate within couple of minutes. This is perfectly acceptable for my use-case.</p>
+
+<h2>Create AppEngine project in Eclipse</h2>
+
+<p>First things first, let&rsquo;s create a new AppEngine project to prototype our scheduler. I assume you have Eclipse installed and configured with Google plugin. If not, head over to a <a href="http://pisarenko.net/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/">recent post I have written</a> and read the section about setting up ADT. You don&rsquo;t need ADT if you don&rsquo;t intend to write Android application but since I already have ADT there&rsquo;s no reason to mess with a separate Eclipse installation.</p>
+
+<p>Create a new AppEngine project by clicking <code>File &gt; New &gt; Other... &gt; Google &gt; Web Application Project</code>. Choose any name you want (I&rsquo;ve chosen <code>Scheduler</code>) and specify the package name (I&rsquo;ve selected <code>net.pisarenko.backend.scheduler</code>). Untick <code>Use Google Web Toolkit</code> and <code>Generate project sample code</code> and press <code>Finish</code>.</p>
+
+<h2>Create a test class to generate scheduled tasks</h2>
+
+<p>In order to test our scheduler we must be able to create some tasks first. So our first goal is to create a handler which creates scheduled tasks. I&rsquo;ve called my test class <code>TestGenerator</code>:</p>
+
+<figure class='code'><figcaption><span>TestGenerator.java </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreService</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreServiceFactory</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Entity</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Key</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.KeyFactory</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&quot;serial&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestGenerator</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">TestGenerator</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">JOB_PARENT</span> <span class="o">=</span> <span class="s">&quot;notification_job_parent&quot;</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// set parent to ensure data consistency</span>
+</span><span class='line'>      <span class="n">Key</span> <span class="n">jobKey</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="o">.</span><span class="na">createKey</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">JOB_PARENT</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">Entity</span> <span class="n">job</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Entity</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">jobKey</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span><span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span> <span class="o">+</span> <span class="mi">10</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;frequency&quot;</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">datastore</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Created new job to run every 10 seconds 5 times&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>All the code does is it creates a new AppEngine data-store entity of kind <code>NotificationJob</code> when a HTTP GET request is made to this handler. Notice that I use UNIX timestamp as the specification when to run the task. I also take precautions to ensure that written data is consistent by setting a non-existent parent to the saved entity. If you&rsquo;re not familiar with AppEngine&rsquo;s data-store I highly recommend reading about <a href="https://developers.google.com/appengine/docs/java/datastore/structuring_for_strong_consistency">eventual consistency</a> as AppEngine data-store is very different from RDBMS and you must have the right mindset when designing storage for your system.</p>
+
+<p>The intent of the test scheduled task is to execute 6 times within 10 second interval and start in 10 seconds from the moment the handler is called.</p>
+
+<p>Notice that I&rsquo;m using 10 second interval. As you remember, AppEngine cron executes once a minute. This means that the resolution of the cron is not sufficient for running our test task. AppEngine would likely execute all 6 occurrences at the same time. However, we will be using the development server and cron jobs are not executed automatically. We will be acting as a cron ourselves. I will manually access the test handler more often than every 10 seconds for testing purposes.</p>
+
+<p>Let&rsquo;s register our handler at <code>/test</code> by modifying the <code>web.xml</code> file under <code>war/WEB-INF/</code> in the project structure:</p>
+
+<figure class='code'><figcaption><span>web.xml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>...
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;servlet&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;servlet-name&gt;</span>test<span class="nt">&lt;/servlet-name&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;servlet-class&gt;</span>net.pisarenko.backend.scheduler.TestGenerator<span class="nt">&lt;/servlet-class&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/servlet&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;servlet-mapping&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;servlet-name&gt;</span>test<span class="nt">&lt;/servlet-name&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;url-pattern&gt;</span>/test<span class="nt">&lt;/url-pattern&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/servlet-mapping&gt;</span>
+</span><span class='line'>
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For testing/development/debugging purposes I&rsquo;ve put a log statement. Let&rsquo;s try our generator. Run the project by pressing Ctrl+F11. By default, the development server starts at <code>http://127.0.0.1:8888</code> so our handler is accessible at <code>http://127.0.0.1:8888/test</code>.</p>
+
+<p>Access the test handler and check the output of console in Eclipse. You should see something like this:</p>
+
+<p><img src="/images/scheduler/console.png"></p>
+
+<p>Our test scheduled task has been saved! Now let&rsquo;s finish this off with the actual task handler.</p>
+
+<h2>Configure cron and the scheduled task handler</h2>
+
+<p>To run our scheduler loop every minute using AppEngine&rsquo;s cron we must create a <code>cron.xml</code> config file in <code>war/WEB-INF</code>:</p>
+
+<figure class='code'><figcaption><span>cron.xml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;cronentries&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;cron&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;url&gt;</span>/cron<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;description&gt;</span>Send pending notifications<span class="nt">&lt;/description&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;schedule&gt;</span>every 1 minute<span class="nt">&lt;/schedule&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/cron&gt;</span>
+</span><span class='line'><span class="nt">&lt;/cronentries&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Effectively, this will execute <code>/cron</code> endpoint every minute. Note that development server will not run cron so we will manually trigger it through the browser by accessing <code>http://127.0.0.1:8888/cron</code>.</p>
+
+<p>Now let&rsquo;s write the code behind the <code>/cron</code> endpoint. The code will check current time, retrieve all scheduled tasks which have next run either in the past or right now and execute them. If the task is supposed to be run several times we will reduce the remaining run counter, calculate the next execution time and save the changes. If the task has no more runs we delete the entity from the data-store:</p>
+
+<figure class='code'><figcaption><span>NotificationScheduler.java </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreService</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreServiceFactory</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Entity</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Key</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.KeyFactory</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.PreparedQuery</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query.FilterPredicate</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query.FilterOperator</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.taskqueue.Queue</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.taskqueue.QueueFactory</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">appengine</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">taskqueue</span><span class="o">.</span><span class="na">TaskOptions</span><span class="o">.</span><span class="na">Builder</span><span class="o">.*;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&quot;serial&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotificationScheduler</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">NotificationScheduler</span><span class="o">.</span><span class="na">class</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+</span><span class='line'>            <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Running cron loop&quot;</span><span class="o">);</span>
+</span><span class='line'>        <span class="kt">long</span> <span class="n">currentTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span><span class="o">;</span>
+</span><span class='line'>        <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Current time: &quot;</span> <span class="o">+</span> <span class="n">currentTime</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span>
+</span><span class='line'>                <span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">Key</span> <span class="n">jobKey</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="o">.</span><span class="na">createKey</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span>
+</span><span class='line'>                <span class="n">TestGenerator</span><span class="o">.</span><span class="na">JOB_PARENT</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">jobKey</span><span class="o">)</span>
+</span><span class='line'>                <span class="o">.</span><span class="na">setAncestor</span><span class="o">(</span><span class="n">jobKey</span><span class="o">)</span>
+</span><span class='line'>                <span class="o">.</span><span class="na">setFilter</span><span class="o">(</span>
+</span><span class='line'>                        <span class="k">new</span> <span class="nf">FilterPredicate</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span>
+</span><span class='line'>                                <span class="n">FilterOperator</span><span class="o">.</span><span class="na">LESS_THAN_OR_EQUAL</span><span class="o">,</span> <span class="n">currentTime</span><span class="o">));</span>
+</span><span class='line'>        <span class="n">PreparedQuery</span> <span class="n">pq</span> <span class="o">=</span> <span class="n">datastore</span><span class="o">.</span><span class="na">prepare</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span> <span class="o">(</span><span class="n">Entity</span> <span class="n">job</span> <span class="o">:</span> <span class="n">pq</span><span class="o">.</span><span class="na">asIterable</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">processJob</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">processJob</span><span class="o">(</span><span class="n">Entity</span> <span class="n">job</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">Queue</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">QueueFactory</span><span class="o">.</span><span class="na">getDefaultQueue</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">withUrl</span><span class="o">(</span><span class="s">&quot;/sender&quot;</span><span class="o">).</span><span class="na">param</span><span class="o">(</span><span class="s">&quot;job_id&quot;</span><span class="o">,</span> <span class="s">&quot;job_id&quot;</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span>
+</span><span class='line'>                <span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">,</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span> <span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">))</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="k">if</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>          <span class="n">datastore</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">getKey</span><span class="o">());</span>
+</span><span class='line'>      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>          <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span>
+</span><span class='line'>              <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">))</span> <span class="o">+</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;frequency&quot;</span><span class="o">)));</span>
+</span><span class='line'>          <span class="n">datastore</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The handler executes a query against the data-store to retrieve due scheduled tasks. Note that it uses ancestor query to ensure that return values are consistent. Then we iterate through retrieved scheduled tasks and execute <code>processJob</code> method. The <code>processJob</code> introduces AppEngine default queue which we use for executing our scheduled tasks in the background.</p>
+
+<p>Update <code>web.xml</code> for the new handler:</p>
+
+<figure class='code'><figcaption><span>web.xml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>...
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;servlet&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;servlet-name&gt;</span>cron<span class="nt">&lt;/servlet-name&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;servlet-class&gt;</span>net.pisarenko.backend.scheduler.NotificationScheduler<span class="nt">&lt;/servlet-class&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/servlet&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;servlet-mapping&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;servlet-name&gt;</span>cron<span class="nt">&lt;/servlet-name&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;url-pattern&gt;</span>/cron<span class="nt">&lt;/url-pattern&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/servlet-mapping&gt;</span>
+</span><span class='line'>
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>At this point the code won&rsquo;t work because the <code>processJob</code> method is creating queue tasks (not to confuse with our custom scheduled tasks) to be run in the background. Let&rsquo;s fix that!</p>
+
+<h2>Use the default AppEngine queue for executing scheduled tasks</h2>
+
+<p>AppEngine provides functionality to execute code in the background. The easiest way is to use the default push queue. Basically, you tell the default push queue what endpoint should handle the task and AppEngine will execute that endpoint in background. You can also provide parameters that will be populated as HTTP request parameters. No additional configuration is needed, simply instantiate the queue as in our test code.</p>
+
+<p>In the code above we call endpoint <code>/sender</code> with parameter <code>job_id</code> whose value is always <code>job_id</code>. Obviously, this is not a very useful parameter as it stands. However, in future I will change this parameter to provide enough information to the background task handler to carry out execution of the task. For example, the parameter could provide a key to an entity that contains users which should be notified.</p>
+
+<p>The code for the <code>/sender</code> handler:</p>
+
+<figure class='code'><figcaption><span>NotificationSender.java </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&quot;serial&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotificationSender</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">NotificationSender</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;EXECUTING TASK FROM QUEUE &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&quot;job_id&quot;</span><span class="o">));</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you see, it does not do much but it provides the almighty log statement which we will use to confirm that our code is working as we want it to. Finally, update <code>web.xml</code> with <code>/sender</code>:</p>
+
+<figure class='code'><figcaption><span>web.xml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>...
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&lt;servlet&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;servlet-name&gt;</span>sender<span class="nt">&lt;/servlet-name&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;servlet-class&gt;</span>net.pisarenko.backend.scheduler.NotificationSender<span class="nt">&lt;/servlet-class&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/servlet&gt;</span>
+</span><span class='line'>  
+</span><span class='line'>    <span class="nt">&lt;servlet-mapping&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;servlet-name&gt;</span>sender<span class="nt">&lt;/servlet-name&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;url-pattern&gt;</span>/sender<span class="nt">&lt;/url-pattern&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/servlet-mapping&gt;</span>
+</span><span class='line'>
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Final run</h2>
+
+<p>Run the application from Eclipse and open your browser. First, access <code>http://127.0.0.1:8888/cron</code> and observe that <code>EXECUTING TASK FROM QUEUE job_id</code> is displayed in console output. By accessing <code>/cron</code> you&rsquo;re acting as a manual cron. Remember when we ran <code>/test</code>? Exactly, this is why our cron handler is now executing those long due tasks! Refresh the page several times to make sure that all 6 occurrences are run.</p>
+
+<p>Then, run <code>/test</code> to create another test scheduled task and quickly access <code>/cron</code> handler again. If you refresh the browser window often enough you will observe that the scheduled task is executed only when 10 seconds have elapsed since the last execution. Sweet, our scheduler is working!</p>
+
+<p>As a next step, experiment with the test generator and try the code in production AppEngine. As for myself, I&rsquo;m going to integrate this piece into the project I&rsquo;m working on. I prefer to build applications by prototyping separate pieces one at a time. This way I at least have an idea of what to expect from each comopnent and know how to integrate it into the bigger design.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sergey Pisarenko</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-03T21:14:00+02:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/09/01/htpc-build-i-slash-m-proud-of/" title="Previous Post: HTPC build I'm proud of">&laquo; HTPC build I'm proud of</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/09/08/my-lucky-night-with-freenas-failure/" title="Next Post: My lucky night with a FreeNAS failure">My lucky night with a FreeNAS failure &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/27/rigimarsch-2016/">Rigimarsch 2016</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/19/bike-fitting-basics-for-triathlon/">Bike fitting basics for triathlon and road cycling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/14/a-long-new-journey-ahead/">A long new journey ahead</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/05/the-wonderful-way-of-carabike/">The wonderful way of carabike</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/31/goals/">Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/03/salsa-fargo-rohloff/">Salsa Fargo Mk3 - now with Rohloff!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/07/trip-report-from-bicycle-tour-across-france/">Trip report from bicycle tour across France</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/25/across-france-on-a-bicycle/">Across France on a bicycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/10/mountaineering-in-valais/">Mountaineering in Valais</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/03/going-to-a-first-alpine-tour/">Going to a first alpine tour</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/+SergeyBelkin?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Sergey Pisarenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'drseergio';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/';
+        var disqus_url = 'http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

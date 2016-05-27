@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: tech | Sergey Pisarenko]]></title>
+  <link href="http://drseergio.github.io/blog/categories/tech/atom.xml" rel="self"/>
+  <link href="http://drseergio.github.io/"/>
+  <updated>2016-05-27T22:04:59+02:00</updated>
+  <id>http://drseergio.github.io/</id>
+  <author>
+    <name><![CDATA[Sergey Pisarenko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to order Dell XPS 13 with US keyboard in Europe]]></title>
+    <link href="http://drseergio.github.io/blog/2015/04/05/how-to-order-dell-xps-13-with-us-keyboard-in-europe/"/>
+    <updated>2015-04-05T19:46:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2015/04/05/how-to-order-dell-xps-13-with-us-keyboard-in-europe</id>
+    <content type="html"><![CDATA[<p>I decided to purchase a laptop as I find myself longing for a computer away from my beloved workstation more often. Last time I bought a laptop was 8 years ago.</p>
+
+<p>Dell built a laptop I feel genuinely excited about &ndash; the new XPS 13. It&rsquo;s as small as 11" machine with really narrow bezel. It comes with specs that are just right for me.</p>
+
+<p><a href="/images/dellxps/dell_order_01.png"><img src="/images/dellxps/dell_order_01.png" width="500"></a></p>
+
+<p>However, I&rsquo;ve learned that buying from Dell is not that easy! I was trying to order XPS 13 laptop with a US layout keyboard using Swiss regional site dell.ch. When I choose US keyboard I get presented with the following error:</p>
+
+<p>&ldquo;The selection &ndash; MUI Etikett für Handauflage is incompatible with Tastatur&rdquo;</p>
+
+<p><a href="/images/dellxps/dell_order_02.png"><img src="/images/dellxps/dell_order_02.png" width="500"></a></p>
+
+<p><a href="/images/dellxps/dell_order_03.png"><img src="/images/dellxps/dell_order_03.png" width="500"></a></p>
+
+<p><a href="/images/dellxps/dell_order_05.png"><img src="/images/dellxps/dell_order_04.png" width="500"></a></p>
+
+<p>I have no clue what &ldquo;MUI Etikett für Handauflage&rdquo; is. It looks like some kind of internal article name. In English it means &ldquo;MUI sticker for palm rest&rdquo; which still makes little sense. I confirmed that the same issue is present on other European Dell stores. I checked Austrian and German sites. Same problem.</p>
+
+<p>I honestly tried to contact support to get it done. Phone support in Switzerland does not provide help unless you have already bought something from Dell. I&rsquo;ve tried contacting other deparments and a support agent suggested I try chat support in Germany. I described the error and provided a screen-shot. The agent said it&rsquo;s a known problem and that it&rsquo;s going to be fixed. Just to be sure the agent recommended I try again tomorrow.</p>
+
+<p>Well, the problem is still there 1.5 weeks later so I guess it&rsquo;s not going to be fixed anytime soon. Anyway, the point of this article is that it&rsquo;s possible to make an order by modifying JavaScript using Developer Tools (in Chrome) or an equivalent in other browsers. It&rsquo;s as simple as enabling the &ldquo;purchase&rdquo; button. Step by step instructions are provided below:</p>
+
+<p>Find the HTML element in DOM that corresponds to the purchase button and remove the &ldquo;disabled&rdquo; class attribute::</p>
+
+<p><a href="/images/dellxps/dell_order_06.png"><img src="/images/dellxps/dell_order_06.png" width="500"></a></p>
+
+<p>Repeat the procedure on the next screen:</p>
+
+<p><a href="/images/dellxps/dell_order_07.png"><img src="/images/dellxps/dell_order_07.png" width="500"></a></p>
+
+<p><a href="/images/dellxps/dell_order_08.png"><img src="/images/dellxps/dell_order_08.png" width="500"></a></p>
+
+<p>So far my order has not been cancelled but I don&rsquo;t know if it&rsquo;s going to work. If this fails I think I&rsquo;ll hold off buying a laptop at this time.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[5 sold gadgets later or welcome back to Microsoft Windows]]></title>
+    <link href="http://drseergio.github.io/blog/2013/10/21/5-sold-gadgets-later-or-welcome-back-to-microsoft-windows/"/>
+    <updated>2013-10-21T20:31:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2013/10/21/5-sold-gadgets-later-or-welcome-back-to-microsoft-windows</id>
+    <content type="html"><![CDATA[<p>I honestly would not anticipate writing about Microsoft Windows. Not after I have irrevocably and irreversibly switched to Linux and OSX years ago when I was studying at the university.</p>
+
+<p>But here I am, happily typing this in Sublime2 editor on my desktop computer running nothing else but Microsoft Windows 8. Yes, the same computer that had been running Gentoo Linux a week or so ago!</p>
+
+<!-- more -->
+
+
+<p>Long story short I&rsquo;ve never intended this to happen. My goal was to reduce number of gadgets. Instead of a full-size tower PC and an Apple MacMini I wanted a single powerful machine running OSX. My idea was to buy a new motherboard with Thunderbolt ports (to connect two 27" Apple displays) and install OSX on to it. It&rsquo;s not an officially supported thing to do but I could not care less. The upcoming Apple MacPro is going to cost a fortune anyway and there is absolutely no way for me to justify such a steep price.</p>
+
+<p><a href="/images/win8/3.jpg"><img src="/images/win8/3_s.jpg" width="500"></a></p>
+
+<p>As you probably expect things did not go according to plan. It turned out that the motherboard I have ordered includes a Thunderbolt controller (DSL4510/4410) that is not yet supported by OSX (not even the latest Mavericks version). That left any attempts to install OSX out in the cold.</p>
+
+<p><a href="/images/win8/9.jpg"><img src="/images/win8/9_s.jpg" width="500"></a></p>
+
+<p>The reason I had an Apple computer in the first place was to natively run software that does not exist on Linux, such as Adobe imaging products. So I&rsquo;ve decided to install Windows and use all the same software on it. After all, the hardware I had put together has &ldquo;designed for Windows 8&rdquo; written all over it.</p>
+
+<p>I was expecting a miserable experience. People love to bash Microsoft Windows and there are reasons for that. However, I found that the desktop experience works rather well and looks good. To be honest, I don&rsquo;t see much difference between operating systems for desktop work-loads because most of the time I use a web browser. Windows 8 does not stand in my way.</p>
+
+<p>Every system has its quirks and Windows is no exception. I am used to quirks in all of the systems I have a pleasure to work with. The things I did not like about Windows:</p>
+
+<ul>
+<li><p>Installing drivers. In OSX almost everything is built-in. In Linux you either have a distribution with a binary kernel that includes support for almost every device or, if you&rsquo;re into it, you compile your own. Neither OSX nor Linux mandate messing with device support unless you really want to.</p></li>
+<li><p>Updates. The dreadful updates plague OSX as well but not as much as Windows. I don&rsquo;t fully appreciate forced reboots and long installation times.</p></li>
+<li><p>Lack of virtual desktops. Even with two 27" screens I like to have an option to switch to a different work-space. Both OSX and Linux have nailed this well. I&rsquo;ve found a program that enables virtual desktop but I don&rsquo;t know if it&rsquo;s doing its work efficiently. Perhaps I shouldn&rsquo;t care because the Intel i7 4740K is very fast and there&rsquo;s 16GB of system memory available.</p></li>
+<li><p>Lack of good terminal. As a work-around I&rsquo;ve installed Console2 and Cygwin. It&rsquo;s an OK solution. I also SSH into a powerful Linux server (which acts as a <a href="/blog/2013/09/01/htpc-build-i-slash-m-proud-of/">HTPC</a> ) and keep a bunch of VMs around.</p></li>
+<li><p>Sleep puts all windows on one monitor. In addition, the time is not immediately synced so I see the time when the computer was put to sleep.</p></li>
+<li><p>Smaller behavior quirks that are solved by finding and installing utilities. For example:</p>
+
+<ul>
+<li>AltDrag to drag windows with a pointer while holding Alt pressed</li>
+<li>AlwaysMouseWheel to scroll windows that are not in focus</li>
+<li>TypeIt to enter German characters with a QWERTY layout</li>
+<li>Dexpot for virtual desktops</li>
+<li>ObjectDock for a OSX-like bar</li>
+<li>ClipX as a clipboard history manager</li>
+<li>NO, I do not need a &ldquo;start menu&rdquo; :D</li>
+</ul>
+</li>
+</ul>
+
+
+<p>The machine is exquisite! It&rsquo;s extremely quiet &ndash; it has only a single 120mm fan on the CPU heat-sink (I removed all the other fans). There are no extension cards and everything else is cooled passively. There&rsquo;s just one SSD and no vibrating hard disks. I can&rsquo;t tell if the computer is running or not! The Apple screens are gorgeous. I&rsquo;ve added a Logitech trackpad to do the touch gestures.</p>
+
+<p><a href="/images/win8/4.jpg"><img src="/images/win8/4_s.jpg" width="500"></a></p>
+
+<p>While I believe OSX might eventually support the Thunderbolt controller I don&rsquo;t plan to switch. The desktop experience is great and all the software I need works well. I&rsquo;ve sold all the gadgets, computers and computer parts I wanted through a local online auction. I feel much better now!</p>
+
+<p>Full hardware list:</p>
+
+<ul>
+<li>Antec 1200 case (with all fans either removed or disabled)</li>
+<li>Asus Z87 deluxe/dual motherboard</li>
+<li>Intel 4770K</li>
+<li>Noctua NH-U12P SE2 cooler</li>
+<li>2x8GB RAM</li>
+<li>Apple Cinema Display 27"</li>
+<li>Apple Thunderbolt Screen 27"</li>
+<li>Advantage Kinesis keyboard</li>
+<li>Logitech M570 trackball</li>
+<li>Logitech T650 multi-touch trackpad</li>
+<li>Seasonic 460W passively-cooled PSU</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My lucky night with a FreeNAS failure]]></title>
+    <link href="http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure/"/>
+    <updated>2013-09-08T01:34:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure</id>
+    <content type="html"><![CDATA[<p>It&rsquo;s 1:35am right now and something really bad has happened about 4 hours ago. First, Time Machine on my Mac Mini complained that the backup network disk became inaccessible. Then network shares have stopped responding on all computers. This means something wrong has happened with the wonderful reliable NAS server that I had built weeks ago.</p>
+
+<p>First, I connect to the server via SSH and start poking around. Once I notice that file-system commands, such as <code>ls</code>, cause sessions to hang I become worrisome. I do a reboot hoping that solves the problem. 10 minutes pass. The server does not start.</p>
+
+<!-- more -->
+
+
+<p><img class="right" src="/images/chinese_monitor.jpg"></p>
+
+<p>Once I&rsquo;ve connected a handy <a href="http://dx.com/p/8-tft-lcd-car-reverse-rear-view-color-monitor-w-vga-bnc-cable-black-149114">8" VGA monitor</a> I noticed SCSI driver related problems in the kernel logs. As it turns out, the USB drive on which FreeNAS had been installed has failed. This monitor is really handy for troubleshooting problems with servers &ndash; small, easy to carry and occupies little space in the toolbox. The picture quality is god-awful but good enough for reading terminal output.</p>
+
+<p>I have been expecting the worst &ndash; that I would need to re-configure everything. After a quick search on the Internet I found out that FreeNAS keeps configuration in a SQLite database file on the 4th partition in <code>freenas-v1.db</code> file. A bleak hope ran through my mind. I&rsquo;ve connected the flash disk to a Linux computer and started poking around. All I needed to do was to compile UFS file-system support in kernel and then mount the partition with:</p>
+
+<p><code>mount -r -t ufs -o ufstype=44bsd /dev/sdc4 /tmp/mm</code></p>
+
+<p>I copied the file over and verified that it&rsquo;s not corrupted. YES! I had been stupidly postponing back-up of the configuration file. If I had to re-configure FreeNAS from scratch I would feel like a fool and waste a week worth of evenings. Now, I just need to burn the FreeNAS image to a replacement drive and I&rsquo;m all set.</p>
+
+<p>The last step took embarassingly long time. None of the images that I had written either on Linux or Mac would boot. FreeNAS would get to an error saying <code>corrupt or invalid GPT detected.</code>. No matter what I did the outcome was the same. The solution was to delete GPT by running parted from Linux and doing <code>mklabel msdos</code>, followed by write of the disk image. I believe this problem occurred because I had previously used the drives for experimentation with Chromebook and some GPT headers apparently remained there.</p>
+
+<p><img class="left" src="/images/msata.jpg"></p>
+
+<p>Finally, I found a spare mSATA SSD drive lying around with no use (a leftover from a notebook upgrade). I also had a mSATA adapter so I&rsquo;ve put them together inside of the NAS to use as a boot device for FreeNAS. Now the NAS has 8 SATA devices (6 HDDs and 2 SSDs) maxing out all available SATA ports in the system.</p>
+
+<p>Once I have successfully booted the server and got to the web UI and initiated import of the recovered configuration database file. Then the server rebooted twice and everything was back!</p>
+
+<p>The machine is back online and running beautifully. I now have a backup of the configuration. In case anything goes wrong again reinstalling FreeNAS is really quick &amp; simple IFF the backup configuration file is available. I am once again pleasantly surprised at how well FreeNAS is made.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Creating dynamic task scheduler on AppEngine]]></title>
+    <link href="http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/"/>
+    <updated>2013-09-03T21:14:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/app-engine.png"></p>
+
+<p>I&rsquo;ve been working on a simple hobby project. The goal is to build an Android application which, as it turns out, requires a backend. The most important task of the backend is to perform certain things at specified times in future.</p>
+
+<p>In this post I will explain how I&rsquo;ve designed a simple scheduler which relies on AppEngine cron, tasks and the datastore. We will make a new trivial AppEngine application that ties everything together. Although I normally prefer Python but I&rsquo;ve chosen Java for this project. I guess that&rsquo;s because I wanted some consistency with the Android counter-part that I&rsquo;m also developing.</p>
+
+<!-- more -->
+
+
+<h2>Why do we need scheduler in the first place?</h2>
+
+<p>To implement the app that I&rsquo;m developing I must be able to send several notifications to selected users starting at a certain time within a specified interval. For example, send 5 notifications to user John with a 2 hour interval starting at 2pm. I believe such mechanism might be generally useful.</p>
+
+<h2>Scheduler design</h2>
+
+<p>My number one goal with the project I&rsquo;m working on is simplicity. I want to make it work. I want to learn few things. I want to end up with fewest lines of code possible. Projects can easily get out of scope and become too much to manage, especially when done out of curiosity and not with a commercial intent. This means scheduler must be as simple as possible and rely on as few parts as possible.</p>
+
+<p>I propose to chiefly rely on the built-in AppEngine cron. Define a cron job that is executed every minute. In that cron job execute scheduled tasks. Each scheduled task has a <code>next_run_ts</code> parameter that specifies when is the next occurrence due. Whenever the cron is run it checks for all tasks that either have <code>next_run_ts</code> equal to current time or are already in the past. For every due scheduled task the cron job creates a background task to execute actual instructions.</p>
+
+<p>The down-side of my design is that the scheduler is only accurate within couple of minutes. This is perfectly acceptable for my use-case.</p>
+
+<h2>Create AppEngine project in Eclipse</h2>
+
+<p>First things first, let&rsquo;s create a new AppEngine project to prototype our scheduler. I assume you have Eclipse installed and configured with Google plugin. If not, head over to a <a href="http://pisarenko.net/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/">recent post I have written</a> and read the section about setting up ADT. You don&rsquo;t need ADT if you don&rsquo;t intend to write Android application but since I already have ADT there&rsquo;s no reason to mess with a separate Eclipse installation.</p>
+
+<p>Create a new AppEngine project by clicking <code>File &gt; New &gt; Other... &gt; Google &gt; Web Application Project</code>. Choose any name you want (I&rsquo;ve chosen <code>Scheduler</code>) and specify the package name (I&rsquo;ve selected <code>net.pisarenko.backend.scheduler</code>). Untick <code>Use Google Web Toolkit</code> and <code>Generate project sample code</code> and press <code>Finish</code>.</p>
+
+<h2>Create a test class to generate scheduled tasks</h2>
+
+<p>In order to test our scheduler we must be able to create some tasks first. So our first goal is to create a handler which creates scheduled tasks. I&rsquo;ve called my test class <code>TestGenerator</code>:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>TestGenerator.java </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreService</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreServiceFactory</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Entity</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Key</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.KeyFactory</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@SuppressWarnings</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">serial</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestGenerator</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">TestGenerator</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">JOB_PARENT</span> <span class="o">=</span> <span class="s">&quot;notification_job_parent&quot;</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span><span class='line'>    <span class="c1">// set parent to ensure data consistency</span>
+</span><span class='line'>    <span class="n">Key</span> <span class="n">jobKey</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="o">.</span><span class="na">createKey</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">JOB_PARENT</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">Entity</span> <span class="n">job</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Entity</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">jobKey</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span><span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span> <span class="o">+</span> <span class="mi">10</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;frequency&quot;</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">datastore</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Created new job to run every 10 seconds 5 times&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>All the code does is it creates a new AppEngine data-store entity of kind <code>NotificationJob</code> when a HTTP GET request is made to this handler. Notice that I use UNIX timestamp as the specification when to run the task. I also take precautions to ensure that written data is consistent by setting a non-existent parent to the saved entity. If you&rsquo;re not familiar with AppEngine&rsquo;s data-store I highly recommend reading about <a href="https://developers.google.com/appengine/docs/java/datastore/structuring_for_strong_consistency">eventual consistency</a> as AppEngine data-store is very different from RDBMS and you must have the right mindset when designing storage for your system.</p>
+
+<p>The intent of the test scheduled task is to execute 6 times within 10 second interval and start in 10 seconds from the moment the handler is called.</p>
+
+<p>Notice that I&rsquo;m using 10 second interval. As you remember, AppEngine cron executes once a minute. This means that the resolution of the cron is not sufficient for running our test task. AppEngine would likely execute all 6 occurrences at the same time. However, we will be using the development server and cron jobs are not executed automatically. We will be acting as a cron ourselves. I will manually access the test handler more often than every 10 seconds for testing purposes.</p>
+
+<p>Let&rsquo;s register our handler at <code>/test</code> by modifying the <code>web.xml</code> file under <code>war/WEB-INF/</code> in the project structure:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>web.xml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>servlet<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>test<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-class<span class="ni">&amp;gt;</span>net.pisarenko.backend.scheduler.TestGenerator<span class="ni">&amp;lt;</span>/servlet-class<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/servlet<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ni">&amp;lt;</span>servlet-mapping<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>test<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>url-pattern<span class="ni">&amp;gt;</span>/test<span class="ni">&amp;lt;</span>/url-pattern<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/servlet-mapping<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;hellip;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>For testing/development/debugging purposes I&rsquo;ve put a log statement. Let&rsquo;s try our generator. Run the project by pressing Ctrl+F11. By default, the development server starts at <code>http://127.0.0.1:8888</code> so our handler is accessible at <code>http://127.0.0.1:8888/test</code>.</p>
+
+<p>Access the test handler and check the output of console in Eclipse. You should see something like this:</p>
+
+<p><img src="/images/scheduler/console.png"></p>
+
+<p>Our test scheduled task has been saved! Now let&rsquo;s finish this off with the actual task handler.</p>
+
+<h2>Configure cron and the scheduled task handler</h2>
+
+<p>To run our scheduler loop every minute using AppEngine&rsquo;s cron we must create a <code>cron.xml</code> config file in <code>war/WEB-INF</code>:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>cron.xml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;lt;</span>?xml version=<span class="ni">&amp;ldquo;</span>1.0<span class="ni">&amp;rdquo;</span> encoding=<span class="ni">&amp;ldquo;</span>UTF-8<span class="ni">&amp;rdquo;</span>?&gt;
+</span><span class='line'><span class="nt">&lt;cronentries&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;cron&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>url<span class="ni">&amp;gt;</span>/cron<span class="ni">&amp;lt;</span>/url<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>description<span class="ni">&amp;gt;</span>Send pending notifications<span class="ni">&amp;lt;</span>/description<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>schedule<span class="ni">&amp;gt;</span>every 1 minute<span class="ni">&amp;lt;</span>/schedule<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>  <span class="nt">&lt;/cron&gt;</span>
+</span><span class='line'><span class="nt">&lt;/cronentries&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Effectively, this will execute <code>/cron</code> endpoint every minute. Note that development server will not run cron so we will manually trigger it through the browser by accessing <code>http://127.0.0.1:8888/cron</code>.</p>
+
+<p>Now let&rsquo;s write the code behind the <code>/cron</code> endpoint. The code will check current time, retrieve all scheduled tasks which have next run either in the past or right now and execute them. If the task is supposed to be run several times we will reduce the remaining run counter, calculate the next execution time and save the changes. If the task has no more runs we delete the entity from the data-store:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>NotificationScheduler.java </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreService</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreServiceFactory</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Entity</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Key</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.KeyFactory</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.PreparedQuery</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query.FilterPredicate</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query.FilterOperator</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">com.google.appengine.api.taskqueue.Queue</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">com.google.appengine.api.taskqueue.QueueFactory</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">appengine</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">taskqueue</span><span class="o">.</span><span class="na">TaskOptions</span><span class="o">.</span><span class="na">Builder</span><span class="o">.*;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@SuppressWarnings</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">serial</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotificationScheduler</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">NotificationScheduler</span><span class="o">.</span><span class="na">class</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+</span><span class='line'>        <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Running cron loop&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="kt">long</span> <span class="n">currentTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span><span class="o">;</span>
+</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Current time: &quot;</span> <span class="o">+</span> <span class="n">currentTime</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">Key</span> <span class="n">jobKey</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="o">.</span><span class="na">createKey</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span>
+</span><span class='line'>            <span class="n">TestGenerator</span><span class="o">.</span><span class="na">JOB_PARENT</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">jobKey</span><span class="o">)</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">setAncestor</span><span class="o">(</span><span class="n">jobKey</span><span class="o">)</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">setFilter</span><span class="o">(</span>
+</span><span class='line'>                    <span class="k">new</span> <span class="nf">FilterPredicate</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span>
+</span><span class='line'>                            <span class="n">FilterOperator</span><span class="o">.</span><span class="na">LESS_THAN_OR_EQUAL</span><span class="o">,</span> <span class="n">currentTime</span><span class="o">));</span>
+</span><span class='line'>    <span class="n">PreparedQuery</span> <span class="n">pq</span> <span class="o">=</span> <span class="n">datastore</span><span class="o">.</span><span class="na">prepare</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">for</span> <span class="o">(</span><span class="n">Entity</span> <span class="n">job</span> <span class="o">:</span> <span class="n">pq</span><span class="o">.</span><span class="na">asIterable</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">processJob</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">private</span> <span class="kt">void</span> <span class="nf">processJob</span><span class="o">(</span><span class="n">Entity</span> <span class="n">job</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">Queue</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">QueueFactory</span><span class="o">.</span><span class="na">getDefaultQueue</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">withUrl</span><span class="o">(</span><span class="s">&quot;/sender&quot;</span><span class="o">).</span><span class="na">param</span><span class="o">(</span><span class="s">&quot;job_id&quot;</span><span class="o">,</span> <span class="s">&quot;job_id&quot;</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">,</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span> <span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">))</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">datastore</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">getKey</span><span class="o">());</span>
+</span><span class='line'>    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span>
+</span><span class='line'>            <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">))</span> <span class="o">+</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;frequency&quot;</span><span class="o">)));</span>
+</span><span class='line'>        <span class="n">datastore</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The handler executes a query against the data-store to retrieve due scheduled tasks. Note that it uses ancestor query to ensure that return values are consistent. Then we iterate through retrieved scheduled tasks and execute <code>processJob</code> method. The <code>processJob</code> introduces AppEngine default queue which we use for executing our scheduled tasks in the background.</p>
+
+<p>Update <code>web.xml</code> for the new handler:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>web.xml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>servlet<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>cron<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-class<span class="ni">&amp;gt;</span>net.pisarenko.backend.scheduler.NotificationScheduler<span class="ni">&amp;lt;</span>/servlet-class<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/servlet<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ni">&amp;lt;</span>servlet-mapping<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>cron<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>url-pattern<span class="ni">&amp;gt;</span>/cron<span class="ni">&amp;lt;</span>/url-pattern<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/servlet-mapping<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;hellip;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>At this point the code won&rsquo;t work because the <code>processJob</code> method is creating queue tasks (not to confuse with our custom scheduled tasks) to be run in the background. Let&rsquo;s fix that!</p>
+
+<h2>Use the default AppEngine queue for executing scheduled tasks</h2>
+
+<p>AppEngine provides functionality to execute code in the background. The easiest way is to use the default push queue. Basically, you tell the default push queue what endpoint should handle the task and AppEngine will execute that endpoint in background. You can also provide parameters that will be populated as HTTP request parameters. No additional configuration is needed, simply instantiate the queue as in our test code.</p>
+
+<p>In the code above we call endpoint <code>/sender</code> with parameter <code>job_id</code> whose value is always <code>job_id</code>. Obviously, this is not a very useful parameter as it stands. However, in future I will change this parameter to provide enough information to the background task handler to carry out execution of the task. For example, the parameter could provide a key to an entity that contains users which should be notified.</p>
+
+<p>The code for the <code>/sender</code> handler:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>NotificationSender.java </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">net</span><span class="o">.</span><span class="na">pisarenko</span><span class="o">.</span><span class="na">backend</span><span class="o">.</span><span class="na">scheduler</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@SuppressWarnings</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">serial</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotificationSender</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">NotificationSender</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;EXECUTING TASK FROM QUEUE &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&quot;job_id&quot;</span><span class="o">));</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>As you see, it does not do much but it provides the almighty log statement which we will use to confirm that our code is working as we want it to. Finally, update <code>web.xml</code> with <code>/sender</code>:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>web.xml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>servlet<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>sender<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-class<span class="ni">&amp;gt;</span>net.pisarenko.backend.scheduler.NotificationSender<span class="ni">&amp;lt;</span>/servlet-class<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/servlet<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ni">&amp;lt;</span>servlet-mapping<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>servlet-name<span class="ni">&amp;gt;</span>sender<span class="ni">&amp;lt;</span>/servlet-name<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>url-pattern<span class="ni">&amp;gt;</span>/sender<span class="ni">&amp;lt;</span>/url-pattern<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/servlet-mapping<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;hellip;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Final run</h2>
+
+<p>Run the application from Eclipse and open your browser. First, access <code>http://127.0.0.1:8888/cron</code> and observe that <code>EXECUTING TASK FROM QUEUE job_id</code> is displayed in console output. By accessing <code>/cron</code> you&rsquo;re acting as a manual cron. Remember when we ran <code>/test</code>? Exactly, this is why our cron handler is now executing those long due tasks! Refresh the page several times to make sure that all 6 occurrences are run.</p>
+
+<p>Then, run <code>/test</code> to create another test scheduled task and quickly access <code>/cron</code> handler again. If you refresh the browser window often enough you will observe that the scheduled task is executed only when 10 seconds have elapsed since the last execution. Sweet, our scheduler is working!</p>
+
+<p>As a next step, experiment with the test generator and try the code in production AppEngine. As for myself, I&rsquo;m going to integrate this piece into the project I&rsquo;m working on. I prefer to build applications by prototyping separate pieces one at a time. This way I at least have an idea of what to expect from each comopnent and know how to integrate it into the bigger design.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HTPC build I'm proud of]]></title>
+    <link href="http://drseergio.github.io/blog/2013/09/01/htpc-build-i-slash-m-proud-of/"/>
+    <updated>2013-09-01T17:38:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2013/09/01/htpc-build-i-slash-m-proud-of</id>
+    <content type="html"><![CDATA[<p>If you follow what I write here and on <a href="http://grow-slowly.com">http://grow-slowly.com</a> you will notice that I am somewhat obsessed with reducing the number of possessions in my life. This directly contradicts another, though negative, characteristic of mine &ndash; to get more gadgets and possessions.</p>
+
+<p>Recently, I have had a lot of good progress on challenging the negative trait. Not only I&rsquo;ve been more successful on overcoming the purchasing obsession but I&rsquo;ve also found ways to enjoy more and get creative at reusing what I already have.</p>
+
+<p>One of my recent projects was to combine several devices into one. I&rsquo;ve got rid of Sony Playstation 3 and merged 2 computers together. Here&rsquo;s the end-result:</p>
+
+<p><a href="/images/htpc/2.jpg"><img src="/images/htpc/2.jpg" width="500"></a></p>
+
+<!-- more -->
+
+
+<p>Just one neat-looking HTPC (home theater personal computer) that fits into the living room! Why did I have 3 devices in the first place? Well, I&rsquo;ve obviously used Sony Playstation 3 for playing games. I&rsquo;m not an obsessive gamer but I do enjoy certain games once in a while. I appreciate the fact that once you own a console no hardware upgrades are necessary. The down-side is that the graphics quality is lower than on PCs as the technology advances and the console stays the same.</p>
+
+<p>Second, I had a server running gentoo Linux with relatively high computational power &ndash; modern i7 Intel processor, 32GB RAM and a pair of SSD drives. I&rsquo;ve used the machine for doing relatively-taxing statistical calculations, VMs and later ran a bittorrent downloader.</p>
+
+<p>Third, I had an HTPC to watch movies and listen music. I don&rsquo;t like an idea of using an off-the-shelf media player. New formats get released every now and then and some videos are available online on certain sites only. Chances are that sooner or later there will be a video that the off-the-shelf box can&rsquo;t play. Having a full-blown PC has full flexibility as I can always install newer software or use a standard desktop browser to open any streaming site. Although I actively use XBMC for great viewing experience I&rsquo;ve intentionally left the full KDE desktop experience as I don&rsquo;t want to mask the functionality of a computer. By the way, the HTPC had been powered by an Asus E350 board (similar to what I currently use in <a href="http://pisarenko.net/blog/2013/08/28/impressions-from-freenas/">my NAS build</a>) and a passively cooled nVidia Geforce 610. Couple that together with a passive Seasonic power supply and you get a completely quiet computer!</p>
+
+<p>I&rsquo;ve realized that I was wasting resources. I can play games on a PC (apart from few PS3 exclusives) so I don&rsquo;t really need a PS3. The server is already running 24x7 so why can&rsquo;t I use it as HTPC? With that idea in mind I&rsquo;ve decided to merge 2 computers together and sell the PS3 to a colleague.</p>
+
+<p>I admit the conversion was far from frugal as I had to purchase a powerful graphics card to allow gaming. In addition, the cooling system I had in the server would not fit in the relatively compact Antec Fusion Remote case (Corsair H100). Finally, the power supply I had was not powerful enough.</p>
+
+<p>The final spec list I arrived at:</p>
+
+<ul>
+<li><p>Antec Fusion Remote case (re-used from existing HTPC)</p></li>
+<li><p>Asus ROG IV Gene mATX motherboard (re-used from the server)</p></li>
+<li><p>Intel i7 i3930K CPU (re-used from the server)</p></li>
+<li><p>32GB RAM (re-used from the server)</p></li>
+<li><p>2x60GB Intel SSD (re-used from the server)</p></li>
+<li><p>750W Seasonic X series PSU (bought)</p></li>
+<li><p>1x60GB SSD (bought, for installing Windows 7 on it)</p></li>
+<li><p>2xnVidia Zotac GeForce 660 in SLI mode (bought, to be able to play games)</p></li>
+<li><p>Windows 7 license (bought, to be able to play games)</p></li>
+<li><p>LG BluRay writer (bought, to install Windows and have at least 1 optical drive at home)</p></li>
+<li><p>2x120mm NoiseBlocker case fans (re-used from the server)</p></li>
+<li><p>Noctua NH-U12P SE2 CPU cooler (bought)</p></li>
+</ul>
+
+
+<p>The unused internals from the existing server and HTPC were either sold or given away to those who need them. Nothing was thrown away.</p>
+
+<p>The final under-the-hood view of the build:</p>
+
+<p><a href="/images/htpc/4.jpg"><img src="/images/htpc/4.jpg" width="500"></a></p>
+
+<p>I&rsquo;ve installed Windows 7 on a separate SSD. When I want to play games I have to reboot the machine into Windows 7. The down-side is that the server is temporarily unavailable. It&rsquo;s an acceptable solution for my purposes as I&rsquo;m the only user of the server and I don&rsquo;t actively need the server while I&rsquo;m playing. In addition, I play only a couple of hours every other week.</p>
+
+<p>I have been a little worried that I would not be able to fit all the hardware in the case but everything got in surprisingly well. It&rsquo;s not possible to fit in a 7-generation nVidia as the new cards are considerably longer (ca 30 cm vs 19cm GeForce 660). I hope future GPU generations will reverse the trend.</p>
+
+<p>Another concern is noise. I was pleasantly surprised that the end result is not loud. At least not when it&rsquo;s running as a server. It makes a lot of noise when I play but then the issue is not relevant as the sound from speakers is much louder. I can heartily recommend Zotac&rsquo;s graphics cards as they are quiet unless you&rsquo;re gaming. The 750W PSU from Seasonic is similar as it has a fan that turns on only under heavy load. The Noctua CPU cooler is also quiet.</p>
+
+<p>Now I can play games, watch movies and perform computational tasks all from one machine. And most importantly it fits well within the interior:</p>
+
+<p><a href="/images/htpc/3.jpg"><img src="/images/htpc/3.jpg" width="300"></a> <a href="/images/htpc/1.jpg"><img src="/images/htpc/1.jpg" width="300"></a></p>
+
+<p>It is clear to me that in future this machine will get obsolete as newer games require faster hardware. This means that I&rsquo;ll likely need to upgrade graphics cards. The issue is that newer cards are also likely to be long so I&rsquo;ll need a different case. When that happens I have my eyes on Antec Fusion Remote Max. The &ldquo;Max&rdquo; version should have enough space.</p>
+
+<p>I&rsquo;m glad I got rid of a few things. I wasn&rsquo;t very frugal at it but at least <a href="http://grow-slowly.com/2013/08/24/an-update-on-my-frugality-efforts/">I&rsquo;m getting better at it</a>!</p>
+]]></content>
+  </entry>
+  
+</feed>

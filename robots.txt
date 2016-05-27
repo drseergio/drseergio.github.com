@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://drseergio.github.io/sitemap.xml 

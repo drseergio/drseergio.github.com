@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: diy | Sergey Pisarenko]]></title>
+  <link href="http://drseergio.github.io/blog/categories/diy/atom.xml" rel="self"/>
+  <link href="http://drseergio.github.io/"/>
+  <updated>2016-05-27T22:04:59+02:00</updated>
+  <id>http://drseergio.github.io/</id>
+  <author>
+    <name><![CDATA[Sergey Pisarenko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Updates to the 802.11ac guide]]></title>
+    <link href="http://drseergio.github.io/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/"/>
+    <updated>2015-05-05T18:16:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2015/05/05/updates-to-the-802-dot-11ac-guide</id>
+    <content type="html"><![CDATA[<p>I have previuosly written a <a href="/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/">guide to configure a 802.11ac access point using hostapd in gentoo linux</a>. Another enthusiast discovered that my guide does not lead to a working access point. Turns out I missed crucial steps to configure DFS which is required for operating on higher frequencies. In this guide I diagnose the problem and correct the mistakes. I also show how to increase transmission (TX) power of the wireless card.</p>
+
+<h2>Diagnose the issue</h2>
+
+<p>First, let&rsquo;s see what&rsquo;s wrong with the existing configuration. We will look at the daemon output to troubleshoot. Stop the hostapd service and then start it manually in foreground with:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # hostapd -d /etc/hostapd/hostapd.conf&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>&hellip;
+</span><span class='line'>Completing interface initialization
+</span><span class='line'>Mode: IEEE 802.11a  Channel: 52  Frequency: 5260 MHz
+</span><span class='line'>DFS 4 channels required radar detection
+</span><span class='line'>DFS all channels available, (SKIP CAC): no
+</span><span class='line'>DFS 0 chans unavailable &ndash; choose other channel: no
+</span><span class='line'>wlp4s0: interface state HT_SCAN->DFS
+</span><span class='line'>DFS start CAC on 5260 MHz
+</span><span class='line'>wlp4s0: DFS-CAC-START freq=5260 chan=52 sec_chan=1, width=1, seg0=62, seg1=0, cac_time=60s
+</span><span class='line'>Can&rsquo;t set freq params
+</span><span class='line'>DFS start_dfs_cac() failed, -1
+</span><span class='line'>Interface initialization failed
+</span><span class='line'>wlp4s0: interface state DFS->DISABLED
+</span><span class='line'>wlp4s0: AP-DISABLED
+</span><span class='line'>&hellip;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The output shows us that hostapd was unable to start due to DFS failure (line &ldquo;DFS start_dfs_cac() failed, -1&rdquo;). It means that DFS is not available so we can&rsquo;t choose a channel that requires DFS. We can double check the local regulations using:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw reg get
+</span><span class='line'>country CH: DFS-ETSI&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>    (2402 - 2482 @ 40), (N/A, 20), (N/A)
+</span><span class='line'>    (5170 - 5250 @ 80), (N/A, 20), (N/A)
+</span><span class='line'>    (5250 - 5330 @ 80), (N/A, 20), (0 ms), DFS
+</span><span class='line'>    (5490 - 5710 @ 160), (N/A, 27), (0 ms), DFS
+</span><span class='line'>    (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The output shows that frequencies above 5250 Mhz require DFS. This means that channels >52 won&rsquo;t work unless DFS is functional. Let&rsquo;s cross check supported radio channels using &ldquo;iw&rdquo;:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw list
+</span><span class='line'>&hellip;
+</span><span class='line'>Frequencies:&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>* 5180 MHz [36] (17.0 dBm)
+</span><span class='line'>* 5200 MHz [40] (17.0 dBm)
+</span><span class='line'>* 5220 MHz [44] (17.0 dBm)
+</span><span class='line'>* 5240 MHz [48] (17.0 dBm)
+</span><span class='line'>* 5260 MHz [52] (20.0 dBm) (no IR, radar detection)
+</span><span class='line'>    DFS state: usable (for 62 sec)
+</span><span class='line'>    DFS CAC time: 60000 ms
+</span><span class='line'>* 5280 MHz [56] (20.0 dBm) (no IR, radar detection)
+</span><span class='line'>    DFS state: usable (for 62 sec)
+</span><span class='line'>    DFS CAC time: 60000 ms
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>&hellip;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>&ldquo;no IR&rdquo; stands for &ldquo;no initiate radiation&rdquo;. It essentially means that the card cannot be used as an access point on that frequency. However, when &ldquo;no IR&rdquo; goes in hand with &ldquo;radar detection&rdquo; it means that the card can be used but only with DFS. It&rsquo;s another reminder that DFS is required.</p>
+
+<h2>Fix the issue by disabling DFS</h2>
+
+<p>An obvious solution is to avoid using DFS by choosing a channel that does not require radar detection. In the case of Switzerland channel 44 is a safe choice.</p>
+
+<p>To disable DFS and to choose a channel that does not require DFS do following changes to the configuration file:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # vi /etc/hostapd/hostapd.conf&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>&hellip;
+</span><span class='line'>channel=44
+</span><span class='line'>&hellip;
+</span><span class='line'>ieee80211h=0
+</span><span class='line'>&hellip;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Save the changes and restart hostapd. Everything should work now. Enabling DFS is by no means necessary. In fact, I&rsquo;m running my access point on a frequency which does not require DFS. I observe significantly better transfer rates on non-DFS channels.</p>
+
+<p>However, if you&rsquo;re curious and/or would like to get DFS to work read on.</p>
+
+<h2>Enable DFS support in the kernel</h2>
+
+<p>It turns out that DFS must be enabled in kernel and by default the option is hidden from kernel configuration dialogs. To check if DFS is enabled look through kernel message output:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # dmesg
+</span><span class='line'>&hellip;
+</span><span class='line'>[    2.850086] ath10k_pci 0000:04:00.0: debug 1 debugfs 1 tracing 0 dfs 0 testmode 0
+</span><span class='line'>&hellip;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The output indicates that DFS is disabled (&ldquo;dfs 0&rdquo;). To enable DFS you must enable following options:</p>
+
+<ul>
+<li>&ldquo;Configure standard kernel features (expert users)&rdquo; under &ldquo;General Setup&rdquo;</li>
+<li>&ldquo;cfg80211 certification onus&rdquo; under &ldquo;Networking support > Wireless&rdquo;</li>
+<li>&ldquo;Atheros DFS support for certified platforms&rdquo; under &ldquo;Device Drivers > Network device support > Wireless LAN > Atheros Wireless Cards&rdquo;</li>
+</ul>
+
+
+<p>Re-compile the kernel and verify if the kernel output indicates DFS support. Then, re-enable DFS and choose a higher channel of your liking.</p>
+
+<p>I have experimented with the higher channels but I discovered throughput was significantly worse. In addition, not all client machines recognize upper 5Ghz channels. For example, EU version of Asus PCE-AC68 card in Windows doesn&rsquo;t function on channels >48. A <a href="http://www.snbforums.com/threads/pce-ac66-wifi-card-not-picking-up-5ghz-149-161-channels.10932/">work-around soltion</a> is to alter the driver&rsquo;s *.ini file and re-install the driver:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>After install find the driver&rsquo;s INF in C:\Program Files (x86)\ASUS\PCE-AC68 WLAN Card Utilities\Driver\PCE-AC68\Win81\bcmwl64.inf&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Here is the modified lines on the INF to make the card working with channels >= 149 :&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;ul>
+</span><span class='line'>&lt;li>&lt;p>Line 3784, section [a.channels.reg], under the comment &ldquo;Additional channels supported only on SPROM map version 2&rdquo; : uncomment the next five lines to enable channels 149 to 165.&lt;/p>&lt;/li>
+</span><span class='line'>&lt;li>&lt;p>Line 3356, section [common.reg] : uncomment each lines containing Ndi\params\Country (lines 3356 to 3598)&lt;/p>&lt;/li>
+</span><span class='line'>&lt;/ul>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>&lt;p>To continue, you must uninstall (with removing) the driver with the windows device manager and deactivate windows driver integrity check with an admin console:&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>bcdedit -set loadoptions DISABLE_INTEGRITY_CHECKS
+</span><span class='line'>bcdedit -set TESTSIGNING ON&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>After rebooting, go to the device manager and install the modified INF on the newly discovered uknown network adapter.&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>After installtion, got to the PCE-AC68 adapter&rsquo;s properties in the device manager, in the advance section you can choose the country (for channel 149, i&rsquo;ve chosen %UnitedState%).</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Fix DFS-UNSET problem</h2>
+
+<p>If you&rsquo;re seeing &ldquo;DFS-UNSET&rdquo; in &ldquo;iw reg get&rdquo; output upgrade crda package to at least version 3.18.</p>
+
+<h2>Increase TX power</h2>
+
+<p>Local regulations dictate maximum radiation power and operating frequencies. Certain radios are hard-coded to geographical regions, e.g. United States. Regulatory compliance software runs the strictest set of rules that intersect the pre-programmed and chosen regions. In other words, a radio that is pre-programmed for US and is operated in Switzerland will disable channels that are prohibited in US but perfectly legal in Switzerland. Same goes for power. Radio will operate on the lowest power allowed in the two regions. To overcome these limitations it is sometimes possible to re-program the radio&rsquo;s EEPROM and set a different region.</p>
+
+<p>A simpler solution is to alter the regulations which are maintained by the wireless software stack and not the radio itself. On Linux the idea is to compile a custom regulatory daemon which allows a modified set of regulations. The regulations themselves are modified by replacing entries corresponding to the hard-coded radio region to whatever is desired by the user:</p>
+
+<ol>
+<li>download wireless-regdb package, unpack</li>
+<li>modify &ldquo;db.txt&rdquo; file by replacing entries corresponding to the radio&rsquo;s region with desired configuration. In my case I search for Swiss regulations (CH) and copy them over the rules for US and 00 (00 stands for global).</li>
+<li>run &ldquo;make&rdquo;</li>
+<li>copy generated rule set out: cp regulatory.bin /usr/lib/crda/regulatory.bin</li>
+<li>download crda package, unpack</li>
+<li>copy *pem files from wireless-regdb folder to crda/pubkeys subfolder</li>
+<li>run &ldquo;make&rdquo;, followed by &ldquo;make install&rdquo;</li>
+<li>reboot</li>
+</ol>
+
+
+<p>This procedure generates a custom regulatory daemon that trusts the set of regulations we have altered. Obviously, these changes won&rsquo;t persist after a package upgrade so you would need to repeat them should newer packages get released.</p>
+
+<p>It&rsquo;s not difficult to inadvertently break your local laws by altering regulatory restrictions so be careful with the changes. Try also not to fry yourself with radiation.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Beginners guide to a custom 802.11ac setup]]></title>
+    <link href="http://drseergio.github.io/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/"/>
+    <updated>2015-02-01T08:26:00+01:00</updated>
+    <id>http://drseergio.github.io/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup</id>
+    <content type="html"><![CDATA[<p><a href="/images/80211ac.jpg"><img class="right" src="/images/80211ac.jpg" width="240"></a></p>
+
+<p>About 3 months ago I had nothing better to do so I decided to replace an off-the-shelf Linksys E4200 wireless router with a custom build running an unrestricted O/S. I admit E4200 worked reliably through the years on stock firmware but I never felt comfortable with the privacy and network vulnerability aspects of commonly sold devices. And I find third-party router firmwares too complicated to fully comprehend and tweak. There&rsquo;s simply too much configuration becauase it needs to satisfy many use cases.</p>
+
+<p>I&rsquo;ve never documented that assembly and installation experience so when a new opportunity to build a 802.11ac access point using very similar hardware came about I jumped right at it.</p>
+
+<p>In general, there&rsquo;s nothing particularly novel about buying standard x86 hardware, putting together a couple of components and then installing Linux on it. But with wireless networking, especially 802.11n and 802.11ac, there&rsquo;s numerous configuration options available. Without tuning and verification a 802.11ac/802.11n setup might run as fast as 802.11g which isn&rsquo;t any fast at all. After going through these builds I&rsquo;m hesitant to take wireless configuration for granted, especially when just buying SOHO grade equipment.</p>
+
+<h2>The &ldquo;why&rdquo;</h2>
+
+<p>Why do a DIY router build? There&rsquo;s the privacy and vulnerability aspects that I had already mentioned. Large manufacturers discontinue updating their SOHO devices within years of release. In light of critical vulnerabilities found just in core Linux libraries it is not an assuring situation.</p>
+
+<p>But the real reason that pushed me to change are the unnecessary features and small things that can&rsquo;t be configured on most SOHO routers. For example, there are often built-in DNS servers but most of the devices I&rsquo;ve used don&rsquo;t let the user to set the default search domain. Instead, these routers push the search domain from ISP. It&rsquo;s a minor detail but there are plenty such annoyances.</p>
+
+<p>The unneeded features just scream additional attack vectors to me. I prefer to have a list of iptables rules that fits on a screen because I&rsquo;m not running an ISP or a data-center at home. I can isolate untrusted devices and let them connect to the Internet only without having any access to other hosts in the network.</p>
+
+<h2>Bits and parts</h2>
+
+<p>I have built the router based on <a href="http://www.pcengines.ch/apu.htm">PC Engines APU x86 board</a>. It has a relatively powerful CPU, PCI express bus, mSATA, SIM slot, USB, serial port and other extras. I like the passive cooling and low power consumption. I would not want a router based on old PC desktop hardware because that takes up a lot of space, burns lots of power and makes noise.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/16415575152/"><img src="https://farm9.staticflickr.com/8612/16415575152_0ba93b669e_c.jpg" width="800"></a></p>
+
+<p>Total cost of parts for dual-radio 802.11n router came at around 200$. The price for the new 802.11ac access point is higher at around 260$. That&rsquo;s because the 802.11ac radio. In total, the materials don&rsquo;t cost significantly more than off-the-shelf stuff.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/15794024864/"><img src="https://farm9.staticflickr.com/8671/15794024864_8b2a475c9d_n.jpg" width="240"></a></p>
+
+<p>Since I&rsquo;m living in Switzerland and PC Engines is a Swiss company I had one more reason to order from them. I&rsquo;m impressed with the shipping speed and invoice-based payment.</p>
+
+<p>The list of parts for the 802.11ac build:</p>
+
+<ul>
+<li>SSD M-Sata 16GB MLC Phison</li>
+<li>APU.1D system board 2GB</li>
+<li>Enclosure 3 LAN, black</li>
+<li>AC adapter 12V 2A</li>
+<li>3x Antenna reverse SMA dual band</li>
+<li>3x Cable MMCX &ndash;> reverse SMA</li>
+<li>SATA data + power cable (for a hack, read further)</li>
+<li>Mini PCI Express Extender Extension FFC Cable</li>
+<li>COMPEX WLE900V5-23 miniPCIe module, AR9880, 802.11ac, 3*3MIMO</li>
+</ul>
+
+
+<p>Unlike with the 802.11n router build I had to do a couple of simple hacks to put it all together. The Compex 802.11ac radio is wide so it does not fit in a standard miniPCIe slot. I had to order an extension cable from eBay and use double-sided adhesive tape to put the radio on the inside &ldquo;ceiling&rdquo; of the enclosure. Then, I had to drill a hole in the enclosure to put an additional 3rd antenna for achieving 3*3MIMO. Finally, Compex radio requires external 5V supply. Luckily, the board has pins for powering a SATA drive. I&rsquo;ve cut a <a href="http://www.pcengines.ch/satacab1.htm">SATA data+power cable</a> and used the power connector to connect 5V positive to the radio.</p>
+
+<p>You can see the semi-assembled board on the photo:</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/16414742291/"><img src="https://farm8.staticflickr.com/7311/16414742291_6258b980e9_c.jpg" width="800"></a></p>
+
+<h2>Connecting, O/S install</h2>
+
+<p>PC Engines APU board comes without a graphics adapter. I/O happens through serial port. I had to buy a USB adapter (that occasionally BSODs Windows 8) and guess what the correct settings are (parity, speed, etc). Furthermore, the settings could change through the boot process as the running software can change the configuration.</p>
+
+<p>PC Engines provides a utility to create a bootable USB drive for updating the firmware. It works really well and requires no fiddling whatsover. The APU board serial rate is set to 115200 with the rest of values as default.</p>
+
+<p>It&rsquo;s possible to use SD card, USB flash drive, mSATA or SATA for storage. I opted in for mSATA because SSDs are not that expensive anymore (especially the small 16GB kind), much faster than flash and more reliable.</p>
+
+<p>I considered using MikroTik and other AP/router distributions. I could not get MikroTik to respond on serial no matter what settings I tried. I&rsquo;m glad it never worked because MikroTik is unnecessarily complex for my needs. It&rsquo;s an anti-thesis of the simplicity I&rsquo;m striving for.</p>
+
+<p>My Linux distribution of choice is Gentoo. To install Gentoo I used a bootable Linux USB drive. Almost any live USB distribution works as long as it has basic command line tools. I did as little as I could on serial and enabled SSH as soon as possible. To enable serial it&rsquo;s important to add <strong>console=ttyS0,115200n8</strong> to the kernel boot arguments. That also applies for booting live distributions.</p>
+
+<p>Since the router I had worked on is so similarly specced to the new access point build I made a shortcut in the install process. Instead of installing from scratch I copied an image of the existing disk. I&rsquo;ve then logged-in into the access point and changed settings.</p>
+
+<p>The rest of the installation steps are left as an exercise to the reader. Joking aside, the official Gentoo installation documentation is sufficiently sharp to get a running system. I have included important configuration files at the end of the article.</p>
+
+<h2>Software setup, hostapd and 802.11ac specifics</h2>
+
+<p>Once the system boots we get to the interesting part of making the access point part of our access point build working. And there are a couple of important details.</p>
+
+<h3>Channels</h3>
+
+<p>Radio channels were relatively simple to comprehend in the days of 802.11b/g 2.4Ghz spectrum. There are 11 20Mhz channels, of which 3 non-overlapping. The setup consist of choosing the channel which has least interference and least amount of users.</p>
+
+<p>In 5Ghz spectrum things become more complicated. The channels vary in width: from 20 Mhz all the way up to 160 Mhz. There are several frequency ranges and these ranges are regulated. Regulations differ from country to country. It&rsquo;s not possible to choose just any channel. It is necessary to check which channels are allowed, which channels is the radio capable of and then decide based on busyness of the ether.</p>
+
+<p>To check which channels are allowed by the regulations run <strong>iw reg get</strong>:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw reg get
+</span><span class='line'>country CH: DFS-UNSET&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>    (2402 - 2482 @ 40), (N/A, 20), (N/A)
+</span><span class='line'>    (5170 - 5250 @ 80), (N/A, 20), (N/A)
+</span><span class='line'>    (5250 - 5330 @ 80), (N/A, 20), (0 ms), DFS
+</span><span class='line'>    (5490 - 5710 @ 160), (N/A, 27), (0 ms), DFS
+</span><span class='line'>    (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The output shows the regulation for Switzerland (CH) because I have previously set the country using <strong>iw reg set</strong> command:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw reg set CH</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>By the way, unless you change the domain to the country where you reside the radio will be restricted by the set of all countries. In reality this means that almost all channels will be out of bounds. I set the domain in a startup script.</p>
+
+<p><strong>DFS</strong> is a technology that allows wireless to work on frequencies shared with weather radars and other systems on the same frequency bands. <strong>DFS</strong> makes the radio listen for pulses from those systems to prevent interference.</p>
+
+<p>The channels supported by radio can be listed using <strong>iw list</strong>:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw list
+</span><span class='line'>&hellip;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>                    * 5180 MHz [36] (17.0 dBm)
+</span><span class='line'>                    * 5200 MHz [40] (17.0 dBm)
+</span><span class='line'>                    * 5220 MHz [44] (17.0 dBm)
+</span><span class='line'>                    * 5240 MHz [48] (17.0 dBm)
+</span><span class='line'>                    * 5260 MHz [52] (20.0 dBm) (no IR, radar detection)
+</span><span class='line'>                      DFS state: usable (for 440 sec)
+</span><span class='line'>                      DFS CAC time: 60000 ms
+</span><span class='line'>                    * 5280 MHz [56] (20.0 dBm) (no IR, radar detection)
+</span><span class='line'>                      DFS state: usable (for 440 sec)
+</span><span class='line'>                      DFS CAC time: 60000 ms
+</span><span class='line'>                    * 5300 MHz [60] (20.0 dBm) (no IR, radar detection)
+</span><span class='line'>                      DFS state: usable (for 440 sec)
+</span><span class='line'>                      DFS CAC time: 60000 ms
+</span><span class='line'>                    * 5320 MHz [64] (20.0 dBm) (no IR, radar detection)
+</span><span class='line'>                      DFS state: usable (for 440 sec)
+</span><span class='line'>                      DFS CAC time: 60000 ms
+</span><span class='line'>                    * 5500 MHz [100] (disabled)
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>&hellip;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>                    * 5825 MHz [165] (disabled)
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>&hellip;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Radio firmware</h3>
+
+<p>I&rsquo;m using Compex WLE900V5-23 radio that is based on Atheros AR9880 2.0 chipset. The support is available in kernel with <strong>ath10k</strong> module. However, the required firmware is not shipped with <strong>linux-firmware</strong> package yet so it&rsquo;s required to manually download the firmware and put it into the kernel source tree.</p>
+
+<p>I&rsquo;ve obtained the firmware from <a href="https://github.com/kvalo/ath10k-firmware.git">ath10k git repository</a>. I&rsquo;ve then placed the <strong>ath10k</strong> directory in <strong>firmware</strong> directory in the kernel source tree. Finally, I&rsquo;ve changed the following kernel settings to build the firmware into the kernel:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CONFIG_FIRMWARE_IN_KERNEL=y
+</span><span class='line'>CONFIG_EXTRA_FIRMWARE=&ldquo;ath10k/QCA988X/hw2.0/firmware-2.bin ath10k/QCA988X/hw2.0/board.bin&rdquo;
+</span><span class='line'>CONFIG_EXTRA_FIRMWARE_DIR=&ldquo;firmware&rdquo;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Network setup and hostapd</h3>
+
+<p>I&rsquo;ve configured the new access point to work as a bridge. It does not do any routing. The access point makes the wired connection available to wireless clients.</p>
+
+<p>I&rsquo;m using OpenRC. Configuration in <strong>/etc/conf.d/net</strong> is very simple. There is a bridge configuration linked to the wired interface:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # cat /etc/conf.d/net&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>dns_domain_lo=&ldquo;bethania&rdquo;
+</span><span class='line'>dns_search=&ldquo;bethania&rdquo;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>AP bridge setup&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>config_enp1s0=&ldquo;null&rdquo;
+</span><span class='line'>bridge_br0=&ldquo;enp1s0&rdquo;
+</span><span class='line'>rc_net_br0=&ldquo;net.enp1s0&rdquo;
+</span><span class='line'>config_br0=&ldquo;192.168.69.2/24&rdquo;
+</span><span class='line'>routes_br0=&ldquo;default via 192.168.69.1&rdquo;
+</span><span class='line'>dns_servers_br0=&ldquo;192.168.69.1&rdquo;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Configuration of the hostapd init script:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # cat /etc/conf.d/hostapd&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>INTERFACES=&ldquo;br0&rdquo;
+</span><span class='line'>CONFIGS=&ldquo;/etc/hostapd/hostapd.conf&rdquo;
+</span><span class='line'>OPTIONS=&ldquo;&rdquo;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><strong>hostapd</strong> configuration describes capabilities of the radio and sets up the frequencies, security and useful features. For example, to use wireless on <strong>DFS</strong> controlled frequencies it is required to enable <strong>ieee80211d</strong> and <strong>ieee80211h</strong> settings. Here&rsquo;s a working and tested 802.11ac setup that I&rsquo;m using right now:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # cat /etc/hostapd/hostapd.conf&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>hostapd configuration file&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>ctrl_interface=/var/run/hostapd
+</span><span class='line'>ctrl_interface_group=0
+</span><span class='line'>interface=wlp4s0
+</span><span class='line'>driver=nl80211
+</span><span class='line'>bridge=br0&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>IEEE 802.11&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>ssid=bethaniaven9
+</span><span class='line'>hw_mode=a
+</span><span class='line'>channel=52
+</span><span class='line'>max_num_sta=128
+</span><span class='line'>auth_algs=1&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>DFS&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>country_code=CH
+</span><span class='line'>ieee80211d=1
+</span><span class='line'>ieee80211h=1&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>IEEE 802.11n&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>ieee80211n=1
+</span><span class='line'>ht_capab=[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][DSSS_CCK-40]&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>IEEE 802.11ac&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>ieee80211ac=1
+</span><span class='line'>vht_oper_chwidth=1
+</span><span class='line'>vht_capab=[MAX-MPDU-11454][RXLDPC][SHORT-GI-80][TX-STBC-2BY1][RX-STBC-1]
+</span><span class='line'>vht_oper_centr_freq_seg0_idx=62&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>IEEE 802.11i&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>wpa=2
+</span><span class='line'>wpa_key_mgmt=WPA-PSK
+</span><span class='line'>wpa_passphrase=XXX
+</span><span class='line'>rsn_pairwise=CCMP&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>hostapd event logger&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>logger_syslog=-1
+</span><span class='line'>logger_syslog_level=2
+</span><span class='line'>logger_stdout=-1
+</span><span class='line'>logger_stdout_level=2&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>WMM&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>wmm_enabled=1
+</span><span class='line'>uapsd_advertisement_enabled=1
+</span><span class='line'>wmm_ac_bk_cwmin=4
+</span><span class='line'>wmm_ac_bk_cwmax=10
+</span><span class='line'>wmm_ac_bk_aifs=7
+</span><span class='line'>wmm_ac_bk_txop_limit=0
+</span><span class='line'>wmm_ac_bk_acm=0
+</span><span class='line'>wmm_ac_be_aifs=3
+</span><span class='line'>wmm_ac_be_cwmin=4
+</span><span class='line'>wmm_ac_be_cwmax=10
+</span><span class='line'>wmm_ac_be_txop_limit=0
+</span><span class='line'>wmm_ac_be_acm=0
+</span><span class='line'>wmm_ac_vi_aifs=2
+</span><span class='line'>wmm_ac_vi_cwmin=3
+</span><span class='line'>wmm_ac_vi_cwmax=4
+</span><span class='line'>wmm_ac_vi_txop_limit=94
+</span><span class='line'>wmm_ac_vi_acm=0
+</span><span class='line'>wmm_ac_vo_aifs=2
+</span><span class='line'>wmm_ac_vo_cwmin=2
+</span><span class='line'>wmm_ac_vo_cwmax=3
+</span><span class='line'>wmm_ac_vo_txop_limit=47
+</span><span class='line'>wmm_ac_vo_acm=0&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>TX queue parameters&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p>tx_queue_data3_aifs=7
+</span><span class='line'>tx_queue_data3_cwmin=15
+</span><span class='line'>tx_queue_data3_cwmax=1023
+</span><span class='line'>tx_queue_data3_burst=0
+</span><span class='line'>tx_queue_data2_aifs=3
+</span><span class='line'>tx_queue_data2_cwmin=15
+</span><span class='line'>tx_queue_data2_cwmax=63
+</span><span class='line'>tx_queue_data2_burst=0
+</span><span class='line'>tx_queue_data1_aifs=1
+</span><span class='line'>tx_queue_data1_cwmin=7
+</span><span class='line'>tx_queue_data1_cwmax=15
+</span><span class='line'>tx_queue_data1_burst=3.0
+</span><span class='line'>tx_queue_data0_aifs=1
+</span><span class='line'>tx_queue_data0_cwmin=3
+</span><span class='line'>tx_queue_data0_cwmax=7
+</span><span class='line'>tx_queue_data0_burst=1.5</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Final words and config files</h2>
+
+<p>Once hostapd is running it&rsquo;s important to measure transfer rates. The first time I ran hostapd I was getting 802.11b speed. After a day of experimenting and reading through mailing list discussions I arrived at a configuration that yields 60 MB/s (480Mbit) real world samba transfer speed! I&rsquo;m genuinely impressed as it&rsquo;s more than 2X faster than the existing 802.11n setup that I currently have.</p>
+
+<p>List of configuration files that you might find useful:</p>
+
+<ul>
+<li><p><a href="/files/80211ac/kernel_config">Linux kernel .config</a></p></li>
+<li><p><a href="/files/80211ac/make.conf">portage make.conf</a></p></li>
+<li><p><a href="/files/80211ac/package.keywords">portage keywords</a></p></li>
+<li><p><a href="/files/80211ac/package.use">portage use</a></p></li>
+<li><p><a href="/files/80211ac/portage_world">portage /var/lib/portage/world</a></p></li>
+<li><p><a href="/files/80211ac/hostapd.conf">hostapd.conf</a></p></li>
+<li><p><a href="/files/80211ac/hostapd">/etc/conf.d/hostapd</a></p></li>
+<li><p><a href="/files/80211ac/net">/etc/conf.d/net</a></p></li>
+<li><p><a href="/files/80211ac/lspci">lspci output</a></p></li>
+<li><p><a href="/files/80211ac/iw_list">iw list output</a></p></li>
+</ul>
+
+
+<p>The fully assembled access point in flesh:</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/16390542446/"><img src="https://farm8.staticflickr.com/7359/16390542446_e290a3ca08_c.jpg" width="800"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My first solder job]]></title>
+    <link href="http://drseergio.github.io/blog/2014/04/13/my-first-solder-job/"/>
+    <updated>2014-04-13T19:14:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2014/04/13/my-first-solder-job</id>
+    <content type="html"><![CDATA[<p>This year I realized that I am wasteful with photo gear so I decided to switch to one digital camera system. I&rsquo;ve sold all cameras and various gear I had from before and settled on Sony A7R. One thing I appreciated from my Canon collection is Yongnuo set of flashes and remote radio triggers. Yongnuo are inexpensive and for a price of one Canon flash I got two flashes and radio controllers. However, despite the fact the flash mounts are the same on Sony A7R and Canon 70D the Yongnuo RF603 radio trigger did not work.</p>
+
+<p>Turns out the solution is one resistor away! I&rsquo;ve discovered the following YouTube video that explains how to make the trigger work with Sony cameras. The solution is to solder a 120kOhm transistor between yellow wire and battery contact plate.</p>
+
+<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/Iiy4zGEt5xU "></iframe></div></p>
+
+<p>For years I have avoided any DIY job that requires soldering. I decided now it&rsquo;s finally the time to purchase a solder iron and finally understand basics of electronics.</p>
+
+<p><a href="/images/solder/solder_station.jpg"><img src="/images/solder/solder_station_s.jpg" width="400"></a> <a href="/images/solder/yongnuo_solder.jpg"><img src="/images/solder/yongnuo_solder_s.jpg" width="400"></a></p>
+
+<p>Aaaand success! The trigger now works great on Sony. I know this job was extremely simple but for me it has been satisfying to make a physical electronic thing work differently.</p>
+]]></content>
+  </entry>
+  
+</feed>

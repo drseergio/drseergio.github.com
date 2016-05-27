@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My lucky night with a FreeNAS failure - Sergey Pisarenko</title>
+  <meta name="author" content="Sergey Pisarenko">
+
+  
+  <meta name="description" content="It&rsquo;s 1:35am right now and something really bad has happened about 4 hours ago. First, Time Machine on my Mac Mini complained that the backup &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Sergey Pisarenko" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-45212877-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sergey Pisarenko</a></h1>
+  
+    <h2>personal home page</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:drseergio.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="http://www.flickr.com/photos/68217075@N08/">Photo gallery</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">My lucky night with a FreeNAS failure</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-08T01:34:00+02:00" pubdate data-updated="true">Sep 8<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>It&rsquo;s 1:35am right now and something really bad has happened about 4 hours ago. First, Time Machine on my Mac Mini complained that the backup network disk became inaccessible. Then network shares have stopped responding on all computers. This means something wrong has happened with the wonderful reliable NAS server that I had built weeks ago.</p>
+
+<p>First, I connect to the server via SSH and start poking around. Once I notice that file-system commands, such as <code>ls</code>, cause sessions to hang I become worrisome. I do a reboot hoping that solves the problem. 10 minutes pass. The server does not start.</p>
+
+<!-- more -->
+
+
+<p><img class="right" src="/images/chinese_monitor.jpg"></p>
+
+<p>Once I&rsquo;ve connected a handy <a href="http://dx.com/p/8-tft-lcd-car-reverse-rear-view-color-monitor-w-vga-bnc-cable-black-149114">8&#8221; VGA monitor</a> I noticed SCSI driver related problems in the kernel logs. As it turns out, the USB drive on which FreeNAS had been installed has failed. This monitor is really handy for troubleshooting problems with servers &ndash; small, easy to carry and occupies little space in the toolbox. The picture quality is god-awful but good enough for reading terminal output.</p>
+
+<p>I have been expecting the worst &ndash; that I would need to re-configure everything. After a quick search on the Internet I found out that FreeNAS keeps configuration in a SQLite database file on the 4th partition in <code>freenas-v1.db</code> file. A bleak hope ran through my mind. I&rsquo;ve connected the flash disk to a Linux computer and started poking around. All I needed to do was to compile UFS file-system support in kernel and then mount the partition with:</p>
+
+<p><code>mount -r -t ufs -o ufstype=44bsd /dev/sdc4 /tmp/mm</code></p>
+
+<p>I copied the file over and verified that it&rsquo;s not corrupted. YES! I had been stupidly postponing back-up of the configuration file. If I had to re-configure FreeNAS from scratch I would feel like a fool and waste a week worth of evenings. Now, I just need to burn the FreeNAS image to a replacement drive and I&rsquo;m all set.</p>
+
+<p>The last step took embarassingly long time. None of the images that I had written either on Linux or Mac would boot. FreeNAS would get to an error saying <code>corrupt or invalid GPT detected.</code>. No matter what I did the outcome was the same. The solution was to delete GPT by running parted from Linux and doing <code>mklabel msdos</code>, followed by write of the disk image. I believe this problem occurred because I had previously used the drives for experimentation with Chromebook and some GPT headers apparently remained there.</p>
+
+<p><img class="left" src="/images/msata.jpg"></p>
+
+<p>Finally, I found a spare mSATA SSD drive lying around with no use (a leftover from a notebook upgrade). I also had a mSATA adapter so I&rsquo;ve put them together inside of the NAS to use as a boot device for FreeNAS. Now the NAS has 8 SATA devices (6 HDDs and 2 SSDs) maxing out all available SATA ports in the system.</p>
+
+<p>Once I have successfully booted the server and got to the web UI and initiated import of the recovered configuration database file. Then the server rebooted twice and everything was back!</p>
+
+<p>The machine is back online and running beautifully. I now have a backup of the configuration. In case anything goes wrong again reinstalling FreeNAS is really quick &amp; simple IFF the backup configuration file is available. I am once again pleasantly surprised at how well FreeNAS is made.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sergey Pisarenko</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-08T01:34:00+02:00" pubdate data-updated="true">Sep 8<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/" title="Previous Post: Creating dynamic task scheduler on AppEngine">&laquo; Creating dynamic task scheduler on AppEngine</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/10/21/why-write-at-all/" title="Next Post: Why write at all">Why write at all &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/27/rigimarsch-2016/">Rigimarsch 2016</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/19/bike-fitting-basics-for-triathlon/">Bike fitting basics for triathlon and road cycling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/14/a-long-new-journey-ahead/">A long new journey ahead</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/05/the-wonderful-way-of-carabike/">The wonderful way of carabike</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/31/goals/">Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/03/salsa-fargo-rohloff/">Salsa Fargo Mk3 - now with Rohloff!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/07/trip-report-from-bicycle-tour-across-france/">Trip report from bicycle tour across France</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/25/across-france-on-a-bicycle/">Across France on a bicycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/10/mountaineering-in-valais/">Mountaineering in Valais</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/03/going-to-a-first-alpine-tour/">Going to a first alpine tour</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/+SergeyBelkin?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Sergey Pisarenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'drseergio';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure/';
+        var disqus_url = 'http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
