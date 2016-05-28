@@ -9,7 +9,7 @@
   <meta name="author" content="Sergey Pisarenko">
 
   
-  <meta name="description" content="Weather conditions in Mont Blanc, France, has been favorable this week. So we spontaneously decided to visit it. On a last year&rsquo;s visit we were &hellip;">
+  <meta name="description" content="I&rsquo;m feeling excited because tomorrow I&rsquo;m going on my first alpine tour. It&rsquo;s a 5 day tour and we&rsquo;re going to walk on ice and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/07/03/going-to-a-first-alpine-tour/">Going to a first alpine tour</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-07-03T20:07:00+02:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;m feeling excited because tomorrow I&rsquo;m going on my first alpine tour. It&rsquo;s a 5 day tour and we&rsquo;re going to walk on ice and snow. We&rsquo;re heading to region Valais which is not far from Mont Blanc that I had visited earlier this week.</p>
+
+<p>Although I already have relatively lots of mountain/climbing gear I had to purchase new stiff boots and other stuff. Packing is in progress:</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/19388461925"><img src="https://farm1.staticflickr.com/421/19388461925_fbfcdc2fa9_c.jpg" width="800"></a></p>
+
+<p>Let&rsquo;s hope for good weather and some nice shots!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -684,247 +726,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/">Updates to the 802.11ac guide</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-05-05T18:16:00+02:00" pubdate data-updated="true">May 5<span>th</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have previuosly written a <a href="/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/">guide to configure a 802.11ac access point using hostapd in gentoo linux</a>. Another enthusiast discovered that my guide does not lead to a working access point. Turns out I missed crucial steps to configure DFS which is required for operating on higher frequencies. In this guide I diagnose the problem and correct the mistakes. I also show how to increase transmission (TX) power of the wireless card.</p>
-
-<h2>Diagnose the issue</h2>
-
-<p>First, let&rsquo;s see what&rsquo;s wrong with the existing configuration. We will look at the daemon output to troubleshoot. Stop the hostapd service and then start it manually in foreground with:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # hostapd -d /etc/hostapd/hostapd.conf
-</span><span class='line'>
-</span><span class='line'>...
-</span><span class='line'>Completing interface initialization
-</span><span class='line'>Mode: IEEE 802.11a  Channel: 52  Frequency: 5260 MHz
-</span><span class='line'>DFS 4 channels required radar detection
-</span><span class='line'>DFS all channels available, (SKIP CAC): no
-</span><span class='line'>DFS 0 chans unavailable - choose other channel: no
-</span><span class='line'>wlp4s0: interface state HT_SCAN->DFS
-</span><span class='line'>DFS start CAC on 5260 MHz
-</span><span class='line'>wlp4s0: DFS-CAC-START freq=5260 chan=52 sec_chan=1, width=1, seg0=62, seg1=0, cac_time=60s
-</span><span class='line'>Can't set freq params
-</span><span class='line'>DFS start_dfs_cac() failed, -1
-</span><span class='line'>Interface initialization failed
-</span><span class='line'>wlp4s0: interface state DFS->DISABLED
-</span><span class='line'>wlp4s0: AP-DISABLED
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The output shows us that hostapd was unable to start due to DFS failure (line &ldquo;DFS start_dfs_cac() failed, -1&rdquo;). It means that DFS is not available so we can&rsquo;t choose a channel that requires DFS. We can double check the local regulations using:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw reg get
-</span><span class='line'>country CH: DFS-ETSI
-</span><span class='line'>        (2402 - 2482 @ 40), (N/A, 20), (N/A)
-</span><span class='line'>        (5170 - 5250 @ 80), (N/A, 20), (N/A)
-</span><span class='line'>        (5250 - 5330 @ 80), (N/A, 20), (0 ms), DFS
-</span><span class='line'>        (5490 - 5710 @ 160), (N/A, 27), (0 ms), DFS
-</span><span class='line'>        (57000 - 66000 @ 2160), (N/A, 40), (N/A)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The output shows that frequencies above 5250 Mhz require DFS. This means that channels >52 won&rsquo;t work unless DFS is functional. Let&rsquo;s cross check supported radio channels using &ldquo;iw&rdquo;:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw list
-</span><span class='line'>...
-</span><span class='line'>Frequencies:
-</span><span class='line'>    * 5180 MHz [36] (17.0 dBm)
-</span><span class='line'>    * 5200 MHz [40] (17.0 dBm)
-</span><span class='line'>    * 5220 MHz [44] (17.0 dBm)
-</span><span class='line'>    * 5240 MHz [48] (17.0 dBm)
-</span><span class='line'>    * 5260 MHz [52] (20.0 dBm) (no IR, radar detection)
-</span><span class='line'>        DFS state: usable (for 62 sec)
-</span><span class='line'>        DFS CAC time: 60000 ms
-</span><span class='line'>    * 5280 MHz [56] (20.0 dBm) (no IR, radar detection)
-</span><span class='line'>        DFS state: usable (for 62 sec)
-</span><span class='line'>        DFS CAC time: 60000 ms
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>&ldquo;no IR&rdquo; stands for &ldquo;no initiate radiation&rdquo;. It essentially means that the card cannot be used as an access point on that frequency. However, when &ldquo;no IR&rdquo; goes in hand with &ldquo;radar detection&rdquo; it means that the card can be used but only with DFS. It&rsquo;s another reminder that DFS is required.</p>
-
-<h2>Fix the issue by disabling DFS</h2>
-
-<p>An obvious solution is to avoid using DFS by choosing a channel that does not require radar detection. In the case of Switzerland channel 44 is a safe choice.</p>
-
-<p>To disable DFS and to choose a channel that does not require DFS do following changes to the configuration file:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # vi /etc/hostapd/hostapd.conf
-</span><span class='line'>
-</span><span class='line'>...
-</span><span class='line'>channel=44
-</span><span class='line'>...
-</span><span class='line'>ieee80211h=0
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Save the changes and restart hostapd. Everything should work now. Enabling DFS is by no means necessary. In fact, I&rsquo;m running my access point on a frequency which does not require DFS. I observe significantly better transfer rates on non-DFS channels.</p>
-
-<p>However, if you&rsquo;re curious and/or would like to get DFS to work read on.</p>
-
-<h2>Enable DFS support in the kernel</h2>
-
-<p>It turns out that DFS must be enabled in kernel and by default the option is hidden from kernel configuration dialogs. To check if DFS is enabled look through kernel message output:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # dmesg
-</span><span class='line'>...
-</span><span class='line'>[    2.850086] ath10k_pci 0000:04:00.0: debug 1 debugfs 1 tracing 0 dfs 0 testmode 0
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The output indicates that DFS is disabled (&ldquo;dfs 0&rdquo;). To enable DFS you must enable following options:</p>
-
-<ul>
-<li>&ldquo;Configure standard kernel features (expert users)&rdquo; under &ldquo;General Setup&rdquo;</li>
-<li>&ldquo;cfg80211 certification onus&rdquo; under &ldquo;Networking support > Wireless&rdquo;</li>
-<li>&ldquo;Atheros DFS support for certified platforms&rdquo; under &ldquo;Device Drivers > Network device support > Wireless LAN > Atheros Wireless Cards&rdquo;</li>
-</ul>
-
-
-<p>Re-compile the kernel and verify if the kernel output indicates DFS support. Then, re-enable DFS and choose a higher channel of your liking.</p>
-
-<p>I have experimented with the higher channels but I discovered throughput was significantly worse. In addition, not all client machines recognize upper 5Ghz channels. For example, EU version of Asus PCE-AC68 card in Windows doesn&rsquo;t function on channels >48. A <a href="http://www.snbforums.com/threads/pce-ac66-wifi-card-not-picking-up-5ghz-149-161-channels.10932/">work-around soltion</a> is to alter the driver&rsquo;s *.ini file and re-install the driver:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>After install find the driver's INF in C:\Program Files (x86)\ASUS\PCE-AC68 WLAN Card Utilities\Driver\PCE-AC68\Win81\bcmwl64.inf
-</span><span class='line'>
-</span><span class='line'>Here is the modified lines on the INF to make the card working with channels >= 149 :
-</span><span class='line'>
-</span><span class='line'>- Line 3784, section [a.channels.reg], under the comment "Additional channels supported only on SPROM map version 2" : uncomment the next five lines to enable channels 149 to 165.
-</span><span class='line'>
-</span><span class='line'>- Line 3356, section [common.reg] : uncomment each lines containing Ndi\params\Country (lines 3356 to 3598)
-</span><span class='line'>
-</span><span class='line'>To continue, you must uninstall (with removing) the driver with the windows device manager and deactivate windows driver integrity check with an admin console:
-</span><span class='line'>
-</span><span class='line'>bcdedit -set loadoptions DISABLE_INTEGRITY_CHECKS
-</span><span class='line'>bcdedit -set TESTSIGNING ON
-</span><span class='line'>
-</span><span class='line'>After rebooting, go to the device manager and install the modified INF on the newly discovered uknown network adapter.
-</span><span class='line'>
-</span><span class='line'>After installtion, got to the PCE-AC68 adapter's properties in the device manager, in the advance section you can choose the country (for channel 149, i've chosen %UnitedState%).</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Fix DFS-UNSET problem</h2>
-
-<p>If you&rsquo;re seeing &ldquo;DFS-UNSET&rdquo; in &ldquo;iw reg get&rdquo; output upgrade crda package to at least version 3.18.</p>
-
-<h2>Increase TX power</h2>
-
-<p>Local regulations dictate maximum radiation power and operating frequencies. Certain radios are hard-coded to geographical regions, e.g. United States. Regulatory compliance software runs the strictest set of rules that intersect the pre-programmed and chosen regions. In other words, a radio that is pre-programmed for US and is operated in Switzerland will disable channels that are prohibited in US but perfectly legal in Switzerland. Same goes for power. Radio will operate on the lowest power allowed in the two regions. To overcome these limitations it is sometimes possible to re-program the radio&rsquo;s EEPROM and set a different region.</p>
-
-<p>A simpler solution is to alter the regulations which are maintained by the wireless software stack and not the radio itself. On Linux the idea is to compile a custom regulatory daemon which allows a modified set of regulations. The regulations themselves are modified by replacing entries corresponding to the hard-coded radio region to whatever is desired by the user:</p>
-
-<ol>
-<li>download wireless-regdb package, unpack</li>
-<li>modify &ldquo;db.txt&rdquo; file by replacing entries corresponding to the radio&rsquo;s region with desired configuration. In my case I search for Swiss regulations (CH) and copy them over the rules for US and 00 (00 stands for global).</li>
-<li>run &ldquo;make&rdquo;</li>
-<li>copy generated rule set out: cp regulatory.bin /usr/lib/crda/regulatory.bin</li>
-<li>download crda package, unpack</li>
-<li>copy *pem files from wireless-regdb folder to crda/pubkeys subfolder</li>
-<li>run &ldquo;make&rdquo;, followed by &ldquo;make install&rdquo;</li>
-<li>reboot</li>
-</ol>
-
-
-<p>This procedure generates a custom regulatory daemon that trusts the set of regulations we have altered. Obviously, these changes won&rsquo;t persist after a package upgrade so you would need to repeat them should newer packages get released.</p>
-
-<p>It&rsquo;s not difficult to inadvertently break your local laws by altering regulatory restrictions so be careful with the changes. Try also not to fry yourself with radiation.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -940,6 +741,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/28/indoor-cycling-lab/">Indoor cycling lab</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/05/27/rigimarsch-2016/">Rigimarsch 2016</a>
@@ -975,10 +780,6 @@
     
       <li class="post">
         <a href="/blog/2015/07/10/mountaineering-in-valais/">Mountaineering in Valais</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/07/03/going-to-a-first-alpine-tour/">Going to a first alpine tour</a>
       </li>
     
   </ul>

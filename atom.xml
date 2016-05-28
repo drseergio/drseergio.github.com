@@ -4,7 +4,7 @@
   <title><![CDATA[Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2016-05-27T22:04:59+02:00</updated>
+  <updated>2016-05-28T20:11:58+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Indoor cycling lab]]></title>
+    <link href="http://drseergio.github.io/blog/2016/05/28/indoor-cycling-lab/"/>
+    <updated>2016-05-28T18:02:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2016/05/28/indoor-cycling-lab</id>
+    <content type="html"><![CDATA[<p>Around Christmas in 2015 I received doctor&rsquo;s diagnosis that my left tibia bone is fractured and that I can&rsquo;t run for the foreseeable future. Of course, I tried against all reason but the persisting pain made me realize it&rsquo;s in my own best interest to let it heal peacefully and not break it completely. Luckily, I discovered that cycling and swimming don&rsquo;t hurt at all. I suppose that&rsquo;s because the load spread is altered and tibia is not as stressed.</p>
+
+<p>I decided not to lose any time and began training straight away. I have setup an indoor training &ldquo;lab&rdquo; and rigorously followed a training routine three times a week. Although I have been an avid cyclist my level of cycling fitness could have been ranked as &ldquo;beginner&rdquo;. That&rsquo;s because I&rsquo;ve had plenty of distance under my belt but insufficient endurance to sustain intensive effort necessary in competitive cycling. The training program has slowly come to a successful end and I would like to showcase my setup.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/27306868565"><img src="https://c2.staticflickr.com/8/7345/27306868565_5c29150c79_c.jpg" width="800"></a></p>
+
+<p>I previously found the idea of indoor cycling trainers a boring pasture. However, training indoors has its merits. The biggest advantage I see is the possibility of structured training where the load of every training session is carefully chosen to stimulate improvement in the areas that need it the most. It is very difficult to go for a ride with friends and keep a specific tempo. With an indoor trainer it&rsquo;s possible to define fine-grained intervals with specific intensity. There are training programs for improving overall cycling fitness or, for example, improving climbs or sprints.</p>
+
+<p>Of course, there is also the convenience factor. With an indoor trainer I have no excuse skipping a training session due to bad weather. It&rsquo;s always available and takes no time to get started with it.</p>
+
+<p>But what really attracted me are the so-called smart trainers, like the <a href="http://eu.wahoofitness.com/devices/kickr.html">wahoo Kickr</a> that I purchased. The smart trainers are dynamically controlled by software so the resistance is continuously updated. Smart trainers can simulate changing terrain and most importantly let the user focus on cycling. With the regular &ldquo;dumb&rdquo; trainers the user must adjust resistance manually. I think I would get tired of it very quickly and would definitely cheat by not being timely in amping up the difficulty.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/26700511863"><img src="https://c2.staticflickr.com/8/7605/26700511863_2f9435ffaf_n.jpg" width="213"></a> <a href="https://www.flickr.com/photos/tentaclephotos/27236905401"><img src="https://c2.staticflickr.com/8/7352/27236905401_bf09f5907b_n.jpg" width="213"></a></p>
+
+<p>There are various tools for controlling smart trainers. Some run on Android and iOS devices while others require full desktop OSes. Either bluetooth or ANT+ wireless protocols are used to interface with the trainers. I purchased an ANT+ adapter for my computer for the purpose of controlling the smart trainer and also for accessing data from a heart rate band and a power meter sensor on my bike.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/27209876762"><img src="https://c2.staticflickr.com/8/7323/27209876762_5bafeb4735.jpg" width="500"></a></p>
+
+<p>The &ldquo;killer app&rdquo; for me is surely <a href="http://zwift.com/">Zwift</a>. It&rsquo;s a well-implemented detailed immersive 3D virtual cycling world. Zwift is capable of controling smart trainers and simulating terrain. For all the user cares he is presented with a detailed simulation that brings variety and much needed distraction to otherwise boring workouts. Zwift is a open-world multiplayer game with other cyclists riding along. Zwift integrates nicely with Strava, here is a couple of my own workouts:</p>
+
+<p><a href="https://www.strava.com/activities/554205363">https://www.strava.com/activities/554205363</a></p>
+
+<p><a href="https://www.strava.com/activities/536343127">https://www.strava.com/activities/536343127</a></p>
+
+<p>Zwift also supports structured training. There are multiple training programs to choose from. It&rsquo;s also possible to create a custom one. I chose a 12-week program aimed at increasing overall cycling fitness and specifically improving the Functional Threshold Power (FTP). With ilnesses, travel and other commitments in place the program actually took me more than 4 months to complete.</p>
+
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/tqf5dD-ofQg "></iframe></div>
+
+
+<p>I have complemented the setup with a webcam mounted on a tripod and connected to my mobile computer. This allowed to see my posture and make continous corrections. A mirror would work even better but there is no place in my room for one and I already had all the components to make a &ldquo;high-tech mirror&rdquo; solution work.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/26699661594"><img src="https://c2.staticflickr.com/8/7311/26699661594_317dc183ac_z.jpg" width="640"></a></p>
+
+<p>This is how I see myself during a typical workout (videos are not focused very well but the idea should be clear):</p>
+
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/QnhQLFUJRjQ "></iframe></div>
+
+
+
+
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/CntF-2F9kGc "></iframe></div>
+
+
+<p>Speaking of complements I discovered a few additional pieces of technology I consider vital for training and worthy of an immediate purchase. First of all, a bicycle computer or a training watch equipped with GPS and ANT+/Bluetooth interfaces. I went for both, choosing a Garmin 920XT watch and a Garmin Edge 500 cycling computer. These gadgets track workouts and allow the user to see his progress and make corrections. Having these devices is a luxury that had been available only to professional athletes in the past. Basically, it&rsquo;s like having a personal coach watch over your shoulder every moment.</p>
+
+<p>The reason I own both is because a cycling computer is convenient for glancing at many fields at a time, without taking the hand off the handlebar. I use the cycling computer exclusively for viewing data. In fact, I bought it used at a bargain price. I don&rsquo;t cosider fancier products worthwhile.</p>
+
+<p>Finally, a power meter is becoming increasingly popular. I&rsquo;m going so far as to say that a power meter is a complete must, especially if the user is an amateur interested in racing. A power meter basically quantifies the effort the user is currently putting out. It takes guessing out of the training. With a power meter I can adjust my power output and effort during a ride. For example, in a race I could adjust power output depending on the course to avoid overstrain. I could immediately see if the current effort is sustainable or not based on past observations. Smart trainers come with built-in power meters but I&rsquo;ve added a relatively inexpensive <a href="http://stagescycling.com/us/products/">Stages power-meter</a> for upcoming outdoor rides.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/27306885605"><img src="https://c2.staticflickr.com/8/7208/27306885605_5158cd1438_n.jpg" width="320"></a> <a href="https://www.flickr.com/photos/tentaclephotos/26699671554"><img src="https://c2.staticflickr.com/8/7311/26699671554_64e405b1c0_n.jpg" width="320"></a></p>
+
+<p>With the program almost finished what do I plan to do next? My <a href="http://drseergio.github.io/blog/2016/05/27/rigimarsch-2016/">tibia has recovered</a> and I&rsquo;m almost finished with a 4-month swimming training program. I am going to develop a new plan for the next 3-4 months. With the summer here I&rsquo;m definitely going outdoors but I&rsquo;ll combine the outdoor rides with more structured indoor training to hone some of the skills, like climbing. Training ain&rsquo;t easy but I get lots of satisfaction and joy out of it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rigimarsch 2016]]></title>
@@ -1242,220 +1302,6 @@
 <p>Note how tired we looked at the end:</p>
 
 <p><a href="https://www.flickr.com/photos/tentaclephotos/17415768303"><img src="https://farm8.staticflickr.com/7686/17415768303_b87de9e979.jpg" width="500"></a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Updates to the 802.11ac guide]]></title>
-    <link href="http://drseergio.github.io/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/"/>
-    <updated>2015-05-05T18:16:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2015/05/05/updates-to-the-802-dot-11ac-guide</id>
-    <content type="html"><![CDATA[<p>I have previuosly written a <a href="http://drseergio.github.io/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/">guide to configure a 802.11ac access point using hostapd in gentoo linux</a>. Another enthusiast discovered that my guide does not lead to a working access point. Turns out I missed crucial steps to configure DFS which is required for operating on higher frequencies. In this guide I diagnose the problem and correct the mistakes. I also show how to increase transmission (TX) power of the wireless card.</p>
-
-<h2>Diagnose the issue</h2>
-
-<p>First, let&rsquo;s see what&rsquo;s wrong with the existing configuration. We will look at the daemon output to troubleshoot. Stop the hostapd service and then start it manually in foreground with:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # hostapd -d /etc/hostapd/hostapd.conf
-</span><span class='line'>
-</span><span class='line'>...
-</span><span class='line'>Completing interface initialization
-</span><span class='line'>Mode: IEEE 802.11a  Channel: 52  Frequency: 5260 MHz
-</span><span class='line'>DFS 4 channels required radar detection
-</span><span class='line'>DFS all channels available, (SKIP CAC): no
-</span><span class='line'>DFS 0 chans unavailable - choose other channel: no
-</span><span class='line'>wlp4s0: interface state HT_SCAN->DFS
-</span><span class='line'>DFS start CAC on 5260 MHz
-</span><span class='line'>wlp4s0: DFS-CAC-START freq=5260 chan=52 sec_chan=1, width=1, seg0=62, seg1=0, cac_time=60s
-</span><span class='line'>Can't set freq params
-</span><span class='line'>DFS start_dfs_cac() failed, -1
-</span><span class='line'>Interface initialization failed
-</span><span class='line'>wlp4s0: interface state DFS->DISABLED
-</span><span class='line'>wlp4s0: AP-DISABLED
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The output shows us that hostapd was unable to start due to DFS failure (line &ldquo;DFS start_dfs_cac() failed, -1&rdquo;). It means that DFS is not available so we can&rsquo;t choose a channel that requires DFS. We can double check the local regulations using:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw reg get
-</span><span class='line'>country CH: DFS-ETSI
-</span><span class='line'>        (2402 - 2482 @ 40), (N/A, 20), (N/A)
-</span><span class='line'>        (5170 - 5250 @ 80), (N/A, 20), (N/A)
-</span><span class='line'>        (5250 - 5330 @ 80), (N/A, 20), (0 ms), DFS
-</span><span class='line'>        (5490 - 5710 @ 160), (N/A, 27), (0 ms), DFS
-</span><span class='line'>        (57000 - 66000 @ 2160), (N/A, 40), (N/A)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The output shows that frequencies above 5250 Mhz require DFS. This means that channels >52 won&rsquo;t work unless DFS is functional. Let&rsquo;s cross check supported radio channels using &ldquo;iw&rdquo;:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw list
-</span><span class='line'>...
-</span><span class='line'>Frequencies:
-</span><span class='line'>    * 5180 MHz [36] (17.0 dBm)
-</span><span class='line'>    * 5200 MHz [40] (17.0 dBm)
-</span><span class='line'>    * 5220 MHz [44] (17.0 dBm)
-</span><span class='line'>    * 5240 MHz [48] (17.0 dBm)
-</span><span class='line'>    * 5260 MHz [52] (20.0 dBm) (no IR, radar detection)
-</span><span class='line'>        DFS state: usable (for 62 sec)
-</span><span class='line'>        DFS CAC time: 60000 ms
-</span><span class='line'>    * 5280 MHz [56] (20.0 dBm) (no IR, radar detection)
-</span><span class='line'>        DFS state: usable (for 62 sec)
-</span><span class='line'>        DFS CAC time: 60000 ms
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>&ldquo;no IR&rdquo; stands for &ldquo;no initiate radiation&rdquo;. It essentially means that the card cannot be used as an access point on that frequency. However, when &ldquo;no IR&rdquo; goes in hand with &ldquo;radar detection&rdquo; it means that the card can be used but only with DFS. It&rsquo;s another reminder that DFS is required.</p>
-
-<h2>Fix the issue by disabling DFS</h2>
-
-<p>An obvious solution is to avoid using DFS by choosing a channel that does not require radar detection. In the case of Switzerland channel 44 is a safe choice.</p>
-
-<p>To disable DFS and to choose a channel that does not require DFS do following changes to the configuration file:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # vi /etc/hostapd/hostapd.conf
-</span><span class='line'>
-</span><span class='line'>...
-</span><span class='line'>channel=44
-</span><span class='line'>...
-</span><span class='line'>ieee80211h=0
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Save the changes and restart hostapd. Everything should work now. Enabling DFS is by no means necessary. In fact, I&rsquo;m running my access point on a frequency which does not require DFS. I observe significantly better transfer rates on non-DFS channels.</p>
-
-<p>However, if you&rsquo;re curious and/or would like to get DFS to work read on.</p>
-
-<h2>Enable DFS support in the kernel</h2>
-
-<p>It turns out that DFS must be enabled in kernel and by default the option is hidden from kernel configuration dialogs. To check if DFS is enabled look through kernel message output:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # dmesg
-</span><span class='line'>...
-</span><span class='line'>[    2.850086] ath10k_pci 0000:04:00.0: debug 1 debugfs 1 tracing 0 dfs 0 testmode 0
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The output indicates that DFS is disabled (&ldquo;dfs 0&rdquo;). To enable DFS you must enable following options:</p>
-
-<ul>
-<li>&ldquo;Configure standard kernel features (expert users)&rdquo; under &ldquo;General Setup&rdquo;</li>
-<li>&ldquo;cfg80211 certification onus&rdquo; under &ldquo;Networking support > Wireless&rdquo;</li>
-<li>&ldquo;Atheros DFS support for certified platforms&rdquo; under &ldquo;Device Drivers > Network device support > Wireless LAN > Atheros Wireless Cards&rdquo;</li>
-</ul>
-
-
-<p>Re-compile the kernel and verify if the kernel output indicates DFS support. Then, re-enable DFS and choose a higher channel of your liking.</p>
-
-<p>I have experimented with the higher channels but I discovered throughput was significantly worse. In addition, not all client machines recognize upper 5Ghz channels. For example, EU version of Asus PCE-AC68 card in Windows doesn&rsquo;t function on channels >48. A <a href="http://www.snbforums.com/threads/pce-ac66-wifi-card-not-picking-up-5ghz-149-161-channels.10932/">work-around soltion</a> is to alter the driver&rsquo;s *.ini file and re-install the driver:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>After install find the driver's INF in C:\Program Files (x86)\ASUS\PCE-AC68 WLAN Card Utilities\Driver\PCE-AC68\Win81\bcmwl64.inf
-</span><span class='line'>
-</span><span class='line'>Here is the modified lines on the INF to make the card working with channels >= 149 :
-</span><span class='line'>
-</span><span class='line'>- Line 3784, section [a.channels.reg], under the comment "Additional channels supported only on SPROM map version 2" : uncomment the next five lines to enable channels 149 to 165.
-</span><span class='line'>
-</span><span class='line'>- Line 3356, section [common.reg] : uncomment each lines containing Ndi\params\Country (lines 3356 to 3598)
-</span><span class='line'>
-</span><span class='line'>To continue, you must uninstall (with removing) the driver with the windows device manager and deactivate windows driver integrity check with an admin console:
-</span><span class='line'>
-</span><span class='line'>bcdedit -set loadoptions DISABLE_INTEGRITY_CHECKS
-</span><span class='line'>bcdedit -set TESTSIGNING ON
-</span><span class='line'>
-</span><span class='line'>After rebooting, go to the device manager and install the modified INF on the newly discovered uknown network adapter.
-</span><span class='line'>
-</span><span class='line'>After installtion, got to the PCE-AC68 adapter's properties in the device manager, in the advance section you can choose the country (for channel 149, i've chosen %UnitedState%).</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Fix DFS-UNSET problem</h2>
-
-<p>If you&rsquo;re seeing &ldquo;DFS-UNSET&rdquo; in &ldquo;iw reg get&rdquo; output upgrade crda package to at least version 3.18.</p>
-
-<h2>Increase TX power</h2>
-
-<p>Local regulations dictate maximum radiation power and operating frequencies. Certain radios are hard-coded to geographical regions, e.g. United States. Regulatory compliance software runs the strictest set of rules that intersect the pre-programmed and chosen regions. In other words, a radio that is pre-programmed for US and is operated in Switzerland will disable channels that are prohibited in US but perfectly legal in Switzerland. Same goes for power. Radio will operate on the lowest power allowed in the two regions. To overcome these limitations it is sometimes possible to re-program the radio&rsquo;s EEPROM and set a different region.</p>
-
-<p>A simpler solution is to alter the regulations which are maintained by the wireless software stack and not the radio itself. On Linux the idea is to compile a custom regulatory daemon which allows a modified set of regulations. The regulations themselves are modified by replacing entries corresponding to the hard-coded radio region to whatever is desired by the user:</p>
-
-<ol>
-<li>download wireless-regdb package, unpack</li>
-<li>modify &ldquo;db.txt&rdquo; file by replacing entries corresponding to the radio&rsquo;s region with desired configuration. In my case I search for Swiss regulations (CH) and copy them over the rules for US and 00 (00 stands for global).</li>
-<li>run &ldquo;make&rdquo;</li>
-<li>copy generated rule set out: cp regulatory.bin /usr/lib/crda/regulatory.bin</li>
-<li>download crda package, unpack</li>
-<li>copy *pem files from wireless-regdb folder to crda/pubkeys subfolder</li>
-<li>run &ldquo;make&rdquo;, followed by &ldquo;make install&rdquo;</li>
-<li>reboot</li>
-</ol>
-
-
-<p>This procedure generates a custom regulatory daemon that trusts the set of regulations we have altered. Obviously, these changes won&rsquo;t persist after a package upgrade so you would need to repeat them should newer packages get released.</p>
-
-<p>It&rsquo;s not difficult to inadvertently break your local laws by altering regulatory restrictions so be careful with the changes. Try also not to fry yourself with radiation.</p>
 ]]></content>
   </entry>
   
