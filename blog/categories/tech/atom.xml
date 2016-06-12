@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tech | Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2016-05-30T22:54:39+02:00</updated>
+  <updated>2016-06-12T17:57:42+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Kata of Code]]></title>
+    <link href="http://drseergio.github.io/blog/2016/06/12/the-kata-of-code/"/>
+    <updated>2016-06-12T15:28:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2016/06/12/the-kata-of-code</id>
+    <content type="html"><![CDATA[<p>A fancy word makes even the most mundane things sound legitimate. Enter &lsquo;kata&rsquo; &mdash; a fancy way of saying that one does something mundane, regularly. Originally, the Japanese word &lsquo;kata&rsquo; stands for a very specific kind of practice in traditional arts. But in the programming world it&rsquo;s synonymous with a repetitive coding practice. I have no opinion in the linguistic department but I believe the practice might have some substance. Let me rewind a little bit.</p>
+
+<p>Exactly one year ago I <a href="/blog/2015/06/16/why-i-have-quit-an-awesome-job/">left a wonderful job in one of the best places to work</a> on this planet. With such a drastic move there&rsquo;s a multitude of reasons. One of the major ones is my ambition to become an excellent software engineer and steer away from the technical support role I had so far pursued.</p>
+
+<p>The first obstacle on the way are the well-known and sometimes wacky software interviews that most respectable companies seem to rely on for choosing among candidates. To prepare myself for the challenge I devised a multi-month plan. About 3 months ago, as I was done with another full-time endeavour, I put the plan through its paces. In this article I&rsquo;ll do my best to explain the first step of the plan &mdash; the study and practice of algorithms and data-structures.</p>
+
+<p>It&rsquo;s not like I&rsquo;ve never studied algorithms. In fact, I hold a computer science degree and have completed several excellent online algorithm-focused courses with top marks (<a href="https://www.coursera.org/course/algs4partI">Algorithms Part I</a>, <a href="https://www.coursera.org/course/algs4partII">Algorithms Part II</a>). But annoyingly if you had asked me to implement a path-finding algorithm or even an O(N*LogN) sorting algorithm I would have struggled without referring to technical books or articles. Should you have asked the same question straight after I had just completed the courses I would have absolutely no issues. From a limited personal survey of fellow engineers it is a very common situation. Few keep algorithms in their heads.</p>
+
+<p>Clearly, without an excellent understanding of algorithms passing a coding interview is unlikely. Besides, algorithms and data structures are the cornerstones of computer science and software. Without the understanding of basic structures it&rsquo;s not possible to solve most of the coding challenges. So I dedicated the first month of preparation to the study of algorithms.</p>
+
+<p>However, as I&rsquo;ve already learned, the chosen method of study is critical. It&rsquo;s all to easy to complete a course or a book and then forget everything few weeks after. It is also not sufficient to merely browse through a book or a bunch of articles. Superflous reading creates a perilous illusion of understanding. It is imperative to work through. That&rsquo;s why going through one algorithms book takes a month of full-time effort and not an afternoon. I also emphasize that I had completed algorithm courses before starting this effort. Otherwise, it would make sense to study through the online courses mentioned above first. It would also significantly lengthen the plan.</p>
+
+<p>As there are many more algorithms than the time available to me I had to optimize. It makes little sense to study the most esoteric and domain-specific algorithms for the purpose of preparing for software interviews. I made a survey of interview-related Q&amp;As and websites and came up with the following initial list of algorithms and data structures (in no particular order):</p>
+
+<pre><code>* Stack/Queue (based on LinkedList)
+* Selection Sort
+* SeparateChainingHashST
+* LSD/MSD sort (Radix)
+* Graph/Digraph/WeightedGraph
+* Edge/EdgeWeightedGraph
+* DFS/BFS
+* Binary Search
+* Weighted Quick Union
+* Insertion Sort
+* Shell Sort
+* DFSPaths/BFSPaths
+* Cycle detection in undirected graph
+* Connected Components with DFS in undirected graph
+* Bipartite check in undirected graph (two color)
+* Merge Sort
+* Bottom-up Merge Sort
+* Quicksort
+* 3-way Quicksort
+* CountSort
+* Min/MaxPQ
+* Heapsort
+* BST
+* Red-black BST
+* LinearProbingHashST
+* Cycle detection in directed graph
+* DFS order and Topological sort
+* Kosaraju-Sharir Strong Connected Components in directed graph
+* Kruskal MST
+* Prim MST
+* Dijkstra SP
+* Acyclic SP
+* Bellman-Ford SP
+* Knuth-Morris-Prath search
+* Boyer-Moore search
+</code></pre>
+
+<p>It is debatable if some of the algorithms in this list are already too complex for general software engineering interviews (knowledge of esoteric algorithms might be required for more senior or specialized roles). In fact, as practice went by I added a few additional ones and removed a few.</p>
+
+<p>The book I chose for my study is &ldquo;<a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X">Algorithms, 4th edition</a>&rdquo; from Robert Sedgewick at Princeton University. It&rsquo;s written by the same professor that teaches the corresponding online courses. What sets it apart from other famous algorithm texts is the focus on visually illustrating algorithms and doing algorithm-tracing exercises. Working through an algorithm on paper and tracing all the steps helps to grasp what the algorithm really does. Through these exercises I uncovered that my mental models for some of the algorithms were wrong. The other huge benefit of this book is a <a href="http://algs4.cs.princeton.edu/">complementary codesite</a> with lots of high-quality and clearly-written implementations of algorithms in Java.</p>
+
+<p>My daily routine consisted of reading about one topic and related algorithms and then trying to re-implement the algorithms myself. As soon as I stumbled I looked-up the text. The complementary code is extremely readable. The implementations may lack some of the fanciest and trickiest optimizations but are invaluable tools for learning. Once I implemented the code I erased and started from scratch, testing thoroughness of my understanding.</p>
+
+<p>As the days went by and I progressed further I felt that I no longer remembered the details of algorithms I had already worked-through. That&rsquo;s when I decided to introduce additional regular algorithm coding practice &mdash; katas. I grouped some of the algorithms together. Then during each practice session I would implement algorithms and data-structures from the top of my head, copying only test cases from the reference implementation. At times I would get stuck. In those moments I learned a little bit more about each algorithm. Often, I would get confused and need to look-up the reference implementation. Next time, though, the practice would become easier and more automatic. Katas keep the algorithm knowledge functional and fresh. Furthermore, being able to implement some of the tricky algorithms from the top of my head on a napkin increases confidence which may sometimes shake under the many stresses of interviews. Finally, being able to implement many algorithms quickly pays off in coding competitions.</p>
+
+<p>I don&rsquo;t know if the original katas are canonical. My coding katas are certainly not. They evolve and change with time. At some point easier algorithms and data-structures become trivial and it no longer makes sense to practice them. I don&rsquo;t practice writing a stack/queue anymore. Sometimes I realize how similar few algorithms are so I leave one of them out. Many graph problems reduce to DFS. Occasionally I study through new algorithms and add them to katas. For example, I&rsquo;ve recently added SkipList and SuffixArray. I also group algorithms so that each kata is of similar size. At the moment I have <a href="https://github.com/drseergio/practice/tree/master/katas">5 katas in my repertoire</a>. It takes about 30-60 minutes to complete each one. I aim to complete all of the katas once a week &mdash; on average less than one kata per day. I&rsquo;m also timing my practice now to see how long each kata takes.</p>
+
+<p><strong>Here&rsquo;s a distilled version of the algorithm study plan (~1 month of full-time effort)</strong>:</p>
+
+<ol>
+<li>List algorithms/data-structures you need to learn deeply. When in doubt leave it out. Make it as short as feasible. Can always add more later.</li>
+<li>Choose an algorithms text. I recommend <a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X">&ldquo;Algorithms, 4th edition&rdquo; by Robert Sedgewick</a>.</li>
+<li>Schedule sufficient time each day to read the text and implement algorithms by hand. Keep premature enthusiasm at hand and keep the workload manageable. There&rsquo;s a reason it takes a month.</li>
+<li>Collect algorithm implementations and group them into katas.</li>
+<li>Regularly perform katas by reimplementing algorithms.</li>
+<li>Revise katas, remove trivial algorithms and add new ones as you see fit.</li>
+<li>Repeat 6, 7.</li>
+</ol>
+
+
+<p>I&rsquo;d like to believe that this study of algorithms and practice of katas will pay off. It is hard to say, taking into account the many factors that affect a hiring decision. Doing a comprehensive study like this won&rsquo;t guarantee success but doing nothing almost certainly guarantees failure. The study of algorithms is just the first interview preparation step. I&rsquo;ve introduced katas as means to not forget what I&rsquo;ve just learned. But as I&rsquo;ve practiced and grown my personal collection I see myself continuing with katas.</p>
+
+<p>I will add links here once I write about further steps of my software interview preparation plan.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to order Dell XPS 13 with US keyboard in Europe]]></title>
@@ -626,72 +711,6 @@
 <p>Then, run <code>/test</code> to create another test scheduled task and quickly access <code>/cron</code> handler again. If you refresh the browser window often enough you will observe that the scheduled task is executed only when 10 seconds have elapsed since the last execution. Sweet, our scheduler is working!</p>
 
 <p>As a next step, experiment with the test generator and try the code in production AppEngine. As for myself, I&rsquo;m going to integrate this piece into the project I&rsquo;m working on. I prefer to build applications by prototyping separate pieces one at a time. This way I at least have an idea of what to expect from each comopnent and know how to integrate it into the bigger design.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[HTPC build I'm proud of]]></title>
-    <link href="http://drseergio.github.io/blog/2013/09/01/htpc-build-i-slash-m-proud-of/"/>
-    <updated>2013-09-01T17:38:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2013/09/01/htpc-build-i-slash-m-proud-of</id>
-    <content type="html"><![CDATA[<p>If you follow what I write here and on <a href="http://grow-slowly.com">http://grow-slowly.com</a> you will notice that I am somewhat obsessed with reducing the number of possessions in my life. This directly contradicts another, though negative, characteristic of mine &ndash; to get more gadgets and possessions.</p>
-
-<p>Recently, I have had a lot of good progress on challenging the negative trait. Not only I&rsquo;ve been more successful on overcoming the purchasing obsession but I&rsquo;ve also found ways to enjoy more and get creative at reusing what I already have.</p>
-
-<p>One of my recent projects was to combine several devices into one. I&rsquo;ve got rid of Sony Playstation 3 and merged 2 computers together. Here&rsquo;s the end-result:</p>
-
-<p><a href="/images/htpc/2.jpg"><img src="/images/htpc/2.jpg" width="500"></a></p>
-
-<!-- more -->
-
-
-<p>Just one neat-looking HTPC (home theater personal computer) that fits into the living room! Why did I have 3 devices in the first place? Well, I&rsquo;ve obviously used Sony Playstation 3 for playing games. I&rsquo;m not an obsessive gamer but I do enjoy certain games once in a while. I appreciate the fact that once you own a console no hardware upgrades are necessary. The down-side is that the graphics quality is lower than on PCs as the technology advances and the console stays the same.</p>
-
-<p>Second, I had a server running gentoo Linux with relatively high computational power &ndash; modern i7 Intel processor, 32GB RAM and a pair of SSD drives. I&rsquo;ve used the machine for doing relatively-taxing statistical calculations, VMs and later ran a bittorrent downloader.</p>
-
-<p>Third, I had an HTPC to watch movies and listen music. I don&rsquo;t like an idea of using an off-the-shelf media player. New formats get released every now and then and some videos are available online on certain sites only. Chances are that sooner or later there will be a video that the off-the-shelf box can&rsquo;t play. Having a full-blown PC has full flexibility as I can always install newer software or use a standard desktop browser to open any streaming site. Although I actively use XBMC for great viewing experience I&rsquo;ve intentionally left the full KDE desktop experience as I don&rsquo;t want to mask the functionality of a computer. By the way, the HTPC had been powered by an Asus E350 board (similar to what I currently use in <a href="http://pisarenko.net/blog/2013/08/28/impressions-from-freenas/">my NAS build</a>) and a passively cooled nVidia Geforce 610. Couple that together with a passive Seasonic power supply and you get a completely quiet computer!</p>
-
-<p>I&rsquo;ve realized that I was wasting resources. I can play games on a PC (apart from few PS3 exclusives) so I don&rsquo;t really need a PS3. The server is already running 24x7 so why can&rsquo;t I use it as HTPC? With that idea in mind I&rsquo;ve decided to merge 2 computers together and sell the PS3 to a colleague.</p>
-
-<p>I admit the conversion was far from frugal as I had to purchase a powerful graphics card to allow gaming. In addition, the cooling system I had in the server would not fit in the relatively compact Antec Fusion Remote case (Corsair H100). Finally, the power supply I had was not powerful enough.</p>
-
-<p>The final spec list I arrived at:</p>
-
-<ul>
-<li><p>Antec Fusion Remote case (re-used from existing HTPC)</p></li>
-<li><p>Asus ROG IV Gene mATX motherboard (re-used from the server)</p></li>
-<li><p>Intel i7 i3930K CPU (re-used from the server)</p></li>
-<li><p>32GB RAM (re-used from the server)</p></li>
-<li><p>2x60GB Intel SSD (re-used from the server)</p></li>
-<li><p>750W Seasonic X series PSU (bought)</p></li>
-<li><p>1x60GB SSD (bought, for installing Windows 7 on it)</p></li>
-<li><p>2xnVidia Zotac GeForce 660 in SLI mode (bought, to be able to play games)</p></li>
-<li><p>Windows 7 license (bought, to be able to play games)</p></li>
-<li><p>LG BluRay writer (bought, to install Windows and have at least 1 optical drive at home)</p></li>
-<li><p>2x120mm NoiseBlocker case fans (re-used from the server)</p></li>
-<li><p>Noctua NH-U12P SE2 CPU cooler (bought)</p></li>
-</ul>
-
-
-<p>The unused internals from the existing server and HTPC were either sold or given away to those who need them. Nothing was thrown away.</p>
-
-<p>The final under-the-hood view of the build:</p>
-
-<p><a href="/images/htpc/4.jpg"><img src="/images/htpc/4.jpg" width="500"></a></p>
-
-<p>I&rsquo;ve installed Windows 7 on a separate SSD. When I want to play games I have to reboot the machine into Windows 7. The down-side is that the server is temporarily unavailable. It&rsquo;s an acceptable solution for my purposes as I&rsquo;m the only user of the server and I don&rsquo;t actively need the server while I&rsquo;m playing. In addition, I play only a couple of hours every other week.</p>
-
-<p>I have been a little worried that I would not be able to fit all the hardware in the case but everything got in surprisingly well. It&rsquo;s not possible to fit in a 7-generation nVidia as the new cards are considerably longer (ca 30 cm vs 19cm GeForce 660). I hope future GPU generations will reverse the trend.</p>
-
-<p>Another concern is noise. I was pleasantly surprised that the end result is not loud. At least not when it&rsquo;s running as a server. It makes a lot of noise when I play but then the issue is not relevant as the sound from speakers is much louder. I can heartily recommend Zotac&rsquo;s graphics cards as they are quiet unless you&rsquo;re gaming. The 750W PSU from Seasonic is similar as it has a fan that turns on only under heavy load. The Noctua CPU cooler is also quiet.</p>
-
-<p>Now I can play games, watch movies and perform computational tasks all from one machine. And most importantly it fits well within the interior:</p>
-
-<p><a href="/images/htpc/3.jpg"><img src="/images/htpc/3.jpg" width="300"></a> <a href="/images/htpc/1.jpg"><img src="/images/htpc/1.jpg" width="300"></a></p>
-
-<p>It is clear to me that in future this machine will get obsolete as newer games require faster hardware. This means that I&rsquo;ll likely need to upgrade graphics cards. The issue is that newer cards are also likely to be long so I&rsquo;ll need a different case. When that happens I have my eyes on Antec Fusion Remote Max. The &ldquo;Max&rdquo; version should have enough space.</p>
-
-<p>I&rsquo;m glad I got rid of a few things. I wasn&rsquo;t very frugal at it but at least <a href="http://grow-slowly.com/2013/08/24/an-update-on-my-frugality-efforts/">I&rsquo;m getting better at it</a>!</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2016-05-30T22:54:39+02:00</updated>
+  <updated>2016-06-12T17:57:42+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Kata of Code]]></title>
+    <link href="http://drseergio.github.io/blog/2016/06/12/the-kata-of-code/"/>
+    <updated>2016-06-12T15:28:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2016/06/12/the-kata-of-code</id>
+    <content type="html"><![CDATA[<p>A fancy word makes even the most mundane things sound legitimate. Enter &lsquo;kata&rsquo; &mdash; a fancy way of saying that one does something mundane, regularly. Originally, the Japanese word &lsquo;kata&rsquo; stands for a very specific kind of practice in traditional arts. But in the programming world it&rsquo;s synonymous with a repetitive coding practice. I have no opinion in the linguistic department but I believe the practice might have some substance. Let me rewind a little bit.</p>
+
+<p>Exactly one year ago I <a href="http://drseergio.github.io/blog/2015/06/16/why-i-have-quit-an-awesome-job/">left a wonderful job in one of the best places to work</a> on this planet. With such a drastic move there&rsquo;s a multitude of reasons. One of the major ones is my ambition to become an excellent software engineer and steer away from the technical support role I had so far pursued.</p>
+
+<p>The first obstacle on the way are the well-known and sometimes wacky software interviews that most respectable companies seem to rely on for choosing among candidates. To prepare myself for the challenge I devised a multi-month plan. About 3 months ago, as I was done with another full-time endeavour, I put the plan through its paces. In this article I&rsquo;ll do my best to explain the first step of the plan &mdash; the study and practice of algorithms and data-structures.</p>
+
+<p>It&rsquo;s not like I&rsquo;ve never studied algorithms. In fact, I hold a computer science degree and have completed several excellent online algorithm-focused courses with top marks (<a href="https://www.coursera.org/course/algs4partI">Algorithms Part I</a>, <a href="https://www.coursera.org/course/algs4partII">Algorithms Part II</a>). But annoyingly if you had asked me to implement a path-finding algorithm or even an O(N*LogN) sorting algorithm I would have struggled without referring to technical books or articles. Should you have asked the same question straight after I had just completed the courses I would have absolutely no issues. From a limited personal survey of fellow engineers it is a very common situation. Few keep algorithms in their heads.</p>
+
+<p>Clearly, without an excellent understanding of algorithms passing a coding interview is unlikely. Besides, algorithms and data structures are the cornerstones of computer science and software. Without the understanding of basic structures it&rsquo;s not possible to solve most of the coding challenges. So I dedicated the first month of preparation to the study of algorithms.</p>
+
+<p>However, as I&rsquo;ve already learned, the chosen method of study is critical. It&rsquo;s all to easy to complete a course or a book and then forget everything few weeks after. It is also not sufficient to merely browse through a book or a bunch of articles. Superflous reading creates a perilous illusion of understanding. It is imperative to work through. That&rsquo;s why going through one algorithms book takes a month of full-time effort and not an afternoon. I also emphasize that I had completed algorithm courses before starting this effort. Otherwise, it would make sense to study through the online courses mentioned above first. It would also significantly lengthen the plan.</p>
+
+<p>As there are many more algorithms than the time available to me I had to optimize. It makes little sense to study the most esoteric and domain-specific algorithms for the purpose of preparing for software interviews. I made a survey of interview-related Q&amp;As and websites and came up with the following initial list of algorithms and data structures (in no particular order):</p>
+
+<pre><code>* Stack/Queue (based on LinkedList)
+* Selection Sort
+* SeparateChainingHashST
+* LSD/MSD sort (Radix)
+* Graph/Digraph/WeightedGraph
+* Edge/EdgeWeightedGraph
+* DFS/BFS
+* Binary Search
+* Weighted Quick Union
+* Insertion Sort
+* Shell Sort
+* DFSPaths/BFSPaths
+* Cycle detection in undirected graph
+* Connected Components with DFS in undirected graph
+* Bipartite check in undirected graph (two color)
+* Merge Sort
+* Bottom-up Merge Sort
+* Quicksort
+* 3-way Quicksort
+* CountSort
+* Min/MaxPQ
+* Heapsort
+* BST
+* Red-black BST
+* LinearProbingHashST
+* Cycle detection in directed graph
+* DFS order and Topological sort
+* Kosaraju-Sharir Strong Connected Components in directed graph
+* Kruskal MST
+* Prim MST
+* Dijkstra SP
+* Acyclic SP
+* Bellman-Ford SP
+* Knuth-Morris-Prath search
+* Boyer-Moore search
+</code></pre>
+
+<p>It is debatable if some of the algorithms in this list are already too complex for general software engineering interviews (knowledge of esoteric algorithms might be required for more senior or specialized roles). In fact, as practice went by I added a few additional ones and removed a few.</p>
+
+<p>The book I chose for my study is &ldquo;<a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X">Algorithms, 4th edition</a>&rdquo; from Robert Sedgewick at Princeton University. It&rsquo;s written by the same professor that teaches the corresponding online courses. What sets it apart from other famous algorithm texts is the focus on visually illustrating algorithms and doing algorithm-tracing exercises. Working through an algorithm on paper and tracing all the steps helps to grasp what the algorithm really does. Through these exercises I uncovered that my mental models for some of the algorithms were wrong. The other huge benefit of this book is a <a href="http://algs4.cs.princeton.edu/">complementary codesite</a> with lots of high-quality and clearly-written implementations of algorithms in Java.</p>
+
+<p>My daily routine consisted of reading about one topic and related algorithms and then trying to re-implement the algorithms myself. As soon as I stumbled I looked-up the text. The complementary code is extremely readable. The implementations may lack some of the fanciest and trickiest optimizations but are invaluable tools for learning. Once I implemented the code I erased and started from scratch, testing thoroughness of my understanding.</p>
+
+<p>As the days went by and I progressed further I felt that I no longer remembered the details of algorithms I had already worked-through. That&rsquo;s when I decided to introduce additional regular algorithm coding practice &mdash; katas. I grouped some of the algorithms together. Then during each practice session I would implement algorithms and data-structures from the top of my head, copying only test cases from the reference implementation. At times I would get stuck. In those moments I learned a little bit more about each algorithm. Often, I would get confused and need to look-up the reference implementation. Next time, though, the practice would become easier and more automatic. Katas keep the algorithm knowledge functional and fresh. Furthermore, being able to implement some of the tricky algorithms from the top of my head on a napkin increases confidence which may sometimes shake under the many stresses of interviews. Finally, being able to implement many algorithms quickly pays off in coding competitions.</p>
+
+<p>I don&rsquo;t know if the original katas are canonical. My coding katas are certainly not. They evolve and change with time. At some point easier algorithms and data-structures become trivial and it no longer makes sense to practice them. I don&rsquo;t practice writing a stack/queue anymore. Sometimes I realize how similar few algorithms are so I leave one of them out. Many graph problems reduce to DFS. Occasionally I study through new algorithms and add them to katas. For example, I&rsquo;ve recently added SkipList and SuffixArray. I also group algorithms so that each kata is of similar size. At the moment I have <a href="https://github.com/drseergio/practice/tree/master/katas">5 katas in my repertoire</a>. It takes about 30-60 minutes to complete each one. I aim to complete all of the katas once a week &mdash; on average less than one kata per day. I&rsquo;m also timing my practice now to see how long each kata takes.</p>
+
+<p><strong>Here&rsquo;s a distilled version of the algorithm study plan (~1 month of full-time effort)</strong>:</p>
+
+<ol>
+<li>List algorithms/data-structures you need to learn deeply. When in doubt leave it out. Make it as short as feasible. Can always add more later.</li>
+<li>Choose an algorithms text. I recommend <a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X">&ldquo;Algorithms, 4th edition&rdquo; by Robert Sedgewick</a>.</li>
+<li>Schedule sufficient time each day to read the text and implement algorithms by hand. Keep premature enthusiasm at hand and keep the workload manageable. There&rsquo;s a reason it takes a month.</li>
+<li>Collect algorithm implementations and group them into katas.</li>
+<li>Regularly perform katas by reimplementing algorithms.</li>
+<li>Revise katas, remove trivial algorithms and add new ones as you see fit.</li>
+<li>Repeat 6, 7.</li>
+</ol>
+
+
+<p>I&rsquo;d like to believe that this study of algorithms and practice of katas will pay off. It is hard to say, taking into account the many factors that affect a hiring decision. Doing a comprehensive study like this won&rsquo;t guarantee success but doing nothing almost certainly guarantees failure. The study of algorithms is just the first interview preparation step. I&rsquo;ve introduced katas as means to not forget what I&rsquo;ve just learned. But as I&rsquo;ve practiced and grown my personal collection I see myself continuing with katas.</p>
+
+<p>I will add links here once I write about further steps of my software interview preparation plan.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Samaria Gorge hike]]></title>
@@ -1268,42 +1353,6 @@
 <p>A scenic view from a hill nearby Wetzikon:</p>
 
 <p><a href="https://www.flickr.com/photos/tentaclephotos/18713735765"><img src="https://farm1.staticflickr.com/499/18713735765_5b30f14a0e_z.jpg" width="640"></a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Zug to Ziegelbrucke ride]]></title>
-    <link href="http://drseergio.github.io/blog/2015/06/04/zug-to-ziegelbrucke-ride/"/>
-    <updated>2015-06-04T20:04:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2015/06/04/zug-to-ziegelbrucke-ride</id>
-    <content type="html"><![CDATA[<p>Here&rsquo;s a short summary of the ride:</p>
-
-<p><a href="http://drseergio.github.io/images/zug-ziegelbrucke.png"><img src="http://drseergio.github.io/images/zug-ziegelbrucke.png" width="500"></a></p>
-
-<p><em>Total distance</em>: 98km</p>
-
-<p><em>Total vertical ascent</em>: 1146m</p>
-
-<p><em>Difficulty</em>: medium</p>
-
-<p><a href="http://drseergio.github.io/files/zug-ziegelbrucke.gpx">Download GPS (direct)</a></p>
-
-<p>On a Saturday two weeks ago I went on a bike ride from Zug to Ziegelbrucke through Einsideln and Pfaffikon. I was pretty familiar with many parts of the route.</p>
-
-<p>I have experimented with Microsoft&rsquo;s Hyperlapse Pro software that renders video footage into fast-paced but stable fly-throughs. I am thoroughly impressed with the results and I plan to use it in future biking and hiking trips:</p>
-
-<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/yKahrHeWFNs "></iframe></div>
-
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/18277703670"><img src="https://farm1.staticflickr.com/337/18277703670_171d4c39b4_z.jpg" width="640"></a></p>
-
-<p>A scenic view on Pfaffikon, Rapperswil and the surrounding areas:</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/18279230229"><img src="https://farm1.staticflickr.com/518/18279230229_e76d7c6a32_z.jpg" width="640"></a></p>
-
-<p>I have never biked or walked along the Obersee (the smaller lake linked to Zurich lake on the East side) so I was delighted by the nice unpaved road along the Northern side of the lake as well as pretty views to the local peaks:</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/17845077673"><img src="https://farm1.staticflickr.com/393/17845077673_81a6047bd5_z.jpg" width="640"></a></p>
 ]]></content>
   </entry>
   
