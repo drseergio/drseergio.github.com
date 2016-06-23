@@ -9,7 +9,7 @@
   <meta name="author" content="Sergey Pisarenko">
 
   
-  <meta name="description" content="Here&rsquo;s a short summary of the ride: Total distance: 98km Total vertical ascent: 1146m Difficulty: medium Download GPS (direct) On a Saturday &hellip;">
+  <meta name="description" content="On a hot Sunday I have joined a couple of cycling enthusiasts to cover an imperial century in the vicinity of canton Zurich: I have not ridden a road &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/06/11/twenty-first-century-ride/">Twenty first CENTURY ride</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-06-11T18:29:00+02:00" pubdate data-updated="true">Jun 11<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>On a hot Sunday I have joined a couple of cycling enthusiasts to cover an imperial century in the vicinity of canton Zurich:</p>
+
+<p><a href="/images/century-ride.png"><img src="/images/century-ride.png" width="500"></a></p>
+
+<p>I have not ridden a road bike for about a year. This was the first serious ride for the bike I had picked up on a sale last year:</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/18091049284"><img src="https://farm1.staticflickr.com/451/18091049284_e1861dc5f6_z.jpg" width="640"></a></p>
+
+<p>It is equipped with one of those fancy Di2 drive-trains which I &ldquo;hacked&rdquo; to extend the standard 10-speed casette to a 11-speed one.</p>
+
+<p><em>Total distance</em>: 162.3km</p>
+
+<p><em>Total vertical ascent</em>: 1182m</p>
+
+<p><em>Difficulty</em>: easy</p>
+
+<p><a href="/files/century-ride.gpx">Download GPS (direct)</a></p>
+
+<p>The ride went much smoother and faster than I expected. I forgot just how much difference there is between a mountain bike and a road bike. Keeping a speed of 25-30kmh on flats is so much less effort than my trusted Salsa Fargo.</p>
+
+<p>There is definitely less comfort on this bike. I could ride my Fargo for 300km per day and feel no pain or discomfort. My hands were definitely tired after a day of riding on the road bike. I couldn&rsquo;t imagine going on a tour on a bike like this.</p>
+
+<p>A scenic view from a hill nearby Wetzikon:</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/18713735765"><img src="https://farm1.staticflickr.com/499/18713735765_5b30f14a0e_z.jpg" width="640"></a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -893,447 +953,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/">Beginners guide to a custom 802.11ac setup</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-01T08:26:00+01:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="/images/80211ac.jpg"><img class="right" src="/images/80211ac.jpg" width="240"></a></p>
-
-<p>About 3 months ago I had nothing better to do so I decided to replace an off-the-shelf Linksys E4200 wireless router with a custom build running an unrestricted O/S. I admit E4200 worked reliably through the years on stock firmware but I never felt comfortable with the privacy and network vulnerability aspects of commonly sold devices. And I find third-party router firmwares too complicated to fully comprehend and tweak. There&rsquo;s simply too much configuration becauase it needs to satisfy many use cases.</p>
-
-<p>I&rsquo;ve never documented that assembly and installation experience so when a new opportunity to build a 802.11ac access point using very similar hardware came about I jumped right at it.</p>
-
-<p>In general, there&rsquo;s nothing particularly novel about buying standard x86 hardware, putting together a couple of components and then installing Linux on it. But with wireless networking, especially 802.11n and 802.11ac, there&rsquo;s numerous configuration options available. Without tuning and verification a 802.11ac/802.11n setup might run as fast as 802.11g which isn&rsquo;t any fast at all. After going through these builds I&rsquo;m hesitant to take wireless configuration for granted, especially when just buying SOHO grade equipment.</p>
-
-<h2>The &ldquo;why&rdquo;</h2>
-
-<p>Why do a DIY router build? There&rsquo;s the privacy and vulnerability aspects that I had already mentioned. Large manufacturers discontinue updating their SOHO devices within years of release. In light of critical vulnerabilities found just in core Linux libraries it is not an assuring situation.</p>
-
-<p>But the real reason that pushed me to change are the unnecessary features and small things that can&rsquo;t be configured on most SOHO routers. For example, there are often built-in DNS servers but most of the devices I&rsquo;ve used don&rsquo;t let the user to set the default search domain. Instead, these routers push the search domain from ISP. It&rsquo;s a minor detail but there are plenty such annoyances.</p>
-
-<p>The unneeded features just scream additional attack vectors to me. I prefer to have a list of iptables rules that fits on a screen because I&rsquo;m not running an ISP or a data-center at home. I can isolate untrusted devices and let them connect to the Internet only without having any access to other hosts in the network.</p>
-
-<h2>Bits and parts</h2>
-
-<p>I have built the router based on <a href="http://www.pcengines.ch/apu.htm">PC Engines APU x86 board</a>. It has a relatively powerful CPU, PCI express bus, mSATA, SIM slot, USB, serial port and other extras. I like the passive cooling and low power consumption. I would not want a router based on old PC desktop hardware because that takes up a lot of space, burns lots of power and makes noise.</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/16415575152/"><img src="https://farm9.staticflickr.com/8612/16415575152_0ba93b669e_c.jpg" width="800"></a></p>
-
-<p>Total cost of parts for dual-radio 802.11n router came at around 200$. The price for the new 802.11ac access point is higher at around 260$. That&rsquo;s because the 802.11ac radio. In total, the materials don&rsquo;t cost significantly more than off-the-shelf stuff.</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/15794024864/"><img src="https://farm9.staticflickr.com/8671/15794024864_8b2a475c9d_n.jpg" width="240"></a></p>
-
-<p>Since I&rsquo;m living in Switzerland and PC Engines is a Swiss company I had one more reason to order from them. I&rsquo;m impressed with the shipping speed and invoice-based payment.</p>
-
-<p>The list of parts for the 802.11ac build:</p>
-
-<ul>
-<li>SSD M-Sata 16GB MLC Phison</li>
-<li>APU.1D system board 2GB</li>
-<li>Enclosure 3 LAN, black</li>
-<li>AC adapter 12V 2A</li>
-<li>3x Antenna reverse SMA dual band</li>
-<li>3x Cable MMCX &ndash;> reverse SMA</li>
-<li>SATA data + power cable (for a hack, read further)</li>
-<li>Mini PCI Express Extender Extension FFC Cable</li>
-<li>COMPEX WLE900V5-23 miniPCIe module, AR9880, 802.11ac, 3*3MIMO</li>
-</ul>
-
-
-<p>Unlike with the 802.11n router build I had to do a couple of simple hacks to put it all together. The Compex 802.11ac radio is wide so it does not fit in a standard miniPCIe slot. I had to order an extension cable from eBay and use double-sided adhesive tape to put the radio on the inside &ldquo;ceiling&rdquo; of the enclosure. Then, I had to drill a hole in the enclosure to put an additional 3rd antenna for achieving 3*3MIMO. Finally, Compex radio requires external 5V supply. Luckily, the board has pins for powering a SATA drive. I&rsquo;ve cut a <a href="http://www.pcengines.ch/satacab1.htm">SATA data+power cable</a> and used the power connector to connect 5V positive to the radio.</p>
-
-<p>You can see the semi-assembled board on the photo:</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/16414742291/"><img src="https://farm8.staticflickr.com/7311/16414742291_6258b980e9_c.jpg" width="800"></a></p>
-
-<h2>Connecting, O/S install</h2>
-
-<p>PC Engines APU board comes without a graphics adapter. I/O happens through serial port. I had to buy a USB adapter (that occasionally BSODs Windows 8) and guess what the correct settings are (parity, speed, etc). Furthermore, the settings could change through the boot process as the running software can change the configuration.</p>
-
-<p>PC Engines provides a utility to create a bootable USB drive for updating the firmware. It works really well and requires no fiddling whatsover. The APU board serial rate is set to 115200 with the rest of values as default.</p>
-
-<p>It&rsquo;s possible to use SD card, USB flash drive, mSATA or SATA for storage. I opted in for mSATA because SSDs are not that expensive anymore (especially the small 16GB kind), much faster than flash and more reliable.</p>
-
-<p>I considered using MikroTik and other AP/router distributions. I could not get MikroTik to respond on serial no matter what settings I tried. I&rsquo;m glad it never worked because MikroTik is unnecessarily complex for my needs. It&rsquo;s an anti-thesis of the simplicity I&rsquo;m striving for.</p>
-
-<p>My Linux distribution of choice is Gentoo. To install Gentoo I used a bootable Linux USB drive. Almost any live USB distribution works as long as it has basic command line tools. I did as little as I could on serial and enabled SSH as soon as possible. To enable serial it&rsquo;s important to add <strong>console=ttyS0,115200n8</strong> to the kernel boot arguments. That also applies for booting live distributions.</p>
-
-<p>Since the router I had worked on is so similarly specced to the new access point build I made a shortcut in the install process. Instead of installing from scratch I copied an image of the existing disk. I&rsquo;ve then logged-in into the access point and changed settings.</p>
-
-<p>The rest of the installation steps are left as an exercise to the reader. Joking aside, the official Gentoo installation documentation is sufficiently sharp to get a running system. I have included important configuration files at the end of the article.</p>
-
-<h2>Software setup, hostapd and 802.11ac specifics</h2>
-
-<p>Once the system boots we get to the interesting part of making the access point part of our access point build working. And there are a couple of important details.</p>
-
-<h3>Channels</h3>
-
-<p>Radio channels were relatively simple to comprehend in the days of 802.11b/g 2.4Ghz spectrum. There are 11 20Mhz channels, of which 3 non-overlapping. The setup consist of choosing the channel which has least interference and least amount of users.</p>
-
-<p>In 5Ghz spectrum things become more complicated. The channels vary in width: from 20 Mhz all the way up to 160 Mhz. There are several frequency ranges and these ranges are regulated. Regulations differ from country to country. It&rsquo;s not possible to choose just any channel. It is necessary to check which channels are allowed, which channels is the radio capable of and then decide based on busyness of the ether.</p>
-
-<p>To check which channels are allowed by the regulations run <strong>iw reg get</strong>:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw reg get
-</span><span class='line'>country CH: DFS-UNSET
-</span><span class='line'>        (2402 - 2482 @ 40), (N/A, 20), (N/A)
-</span><span class='line'>        (5170 - 5250 @ 80), (N/A, 20), (N/A)
-</span><span class='line'>        (5250 - 5330 @ 80), (N/A, 20), (0 ms), DFS
-</span><span class='line'>        (5490 - 5710 @ 160), (N/A, 27), (0 ms), DFS
-</span><span class='line'>        (57000 - 66000 @ 2160), (N/A, 40), (N/A)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The output shows the regulation for Switzerland (CH) because I have previously set the country using <strong>iw reg set</strong> command:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw reg set CH</span></code></pre></td></tr></table></div></figure>
-
-
-<p>By the way, unless you change the domain to the country where you reside the radio will be restricted by the set of all countries. In reality this means that almost all channels will be out of bounds. I set the domain in a startup script.</p>
-
-<p><strong>DFS</strong> is a technology that allows wireless to work on frequencies shared with weather radars and other systems on the same frequency bands. <strong>DFS</strong> makes the radio listen for pulses from those systems to prevent interference.</p>
-
-<p>The channels supported by radio can be listed using <strong>iw list</strong>:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw list
-</span><span class='line'>...
-</span><span class='line'>                        * 5180 MHz [36] (17.0 dBm)
-</span><span class='line'>                        * 5200 MHz [40] (17.0 dBm)
-</span><span class='line'>                        * 5220 MHz [44] (17.0 dBm)
-</span><span class='line'>                        * 5240 MHz [48] (17.0 dBm)
-</span><span class='line'>                        * 5260 MHz [52] (20.0 dBm) (no IR, radar detection)
-</span><span class='line'>                          DFS state: usable (for 440 sec)
-</span><span class='line'>                          DFS CAC time: 60000 ms
-</span><span class='line'>                        * 5280 MHz [56] (20.0 dBm) (no IR, radar detection)
-</span><span class='line'>                          DFS state: usable (for 440 sec)
-</span><span class='line'>                          DFS CAC time: 60000 ms
-</span><span class='line'>                        * 5300 MHz [60] (20.0 dBm) (no IR, radar detection)
-</span><span class='line'>                          DFS state: usable (for 440 sec)
-</span><span class='line'>                          DFS CAC time: 60000 ms
-</span><span class='line'>                        * 5320 MHz [64] (20.0 dBm) (no IR, radar detection)
-</span><span class='line'>                          DFS state: usable (for 440 sec)
-</span><span class='line'>                          DFS CAC time: 60000 ms
-</span><span class='line'>                        * 5500 MHz [100] (disabled)
-</span><span class='line'>...
-</span><span class='line'>                        * 5825 MHz [165] (disabled)
-</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Radio firmware</h3>
-
-<p>I&rsquo;m using Compex WLE900V5-23 radio that is based on Atheros AR9880 2.0 chipset. The support is available in kernel with <strong>ath10k</strong> module. However, the required firmware is not shipped with <strong>linux-firmware</strong> package yet so it&rsquo;s required to manually download the firmware and put it into the kernel source tree.</p>
-
-<p>I&rsquo;ve obtained the firmware from <a href="https://github.com/kvalo/ath10k-firmware.git">ath10k git repository</a>. I&rsquo;ve then placed the <strong>ath10k</strong> directory in <strong>firmware</strong> directory in the kernel source tree. Finally, I&rsquo;ve changed the following kernel settings to build the firmware into the kernel:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>CONFIG_FIRMWARE_IN_KERNEL=y
-</span><span class='line'>CONFIG_EXTRA_FIRMWARE="ath10k/QCA988X/hw2.0/firmware-2.bin ath10k/QCA988X/hw2.0/board.bin"
-</span><span class='line'>CONFIG_EXTRA_FIRMWARE_DIR="firmware"</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Network setup and hostapd</h3>
-
-<p>I&rsquo;ve configured the new access point to work as a bridge. It does not do any routing. The access point makes the wired connection available to wireless clients.</p>
-
-<p>I&rsquo;m using OpenRC. Configuration in <strong>/etc/conf.d/net</strong> is very simple. There is a bridge configuration linked to the wired interface:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # cat /etc/conf.d/net
-</span><span class='line'>
-</span><span class='line'>dns_domain_lo="bethania"
-</span><span class='line'>dns_search="bethania"
-</span><span class='line'>
-</span><span class='line'># AP bridge setup
-</span><span class='line'>config_enp1s0="null"
-</span><span class='line'>bridge_br0="enp1s0"
-</span><span class='line'>rc_net_br0="net.enp1s0"
-</span><span class='line'>config_br0="192.168.69.2/24"
-</span><span class='line'>routes_br0="default via 192.168.69.1"
-</span><span class='line'>dns_servers_br0="192.168.69.1"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Configuration of the hostapd init script:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # cat /etc/conf.d/hostapd
-</span><span class='line'>
-</span><span class='line'>INTERFACES="br0"
-</span><span class='line'>CONFIGS="/etc/hostapd/hostapd.conf"
-</span><span class='line'>OPTIONS=""</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>hostapd</strong> configuration describes capabilities of the radio and sets up the frequencies, security and useful features. For example, to use wireless on <strong>DFS</strong> controlled frequencies it is required to enable <strong>ieee80211d</strong> and <strong>ieee80211h</strong> settings. Here&rsquo;s a working and tested 802.11ac setup that I&rsquo;m using right now:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # cat /etc/hostapd/hostapd.conf
-</span><span class='line'>
-</span><span class='line'>### hostapd configuration file
-</span><span class='line'>ctrl_interface=/var/run/hostapd
-</span><span class='line'>ctrl_interface_group=0
-</span><span class='line'>interface=wlp4s0
-</span><span class='line'>driver=nl80211
-</span><span class='line'>bridge=br0
-</span><span class='line'>
-</span><span class='line'>### IEEE 802.11
-</span><span class='line'>ssid=bethaniaven9
-</span><span class='line'>hw_mode=a
-</span><span class='line'>channel=52
-</span><span class='line'>max_num_sta=128
-</span><span class='line'>auth_algs=1
-</span><span class='line'>
-</span><span class='line'>### DFS
-</span><span class='line'>country_code=CH
-</span><span class='line'>ieee80211d=1
-</span><span class='line'>ieee80211h=1
-</span><span class='line'>
-</span><span class='line'>### IEEE 802.11n
-</span><span class='line'>ieee80211n=1
-</span><span class='line'>ht_capab=[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][DSSS_CCK-40]
-</span><span class='line'>
-</span><span class='line'>### IEEE 802.11ac
-</span><span class='line'>ieee80211ac=1
-</span><span class='line'>vht_oper_chwidth=1
-</span><span class='line'>vht_capab=[MAX-MPDU-11454][RXLDPC][SHORT-GI-80][TX-STBC-2BY1][RX-STBC-1]
-</span><span class='line'>vht_oper_centr_freq_seg0_idx=62
-</span><span class='line'>
-</span><span class='line'>### IEEE 802.11i
-</span><span class='line'>wpa=2
-</span><span class='line'>wpa_key_mgmt=WPA-PSK
-</span><span class='line'>wpa_passphrase=XXX
-</span><span class='line'>rsn_pairwise=CCMP
-</span><span class='line'>
-</span><span class='line'>### hostapd event logger
-</span><span class='line'>logger_syslog=-1
-</span><span class='line'>logger_syslog_level=2
-</span><span class='line'>logger_stdout=-1
-</span><span class='line'>logger_stdout_level=2
-</span><span class='line'>
-</span><span class='line'>### WMM
-</span><span class='line'>wmm_enabled=1
-</span><span class='line'>uapsd_advertisement_enabled=1
-</span><span class='line'>wmm_ac_bk_cwmin=4
-</span><span class='line'>wmm_ac_bk_cwmax=10
-</span><span class='line'>wmm_ac_bk_aifs=7
-</span><span class='line'>wmm_ac_bk_txop_limit=0
-</span><span class='line'>wmm_ac_bk_acm=0
-</span><span class='line'>wmm_ac_be_aifs=3
-</span><span class='line'>wmm_ac_be_cwmin=4
-</span><span class='line'>wmm_ac_be_cwmax=10
-</span><span class='line'>wmm_ac_be_txop_limit=0
-</span><span class='line'>wmm_ac_be_acm=0
-</span><span class='line'>wmm_ac_vi_aifs=2
-</span><span class='line'>wmm_ac_vi_cwmin=3
-</span><span class='line'>wmm_ac_vi_cwmax=4
-</span><span class='line'>wmm_ac_vi_txop_limit=94
-</span><span class='line'>wmm_ac_vi_acm=0
-</span><span class='line'>wmm_ac_vo_aifs=2
-</span><span class='line'>wmm_ac_vo_cwmin=2
-</span><span class='line'>wmm_ac_vo_cwmax=3
-</span><span class='line'>wmm_ac_vo_txop_limit=47
-</span><span class='line'>wmm_ac_vo_acm=0
-</span><span class='line'>
-</span><span class='line'>### TX queue parameters
-</span><span class='line'>tx_queue_data3_aifs=7
-</span><span class='line'>tx_queue_data3_cwmin=15
-</span><span class='line'>tx_queue_data3_cwmax=1023
-</span><span class='line'>tx_queue_data3_burst=0
-</span><span class='line'>tx_queue_data2_aifs=3
-</span><span class='line'>tx_queue_data2_cwmin=15
-</span><span class='line'>tx_queue_data2_cwmax=63
-</span><span class='line'>tx_queue_data2_burst=0
-</span><span class='line'>tx_queue_data1_aifs=1
-</span><span class='line'>tx_queue_data1_cwmin=7
-</span><span class='line'>tx_queue_data1_cwmax=15
-</span><span class='line'>tx_queue_data1_burst=3.0
-</span><span class='line'>tx_queue_data0_aifs=1
-</span><span class='line'>tx_queue_data0_cwmin=3
-</span><span class='line'>tx_queue_data0_cwmax=7
-</span><span class='line'>tx_queue_data0_burst=1.5</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Final words and config files</h2>
-
-<p>Once hostapd is running it&rsquo;s important to measure transfer rates. The first time I ran hostapd I was getting 802.11b speed. After a day of experimenting and reading through mailing list discussions I arrived at a configuration that yields 60 MB/s (480Mbit) real world samba transfer speed! I&rsquo;m genuinely impressed as it&rsquo;s more than 2X faster than the existing 802.11n setup that I currently have.</p>
-
-<p>List of configuration files that you might find useful:</p>
-
-<ul>
-<li><p><a href="/files/80211ac/kernel_config">Linux kernel .config</a></p></li>
-<li><p><a href="/files/80211ac/make.conf">portage make.conf</a></p></li>
-<li><p><a href="/files/80211ac/package.keywords">portage keywords</a></p></li>
-<li><p><a href="/files/80211ac/package.use">portage use</a></p></li>
-<li><p><a href="/files/80211ac/portage_world">portage /var/lib/portage/world</a></p></li>
-<li><p><a href="/files/80211ac/hostapd.conf">hostapd.conf</a></p></li>
-<li><p><a href="/files/80211ac/hostapd">/etc/conf.d/hostapd</a></p></li>
-<li><p><a href="/files/80211ac/net">/etc/conf.d/net</a></p></li>
-<li><p><a href="/files/80211ac/lspci">lspci output</a></p></li>
-<li><p><a href="/files/80211ac/iw_list">iw list output</a></p></li>
-</ul>
-
-
-<p>The fully assembled access point in flesh:</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/16390542446/"><img src="https://farm8.staticflickr.com/7359/16390542446_e290a3ca08_c.jpg" width="800"></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1349,6 +968,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/06/23/triathlon-progress-update/">Triathlon progress update</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/06/12/the-kata-of-code/">The Kata of Code</a>
@@ -1384,10 +1007,6 @@
     
       <li class="post">
         <a href="/blog/2015/09/03/salsa-fargo-rohloff/">Salsa Fargo Mk3 - now with Rohloff!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/08/07/trip-report-from-bicycle-tour-across-france/">Trip report from bicycle tour across France</a>
       </li>
     
   </ul>
