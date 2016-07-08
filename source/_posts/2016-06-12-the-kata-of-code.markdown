@@ -6,6 +6,8 @@ comments: true
 categories: tech
 ---
 
+This is part 1 of a series of articles themed "Preparing for Software Engineer Interviews". My goal with the series is to document the steps I took while preparing for interviews for a software engineering position after working six years in predominantly support-leaning roles. I won't break new ground here but rather share personal experience -- anything you see here is an echo of what you can find elsewhere on the Internet. But too much of a good thing could be bad. Too much advice obscures itself and makes it hard to navigate. In this part I will explain how I went about refreshing and improving knowledge of algorithms and data structures.
+
 A fancy word makes even the most mundane things sound legitimate. Enter 'kata' -- a fancy way of saying that one does something mundane, regularly. Originally, the Japanese word 'kata' stands for a very specific kind of practice in traditional arts. But in the programming world it's synonymous with a repetitive coding practice. I have no opinion in the linguistic department but I believe the practice might have some substance. Let me rewind a little bit.
 
 Exactly one year ago I [left a wonderful job in one of the best places to work](/blog/2015/06/16/why-i-have-quit-an-awesome-job/) on this planet. With such a drastic move there's a multitude of reasons. One of the major ones is my ambition to become an excellent software engineer and steer away from the technical support role I had so far pursued.
@@ -78,4 +80,4 @@ I don't know if the original katas are canonical. My coding katas are certainly 
 
 I'd like to believe that this study of algorithms and practice of katas will pay off. It is hard to say, taking into account the many factors that affect a hiring decision. Doing a comprehensive study like this won't guarantee success but doing nothing almost certainly guarantees failure. The study of algorithms is just the first interview preparation step. I've introduced katas as means to not forget what I've just learned. But as I've practiced and grown my personal collection I see myself continuing with katas.
 
-I will add links here once I write about further steps of my software interview preparation plan.
+In the [next part (2)](/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/) I explain my strategy for getting better at solving coding problems.
