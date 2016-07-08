@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Getting Better at Solving Coding (Interview) Problems - Sergey Pisarenko</title>
+  <meta name="author" content="Sergey Pisarenko">
+
+  
+  <meta name="description" content="This is part 2 of a series of articles themed &ldquo;Preparing for Software Engineer Interviews&rdquo;. My goal with the series is to document the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://drseergio.github.io/blog/2016/07/08/getting-better-at-solving-coding-interview-problems">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Sergey Pisarenko" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-45212877-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sergey Pisarenko</a></h1>
+  
+    <h2>personal home page</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:drseergio.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="http://www.flickr.com/photos/68217075@N08/">Photo gallery</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Getting Better at Solving Coding (Interview) Problems</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-07-08T18:37:00+02:00" pubdate data-updated="true">Jul 8<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This is part 2 of a series of articles themed &ldquo;Preparing for Software Engineer Interviews&rdquo;. My goal with the series is to document the steps I took while preparing for interviews for a software engineering position after working six years in predominantly support-leaning roles. I won&rsquo;t break new ground here but rather share personal experience &mdash; anything you see here is an echo of what you can find elsewhere on the Internet. But too much of a good thing could be bad. Too much advice obscures itself and makes it hard to navigate. In <a href="/blog/2016/06/12/the-kata-of-code/">part 1</a> I explained how I improved my knowledge of algorithms and data-structures as well as introduced a regular coding exercise. In this part I will explain how I went about improving interview coding skills.</p>
+
+<p>When I was originally confronted with preparing for interviews I pulled many online resources together: posts on quora and stackoverflow, blog posts, articles and forum discussions. Some of the posts were quite detailed and comprehensive. There is lot of common advice but I struggled because there was just too much to do and too many ways to go about it. I decided to follow a simple plan which I will shortly explain below.</p>
+
+<p>What is so special about software engineer interviews? The basic premise of most coding interviews (we&rsquo;re talking about interviews at mostly large tech companies here) is to present a candidate with a novel problem that he has never seen before to see how good his reasoning and problem solving skills are. Presumably, a coding interview is a good indicator of candidate&rsquo;s abilities and real-world productivity. Seeing how the candidate struggles under pressure, comes up with brilliant solutions and communicates with the interviewer is a telltale sign of his future success at the company. Unfortunately, that&rsquo;s only a presumption and the reality is complicated but at the moment most tech companies stick to the same format which means that candidates must eventually go through it. So let&rsquo;s look through some preparation ideas and shed some bullshit along the way.</p>
+
+<p>First, there&rsquo;s the novelty issue. It is not feasible to come with a completely new coding problem for every interview. Instead, inteviewers usually rely on a limited repertoire of problems. These problems eventually leak out and get shared online. More importantly, though, many problems share similar problem-solving strategies. Once the insight is known to a candidate the problem reduces to relatively painless translation to code. I&rsquo;ve seen judgements against candidates that try to memorize solutions. But how can a solution be memorized? There are not 10 or 20 problems out there. There are hundreds, even thousands. Nobody would try to memorize the solution code line by line. But it is fair to assume that candidates memorize ideas and patterns behind the problems. How else could the candidates do well on interviews? Let&rsquo;s take mathematics. Undeniably there is lots of memorization involved when learning any subject in mathematics. We can&rsquo;t assume that candidates come up with algebra concepts from scratch during their short stay. Why then would it be fair to expect candidates to come up with algorithms that took very distinguished and persistent computer scientists and engineers to come up with?</p>
+
+<p>In short, obtaining the insight and patterns behind coding problems and memorizing the right things is in my opinion the essence of interview preparation. Even the most distinguished engineers admit that in their day to day work they rarely get a chance to tackle difficult algorithmic challenges. I&rsquo;m not saying that advanced skills are unnecessary and everyone should be an API coding monkey. I&rsquo;m saying that candidates must work through typical coding problems, extract vital problem solving patterns and approaches. The fact remains, though, that some amount of memorizing is unavoidable. If a candidate didn&rsquo;t have a need to optimize things at a very low level it&rsquo;s unlikely he&rsquo;ll come up with a good solution for bit twiddling questions even though he understands the underlying concepts well. He just wouldn&rsquo;t have enough time. And certain efficient solutions are very clever to the point of being obscure and unintuitive. There&rsquo;s little chance of coming up with one during 45 stressful minutes.</p>
+
+<p>In fact, I would go as far as to say that some solutions must be memorized almost to the point of line by line. Okay, maybe not that far. But there are a some smaller-sized questions that interviewers like to ask as a warm-up. For example, to implement a power function or the greatest common divisor function. The thing is, interviewers expect flawless and, most importantly, quick (read immediate) implementation. Even if a candidate understands the idea it might take too long to translate that idea into code on the board. Plus, there are many possibilities for subtle common bugs, such as off-by-one errors, out-of-bounds, etc. Normally, a programmer is not rushed so there&rsquo;s sufficient time to think, sketch pseudocode, implement and take care of edge cases. Because the problem is not difficult the interviewer will pick apart even the smallest mistakes and attach disproportionate weight to them. Clearly, candidates that prepared well will look more capable although it is debatable if their performance difference would translate in anything measurable in the real world.</p>
+
+<p>Once a candidate gets exposed to a sufficient amount of problems (in the range of hundreds) there comes a plateau point. That&rsquo;s completely normal and expected. Despite the acquired experience many problems won&rsquo;t seem any easier. That&rsquo;s also normal. In fact, this discourages many aspiring competitive programmers from further pursuing the challenge. Certain kinds of problems do not fall under neat patterns and require a different mindset. I personally haven&rsquo;t yet managed to overcome this plateau. The good news is that such problems are rarely, if ever, asked in interviews. The bad news is that getting good at difficult problems worsens performance at interview problems. And the reason is that one tries to apply unconvential and complex data-structures and algorithms whereas most interview coding problems are centered around a set of relatively simple tools. Dead-ends are time consuming and reduce chances of solving the problem. After going through many rounds of mock interviews (which I discuss in the 3rd part of the series) I realized that I must recalibrate my toolkit and stick to simplest tools unless everything else fails. When my first thought reaches for a suffix tree I resist and instead try one of the following (not exhaustive): sorting, using a queue/stack, traversing, reversing, doing binary search, recursing. I also find it helpful to think of a brute force solution first. The lesson is that most coding problems are simple and rarely involve anything exotic. When they do the interviewer is prepared to almost immediately spill the beans on the magic insight.</p>
+
+<p>So how to go about actually preparing? I have taken a whole month of full-time effort to specifically practice interview coding problems. There are many popular sources with coding problems, to name a few:</p>
+
+<ul>
+<li><p><a href="https://www.topcoder.com/">TopCoder</a> &mdash; not suited well for interview preparation because of the nature of the problems, weird problem classification and an arcane UI. TopCoder is really a tool for competitive programming and it&rsquo;s not designed for practicing interview problems. Given time constraints and different goals in mind I wouldn&rsquo;t spend time on TopCoder.</p></li>
+<li><p><a href="https://uva.onlinejudge.org/">UVA judge</a> &mdash; automated system for submitting solutions to various competitive programming problems. Suffers from similar problems as TopCoder. Also, just like with TopCoder, it is hard to keep track of progress or to cover all topics.</p></li>
+<li><p><a href="https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850">Cracking the Coding Interview book</a> &mdash; extremely popular book with around 150 coding problems and solutions. I went through an earlier edition years ago. Haven&rsquo;t seen or used the recent one.</p></li>
+<li><p><a href="https://www.interviewbit.com/">interviewbit</a> &mdash; a well designed system specifically for preparing for interviews. Problems are classified by topics. There&rsquo;s search functionality that lets, for example, to search for problems asked at certain companies. interviewbit also has an excellent gamified progress tracking functionality. Unfortunately, I found out too late about it. Otherwise, I would have likely used it as a primary preparation tool.</p></li>
+<li><p><a href="https://www.amazon.com/Elements-Programming-Interviews-Java-Adnan/dp/1517671272">Elements of Programming Interviews in Java (EPI) book</a> &mdash; this is my choice! The books comes with hundreds of problems with clear explanations of brute-force and optimal solutions. C++ edition is also available.</p></li>
+<li><p><a href="https://www.hackerrank.com/">HackerRank</a> &mdash; feels like a system which serves both competitive programming and interview preparation well. There are many practice problems classified by topics and regular hosted competitions. I have used HackerRank as a complementary resource.</p></li>
+<li><p><a href="http://www.geeksforgeeks.org/">GeeksForGeeks</a> &mdash; a daily blog of coding problems. I have yet to come across an interview coding problem that is not published there.</p></li>
+</ul>
+
+
+<p>Once I settled on a primary source I&rsquo;ve done two passes:</p>
+
+<ol>
+<li><p>Go through every problem in the EPI book and solve them algorithmically without writing any code. I&rsquo;ve set a time limit of 10-15 minutes per problem. Once the time limit expired I consulted the solution. I think it&rsquo;s better to have a time limit rather than get stuck for hours on a problem. Generally, I think it&rsquo;s great to sometimes persist on a problem until it cracks but given the goals of interview preparation it&rsquo;s more effective to absorb as many concepts as possible. For every problem I wrote down the main insight. It took me about 2 weeks to finish the whole book.</p></li>
+<li><p>Go through every solved problem and write code for it. This is where I realized that my previously-written notes were terrible so I often had to solve the problems again. I wrote code on paper and I felt that writing code with the insight in hand is easy. I&rsquo;m sure there are folks for whom finding the insight is easier.</p></li>
+</ol>
+
+
+<p>I complemented EPI with problems from the HackerRank site. Finally, during two weeks leading to interviews I also solved every problem marked with the company I was applying for on interviewbit. You&rsquo;d be surprised just how often widely publicized problems are still actively asked in interviews so it pays to go through them. I haven&rsquo;t actually used interviewbit as a platform. Instead, I just read the problem descriptions and solved them on paper. Whenever I got stuck I consulted the hints or complete editorials (solutions).</p>
+
+<p>After putting so much effort in the preparation can I say it was worth it? Did it help to get an offer? Getting good at solving coding interview problems takes a considerable effort and it is not a sure guarantee of success. However, a lack of such preparation is a sure guarantee of failure. There are too many factors vying for the final hire/no hire decision and success is anything but guaranteed. Just like with the algorithm and data-structure study I feel this effort made me a little bit better as a programmer. And just like with <a href="/blog/2016/06/12/the-kata-of-code/">algorithm katas</a> I would like to adopt a habit of regularly solving coding problems to improve further.</p>
+
+<p>In the concluding part 3 I will talk about the final interview preparation steps and also talk about the psychological challenges that many candidates such as myself face before and during the interviews and the ways to tackle them.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sergey Pisarenko</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-07-08T18:37:00+02:00" pubdate data-updated="true">Jul 8<span>th</span>, 2016</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/06/23/triathlon-progress-update/" title="Previous Post: Triathlon progress update">&laquo; Triathlon progress update</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/">Getting Better at Solving Coding (Interview) Problems</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/06/23/triathlon-progress-update/">Triathlon progress update</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/06/12/the-kata-of-code/">The Kata of Code</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/30/samaria-gorge-hike/">Samaria Gorge hike</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/28/indoor-cycling-lab/">Indoor cycling lab</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/27/rigimarsch-2016/">Rigimarsch 2016</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/19/bike-fitting-basics-for-triathlon/">Bike fitting basics for triathlon and road cycling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/14/a-long-new-journey-ahead/">A long new journey ahead</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/05/the-wonderful-way-of-carabike/">The wonderful way of carabike</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/31/goals/">Goals</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/+SergeyBelkin?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Sergey Pisarenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'drseergio';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://drseergio.github.io/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/';
+        var disqus_url = 'http://drseergio.github.io/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
