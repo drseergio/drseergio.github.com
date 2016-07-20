@@ -3,7 +3,7 @@ layout: post
 title: "Photo report - climbing up via ferrata in Pinut"
 date: 2013-10-27 18:53
 comments: true
-categories: photo
+categories: outdoor
 ---
 
 This Saturday I had a pleasure to do my first "via ferrata" climb in Switzerland, in Pinut to be precise. Via ferrata routes do not require climbing experience. The idea is to climb up a mountain and various obstacles while being hooked-up to a metal cable that runs along the whole route. Equipment-wise prospective climbers need a harness, a via ferrata set (a Y-shaped lanyard with an energy absorber) and a helmet.

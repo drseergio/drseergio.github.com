@@ -3,7 +3,7 @@ layout: post
 title: "Photo report - walk along the Mont Blanc massif"
 date: 2015-07-03 19:33
 comments: true
-categories: photo
+categories: outdoor
 ---
 
 Weather conditions in Mont Blanc, France, has been favorable this week. So we spontaneously decided to visit it. On a last year's visit we were unlucky as the region was covered in clouds and it was raining so we couldn't see a thing nor go for a walk.

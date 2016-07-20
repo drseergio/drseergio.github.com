@@ -3,7 +3,7 @@ layout: post
 title: "Mountaineering in Valais"
 date: 2015-07-10 15:42
 comments: true
-categories: photo
+categories: outdoor
 ---
 
 There comes a moment in a life of a dormant adventurer when the curtains of undesired comfort are torn away and the world is finally seen through wide-open eyes, fueled by challenge and gore, excitement and joy. In this very moment feelings of inadequacy and out-of-placeness give way to sincere enthusiasm and appreciation and beauty of the world. I am boundlessly joyful to cross that imaginary line and thirstily imbibe from the cup of mountaineering and alpine beauty.

@@ -3,7 +3,7 @@ layout: post
 title: "Photo report - summer walk in Flumserberg"
 date: 2015-07-03 15:13
 comments: true
-categories: photo
+categories: outdoor
 ---
 
 Flumserberg is a popular ski destination because it is close to Zürich. But it's also beautiful in summer. I've visited Flumserberg last Sunday for an easy downhill walk.

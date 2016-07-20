@@ -3,7 +3,7 @@ layout: post
 title: "Photo report - climbing up via ferrata Feurenwand"
 date: 2013-11-03 17:37
 comments: true
-categories: photo
+categories: outdoor
 ---
 
 Via ferratas come in different difficulty levels. Last week I've done a K2 climb. Yesterday I went to Fuerenalp along with two friends and did a K4 climb. The route is a lot more exciting. Wet and slippery stones and supports presented an additional challenge.

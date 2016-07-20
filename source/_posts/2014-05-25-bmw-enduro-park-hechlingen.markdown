@@ -3,7 +3,7 @@ layout: post
 title: "Motorcycle tour: days T-414 and T-64, California Superbike School and BMW Enduro Park Hechlingen"
 date: 2014-05-25 21:51
 comments: true
-categories: motorcycle
+categories: outdoor
 ---
 
 I always had passion for motorbikes, especially so because everyone around me tried to prevent me from riding as I was growing up. I have started riding motorcycles just 3 years ago not knowing what to expect. I was not sure about whether I want to ride sport bikes or off-road monsters or touring rigs or choppers. Last year I went to a 2 day training camp at [California Superbike School](http://www.superbikeschool.com/curriculum/two-day-camps.php) to their Las Vegas Motor Speedway offering. I've learned skills to handle a powerful BMW S1000RR superbike around the track. Without question, those two days will forever remain a highlight of my life. The training was intensive, well organized and valuable. But I realized that track racing is out of reach for me. Not only there are no racing circuits around where I live it's a also demanding financial burden - tires, circuit fees, a car to haul the bike, repairs, upgrades, etc. Racing on public roads seems inexcusably dangerous so racing bikes seem a bit pointless. I even sold my bike and thought of calling motorcyling a day. And of course a couple of months later I got the riding itch. After due introspection I understood that touring is what I long for. I love seeing new places, especially if these places are not staples of modern disposable tourism.

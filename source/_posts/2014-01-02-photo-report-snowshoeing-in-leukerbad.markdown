@@ -3,7 +3,7 @@ layout: post
 title: "Photo report - snowshoeing in Leukerbad"
 date: 2014-01-02 12:46
 comments: true
-categories: photo
+categories: outdoor
 ---
 
 On one of the last weekends of December me and my wife went to a weekend trip to Leukerbad to enjoy the hot springs and do a little snowshoe tour around a mountain lake Daubensee.

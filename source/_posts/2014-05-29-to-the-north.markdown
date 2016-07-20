@@ -3,7 +3,7 @@ layout: post
 title: "To the north"
 date: 2014-05-29 16:54
 comments: true
-categories: [motorcycle,trip]
+categories: outdoor
 ---
 
 Switzerland-Germany-Denmark-Sweden-Norway-Latvia-Lithuania-Poland-Czech-Germany-Switzerland, day T-1!

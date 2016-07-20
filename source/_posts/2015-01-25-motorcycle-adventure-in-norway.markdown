@@ -3,7 +3,7 @@ layout: post
 title: "Motorcycle adventure in Norway"
 date: 2015-01-25 10:55
 comments: true
-categories: motorcycle
+categories: outdoor
 ---
 
 In May 2014 I embarked on a motorcycle journey through many European countries with Norway as the destination. The round-trip tour from Zürich, Switzerland was about 8000 Km long and took about 4 unrushed weeks to complete. It was a first ride of such length for me.

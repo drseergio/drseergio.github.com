@@ -3,7 +3,7 @@ layout: post
 title: "Going to a first alpine tour"
 date: 2015-07-03 20:07
 comments: true
-categories: photo
+categories: outdoor
 ---
 
 I'm feeling excited because tomorrow I'm going on my first alpine tour. It's a 5 day tour and we're going to walk on ice and snow. We're heading to region Valais which is not far from Mont Blanc that I had visited earlier this week.

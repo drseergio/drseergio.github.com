@@ -3,7 +3,7 @@ layout: post
 title: "Photo report - snowshoeing in Braunwald"
 date: 2013-12-14 21:44
 comments: true
-categories: photo
+categories: outdoor
 ---
 
 The weather on weekends has been excellent lately. On December 8th me and my friend John went for a snowshoe hike close to Braunwald.
