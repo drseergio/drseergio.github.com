@@ -4,7 +4,7 @@
   <title><![CDATA[Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2016-07-16T12:07:08+02:00</updated>
+  <updated>2016-07-20T10:10:48+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Cube Cross Disc Mk3]]></title>
+    <link href="http://drseergio.github.io/blog/2016/07/19/cube-cross-disc-mk3/"/>
+    <updated>2016-07-19T21:40:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2016/07/19/cube-cross-disc-mk3</id>
+    <content type="html"><![CDATA[<p>I have purchased the Cube Cross Disc bicycle second-hand back in 2014 as an ultimate do-it-all machine to replace somewhat petite <a href="http://drseergio.github.io/blog/2014/01/02/6-months-on-a-bike/">BMC hybrid bike</a> I had started cycling on. No other bike in my stable went through as many alterations as the venerable Cube, transitioning from an object of admiration to almost scrap and most recently getting resurrected to fulfill a pragmatic new purpose. It was the bike I rode during the <a href="http://drseergio.github.io/blog/2014/12/03/what-i-learned-from-a-10-day-bicycle-tour/">legendary Rhine tour</a>. Perhaps it is also the bike I&rsquo;ve learned most of the bike mechanic skills on.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/27799786284"><img src="https://c1.staticflickr.com/9/8682/27799786284_5b8f05055e_c.jpg" width="800"></a></p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/27800895753"><img src="https://c1.staticflickr.com/9/8268/27800895753_4dabb15424_c.jpg" width="800"></a></p>
+
+<p>Originally intended as a noble cause to minimize the number of bikes I own the project turned into an ugly obsession to combine the most exotic parts in a wild chase to build the perfect bike. Following the purchase I stripped the bike to the frame and <a href="http://drseergio.github.io/blog/2014/05/26/cyclo-cross-bicycle-build-part-3/">rebuilt it with custom chosen components</a>. Barely finishing the Rhine tour I went into another frenzy, adding and replacing a good chunk of parts again. A disaster happened one evening when I was fiddling with the bottom bracket. Being distracted by a conversation I have inadvertendly destroyed the thread where the bottom bracket is screwed in. Very often that&rsquo;s the death of the bike frame. And at the time I assumed the bike was gone. I took it apart and, eschewing the faux minimalism, purchased the marvelous <a href="http://drseergio.github.io/blog/2015/09/03/salsa-fargo-rohloff/">Fargo</a> touring bike and the <a href="http://drseergio.github.io/blog/2015/06/11/twenty-first-century-ride/">BMC road bike</a> I&rsquo;m currently training on. The experience taught me a good lesson about minimalism. It is not always rational, nor cost effective, nor even meaningful. In pursuit of a do-it-all bike I&rsquo;ve ruined the bike by squeezing too much into it. There were panniers&hellip; and aerobars. A lot of parts were installed simply because of hype. Months later, when I brought the destroyed frame to a local bike shop I didn&rsquo;t expect the fatal mistake to get fixed. But it was! The mechanics were able to get the threads rechased. Not knowing what to do with the sudden fortune I left the frame to marinate in the cellar.</p>
+
+<p>Until one day it occurred to me that I have accumulated so many spare bike parts from all the upgrades and replacements that I could probably rebuild the Cube without purchasing much. I also didn&rsquo;t have a city bike that could be left at train stations and public places without too much worry. With the priorities clear I decided to move forward with the rebuild. The priorities were: cheap (as few new parts as possible), disposable (no high-end components) and safe to leave. I am happy to report that I&rsquo;ve been riding this workhorse for more than half a year. It is not sleek nor glitzy but it&rsquo;s a pleasure to use everytime I&rsquo;m off to the swimming pool or to run an errand. I would like to share a couple technical challenges along the way as well as few cool things I came across when putting it all together.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/28134119330"><img src="https://c1.staticflickr.com/9/8462/28134119330_605b8e76be.jpg" width="500"></a></p>
+
+<p>Guided by the cost I built the drivetrain with a combination of Shimano Zee and Shimano XT components. This being an errand bike I chose to forego the front derailleur and use 10 speeds in the rear for simplicity&rsquo;s sake. The gear range was nicely extended by a spare Wolf Tooth Components 42t sprocket I had. That&rsquo;s how many of the components ended up on the bike &ndash; I simply had them already. The 1x10 system didn&rsquo;t work flawlessly though and I have done lots of small changes to make the chain slide smoothly. The underlying issue was the chainline &mdash; the chain was too skewed in the largest rear sprocket. One could feel the tension. The front sprocket sat too far from the middle, relative to the cassette. That meant that smallest sprockets worked well but anything in the upper middle didn&rsquo;t. Getting the chainline right took many iterations.</p>
+
+<p>At first I moved the bottom bracket spacers from the drive side to non-drive side. A free and noticeable improvement. Next, I have replaced a part of the Shimano XT derailleur with something called a <a href="http://www.wolftoothcomponents.com/products/goatlink">GoatLink</a>. I am not completely sure it made a big difference. The derailleur itself is quite important for the 1x10 drivetrains &mdash; it should be equipped with a clutch mechanism. I&rsquo;m personally using Shimano RD-M786. The final step was to install chainring spacers. That required longer chainring bolts and appropriate spacers. I found it somewhat difficult to track these parts. I found the fitting bolts on CRC although their original purpose seems different: <a href="http://www.chainreactioncycles.com/ch/en/race-face-poly-bashguard-fastener-bolt-kit/rp-prod46947">Race Face Poly Bashguard Fastener Bolt Kit</a>. The spacers must have inner diameter of 10mm. I found those at <a href="http://www.oneupcomponents.com/products/spacer-chainring-10mm-id-4-pack">OneUp</a>. Most recently I replaced the stock 36t Zee chainring with a 38t one. All in all, it works well enough now. I look forward to a time when internal gearboxes, such as the brilliant <a href="http://pinion.eu/en/">pinion</a>, become more widespread and affordable.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/28383845426"><img src="https://c1.staticflickr.com/9/8619/28383845426_bb078fb0da.jpg" width="500"></a></p>
+
+<p>The rest of the bike was put together similarly. The wheels are the cheapest 29&#8221; wheelset I could find on the market at 120 eur for a pair. Similarly, the saddle was only 20 eur. When any of these cheap parts gets stolen I&rsquo;ll just replace them with equally inexpensive alternatives. Knowing that I&rsquo;m going to leave the bike in public spaces I equipped the bike with a few theft deterrents. The first obvious deterrent was a heavy lock. I didn&rsquo;t spare cash on the lock. In fact, it might be the most expensive part of the bike. Secondly, I splurged for a set of Pitlock parts: skewers, stem bolt and the seat post collar bolt. Basically, Pitlock replaces standard skewers and bolts with specially shaped ones that require one of 256 individually-shaped locking tools, called &ldquo;Pits&rdquo;. Here&rsquo;s a visual demonstration how these Pitlock parts look like (front skewer, rear skewer, stem cap):</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/27799822554"><img src="https://c1.staticflickr.com/9/8834/27799822554_4ef7630a54_m.jpg" width="240"></a> <a href="https://www.flickr.com/photos/tentaclephotos/28383884506"><img src="https://c1.staticflickr.com/9/8620/28383884506_ee0db673a1_m.jpg" width="240"></a> <a href="https://www.flickr.com/photos/tentaclephotos/27800915953"><img src="https://c1.staticflickr.com/9/8618/27800915953_3472fd2b3e_m.jpg" width="240"></a></p>
+
+<p>At the moment the bike has no original parts left except the frame and the headset. It may be the only Cube Cross Disc in the world with such a long history. Here&rsquo;s the complete list of parts from the build:</p>
+
+<ul>
+<li>Frameset: Cube Cross Disc 2013 59cm (stock)</li>
+<li>Wheelset: Mavic Crossone 29&#8221; (new part)</li>
+<li>Headset: FSA Orbit Z-t, top 1 1/8&#8221;, 44mm, bottom 1 &frac12;&#8221; (stock)</li>
+<li>Tires: Specialized Trigger Sport 33-622 (left over from an abandoned project)</li>
+<li>Brakes: Shimano Deore BR505, 180mm rotors (left over from an upgrade)</li>
+<li>Stem: Ritchey WCS C260 25° 31.8 (left over from Mk1)</li>
+<li>Handlebar: Ritchey 580mm (new part, added recently)</li>
+<li>Grips: ACROS Bike24 (new part)</li>
+<li>Chain: Deore XT 10 speed (spare part)</li>
+<li>Derailleur (rear only): Shimano XT RD-M786 (new part) + Wolf Tooth Components GoatLink (new part)</li>
+<li>Crankset: Shimano Zee 68/73mm w/ Bottom Bracket (new part) + Wolf Tooth Components 38t (new part, added recently) + <a href="http://www.oneupcomponents.com/products/spacer-chainring-10mm-id-4-pack">OneUp chainring spacer ID 10mm kit</a> + <a href="http://www.chainreactioncycles.com/ch/en/race-face-poly-bashguard-fastener-bolt-kit/rp-prod46947">Race Face Poly Bashguard Fastener Bolt Kit</a></li>
+<li>Cassette: Shimano XT CS-M771-10 (left over from an abandoned project) + Wolf Tooth Components GC 42 (left over from an upgrade)</li>
+<li>Gear lever (rear only): Shimano Zee SL-M640 (new part)</li>
+<li>Saddle: Selle Italia X2 (new part)</li>
+<li>Seat post: Cane Creek Thudbuster ST (left over from an upgrade)</li>
+<li>Extras: Pitlock set (skewers, stem cap, seat post clamp), ABUS Granit CityChain X-Plus lock (new parts)</li>
+</ul>
+
+
+<p>Head past to the <a href="https://www.flickr.com/photos/tentaclephotos/albums/72157671282205005">photo gallery</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[First 4000m climb]]></title>
@@ -1410,37 +1463,6 @@
 <p>When I arrived in the middle of night at the destination shaking from hypothermia I was thinking of a warm bed, food and my beloved wife. In that moment I truly appreciated how much a place called home means to me. I wanted to go back to the beach vacation I berated so much&hellip;</p>
 
 <p>But a good night sleep clears up even the muddiest minds. As soon as I woke up fresh and rested I dismissed the mumbo jumbo and started to plan another adventure. Challenge is an indispensable part of my identity and it&rsquo;s about time I finally learn it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Across Switzerland in one day]]></title>
-    <link href="http://drseergio.github.io/blog/2015/06/23/across-the-switzerland-in-one-day/"/>
-    <updated>2015-06-23T09:46:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2015/06/23/across-the-switzerland-in-one-day</id>
-    <content type="html"><![CDATA[<p><strong>UPDATE:</strong> <a href="http://drseergio.github.io/blog/2015/06/26/longest-non-stop-bicycle-ride-in-my-life/">Success! I&rsquo;ve managed to complete the ride, totaling 420.8 km and 4953m of vertical ascent in 27 hours of biking.</a></p>
-
-<p>Last year I&rsquo;ve successfully completed a <a href="https://www.strava.com/activities/200401002">300km bicycle day ride</a> and earned a new personal record for distance. On a wonderful day of today I&rsquo;m going to set a new personal record and ride for 400-or-so kilometers across Switzerland in less than 24 hours.</p>
-
-<p>My route follows a slightly shortened version of the official Swiss route number 9:</p>
-
-<p><a href="http://drseergio.github.io/images/400km_ride.png"><img src="http://drseergio.github.io/images/400km_ride.png" width="500"></a></p>
-
-<p>The preparations are off to a rocky start. After thoroughly cleaning the bike and relubing mechanical parts I couldn&rsquo;t get flat pedals off. I&rsquo;d like to ride this distance with clipless pedals for higher efficiency.</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/19079701705"><img src="https://farm1.staticflickr.com/368/19079701705_b4b79347b8.jpg" width="213"></a><a href="https://www.flickr.com/photos/tentaclephotos/18459001303"><img src="https://farm1.staticflickr.com/497/18459001303_24d1ceb4e1_n.jpg" width="480"></a></p>
-
-<p>I&rsquo;m going to pay a visit to a local bike shop today and see if they can get them off. If not I&rsquo;ll have to keep using the flat pedals and possibly replace the whole crankset upon returning. That&rsquo;s an expensive way to learn to apply liberal amounts of anti-seize compound! Anyway, I&rsquo;ve somehow managed to ride 300km on the flats last year so perhaps it&rsquo;s not such a big problem after all.</p>
-
-<p>I&rsquo;ve studied the route and divided it into 3 parts. The first 160km are the hardest: there are a couple of hills and one pass on the way. The second section is 80km and is of medium difficulty. The last part is almost as a flat as possible on this planet, starting with a fast descent.</p>
-
-<p>As soon as I get over the first part I can make a deep breath. And once two sections are behind it&rsquo;s a piece of cake and I just need to make sure I don&rsquo;t fall of the bike due to sleep deprivation. I&rsquo;m also going to turn off any time-keeping and elapsed distance displays to keep my spirits going against the monstrous remaining distance.</p>
-
-<p>I&rsquo;m packing lots of high-calorie snacks and substances, such as protein and sport bars, sport drink mixtures and magnesium tablets. I plan to make one stop for lunch in Pfäffikon at about 14:00 in a cafe <a href="http://cellos-essbar.ch/">Cello&rsquo;s ESSBAR</a>. My wife plans to join me.</p>
-
-<p>I am starting the ride today <strong>2015-06-23</strong> at <strong>22:30 CET</strong> (<strong>13:30 US/Pacific</strong>) from a town called Gstaad. I plan to arrive at the destination town Rorschach no later than <strong>2015-06-24</strong> at <strong>22:00 CET</strong> (<strong>13:00 US/Pacific</strong>). If I don&rsquo;t make it on time there is a risk there won&rsquo;t be any trains going and I will be stranded either in Rorscharh or Zürich Hauptbahnof.</p>
-
-<p>I will be posting regular updates on my Facebook as I go and I will publish a full write-up once I come back and recover after a healthy amount of sleep. My dear friends, I need your full support to get through this!</p>
 ]]></content>
   </entry>
   
