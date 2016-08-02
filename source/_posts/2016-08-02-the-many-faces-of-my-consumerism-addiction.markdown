@@ -24,7 +24,7 @@ It is difficult to overcome any addiction, be that smoking or something as seemi
 
  * *Recognize the feeling* -- it is an unmistakable rush, with elevated heart rate and total obsession with the purchase. It often feels like the purchase is the last one ever as if I'll be completely set for the future (for who knows what!). It feels like I'm incomplete, incompetent, weak without the new thing. Once recognized, following the impulse is a clear weakness and an inability to resist.
 
- * *Recognize unhealthy minimalism* -- there's nothing wrong striving for less possessions and simpler living but most of the time for me it means more purchases. Once the one or few small items are sold I dream of something better, "more minimal", to replace them with. It is like a purge before the next big wave of purchases.
+ * *Recognize unhealthy minimalism* -- there's nothing wrong striving for fewer possessions and simpler living but most of the time for me it means more purchases. Once the one or few small items are sold I dream of something better, "more minimal", to replace them with. It is like a purge before the next big wave of purchases.
 
  * *Postpone purchase for later* -- the impulses are unavoidable. What is avoidable is acting on them. That very moment it feels like the new thing is ABSOLUTELY necessary, it makes life simpler, better BUT it's WRONG. It is next to impossible to completely disavow the purchase but scheduling it for future will ensure that the purchase is emotionally cool and not a perverted way of compensating for personal inadequacies.
 
