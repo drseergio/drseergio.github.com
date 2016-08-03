@@ -9,7 +9,7 @@
   <meta name="author" content="Sergey Pisarenko">
 
   
-  <meta name="description" content="Ever since I rode with my friend John around Swiss-Italian lakes 2 weeks ago I wanted to return and do a loop that goes into Italian valley &hellip;">
+  <meta name="description" content="I have previuosly written a guide to configure a 802.11ac access point using hostapd in gentoo linux. Another enthusiast discovered that my guide &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,247 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/">Updates to the 802.11ac guide</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-05-05T18:16:00+02:00" pubdate data-updated="true">May 5<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have previuosly written a <a href="/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/">guide to configure a 802.11ac access point using hostapd in gentoo linux</a>. Another enthusiast discovered that my guide does not lead to a working access point. Turns out I missed crucial steps to configure DFS which is required for operating on higher frequencies. In this guide I diagnose the problem and correct the mistakes. I also show how to increase transmission (TX) power of the wireless card.</p>
+
+<h2>Diagnose the issue</h2>
+
+<p>First, let&rsquo;s see what&rsquo;s wrong with the existing configuration. We will look at the daemon output to troubleshoot. Stop the hostapd service and then start it manually in foreground with:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap linux # hostapd -d /etc/hostapd/hostapd.conf
+</span><span class='line'>
+</span><span class='line'>...
+</span><span class='line'>Completing interface initialization
+</span><span class='line'>Mode: IEEE 802.11a  Channel: 52  Frequency: 5260 MHz
+</span><span class='line'>DFS 4 channels required radar detection
+</span><span class='line'>DFS all channels available, (SKIP CAC): no
+</span><span class='line'>DFS 0 chans unavailable - choose other channel: no
+</span><span class='line'>wlp4s0: interface state HT_SCAN->DFS
+</span><span class='line'>DFS start CAC on 5260 MHz
+</span><span class='line'>wlp4s0: DFS-CAC-START freq=5260 chan=52 sec_chan=1, width=1, seg0=62, seg1=0, cac_time=60s
+</span><span class='line'>Can't set freq params
+</span><span class='line'>DFS start_dfs_cac() failed, -1
+</span><span class='line'>Interface initialization failed
+</span><span class='line'>wlp4s0: interface state DFS->DISABLED
+</span><span class='line'>wlp4s0: AP-DISABLED
+</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The output shows us that hostapd was unable to start due to DFS failure (line &ldquo;DFS start_dfs_cac() failed, -1&rdquo;). It means that DFS is not available so we can&rsquo;t choose a channel that requires DFS. We can double check the local regulations using:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw reg get
+</span><span class='line'>country CH: DFS-ETSI
+</span><span class='line'>        (2402 - 2482 @ 40), (N/A, 20), (N/A)
+</span><span class='line'>        (5170 - 5250 @ 80), (N/A, 20), (N/A)
+</span><span class='line'>        (5250 - 5330 @ 80), (N/A, 20), (0 ms), DFS
+</span><span class='line'>        (5490 - 5710 @ 160), (N/A, 27), (0 ms), DFS
+</span><span class='line'>        (57000 - 66000 @ 2160), (N/A, 40), (N/A)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The output shows that frequencies above 5250 Mhz require DFS. This means that channels >52 won&rsquo;t work unless DFS is functional. Let&rsquo;s cross check supported radio channels using &ldquo;iw&rdquo;:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # iw list
+</span><span class='line'>...
+</span><span class='line'>Frequencies:
+</span><span class='line'>    * 5180 MHz [36] (17.0 dBm)
+</span><span class='line'>    * 5200 MHz [40] (17.0 dBm)
+</span><span class='line'>    * 5220 MHz [44] (17.0 dBm)
+</span><span class='line'>    * 5240 MHz [48] (17.0 dBm)
+</span><span class='line'>    * 5260 MHz [52] (20.0 dBm) (no IR, radar detection)
+</span><span class='line'>        DFS state: usable (for 62 sec)
+</span><span class='line'>        DFS CAC time: 60000 ms
+</span><span class='line'>    * 5280 MHz [56] (20.0 dBm) (no IR, radar detection)
+</span><span class='line'>        DFS state: usable (for 62 sec)
+</span><span class='line'>        DFS CAC time: 60000 ms
+</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&ldquo;no IR&rdquo; stands for &ldquo;no initiate radiation&rdquo;. It essentially means that the card cannot be used as an access point on that frequency. However, when &ldquo;no IR&rdquo; goes in hand with &ldquo;radar detection&rdquo; it means that the card can be used but only with DFS. It&rsquo;s another reminder that DFS is required.</p>
+
+<h2>Fix the issue by disabling DFS</h2>
+
+<p>An obvious solution is to avoid using DFS by choosing a channel that does not require radar detection. In the case of Switzerland channel 44 is a safe choice.</p>
+
+<p>To disable DFS and to choose a channel that does not require DFS do following changes to the configuration file:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # vi /etc/hostapd/hostapd.conf
+</span><span class='line'>
+</span><span class='line'>...
+</span><span class='line'>channel=44
+</span><span class='line'>...
+</span><span class='line'>ieee80211h=0
+</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Save the changes and restart hostapd. Everything should work now. Enabling DFS is by no means necessary. In fact, I&rsquo;m running my access point on a frequency which does not require DFS. I observe significantly better transfer rates on non-DFS channels.</p>
+
+<p>However, if you&rsquo;re curious and/or would like to get DFS to work read on.</p>
+
+<h2>Enable DFS support in the kernel</h2>
+
+<p>It turns out that DFS must be enabled in kernel and by default the option is hidden from kernel configuration dialogs. To check if DFS is enabled look through kernel message output:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ap ~ # dmesg
+</span><span class='line'>...
+</span><span class='line'>[    2.850086] ath10k_pci 0000:04:00.0: debug 1 debugfs 1 tracing 0 dfs 0 testmode 0
+</span><span class='line'>...</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The output indicates that DFS is disabled (&ldquo;dfs 0&rdquo;). To enable DFS you must enable following options:</p>
+
+<ul>
+<li>&ldquo;Configure standard kernel features (expert users)&rdquo; under &ldquo;General Setup&rdquo;</li>
+<li>&ldquo;cfg80211 certification onus&rdquo; under &ldquo;Networking support > Wireless&rdquo;</li>
+<li>&ldquo;Atheros DFS support for certified platforms&rdquo; under &ldquo;Device Drivers > Network device support > Wireless LAN > Atheros Wireless Cards&rdquo;</li>
+</ul>
+
+
+<p>Re-compile the kernel and verify if the kernel output indicates DFS support. Then, re-enable DFS and choose a higher channel of your liking.</p>
+
+<p>I have experimented with the higher channels but I discovered throughput was significantly worse. In addition, not all client machines recognize upper 5Ghz channels. For example, EU version of Asus PCE-AC68 card in Windows doesn&rsquo;t function on channels >48. A <a href="http://www.snbforums.com/threads/pce-ac66-wifi-card-not-picking-up-5ghz-149-161-channels.10932/">work-around soltion</a> is to alter the driver&rsquo;s *.ini file and re-install the driver:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>After install find the driver's INF in C:\Program Files (x86)\ASUS\PCE-AC68 WLAN Card Utilities\Driver\PCE-AC68\Win81\bcmwl64.inf
+</span><span class='line'>
+</span><span class='line'>Here is the modified lines on the INF to make the card working with channels >= 149 :
+</span><span class='line'>
+</span><span class='line'>- Line 3784, section [a.channels.reg], under the comment "Additional channels supported only on SPROM map version 2" : uncomment the next five lines to enable channels 149 to 165.
+</span><span class='line'>
+</span><span class='line'>- Line 3356, section [common.reg] : uncomment each lines containing Ndi\params\Country (lines 3356 to 3598)
+</span><span class='line'>
+</span><span class='line'>To continue, you must uninstall (with removing) the driver with the windows device manager and deactivate windows driver integrity check with an admin console:
+</span><span class='line'>
+</span><span class='line'>bcdedit -set loadoptions DISABLE_INTEGRITY_CHECKS
+</span><span class='line'>bcdedit -set TESTSIGNING ON
+</span><span class='line'>
+</span><span class='line'>After rebooting, go to the device manager and install the modified INF on the newly discovered uknown network adapter.
+</span><span class='line'>
+</span><span class='line'>After installtion, got to the PCE-AC68 adapter's properties in the device manager, in the advance section you can choose the country (for channel 149, i've chosen %UnitedState%).</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Fix DFS-UNSET problem</h2>
+
+<p>If you&rsquo;re seeing &ldquo;DFS-UNSET&rdquo; in &ldquo;iw reg get&rdquo; output upgrade crda package to at least version 3.18.</p>
+
+<h2>Increase TX power</h2>
+
+<p>Local regulations dictate maximum radiation power and operating frequencies. Certain radios are hard-coded to geographical regions, e.g. United States. Regulatory compliance software runs the strictest set of rules that intersect the pre-programmed and chosen regions. In other words, a radio that is pre-programmed for US and is operated in Switzerland will disable channels that are prohibited in US but perfectly legal in Switzerland. Same goes for power. Radio will operate on the lowest power allowed in the two regions. To overcome these limitations it is sometimes possible to re-program the radio&rsquo;s EEPROM and set a different region.</p>
+
+<p>A simpler solution is to alter the regulations which are maintained by the wireless software stack and not the radio itself. On Linux the idea is to compile a custom regulatory daemon which allows a modified set of regulations. The regulations themselves are modified by replacing entries corresponding to the hard-coded radio region to whatever is desired by the user:</p>
+
+<ol>
+<li>download wireless-regdb package, unpack</li>
+<li>modify &ldquo;db.txt&rdquo; file by replacing entries corresponding to the radio&rsquo;s region with desired configuration. In my case I search for Swiss regulations (CH) and copy them over the rules for US and 00 (00 stands for global).</li>
+<li>run &ldquo;make&rdquo;</li>
+<li>copy generated rule set out: cp regulatory.bin /usr/lib/crda/regulatory.bin</li>
+<li>download crda package, unpack</li>
+<li>copy *pem files from wireless-regdb folder to crda/pubkeys subfolder</li>
+<li>run &ldquo;make&rdquo;, followed by &ldquo;make install&rdquo;</li>
+<li>reboot</li>
+</ol>
+
+
+<p>This procedure generates a custom regulatory daemon that trusts the set of regulations we have altered. Obviously, these changes won&rsquo;t persist after a package upgrade so you would need to repeat them should newer packages get released.</p>
+
+<p>It&rsquo;s not difficult to inadvertently break your local laws by altering regulatory restrictions so be careful with the changes. Try also not to fry yourself with radiation.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1089,98 +1330,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/12/15/what-i-learned-from-a-10-day-bicycle-tour/">What I learned from a 10 day bicycle tour, part 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-12-15T17:55:00+01:00" pubdate data-updated="true">Dec 15<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&hellip;continued from <a href="/blog/2014/12/03/what-i-learned-from-a-10-day-bicycle-tour/">part 1</a>.</p>
-
-<h2>12. Nutrition and hydration</h2>
-
-<p>Regular nutrition is key to riding sustainably for many kilometers. In the morning or the previous evening you should stock up on dried fruit, bananas, bars and other snacks. I can ride for many hours if I eat something small every hour or so.</p>
-
-<p>Big meals are great but they are time consuming. There&rsquo;s also a fat chance of overeating. I recommend planning for dinner and nothing else.</p>
-
-<p>Drinking plenty of water is essential. Without sufficient hydration you will get tired too quickly. I had a camelbak and two extra water bottles. Even in Europe water fountains could be hard to come by.</p>
-
-<h2>13. Team tempo</h2>
-
-<p>People have varying fitness levels so their comfortable cruising speeds differ. Riding at the slowest common speed might not be the best strategy because riding slower than it is comfortable could be straining. And when the route is challenging and not everyone has a GPS it is hard to coordinate catch-ups.</p>
-
-<p>I had terrible pain in my butt so I preferred to race ahead for about an hour and then take a 10 minute brake. It was the time in the saddle which was the hardest for me. As you can imagine, we got lost regularly but miraculously were able to catch up each and every day.</p>
-
-<h2>14. Leave early, arrive early</h2>
-
-<p>Leave early and arrive early. Leave at 8:30 the latest and plan to arrive before 18:00. This means that you should plan to leave at 8. Anytime later is a recipe for spiraling late arrival. There won&rsquo;t be enough time to rest, to take care of the body and the bikes.</p>
-
-<h2>15. Accommodation</h2>
-
-<p>Choose the best accommodation you can. Places that allow to relax and wind down. When I&rsquo;m stressed because a place is smelly, cramped and dirty I won&rsquo;t rest. And I will be tired the following day.</p>
-
-<p>It is a good idea to book separate rooms. Some people prefer to leave the bedroom window open to let fresh air in. Others feel too cold. Some snore. Others find it hard to fall asleep.</p>
-
-<p>Accommodation is a matter of personal choice. Some people prefer to camp or stay in hostels. On this tour I wish we had chosen better hotels and apartments. I find it plausible that additional experience expands comfort level. But I&rsquo;d be gentle when just starting out. Too many hardships at once could become unbearable.</p>
-
-<h2>16. Captain &ldquo;Spoke&rdquo;</h2>
-
-<p>When the team gets large enough (3+ members) choose a predetermined person as a captain, or a leader. In times of doubt and turmoil everyone should contribute but the captain must be given authority to make decisions and the rest of the team should unconditionally accept them. It does not matter than the captain could be wrong now and then. What matters more is that the team does not pursue too many options and argue much.</p>
-
-<p>We did not have a captain. Whenever we had navigation issues and were unsure of whether to follow our pre-programmed GPS route or local signs we got into lengthy draining arguments, especially as exhaustion piled up on team&rsquo;s shoulders.</p>
-
-<h2>17. Team spirit</h2>
-
-<p>Everyone should stick together and have respect for the effort of others. Here&rsquo;s an example. Somebody decides to skip a leg of a route while the rest toils through a storm and additional hundred or so kilometers, arrives at midnight in a terrible city. This person should not make decisions of what to do the next day. This person should stay quiet and keep his replenished heroism and enthusiasm to himself.</p>
-
-<p>Be prepared for conflicts of interest. Everyone has their own ideas of fun. Some might like to take a dirt road. Others prefer the smooth pavement. It&rsquo;s not always possible to please everyone so either have strict planning or agree to catch up somewhere along the route later.</p>
-
-<h2>18. Praise the rain gear</h2>
-
-<p>It is surprising just how efficient modern good water-proof clothing is and how protected the rider is from the elements. Gradually, piece by piece I bought a whole set: pants, jacket, helmet cover, gloves, shoe gaters. I could not swallow the total price of the whole kit at once because quality membrane materials are expensive. But worth every penny!</p>
-
-<p>We rode through several storms and rain poured almost non stop the last couple of days. Clothing made out of modern materials save the rider from the water yet are sufficiently breathable. Depending on the climate and the time of the year it&rsquo;s possible to combine outer layers with inner layers to achieve the right amount of warmth.</p>
-
-<p>One set of clothes is absolutely sufficient. I regret I took extra clothing with me. Layers and extra pieces of clothing can be combined for the changing circumstances in almost infinite ways. Extra sets of underwear might come handy but that&rsquo;s about it.</p>
-
-<h2>19. The Zen</h2>
-
-<p>The joy of touring is to be present in the moment of cycling and not to think about the destination much. If you find yourself constantly thinking about racing ahead just to get to the next point quicker something has gone wrong.</p>
-
-<h1>In place of conclusion</h1>
-
-<p>This short collection of insights is all I&rsquo;ve jotted down on our train back from Rotterdam to Zürich following a controversial and memorable biking experience. It is by no means extensive or advanced but it might give you an idea of what problems to expect on your first self organized bicycle tour. Hopefully you will prepare adequately and most of the issues we had in our tour won&rsquo;t happen in your next amazing adventure.</p>
-
-<p>As for us, we can&rsquo;t wait for 2015. We&rsquo;re not yet planning but we&rsquo;re already excited about the next great biking adventure. This time we&rsquo;ll be hopefully dealing with a completely new set of challenging problems.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -1196,6 +1345,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/08/03/photo-report-from-first-to-bussalp/">Photo report - From First to Bussalp</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/08/02/the-many-faces-of-my-consumerism-addiction/">The many faces of my consumerism addiction</a>
@@ -1231,10 +1384,6 @@
     
       <li class="post">
         <a href="/blog/2016/05/30/samaria-gorge-hike/">Samaria Gorge hike</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/05/28/indoor-cycling-lab/">Indoor cycling lab</a>
       </li>
     
   </ul>
