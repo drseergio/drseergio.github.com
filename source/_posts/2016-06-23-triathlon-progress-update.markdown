@@ -3,7 +3,7 @@ layout: post
 title: "Triathlon progress update"
 date: 2016-06-23 20:34
 comments: true
-categories: triathlon
+categories: training
 ---
 
 I enjoy training for triathlon immensely. The sport attracts me with multidimensionality and the numerous skills involved. There is so much room for growth. It's an art really. I will regularly share some of my observations as I progress towards my next triathlon goal - [completing a half Ironman](/blog/2015/12/14/a-long-new-journey-ahead/).

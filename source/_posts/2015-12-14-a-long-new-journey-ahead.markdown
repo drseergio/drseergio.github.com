@@ -3,7 +3,7 @@ layout: post
 title: "A long new journey ahead"
 date: 2015-12-14 19:53
 comments: true
-categories: triathlon
+categories: training
 ---
 
 Training for a half-marathon and then successfully finishing one (although not without an injury) hooked me on pursuing further challenges. I haven't run a half-marathon as a way to prove anything. Rather the competition had given me an opportunity to reassure myself that I'm capable of carrying out longer undertakings. Ten weeks from zero to finish has been a fantastic learning experience so I am looking forward to the next step which is not only longer but also more challenging. I am committed to successfully finishing a complete Ironman triathlon (IM) race, that is: consecutively swimming 3.86Km, cycling 180.2Km and running 42.2Km while not dying in the process.

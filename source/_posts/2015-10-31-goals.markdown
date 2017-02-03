@@ -3,7 +3,7 @@ layout: post
 title: "Goals"
 date: 2015-10-31 18:26
 comments: true
-categories: [triathlon, reflections]
+categories: [training, reflections]
 ---
 
 *"**I FUCKING DID IT**" keeps resonating in my head as I am crossing the finish line. I can already feel latent excruciating pain (amplified by an adrenaline-fueled last half-mile sprint) slowly setting in. Few minutes later I won't be able to walk but at this glorious energizing moment I feel that my whole life is coming together.*

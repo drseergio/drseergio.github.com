@@ -3,7 +3,7 @@ layout: post
 title: "Bike fitting basics for triathlon and road cycling"
 date: 2015-12-19 16:29
 comments: true
-categories: triathlon
+categories: training
 ---
 
 As a complete triathlon newbie I benefit tremendously from the experience and knowledge of others. Just a few little steps save years, if not decades, of trial-and-error, not to mention decrease chances of injuries and increase enjoyment of the sport. My friend Ilya Nedbailo who has successfully completed his first 70.3 Ironman in Rapperswil this year generously shared a couple of tips.

@@ -3,7 +3,7 @@ layout: post
 title: "Indoor cycling lab"
 date: 2016-05-28 18:02
 comments: true
-categories: triathlon
+categories: training
 ---
 
 Around Christmas in 2015 I received doctor's diagnosis that my left tibia bone is fractured and that I can't run for the foreseeable future. Of course, I tried against all reason but the persisting pain made me realize it's in my own best interest to let it heal peacefully and not break it completely. Luckily, I discovered that cycling and swimming don't hurt at all. I suppose that's because the load spread is altered and tibia is not as stressed.
