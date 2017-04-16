@@ -9,7 +9,7 @@
   <meta name="author" content="Sergey Pisarenko">
 
   
-  <meta name="description" content="To complete a full Iron Man is still an important milestone for me. I really dig endurance challenges. However, I reluctantly decided to reduce the &hellip;">
+  <meta name="description" content="Since autumn 2016 I&rsquo;m working at an IoT company &mdash; we build Internet-connected home automation devices. Last week we had an internal &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,102 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/04/16/internet-connected-motorcycle-project/">Internet-connected motorcycle project, Part 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-04-16T17:44:00+02:00" pubdate data-updated="true">Apr 16<span>th</span>, 2017</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="/images/vitpilen.jpg"><img src="/images/vitpilen.jpg" width="500"></a></p>
+
+<p>Since autumn 2016 I&rsquo;m working at an IoT company &mdash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!</p>
+
+<p>In a series of 3 posts I will give an overview of the project and the top level design, share the reverse engineering process of connecting to the Dynojet&rsquo;s Power Commander 5 fuel injection adjustment unit and belatedly admire the maturity and functionality of Amazon Web Services. Without further ado I&rsquo;m going to introduce the actual project.</p>
+
+<p><a href="https://github.com/pisarenko-net/pcv-streamer">The project source code is available at github. You&rsquo;re welcome.</a></p>
+
+<h2>Project and goals</h2>
+
+<p>Of the things I own and use everyday KTM Duke 390 is in a league of its own. <a href="/blog/2016/07/23/farewell-bmw-f800gs-adventure/">As I previously written</a>, I don&rsquo;t like riding and owning motorcycles that much. This KTM is different. I purchased it for a practical reason. It effectively cuts my commute to about 50 minutes per day (from about 2 hours if taking public transport). It&rsquo;s cheap to buy and own, light (&lt;150kg), sufficiently powerful, maneuverable and subjectively aesthetically pleasing.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/34074232195"><img src="https://c2.staticflickr.com/4/3927/34074232195_7e8d699d84_c.jpg" width="800"></a></p>
+
+<p>What does it actually mean to connect a motorbike to the Internet? I defined it as tapping into the data that the bike&rsquo;s engine provides, such as RPMs and how much throttle is currently given by the rider (1-100%), and sending that data to online services. The data could be used to analyze bike performance on a race circuit so that the engine could be later tuned. Since the major intent with the project was learning I also wanted to try out a couple of Amazon services, such as <a href="https://aws.amazon.com/iot-platform/how-it-works/">Amazon IoT</a> and serverless <a href="https://aws.amazon.com/lambda/">Lambda functions</a>.</p>
+
+<p>In addition to the appreciation for the bike itself I knew my bike had a micro USB port hidden under the seat and that a glorious Raspberry Pi 3 was among the available hardware for the hackathon. These two facts seemed to match perfectly. The existence of the USB interface instilled confidence that the project was feasible. I don&rsquo;t think I would hook into an engine ECU otherwise. It would be a bigger hardware challenge. And I don&rsquo;t even have a garage to work in!</p>
+
+<p>I limited the scope to RPMs and throttle values only. I also didn&rsquo;t want to spend time writing server side code and setting up web services and infrastructure even though that&rsquo;s not terribly difficult. The point of the project was not to exercise skills building CRUD applications and configuring standard services like messages queues. I get enough of that during my day job. Instead, I chose to combine a couple of serverless Amazon services to hack something together. The cost was also important. I used a free tier and wanted to spend exactly 0$ on this.</p>
+
+<h2>Hardware</h2>
+
+<p>I was mostly guided by what&rsquo;s available. We had a bunch of Raspberry Pi 3 boards available. That was a nobrainer. These are staples of DIYers and makers. Raspberry Pi 3 needs no introduction. It&rsquo;s just a small x86 computer. It can do anything a regular computer can do. Hence, the entry barrier is nonexistent. I have set it up in 20 minutes.</p>
+
+<p><a href="/images/raspberrypi3.jpg"><img src="/images/raspberrypi3.jpg" width="500"></a></p>
+
+<p>After the setup I had a complete Linux computer available to me, complete with SSH, Linux kernel (and, by extension, its wide device support) and standard environment. I also didn&rsquo;t need to learn a new programming language &mdash; I could program in virtually any language I wanted.</p>
+
+<p>Raspberry Pi 3 can be powered from a USB port. As an owner of a 10,000mah USB energy bank I couldn&rsquo;t be happier. That meant the Raspberry Pi 3 is essentially a battery powered device!</p>
+
+<p><a href="/images/powerbank.jpg"><img src="/images/powerbank.jpg" width="500"></a></p>
+
+<p>The other hardware component is more unusual. As I mentioned above, my bike has a mini USB port. But not every motorcycle has one. Last year I had installed a device from Dynojet called Power Commander 5 (PCV, for short). It is a third-party module that intercepts communication on the ECU and makes adjustments according to a predefined configuration. Typically PCV is used for performance reasons. I personally installed it to improve engine smoothness over low RPMs (during commutes). PCV is available for many bike models. The microprocessor is the same but the wiring harnesses that tap into ECUs differ for each bike model.</p>
+
+<p><a href="/images/pcv.png"><img src="/images/pcv.png" width="500"></a></p>
+
+<p>The PCV is a proprietary closed-source device. It is equipped with a micro USB port and communicates with a piece of software for Windows that lets users upload custom engine configurations and fine-tune parameters. Apart from the genuinely useful features, the software also shows real-time figures, like the RPMs and throttle values that I was after. Since the Windows tool can somehow read data from the PCV I correctly assumed it must be possible to somehow extract the data on Linux.</p>
+
+<p>Because PCV is a proprietary device there is no developer documentation or anything such as a public APIs available. That meant that I had to reverse engineer the protocol and understand how it works. There was absolutely zero information about it on the Internet. Apparently, nobody was really interested in it. Can&rsquo;t say I&rsquo;m surprised &mdash; there are many other useful things to do. In any case, the reverse engineering aspect of the project was the largest risk. I wasn&rsquo;t sure at all. The device could have had some kind of obfuscation or even packet encryption. I was also lucky along the way. I cover the reverse engineering process in part 2. All in all, reverse engineering took about 80% of the whole project time.</p>
+
+<h2>Software architecture and constraints</h2>
+
+<p>The project being a hackathon the biggest constraint was time or the lack of it. I had 4 days to complete the project but I also had to take care of an occasional issue in our live system. Due to ongoing commitments I limited my engagement to regular working hours. For that reason I chose not to spend much time on familiar but time-consuming aspects, such as backend development. I didn&rsquo;t design the system to be efficient or scalable or useful. In fact, the choice of the server-side system was in the end not that great. I also settled on a familiar programming environment, namely Java.</p>
+
+<p>Java is installed by default in Raspbian, the Linux flavor Raspberry Pi 3 comes with it. I had to install JDK 8, though. Raspbian comes with version 7. I verified that Java has a good library for USB communication (<a href="http://usb4java.org/quickstart/javax-usb.html">usb4java</a>) and that I could easily interact with Amazon IoT. I carried out most of the development and debugging on an OSX host with IntelliJ IDEA. I couldn&rsquo;t get OSX to work with the PCV device without getting into low level OSX programming so in the later phases I mostly ran code from the Raspberry Pi.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/33236540854"><img src="https://c1.staticflickr.com/3/2885/33236540854_4a43119fe8_z.jpg" width="800"></a></p>
+
+<p>The architecture of the system is very simple. The client program connects to the PCV device and to the Internet. It then streams data in real-time to the Amazon Web Services (to be explained in part 3). The only constraint was that the tool should be resilient to Internet and PCV device disconnects. The server side should accept the stream of data from the client, persist it and visualize it. Connectivity to the Internet would be provided by an Android phone through a hotspot feature.</p>
+
+<h2>Challenges and future prospects</h2>
+
+<p>I completed the project. As I stood outside and listened to the roar of the engine, the Raspberry Pi 3 communicated with the PCV and streamed the data through MQTT protocol to Amazon IoT. Some magic trickery (not really) in Amazon services then transformed the messages into metrics that were exposed through the AWS management console. It worked!</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/33267251433"><img src="https://c1.staticflickr.com/3/2938/33267251433_1f180b5215_c.jpg" width="800"></a></p>
+
+<p>I have spent most of the project time on reverse engineering. And I liked it. It was a like a rewarding puzzle. I almost gave up several times but miraculously got enough breakthroughs to persevere. I imagine that my progress in reverse engineering Power Commander 5 interface is potentially the most reusable part of the project so please help yourself and do something with it if you want &mdash; <a href="https://github.com/pisarenko-net/pcv-streamer">the code is published on github</a>. I will share how I analyzed the PCV devices and learned its wire protocol in the next part.</p>
+
+<p>The final result is crude but it&rsquo;s a 0.0.1 version. I imagine this could be used to write a complete Linux software for the PCV device. An even more ambitious goal is to make a cloud-based system that uploads engine configurations on the fly and tunes parameters on the go. <a href="https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/">I&rsquo;m not sure I&rsquo;d like that on my bike though&hellip;</a></p>
+
+<p>&hellip;to be continued with the juicy reverse engineering bits (pun intended) in part 2.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -734,120 +830,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/06/12/the-kata-of-code/">The Kata of Code</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-06-12T15:28:00+02:00" pubdate data-updated="true">Jun 12<span>th</span>, 2016</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is part 1 of a series of articles themed &ldquo;Preparing for Software Engineer Interviews&rdquo;. My goal with the series is to document the steps I took while preparing for interviews for a software engineering position after working six years in predominantly support-leaning roles. I won&rsquo;t break new ground here but rather share personal experience &mdash; anything you see here is an echo of what you can find elsewhere on the Internet. But too much of a good thing could be bad. Too much advice obscures itself and makes it hard to navigate. In this part I will explain how I went about refreshing and improving knowledge of algorithms and data structures.</p>
-
-<p>A fancy word makes even the most mundane things sound legitimate. Enter &lsquo;kata&rsquo; &mdash; a fancy way of saying that one does something mundane, regularly. Originally, the Japanese word &lsquo;kata&rsquo; stands for a very specific kind of practice in traditional arts. But in the programming world it&rsquo;s synonymous with a repetitive coding practice. I have no opinion in the linguistic department but I believe the practice might have some substance. Let me rewind a little bit.</p>
-
-<p>Exactly one year ago I <a href="/blog/2015/06/16/why-i-have-quit-an-awesome-job/">left a wonderful job in one of the best places to work</a> on this planet. With such a drastic move there&rsquo;s a multitude of reasons. One of the major ones is my ambition to become an excellent software engineer and steer away from the technical support role I had so far pursued.</p>
-
-<p>The first obstacle on the way are the well-known and sometimes wacky software interviews that most respectable companies seem to rely on for choosing among candidates. To prepare myself for the challenge I devised a multi-month plan. About 3 months ago, as I was done with another full-time endeavour, I put the plan through its paces. In this article I&rsquo;ll do my best to explain the first step of the plan &mdash; the study and practice of algorithms and data-structures.</p>
-
-<p>It&rsquo;s not like I&rsquo;ve never studied algorithms. In fact, I hold a computer science degree and have completed several excellent online algorithm-focused courses with top marks (<a href="https://www.coursera.org/course/algs4partI">Algorithms Part I</a>, <a href="https://www.coursera.org/course/algs4partII">Algorithms Part II</a>). But annoyingly if you had asked me to implement a path-finding algorithm or even an O(N*LogN) sorting algorithm I would have struggled without referring to technical books or articles. Should you have asked the same question straight after I had just completed the courses I would have absolutely no issues. From a limited personal survey of fellow engineers it is a very common situation. Few keep algorithms in their heads.</p>
-
-<p>Clearly, without an excellent understanding of algorithms passing a coding interview is unlikely. Besides, algorithms and data structures are the cornerstones of computer science and software. Without the understanding of basic structures it&rsquo;s not possible to solve most of the coding challenges. So I dedicated the first month of preparation to the study of algorithms.</p>
-
-<p>However, as I&rsquo;ve already learned, the chosen method of study is critical. It&rsquo;s all to easy to complete a course or a book and then forget everything few weeks after. It is also not sufficient to merely browse through a book or a bunch of articles. Superflous reading creates a perilous illusion of understanding. It is imperative to work through. That&rsquo;s why going through one algorithms book takes a month of full-time effort and not an afternoon. I also emphasize that I had completed algorithm courses before starting this effort. Otherwise, it would make sense to study through the online courses mentioned above first. It would also significantly lengthen the plan.</p>
-
-<p>As there are many more algorithms than the time available to me I had to optimize. It makes little sense to study the most esoteric and domain-specific algorithms for the purpose of preparing for software interviews. I made a survey of interview-related Q&amp;As and websites and came up with the following initial list of algorithms and data structures (in no particular order):</p>
-
-<pre><code>* Stack/Queue (based on LinkedList)
-* Selection Sort
-* SeparateChainingHashST
-* LSD/MSD sort (Radix)
-* Graph/Digraph/WeightedGraph
-* Edge/EdgeWeightedGraph
-* DFS/BFS
-* Binary Search
-* Weighted Quick Union
-* Insertion Sort
-* Shell Sort
-* DFSPaths/BFSPaths
-* Cycle detection in undirected graph
-* Connected Components with DFS in undirected graph
-* Bipartite check in undirected graph (two color)
-* Merge Sort
-* Bottom-up Merge Sort
-* Quicksort
-* 3-way Quicksort
-* CountSort
-* Min/MaxPQ
-* Heapsort
-* BST
-* Red-black BST
-* LinearProbingHashST
-* Cycle detection in directed graph
-* DFS order and Topological sort
-* Kosaraju-Sharir Strong Connected Components in directed graph
-* Kruskal MST
-* Prim MST
-* Dijkstra SP
-* Acyclic SP
-* Bellman-Ford SP
-* Knuth-Morris-Prath search
-* Boyer-Moore search
-</code></pre>
-
-<p>It is debatable if some of the algorithms in this list are already too complex for general software engineering interviews (knowledge of esoteric algorithms might be required for more senior or specialized roles). In fact, as practice went by I added a few additional ones and removed a few.</p>
-
-<p>The book I chose for my study is &ldquo;<a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X">Algorithms, 4th edition</a>&rdquo; from Robert Sedgewick at Princeton University. It&rsquo;s written by the same professor that teaches the corresponding online courses. What sets it apart from other famous algorithm texts is the focus on visually illustrating algorithms and doing algorithm-tracing exercises. Working through an algorithm on paper and tracing all the steps helps to grasp what the algorithm really does. Through these exercises I uncovered that my mental models for some of the algorithms were wrong. The other huge benefit of this book is a <a href="http://algs4.cs.princeton.edu/">complementary codesite</a> with lots of high-quality and clearly-written implementations of algorithms in Java.</p>
-
-<p>My daily routine consisted of reading about one topic and related algorithms and then trying to re-implement the algorithms myself. As soon as I stumbled I looked-up the text. The complementary code is extremely readable. The implementations may lack some of the fanciest and trickiest optimizations but are invaluable tools for learning. Once I implemented the code I erased and started from scratch, testing thoroughness of my understanding.</p>
-
-<p>As the days went by and I progressed further I felt that I no longer remembered the details of algorithms I had already worked-through. That&rsquo;s when I decided to introduce additional regular algorithm coding practice &mdash; katas. I grouped some of the algorithms together. Then during each practice session I would implement algorithms and data-structures from the top of my head, copying only test cases from the reference implementation. At times I would get stuck. In those moments I learned a little bit more about each algorithm. Often, I would get confused and need to look-up the reference implementation. Next time, though, the practice would become easier and more automatic. Katas keep the algorithm knowledge functional and fresh. Furthermore, being able to implement some of the tricky algorithms from the top of my head on a napkin increases confidence which may sometimes shake under the many stresses of interviews. Finally, being able to implement many algorithms quickly pays off in coding competitions.</p>
-
-<p>I don&rsquo;t know if the original katas are canonical. My coding katas are certainly not. They evolve and change with time. At some point easier algorithms and data-structures become trivial and it no longer makes sense to practice them. I don&rsquo;t practice writing a stack/queue anymore. Sometimes I realize how similar few algorithms are so I leave one of them out. Many graph problems reduce to DFS. Occasionally I study through new algorithms and add them to katas. For example, I&rsquo;ve recently added SkipList and SuffixArray. I also group algorithms so that each kata is of similar size. At the moment I have <a href="https://github.com/drseergio/practice/tree/master/katas">5 katas in my repertoire</a>. It takes about 30-60 minutes to complete each one. I aim to complete all of the katas once a week &mdash; on average less than one kata per day. I&rsquo;m also timing my practice now to see how long each kata takes.</p>
-
-<p><strong>Here&rsquo;s a distilled version of the algorithm study plan (~1 month of full-time effort)</strong>:</p>
-
-<ol>
-<li>List algorithms/data-structures you need to learn deeply. When in doubt leave it out. Make it as short as feasible. Can always add more later.</li>
-<li>Choose an algorithms text. I recommend <a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X">&ldquo;Algorithms, 4th edition&rdquo; by Robert Sedgewick</a>.</li>
-<li>Schedule sufficient time each day to read the text and implement algorithms by hand. Keep premature enthusiasm at hand and keep the workload manageable. There&rsquo;s a reason it takes a month.</li>
-<li>Collect algorithm implementations and group them into katas.</li>
-<li>Regularly perform katas by reimplementing algorithms.</li>
-<li>Revise katas, remove trivial algorithms and add new ones as you see fit.</li>
-<li>Repeat 6, 7.</li>
-</ol>
-
-
-<p>I&rsquo;d like to believe that this study of algorithms and practice of katas will pay off. It is hard to say, taking into account the many factors that affect a hiring decision. Doing a comprehensive study like this won&rsquo;t guarantee success but doing nothing almost certainly guarantees failure. The study of algorithms is just the first interview preparation step. I&rsquo;ve introduced katas as means to not forget what I&rsquo;ve just learned. But as I&rsquo;ve practiced and grown my personal collection I see myself continuing with katas.</p>
-
-<p>In the <a href="/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/">next part (2)</a> I explain my strategy for getting better at solving coding problems.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -861,6 +843,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">Internet-connected motorcycle project, Part 1</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/02/03/madrid-marathon-2017/">Madrid Marathon 2017</a>
@@ -896,10 +882,6 @@
     
       <li class="post">
         <a href="/blog/2016/06/23/triathlon-progress-update/">Triathlon progress update</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/06/12/the-kata-of-code/">The Kata of Code</a>
       </li>
     
   </ul>

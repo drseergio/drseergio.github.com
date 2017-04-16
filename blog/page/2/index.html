@@ -9,7 +9,7 @@
   <meta name="author" content="Sergey Pisarenko">
 
   
-  <meta name="description" content="Exactly two weeks ago I thought I was exhausted from preparing for job interviews (I will write a separate post explaining my study strategy). After &hellip;">
+  <meta name="description" content="This is part 1 of a series of articles themed &ldquo;Preparing for Software Engineer Interviews&rdquo;. My goal with the series is to document the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,120 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/06/12/the-kata-of-code/">The Kata of Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-06-12T15:28:00+02:00" pubdate data-updated="true">Jun 12<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is part 1 of a series of articles themed &ldquo;Preparing for Software Engineer Interviews&rdquo;. My goal with the series is to document the steps I took while preparing for interviews for a software engineering position after working six years in predominantly support-leaning roles. I won&rsquo;t break new ground here but rather share personal experience &mdash; anything you see here is an echo of what you can find elsewhere on the Internet. But too much of a good thing could be bad. Too much advice obscures itself and makes it hard to navigate. In this part I will explain how I went about refreshing and improving knowledge of algorithms and data structures.</p>
+
+<p>A fancy word makes even the most mundane things sound legitimate. Enter &lsquo;kata&rsquo; &mdash; a fancy way of saying that one does something mundane, regularly. Originally, the Japanese word &lsquo;kata&rsquo; stands for a very specific kind of practice in traditional arts. But in the programming world it&rsquo;s synonymous with a repetitive coding practice. I have no opinion in the linguistic department but I believe the practice might have some substance. Let me rewind a little bit.</p>
+
+<p>Exactly one year ago I <a href="/blog/2015/06/16/why-i-have-quit-an-awesome-job/">left a wonderful job in one of the best places to work</a> on this planet. With such a drastic move there&rsquo;s a multitude of reasons. One of the major ones is my ambition to become an excellent software engineer and steer away from the technical support role I had so far pursued.</p>
+
+<p>The first obstacle on the way are the well-known and sometimes wacky software interviews that most respectable companies seem to rely on for choosing among candidates. To prepare myself for the challenge I devised a multi-month plan. About 3 months ago, as I was done with another full-time endeavour, I put the plan through its paces. In this article I&rsquo;ll do my best to explain the first step of the plan &mdash; the study and practice of algorithms and data-structures.</p>
+
+<p>It&rsquo;s not like I&rsquo;ve never studied algorithms. In fact, I hold a computer science degree and have completed several excellent online algorithm-focused courses with top marks (<a href="https://www.coursera.org/course/algs4partI">Algorithms Part I</a>, <a href="https://www.coursera.org/course/algs4partII">Algorithms Part II</a>). But annoyingly if you had asked me to implement a path-finding algorithm or even an O(N*LogN) sorting algorithm I would have struggled without referring to technical books or articles. Should you have asked the same question straight after I had just completed the courses I would have absolutely no issues. From a limited personal survey of fellow engineers it is a very common situation. Few keep algorithms in their heads.</p>
+
+<p>Clearly, without an excellent understanding of algorithms passing a coding interview is unlikely. Besides, algorithms and data structures are the cornerstones of computer science and software. Without the understanding of basic structures it&rsquo;s not possible to solve most of the coding challenges. So I dedicated the first month of preparation to the study of algorithms.</p>
+
+<p>However, as I&rsquo;ve already learned, the chosen method of study is critical. It&rsquo;s all to easy to complete a course or a book and then forget everything few weeks after. It is also not sufficient to merely browse through a book or a bunch of articles. Superflous reading creates a perilous illusion of understanding. It is imperative to work through. That&rsquo;s why going through one algorithms book takes a month of full-time effort and not an afternoon. I also emphasize that I had completed algorithm courses before starting this effort. Otherwise, it would make sense to study through the online courses mentioned above first. It would also significantly lengthen the plan.</p>
+
+<p>As there are many more algorithms than the time available to me I had to optimize. It makes little sense to study the most esoteric and domain-specific algorithms for the purpose of preparing for software interviews. I made a survey of interview-related Q&amp;As and websites and came up with the following initial list of algorithms and data structures (in no particular order):</p>
+
+<pre><code>* Stack/Queue (based on LinkedList)
+* Selection Sort
+* SeparateChainingHashST
+* LSD/MSD sort (Radix)
+* Graph/Digraph/WeightedGraph
+* Edge/EdgeWeightedGraph
+* DFS/BFS
+* Binary Search
+* Weighted Quick Union
+* Insertion Sort
+* Shell Sort
+* DFSPaths/BFSPaths
+* Cycle detection in undirected graph
+* Connected Components with DFS in undirected graph
+* Bipartite check in undirected graph (two color)
+* Merge Sort
+* Bottom-up Merge Sort
+* Quicksort
+* 3-way Quicksort
+* CountSort
+* Min/MaxPQ
+* Heapsort
+* BST
+* Red-black BST
+* LinearProbingHashST
+* Cycle detection in directed graph
+* DFS order and Topological sort
+* Kosaraju-Sharir Strong Connected Components in directed graph
+* Kruskal MST
+* Prim MST
+* Dijkstra SP
+* Acyclic SP
+* Bellman-Ford SP
+* Knuth-Morris-Prath search
+* Boyer-Moore search
+</code></pre>
+
+<p>It is debatable if some of the algorithms in this list are already too complex for general software engineering interviews (knowledge of esoteric algorithms might be required for more senior or specialized roles). In fact, as practice went by I added a few additional ones and removed a few.</p>
+
+<p>The book I chose for my study is &ldquo;<a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X">Algorithms, 4th edition</a>&rdquo; from Robert Sedgewick at Princeton University. It&rsquo;s written by the same professor that teaches the corresponding online courses. What sets it apart from other famous algorithm texts is the focus on visually illustrating algorithms and doing algorithm-tracing exercises. Working through an algorithm on paper and tracing all the steps helps to grasp what the algorithm really does. Through these exercises I uncovered that my mental models for some of the algorithms were wrong. The other huge benefit of this book is a <a href="http://algs4.cs.princeton.edu/">complementary codesite</a> with lots of high-quality and clearly-written implementations of algorithms in Java.</p>
+
+<p>My daily routine consisted of reading about one topic and related algorithms and then trying to re-implement the algorithms myself. As soon as I stumbled I looked-up the text. The complementary code is extremely readable. The implementations may lack some of the fanciest and trickiest optimizations but are invaluable tools for learning. Once I implemented the code I erased and started from scratch, testing thoroughness of my understanding.</p>
+
+<p>As the days went by and I progressed further I felt that I no longer remembered the details of algorithms I had already worked-through. That&rsquo;s when I decided to introduce additional regular algorithm coding practice &mdash; katas. I grouped some of the algorithms together. Then during each practice session I would implement algorithms and data-structures from the top of my head, copying only test cases from the reference implementation. At times I would get stuck. In those moments I learned a little bit more about each algorithm. Often, I would get confused and need to look-up the reference implementation. Next time, though, the practice would become easier and more automatic. Katas keep the algorithm knowledge functional and fresh. Furthermore, being able to implement some of the tricky algorithms from the top of my head on a napkin increases confidence which may sometimes shake under the many stresses of interviews. Finally, being able to implement many algorithms quickly pays off in coding competitions.</p>
+
+<p>I don&rsquo;t know if the original katas are canonical. My coding katas are certainly not. They evolve and change with time. At some point easier algorithms and data-structures become trivial and it no longer makes sense to practice them. I don&rsquo;t practice writing a stack/queue anymore. Sometimes I realize how similar few algorithms are so I leave one of them out. Many graph problems reduce to DFS. Occasionally I study through new algorithms and add them to katas. For example, I&rsquo;ve recently added SkipList and SuffixArray. I also group algorithms so that each kata is of similar size. At the moment I have <a href="https://github.com/drseergio/practice/tree/master/katas">5 katas in my repertoire</a>. It takes about 30-60 minutes to complete each one. I aim to complete all of the katas once a week &mdash; on average less than one kata per day. I&rsquo;m also timing my practice now to see how long each kata takes.</p>
+
+<p><strong>Here&rsquo;s a distilled version of the algorithm study plan (~1 month of full-time effort)</strong>:</p>
+
+<ol>
+<li>List algorithms/data-structures you need to learn deeply. When in doubt leave it out. Make it as short as feasible. Can always add more later.</li>
+<li>Choose an algorithms text. I recommend <a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X">&ldquo;Algorithms, 4th edition&rdquo; by Robert Sedgewick</a>.</li>
+<li>Schedule sufficient time each day to read the text and implement algorithms by hand. Keep premature enthusiasm at hand and keep the workload manageable. There&rsquo;s a reason it takes a month.</li>
+<li>Collect algorithm implementations and group them into katas.</li>
+<li>Regularly perform katas by reimplementing algorithms.</li>
+<li>Revise katas, remove trivial algorithms and add new ones as you see fit.</li>
+<li>Repeat 6, 7.</li>
+</ol>
+
+
+<p>I&rsquo;d like to believe that this study of algorithms and practice of katas will pay off. It is hard to say, taking into account the many factors that affect a hiring decision. Doing a comprehensive study like this won&rsquo;t guarantee success but doing nothing almost certainly guarantees failure. The study of algorithms is just the first interview preparation step. I&rsquo;ve introduced katas as means to not forget what I&rsquo;ve just learned. But as I&rsquo;ve practiced and grown my personal collection I see myself continuing with katas.</p>
+
+<p>In the <a href="/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/">next part (2)</a> I explain my strategy for getting better at solving coding problems.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -996,100 +1110,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/07/25/across-france-on-a-bicycle/">Across France on a bicycle</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-07-25T19:21:00+02:00" pubdate data-updated="true">Jul 25<span>th</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Following numerous episodes of soul searching I finally came to realize that enjoy cycling more than an average person. While I enjoy many flavors of it, such as road cycling and mountain down-hill riding my absolute favorites are endurance and touring rides.</p>
-
-<p>My dream is to visit as many places on a bicycle as I could. Somehow biking[1] feels to me just the right way to explore the world. Last year I joined my very first cycling tour along the river Rhine. That tour had its ups and downs. I learned a lot and wrote about the lessons in earlier posts. <a href="/blog/2014/12/03/what-i-learned-from-a-10-day-bicycle-tour/">post1</a> <a href="/blog/2014/12/15/what-i-learned-from-a-10-day-bicycle-tour/">post2</a></p>
-
-<p>This year me and John are expanding our comfort zones. While we&rsquo;re still within the safe confines of Europe we&rsquo;re not going for hotel accommodation. Instead, we&rsquo;re going to camp. Hopefully, we will learn new lessons and don&rsquo;t repeat the previous mistakes. Step by step we make our tours more challenging and more exciting.</p>
-
-<p>Our destination this year is Northern and Western France. We&rsquo;re starting off from city Dijon to which get by a high-speed train. French TGVs disallow  assembled bikes onboard so we had to purchase so-called TranZBags and partly disassemble our bikes (note that I leave the tent attached to the bike):</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/20008244211"><img src="https://farm4.staticflickr.com/3673/20008244211_5f2ddde0f4_c.jpg" width="800"></a></p>
-
-<p>To fit the bike comfortably inside the bag I took extra steps and removed the seat-post and pedals. That should also minimize the risk of broken spokes.</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/19380398634"><img src="https://farm1.staticflickr.com/294/19380398634_2e95a27719_c.jpg" width="800"></a></p>
-
-<p>I hope we won&rsquo;t have problems. Just in case we purchased 1st class tickets expecting fewer passengers and fewer confrontations.</p>
-
-<p>From the outset our gear list is much shorter than last year which is plenty remarkable as we haven&rsquo;t camped and instead stayed in hotels and hostels. Here&rsquo;s what I&rsquo;m bringing:</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/19816344399"><img src="https://farm1.staticflickr.com/359/19816344399_5c8e06b5f9_c.jpg" width="800"></a></p>
-
-<ul>
-<li>bike repair kit (napkin, pump, spare tube, 2x multi tool, leatherman knife, tape, zip ties, plastic gloves, chain bits)</li>
-<li>flexible bike lock</li>
-<li>TranZBag (for transporting bicycle on trains)</li>
-<li>2x 60g tubes of chamois cream</li>
-<li>3x packs of hydration tables</li>
-<li>swimming trunks</li>
-<li>hiking towel</li>
-<li>inflatable sleeping mat</li>
-<li>compact summer sleeping bag</li>
-<li>cash wallet</li>
-<li>15000mah portable battery</li>
-<li>passport</li>
-<li>bank access code generator</li>
-<li>head torch</li>
-<li>notebook and pen</li>
-<li>Garmin 62s and one set of spare batteries</li>
-<li>credit card wallet</li>
-<li>leg warmers</li>
-<li>phone</li>
-<li>one extra cycling shirt</li>
-<li>ultra-light wind-proof jacket (packed into red sack)</li>
-<li>one extra cycling bibs</li>
-<li>arm warmers</li>
-<li>one extra set of socks</li>
-<li>medicine</li>
-<li>compact digital camera (not shown)</li>
-</ul>
-
-
-<p>This is the stuff I&rsquo;m going to wear on me (helmet is not shown):</p>
-
-<p><a href="https://www.flickr.com/photos/tentaclephotos/19815037210"><img src="https://farm1.staticflickr.com/396/19815037210_82c57f6492_z.jpg" width="427"></a></p>
-
-<p>This time I&rsquo;m not taking any kind of rain gear because it is pointless in summer heat. I&rsquo;m also not taking any food. Instead, we&rsquo;ll scout for grocery stores along the way.</p>
-
-<p>I won&rsquo;t publish anything during the ride but I&rsquo;ll keep some notes for a report upon our return. Wish us good luck!</p>
-
-<p>[1] walking, hiking, climbing are the other preferred means</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1105,6 +1125,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">Internet-connected motorcycle project, Part 1</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/02/03/madrid-marathon-2017/">Madrid Marathon 2017</a>
@@ -1140,10 +1164,6 @@
     
       <li class="post">
         <a href="/blog/2016/06/23/triathlon-progress-update/">Triathlon progress update</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/06/12/the-kata-of-code/">The Kata of Code</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tech | Sergey Pisarenko]]></title>
   <link href="http://drseergio.github.io/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://drseergio.github.io/"/>
-  <updated>2017-02-03T19:15:22+01:00</updated>
+  <updated>2017-04-16T22:00:56+02:00</updated>
   <id>http://drseergio.github.io/</id>
   <author>
     <name><![CDATA[Sergey Pisarenko]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Internet-connected motorcycle project, Part 1]]></title>
+    <link href="http://drseergio.github.io/blog/2017/04/16/internet-connected-motorcycle-project/"/>
+    <updated>2017-04-16T17:44:00+02:00</updated>
+    <id>http://drseergio.github.io/blog/2017/04/16/internet-connected-motorcycle-project</id>
+    <content type="html"><![CDATA[<p><a href="/images/vitpilen.jpg"><img src="/images/vitpilen.jpg" width="500"></a></p>
+
+<p>Since autumn 2016 I&rsquo;m working at an IoT company &mdash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!</p>
+
+<p>In a series of 3 posts I will give an overview of the project and the top level design, share the reverse engineering process of connecting to the Dynojet&rsquo;s Power Commander 5 fuel injection adjustment unit and belatedly admire the maturity and functionality of Amazon Web Services. Without further ado I&rsquo;m going to introduce the actual project.</p>
+
+<p><a href="https://github.com/pisarenko-net/pcv-streamer">The project source code is available at github. You&rsquo;re welcome.</a></p>
+
+<h2>Project and goals</h2>
+
+<p>Of the things I own and use everyday KTM Duke 390 is in a league of its own. <a href="/blog/2016/07/23/farewell-bmw-f800gs-adventure/">As I previously written</a>, I don&rsquo;t like riding and owning motorcycles that much. This KTM is different. I purchased it for a practical reason. It effectively cuts my commute to about 50 minutes per day (from about 2 hours if taking public transport). It&rsquo;s cheap to buy and own, light (&lt;150kg), sufficiently powerful, maneuverable and subjectively aesthetically pleasing.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/34074232195"><img src="https://c2.staticflickr.com/4/3927/34074232195_7e8d699d84_c.jpg" width="800"></a></p>
+
+<p>What does it actually mean to connect a motorbike to the Internet? I defined it as tapping into the data that the bike&rsquo;s engine provides, such as RPMs and how much throttle is currently given by the rider (1-100%), and sending that data to online services. The data could be used to analyze bike performance on a race circuit so that the engine could be later tuned. Since the major intent with the project was learning I also wanted to try out a couple of Amazon services, such as <a href="https://aws.amazon.com/iot-platform/how-it-works/">Amazon IoT</a> and serverless <a href="https://aws.amazon.com/lambda/">Lambda functions</a>.</p>
+
+<p>In addition to the appreciation for the bike itself I knew my bike had a micro USB port hidden under the seat and that a glorious Raspberry Pi 3 was among the available hardware for the hackathon. These two facts seemed to match perfectly. The existence of the USB interface instilled confidence that the project was feasible. I don&rsquo;t think I would hook into an engine ECU otherwise. It would be a bigger hardware challenge. And I don&rsquo;t even have a garage to work in!</p>
+
+<p>I limited the scope to RPMs and throttle values only. I also didn&rsquo;t want to spend time writing server side code and setting up web services and infrastructure even though that&rsquo;s not terribly difficult. The point of the project was not to exercise skills building CRUD applications and configuring standard services like messages queues. I get enough of that during my day job. Instead, I chose to combine a couple of serverless Amazon services to hack something together. The cost was also important. I used a free tier and wanted to spend exactly 0$ on this.</p>
+
+<h2>Hardware</h2>
+
+<p>I was mostly guided by what&rsquo;s available. We had a bunch of Raspberry Pi 3 boards available. That was a nobrainer. These are staples of DIYers and makers. Raspberry Pi 3 needs no introduction. It&rsquo;s just a small x86 computer. It can do anything a regular computer can do. Hence, the entry barrier is nonexistent. I have set it up in 20 minutes.</p>
+
+<p><a href="/images/raspberrypi3.jpg"><img src="/images/raspberrypi3.jpg" width="500"></a></p>
+
+<p>After the setup I had a complete Linux computer available to me, complete with SSH, Linux kernel (and, by extension, its wide device support) and standard environment. I also didn&rsquo;t need to learn a new programming language &mdash; I could program in virtually any language I wanted.</p>
+
+<p>Raspberry Pi 3 can be powered from a USB port. As an owner of a 10,000mah USB energy bank I couldn&rsquo;t be happier. That meant the Raspberry Pi 3 is essentially a battery powered device!</p>
+
+<p><a href="/images/powerbank.jpg"><img src="/images/powerbank.jpg" width="500"></a></p>
+
+<p>The other hardware component is more unusual. As I mentioned above, my bike has a mini USB port. But not every motorcycle has one. Last year I had installed a device from Dynojet called Power Commander 5 (PCV, for short). It is a third-party module that intercepts communication on the ECU and makes adjustments according to a predefined configuration. Typically PCV is used for performance reasons. I personally installed it to improve engine smoothness over low RPMs (during commutes). PCV is available for many bike models. The microprocessor is the same but the wiring harnesses that tap into ECUs differ for each bike model.</p>
+
+<p><a href="/images/pcv.png"><img src="/images/pcv.png" width="500"></a></p>
+
+<p>The PCV is a proprietary closed-source device. It is equipped with a micro USB port and communicates with a piece of software for Windows that lets users upload custom engine configurations and fine-tune parameters. Apart from the genuinely useful features, the software also shows real-time figures, like the RPMs and throttle values that I was after. Since the Windows tool can somehow read data from the PCV I correctly assumed it must be possible to somehow extract the data on Linux.</p>
+
+<p>Because PCV is a proprietary device there is no developer documentation or anything such as a public APIs available. That meant that I had to reverse engineer the protocol and understand how it works. There was absolutely zero information about it on the Internet. Apparently, nobody was really interested in it. Can&rsquo;t say I&rsquo;m surprised &mdash; there are many other useful things to do. In any case, the reverse engineering aspect of the project was the largest risk. I wasn&rsquo;t sure at all. The device could have had some kind of obfuscation or even packet encryption. I was also lucky along the way. I cover the reverse engineering process in part 2. All in all, reverse engineering took about 80% of the whole project time.</p>
+
+<h2>Software architecture and constraints</h2>
+
+<p>The project being a hackathon the biggest constraint was time or the lack of it. I had 4 days to complete the project but I also had to take care of an occasional issue in our live system. Due to ongoing commitments I limited my engagement to regular working hours. For that reason I chose not to spend much time on familiar but time-consuming aspects, such as backend development. I didn&rsquo;t design the system to be efficient or scalable or useful. In fact, the choice of the server-side system was in the end not that great. I also settled on a familiar programming environment, namely Java.</p>
+
+<p>Java is installed by default in Raspbian, the Linux flavor Raspberry Pi 3 comes with it. I had to install JDK 8, though. Raspbian comes with version 7. I verified that Java has a good library for USB communication (<a href="http://usb4java.org/quickstart/javax-usb.html">usb4java</a>) and that I could easily interact with Amazon IoT. I carried out most of the development and debugging on an OSX host with IntelliJ IDEA. I couldn&rsquo;t get OSX to work with the PCV device without getting into low level OSX programming so in the later phases I mostly ran code from the Raspberry Pi.</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/33236540854"><img src="https://c1.staticflickr.com/3/2885/33236540854_4a43119fe8_z.jpg" width="800"></a></p>
+
+<p>The architecture of the system is very simple. The client program connects to the PCV device and to the Internet. It then streams data in real-time to the Amazon Web Services (to be explained in part 3). The only constraint was that the tool should be resilient to Internet and PCV device disconnects. The server side should accept the stream of data from the client, persist it and visualize it. Connectivity to the Internet would be provided by an Android phone through a hotspot feature.</p>
+
+<h2>Challenges and future prospects</h2>
+
+<p>I completed the project. As I stood outside and listened to the roar of the engine, the Raspberry Pi 3 communicated with the PCV and streamed the data through MQTT protocol to Amazon IoT. Some magic trickery (not really) in Amazon services then transformed the messages into metrics that were exposed through the AWS management console. It worked!</p>
+
+<p><a href="https://www.flickr.com/photos/tentaclephotos/33267251433"><img src="https://c1.staticflickr.com/3/2938/33267251433_1f180b5215_c.jpg" width="800"></a></p>
+
+<p>I have spent most of the project time on reverse engineering. And I liked it. It was a like a rewarding puzzle. I almost gave up several times but miraculously got enough breakthroughs to persevere. I imagine that my progress in reverse engineering Power Commander 5 interface is potentially the most reusable part of the project so please help yourself and do something with it if you want &mdash; <a href="https://github.com/pisarenko-net/pcv-streamer">the code is published on github</a>. I will share how I analyzed the PCV devices and learned its wire protocol in the next part.</p>
+
+<p>The final result is crude but it&rsquo;s a 0.0.1 version. I imagine this could be used to write a complete Linux software for the PCV device. An even more ambitious goal is to make a cloud-based system that uploads engine configurations on the fly and tunes parameters on the go. <a href="https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/">I&rsquo;m not sure I&rsquo;d like that on my bike though&hellip;</a></p>
+
+<p>&hellip;to be continued with the juicy reverse engineering bits (pun intended) in part 2.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Getting Better at Solving Coding (Interview) Problems]]></title>
@@ -258,40 +327,6 @@
 <li>Seasonic 460W passively-cooled PSU</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My lucky night with a FreeNAS failure]]></title>
-    <link href="http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure/"/>
-    <updated>2013-09-08T01:34:00+02:00</updated>
-    <id>http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure</id>
-    <content type="html"><![CDATA[<p>It&rsquo;s 1:35am right now and something really bad has happened about 4 hours ago. First, Time Machine on my Mac Mini complained that the backup network disk became inaccessible. Then network shares have stopped responding on all computers. This means something wrong has happened with the wonderful reliable NAS server that I had built weeks ago.</p>
-
-<p>First, I connect to the server via SSH and start poking around. Once I notice that file-system commands, such as <code>ls</code>, cause sessions to hang I become worrisome. I do a reboot hoping that solves the problem. 10 minutes pass. The server does not start.</p>
-
-<!-- more -->
-
-
-<p><img class="right" src="/images/chinese_monitor.jpg"></p>
-
-<p>Once I&rsquo;ve connected a handy <a href="http://dx.com/p/8-tft-lcd-car-reverse-rear-view-color-monitor-w-vga-bnc-cable-black-149114">8" VGA monitor</a> I noticed SCSI driver related problems in the kernel logs. As it turns out, the USB drive on which FreeNAS had been installed has failed. This monitor is really handy for troubleshooting problems with servers &ndash; small, easy to carry and occupies little space in the toolbox. The picture quality is god-awful but good enough for reading terminal output.</p>
-
-<p>I have been expecting the worst &ndash; that I would need to re-configure everything. After a quick search on the Internet I found out that FreeNAS keeps configuration in a SQLite database file on the 4th partition in <code>freenas-v1.db</code> file. A bleak hope ran through my mind. I&rsquo;ve connected the flash disk to a Linux computer and started poking around. All I needed to do was to compile UFS file-system support in kernel and then mount the partition with:</p>
-
-<p><code>mount -r -t ufs -o ufstype=44bsd /dev/sdc4 /tmp/mm</code></p>
-
-<p>I copied the file over and verified that it&rsquo;s not corrupted. YES! I had been stupidly postponing back-up of the configuration file. If I had to re-configure FreeNAS from scratch I would feel like a fool and waste a week worth of evenings. Now, I just need to burn the FreeNAS image to a replacement drive and I&rsquo;m all set.</p>
-
-<p>The last step took embarassingly long time. None of the images that I had written either on Linux or Mac would boot. FreeNAS would get to an error saying <code>corrupt or invalid GPT detected.</code>. No matter what I did the outcome was the same. The solution was to delete GPT by running parted from Linux and doing <code>mklabel msdos</code>, followed by write of the disk image. I believe this problem occurred because I had previously used the drives for experimentation with Chromebook and some GPT headers apparently remained there.</p>
-
-<p><img class="left" src="/images/msata.jpg"></p>
-
-<p>Finally, I found a spare mSATA SSD drive lying around with no use (a leftover from a notebook upgrade). I also had a mSATA adapter so I&rsquo;ve put them together inside of the NAS to use as a boot device for FreeNAS. Now the NAS has 8 SATA devices (6 HDDs and 2 SSDs) maxing out all available SATA ports in the system.</p>
-
-<p>Once I have successfully booted the server and got to the web UI and initiated import of the recovered configuration database file. Then the server rebooted twice and everything was back!</p>
-
-<p>The machine is back online and running beautifully. I now have a backup of the configuration. In case anything goes wrong again reinstalling FreeNAS is really quick &amp; simple IFF the backup configuration file is available. I am once again pleasantly surprised at how well FreeNAS is made.</p>
 ]]></content>
   </entry>
   
