@@ -10,7 +10,7 @@ categories: [diy, pro, tech]
 
 Since autumn 2016 I'm working at an IoT company -- we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!
 
-In a series of 3 posts I will give an overview of the project and the top level design, share the reverse engineering process of connecting to the Dynojet's Power Commander 5 fuel injection adjustment unit and belatedly admire the maturity and functionality of Amazon Web Services. Without further ado I'm going to introduce the actual project.
+In a series of 3 posts I will give an overview of the project and the top level design, [share the reverse engineering process of connecting to the Dynojet's Power Commander 5 fuel injection adjustment unit](/blog/2017/04/17/internet-connected-motorcycle-project-part-2/) and belatedly admire the maturity and functionality of Amazon Web Services. Without further ado I'm going to introduce the actual project.
 
 [The project source code is available at github. You're welcome.](https://github.com/pisarenko-net/pcv-streamer)
 
@@ -24,7 +24,7 @@ What does it actually mean to connect a motorbike to the Internet? I defined it 
 
 In addition to the appreciation for the bike itself I knew my bike had a micro USB port hidden under the seat and that a glorious Raspberry Pi 3 was among the available hardware for the hackathon. These two facts seemed to match perfectly. The existence of the USB interface instilled confidence that the project was feasible. I don't think I would hook into an engine ECU otherwise. It would be a bigger hardware challenge. And I don't even have a garage to work in!
 
-I limited the scope to RPMs and throttle values only. I also didn't want to spend time writing server side code and setting up web services and infrastructure even though that's not terribly difficult. The point of the project was not to exercise skills building CRUD applications and configuring standard services like messages queues. I get enough of that during my day job. Instead, I chose to combine a couple of serverless Amazon services to hack something together. The cost was also important. I used a free tier and wanted to spend exactly 0$ on this.
+I limited the scope to RPMs and throttle values only. I also didn't want to spend time writing server side code and setting up web services and infrastructure even though that's not terribly difficult. The point of the project was not to exercise skills building CRUD applications and configuring standard services like message queues. I get enough of that during my day job. Instead, I chose to combine a couple of serverless Amazon services to hack something together. The cost was also important. I used a free tier and wanted to spend exactly 0$ on this.
 
 ##Hardware
 
@@ -66,4 +66,4 @@ I have spent most of the project time on reverse engineering. And I liked it. It
 
 The final result is crude but it's a 0.0.1 version. I imagine this could be used to write a complete Linux software for the PCV device. An even more ambitious goal is to make a cloud-based system that uploads engine configurations on the fly and tunes parameters on the go. [I'm not sure I'd like that on my bike though...](https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/)
 
-...to be continued with the juicy reverse engineering bits (pun intended) in part 2.
+...to be continued with the juicy reverse engineering bits (pun intended) [in part 2](/blog/2017/04/17/internet-connected-motorcycle-project-part-2/).
