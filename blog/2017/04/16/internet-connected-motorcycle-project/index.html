@@ -112,7 +112,7 @@
 
 <p>Since autumn 2016 I&rsquo;m working at an IoT company &mdash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!</p>
 
-<p>In a series of 3 posts I will give an overview of the project and the top level design, share the reverse engineering process of connecting to the Dynojet&rsquo;s Power Commander 5 fuel injection adjustment unit and belatedly admire the maturity and functionality of Amazon Web Services. Without further ado I&rsquo;m going to introduce the actual project.</p>
+<p>In a series of 3 posts I will give an overview of the project and the top level design, <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">share the reverse engineering process of connecting to the Dynojet&rsquo;s Power Commander 5 fuel injection adjustment unit</a> and belatedly admire the maturity and functionality of Amazon Web Services. Without further ado I&rsquo;m going to introduce the actual project.</p>
 
 <p><a href="https://github.com/pisarenko-net/pcv-streamer">The project source code is available at github. You&rsquo;re welcome.</a></p>
 
@@ -126,7 +126,7 @@
 
 <p>In addition to the appreciation for the bike itself I knew my bike had a micro USB port hidden under the seat and that a glorious Raspberry Pi 3 was among the available hardware for the hackathon. These two facts seemed to match perfectly. The existence of the USB interface instilled confidence that the project was feasible. I don&rsquo;t think I would hook into an engine ECU otherwise. It would be a bigger hardware challenge. And I don&rsquo;t even have a garage to work in!</p>
 
-<p>I limited the scope to RPMs and throttle values only. I also didn&rsquo;t want to spend time writing server side code and setting up web services and infrastructure even though that&rsquo;s not terribly difficult. The point of the project was not to exercise skills building CRUD applications and configuring standard services like messages queues. I get enough of that during my day job. Instead, I chose to combine a couple of serverless Amazon services to hack something together. The cost was also important. I used a free tier and wanted to spend exactly 0$ on this.</p>
+<p>I limited the scope to RPMs and throttle values only. I also didn&rsquo;t want to spend time writing server side code and setting up web services and infrastructure even though that&rsquo;s not terribly difficult. The point of the project was not to exercise skills building CRUD applications and configuring standard services like message queues. I get enough of that during my day job. Instead, I chose to combine a couple of serverless Amazon services to hack something together. The cost was also important. I used a free tier and wanted to spend exactly 0$ on this.</p>
 
 <h2>Hardware</h2>
 
@@ -168,7 +168,7 @@
 
 <p>The final result is crude but it&rsquo;s a 0.0.1 version. I imagine this could be used to write a complete Linux software for the PCV device. An even more ambitious goal is to make a cloud-based system that uploads engine configurations on the fly and tunes parameters on the go. <a href="https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/">I&rsquo;m not sure I&rsquo;d like that on my bike though&hellip;</a></p>
 
-<p>&hellip;to be continued with the juicy reverse engineering bits (pun intended) in part 2.</p>
+<p>&hellip;to be continued with the juicy reverse engineering bits (pun intended) <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">in part 2</a>.</p>
 </div>
 
 
@@ -217,6 +217,8 @@
         <a class="basic-alignment left" href="/blog/2017/02/03/madrid-marathon-2017/" title="Previous Post: Madrid Marathon 2017">&laquo; Madrid Marathon 2017</a>
       
       
+        <a class="basic-alignment right" href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/" title="Next Post: Internet-connected motorcycle project, Part 2">Internet-connected motorcycle project, Part 2 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -234,6 +236,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">Internet-connected motorcycle project, Part 2</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">Internet-connected motorcycle project, Part 1</a>
@@ -269,10 +275,6 @@
     
       <li class="post">
         <a href="/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/">Getting Better at Solving Coding (Interview) Problems</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/06/23/triathlon-progress-update/">Triathlon progress update</a>
       </li>
     
   </ul>
