@@ -9,7 +9,7 @@
   <meta name="author" content="Sergey Pisarenko">
 
   
-  <meta name="description" content="In this second post I continue with the short hackathon project I worked on last week. The goal of the project was to hook into engine data of a KTM &hellip;">
+  <meta name="description" content="In the final article I finish the series about the IoT hackathon project by explaining the server side component of the system. Admittedly, it is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,6 +88,144 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">Internet-connected motorcycle project part 3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-04-17T12:36:00+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2017</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://www.flickr.com/photos/tentaclephotos/33707713890"><img src="https://c1.staticflickr.com/3/2817/33707713890_ebf495be81.jpg" width="500"></a></p>
+
+<p>In the final article I finish the series about the <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">IoT hackathon project</a> by explaining the server side component of the system. Admittedly, it is the smallest part and I intentionally chose to make it trivially simple. 4 days of project of work is not infinite, after all. I think it took me roughly 4-6 hours to set everything up.</p>
+
+<p><a href="https://github.com/pisarenko-net/pcv-streamer">The project source code is available at github. You&rsquo;re welcome.</a></p>
+
+<h2>Overall server-side design</h2>
+
+<p>I knew that <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">reverse engineering</a> might take longer to complete. I wasn&rsquo;t even sure I would succeed. Hence, I decided to design the backend as simple as possible. I chose to avoid writing my own service, storage and visualization. Instead, I chose to rely on Amazon IoT, Lambda and CloudWatch AWS components. The goal was to only write code that streams the data into Amazon and then configure everything else in the management console. This would also be a nice exercise in trying out AWS components and IoT-related APIs I haven&rsquo;t had a chance to work with.</p>
+
+<p>The interface between my program and Amazon services was handled by Amazon IoT. Amazon IoT is a set of components to facilitate communication with Internet-connected devices. There is a component to receive messages and another component (called &ldquo;IoT rules&rdquo;) to route messages to various destinations. Amazon IoT supports a popular messaging MQTT protocol that is designed to be used in high-latency and unreliable networks for small sensors and mobile devices.</p>
+
+<p>My overall goal was to just send the data and somehow display it. I chose Amazon CloudWatch as the visualization solution. CloudWatch is component for watching and reacting to service metrics (such as uptime, error rates). It is, however, possible to define custom metrics. So I have setup my own &ldquo;RPM&rdquo; and &ldquo;Throttle&rdquo; metrics.</p>
+
+<p>To forward messages from Amazon IoT to CloudWatch I used another Amazon component called Lambda. Lambda lets define functions to be triggered on various events. The functions themselves can be written in multiple programming languages such as Java, Python, JavaScript and others. My Lambda function would be triggered by an incoming IoT message and it would then forward the value as a CloudWatch metric.</p>
+
+<p>Overall, I ended up with a &ldquo;serverless&rdquo; backend. In other words, I avoided writing my own service and having to deal with deployments, data storage and visualization. If I had more time I would have done things differently.</p>
+
+<h2>Amazon IoT setup</h2>
+
+<p>To start with Amazon IoT it&rsquo;s necessary to create a new &ldquo;thing&rdquo; and then download a bunch of certificates to be used in communication. I found a library for Java called <a href="https://eclipse.org/paho/clients/java/">Paho</a> for the MQTT communication. Java doesn&rsquo;t support SSL certificates in the PEM format so I had to use a library called <a href="https://www.bouncycastle.org/java.html">BouncyCastle</a> and a snippet I found online to make it work.</p>
+
+<p>Once defined, sending and receiving messages is easy. Amazon also provides testing tools built into the management console to troubleshoot and try things out. After checking that messages successfully reach Amazon I defined a rule that passes received data to a Lambda function:</p>
+
+<p><a href="/images/iotrule.png"><img src="/images/iotrule.png" width="500"></a></p>
+
+<h2>Amazon CloudWatch</h2>
+
+<p>To visualize real-time data I chose an unorthodox solution to display them in a monitoring component. Clearly, CloudWatch is designed with a different purpose in mind. It&rsquo;s not built as a visualization tool. Still, it was good enough for the prototype. To display custom metrics it&rsquo;s necessary to define them. That&rsquo;s currently possible only through AWSCLI tool or the API:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>aws --profile<span class="o">=</span>private cloudwatch list-metrics
+</span><span class='line'><span class="nv">$ </span>aws --profile<span class="o">=</span>private cloudwatch put-metric-data --metric-name RPM --namespace KTMDuke390 --unit Count --value 0
+</span><span class='line'><span class="nv">$ </span>aws --profile<span class="o">=</span>private cloudwatch put-metric-data --metric-name Throttle --namespace KTMDuke390 --unit Count --value 0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The custom metrics can be then seen in CloudWatch console:</p>
+
+<p><a href="/images/cloudwatch.png"><img src="/images/cloudwatch.png" width="500"></a></p>
+
+<p><a href="/images/metrics.png"><img src="/images/metrics.png" width="500"></a></p>
+
+<h2>Amazon Lambda</h2>
+
+<p>Amazon Lambda connects the other two components together. I defined a function in JavaScript that takes the message received by Amazon IoT (the message is in JSON format, by the way) and stores it as a metric in CloudWatch. Here&rsquo;s the code I wrote:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cloudwatch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">CloudWatch</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Received event:&#39;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">MetricData</span><span class="o">:</span> <span class="p">[{</span>
+</span><span class='line'>            <span class="nx">MetricName</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">Timestamp</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">)),</span>
+</span><span class='line'>            <span class="nx">Unit</span><span class="o">:</span> <span class="s1">&#39;Count&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">Value</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">value</span>
+</span><span class='line'>        <span class="p">}],</span>
+</span><span class='line'>        <span class="nx">Namespace</span><span class="o">:</span> <span class="s1">&#39;KTMDuke390&#39;</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">cloudwatch</span><span class="p">.</span><span class="nx">putMetricData</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span> <span class="c1">// an error occurred</span>
+</span><span class='line'>        <span class="k">else</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>           <span class="c1">// successful response</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s1">&#39;OK&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&rsquo;s worth to mention that I needed to give the role account of the Lambda function access rights to CloudWatch. Otherwise, it fails.</p>
+
+<h2>Closing words</h2>
+
+<p>As you see, working with AWS is not complicated. I managed to get from no AWS account to everything in roughly a day&rsquo;s work. I also managed to achieve all this using their free tier so I paid 0$. I don&rsquo;t like how the data is displayed and the client is not very efficient (messages could be batched together, for example). The biggest improvement would come from better presentation. I&rsquo;d like to use D3.js, which is a powerful visualization library.</p>
+
+<p>In any case I completed the project goals I had set for myself: my KTM motorcycle was connected to the Internet, even if briefly. Of course, the improvement possibilities are boundless. I hope you enjoyed reading the series. I definitely enjoyed working on this project. <a href="https://github.com/pisarenko-net/pcv-streamer">Don&rsquo;t forget that the source code is published at github</a>, in case you&rsquo;re interested in further Power Commander 5 hacking.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">Internet-connected motorcycle project, Part 2</a></h1>
     
     
@@ -123,7 +261,7 @@
 
 <p><a href="/images/pcvtool.jpg"><img src="/images/pcvtool.jpg" width="500"></a></p>
 
-<p>To extract the data I was after I needed to understand how the PCV interacts with the Windows tool and then write a program that mimicks the behavior. Reverse engineering USB devices is nothing new. This has been done before to create Linux drivers for devices that didn&rsquo;t have official support. The process of reverse engineering simpler devices, such as toy cars and toy missile launchers, has been documented extensively (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">Drive it yourself: USB car (Linux Voice)</a>). The plan looked like the following:</p>
+<p>To extract the data I was after I needed to understand how the PCV interacts with the Windows tool and then write a program that mimics the behavior. Reverse engineering USB devices is nothing new. This has been done before to create Linux drivers for devices that didn&rsquo;t have official support. The process of reverse engineering simpler devices, such as toy cars and toy missile launchers, has been documented extensively (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">Drive it yourself: USB car (Linux Voice)</a>). The plan looked like the following:</p>
 
 <ul>
 <li>Look at the USB traffic between the PCV and its official software</li>
@@ -145,7 +283,7 @@
 
 <p><a href="/images/usbanalyzer.png"><img src="/images/usbanalyzer.png" width="500"></a></p>
 
-<p>I couldn&rsquo;t get any insight just by looking at the tool output. I didn&rsquo;t realize that the actual packet data was in the bottom right panel and thought the data is stored in &ldquo;TransferBuffer&rdquo;. I exported the data using JSON. I then wrote a Java parser to try to wrap my head around the data. Throughtout the project I wrote at least a couple of various parsers. It&rsquo;s probably impossible to understand a binary protocol just by looking at random packets. I was looking for patterns. But I was clearly focused on the wrong piece of data. At least I learned that PCV communicates using URB (USB Request Blocks) <a href="http://www.beyondlogic.org/usbnutshell/usb4.shtml#Bulk">bulk transfers &mdash; relatively large messages transferred on the USB bus</a>.</p>
+<p>I couldn&rsquo;t get any insight just by looking at the tool output. I didn&rsquo;t realize that the actual packet data was in the bottom right panel and thought the data is stored in &ldquo;TransferBuffer&rdquo;. I exported the data using JSON. I then wrote a Java parser to try to wrap my head around the data. Throughout the project I wrote at least a couple of various parsers. It&rsquo;s probably impossible to understand a binary protocol just by looking at random packets. I was looking for patterns. But I was clearly focused on the wrong piece of data. At least I learned that PCV communicates using URB (USB Request Blocks) <a href="http://www.beyondlogic.org/usbnutshell/usb4.shtml#Bulk">bulk transfers &mdash; relatively large messages transferred on the USB bus</a>.</p>
 
 <p>After a dead end I looked for another tool and found HHD Device Monitoring Studio. HHDDMS is much better. From the statistics view I learned immediately that the number of packets exchanged between PCV and Windows tool stays constant. Giving gas or starting the engine didn&rsquo;t change the rate of messages. This was in contrast with simple toy gadgets that typically don&rsquo;t send data unless an action is triggered (e.g. button pressed in the app). That meant that data must have been constantly streamed.</p>
 
@@ -182,7 +320,7 @@
 
 <p>I imagine that my progress in reverse engineering Power Commander 5 interface is potentially reusable so please help yourself and do something with it if you want &mdash; <a href="https://github.com/pisarenko-net/pcv-streamer">the code is published on github</a>.</p>
 
-<p>&hellip;to be continued in part 3.</p>
+<p>&hellip;to be continued <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">in part 3</a>.</p>
 </div>
   
   
@@ -222,7 +360,7 @@
 
 <p>Since autumn 2016 I&rsquo;m working at an IoT company &mdash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!</p>
 
-<p>In a series of 3 posts I will give an overview of the project and the top level design, <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">share the reverse engineering process of connecting to the Dynojet&rsquo;s Power Commander 5 fuel injection adjustment unit</a> and belatedly admire the maturity and functionality of Amazon Web Services. Without further ado I&rsquo;m going to introduce the actual project.</p>
+<p>In a series of 3 posts I will give an overview of the project and the top level design, <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">share the reverse engineering process of connecting to the Dynojet&rsquo;s Power Commander 5 fuel injection adjustment unit</a> and <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">belatedly admire the maturity and functionality of Amazon Web Services</a>. Without further ado I&rsquo;m going to introduce the actual project.</p>
 
 <p><a href="https://github.com/pisarenko-net/pcv-streamer">The project source code is available at github. You&rsquo;re welcome.</a></p>
 
@@ -786,81 +924,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/">Getting Better at Solving Coding (Interview) Problems</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-07-08T18:37:00+02:00" pubdate data-updated="true">Jul 8<span>th</span>, 2016</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is part 2 of a series of articles themed &ldquo;Preparing for Software Engineer Interviews&rdquo;. My goal with the series is to document the steps I took while preparing for interviews for a software engineering position after working six years in predominantly support-leaning roles. I won&rsquo;t break new ground here but rather share personal experience &mdash; anything you see here is an echo of what you can find elsewhere on the Internet. But too much of a good thing could be bad. Too much advice obscures itself and makes it hard to navigate. In <a href="/blog/2016/06/12/the-kata-of-code/">part 1</a> I explained how I improved my knowledge of algorithms and data-structures as well as introduced a regular coding exercise. In this part I will explain how I went about improving interview coding skills.</p>
-
-<p>When I was originally confronted with preparing for interviews I pulled many online resources together: posts on quora and stackoverflow, blog posts, articles and forum discussions. Some of the posts were quite detailed and comprehensive. There is lot of common advice but I struggled because there was just too much to do and too many ways to go about it. I decided to follow a simple plan which I will shortly explain below.</p>
-
-<p>What is so special about software engineer interviews? The basic premise of most coding interviews (we&rsquo;re talking about interviews at mostly large tech companies here) is to present a candidate with a novel problem that he has never seen before to see how good his reasoning and problem solving skills are. Presumably, a coding interview is a good indicator of candidate&rsquo;s abilities and real-world productivity. Seeing how the candidate struggles under pressure, comes up with brilliant solutions and communicates with the interviewer is a telltale sign of his future success at the company. Unfortunately, that&rsquo;s only a presumption and the reality is complicated but at the moment most tech companies stick to the same format which means that candidates must eventually go through it. So let&rsquo;s look through some preparation ideas and shed some bullshit along the way.</p>
-
-<p>First, there&rsquo;s the novelty issue. It is not feasible to come with a completely new coding problem for every interview. Instead, inteviewers usually rely on a limited repertoire of problems. These problems eventually leak out and get shared online. More importantly, though, many problems share similar problem-solving strategies. Once the insight is known to a candidate the problem reduces to relatively painless translation to code. I&rsquo;ve seen judgements against candidates that try to memorize solutions. But how can a solution be memorized? There are not 10 or 20 problems out there. There are hundreds, even thousands. Nobody would try to memorize the solution code line by line. But it is fair to assume that candidates memorize ideas and patterns behind the problems. How else could the candidates do well on interviews? Let&rsquo;s take mathematics. Undeniably there is lots of memorization involved when learning any subject in mathematics. We can&rsquo;t assume that candidates come up with algebra concepts from scratch during their short stay. Why then would it be fair to expect candidates to come up with algorithms that took very distinguished and persistent computer scientists and engineers to come up with?</p>
-
-<p>In short, obtaining the insight and patterns behind coding problems and memorizing the right things is in my opinion the essence of interview preparation. Even the most distinguished engineers admit that in their day to day work they rarely get a chance to tackle difficult algorithmic challenges. I&rsquo;m not saying that advanced skills are unnecessary and everyone should be an API coding monkey. I&rsquo;m saying that candidates must work through typical coding problems, extract vital problem solving patterns and approaches. The fact remains, though, that some amount of memorizing is unavoidable. If a candidate didn&rsquo;t have a need to optimize things at a very low level it&rsquo;s unlikely he&rsquo;ll come up with a good solution for bit twiddling questions even though he understands the underlying concepts well. He just wouldn&rsquo;t have enough time. And certain efficient solutions are very clever to the point of being obscure and unintuitive. There&rsquo;s little chance of coming up with one during 45 stressful minutes.</p>
-
-<p>In fact, I would go as far as to say that some solutions must be memorized almost to the point of line by line. Okay, maybe not that far. But there are a some smaller-sized questions that interviewers like to ask as a warm-up. For example, to implement a power function or the greatest common divisor function. The thing is, interviewers expect flawless and, most importantly, quick (read immediate) implementation. Even if a candidate understands the idea it might take too long to translate that idea into code on the board. Plus, there are many possibilities for subtle common bugs, such as off-by-one errors, out-of-bounds, etc. Normally, a programmer is not rushed so there&rsquo;s sufficient time to think, sketch pseudocode, implement and take care of edge cases. Because the problem is not difficult the interviewer will pick apart even the smallest mistakes and attach disproportionate weight to them. Clearly, candidates that prepared well will look more capable although it is debatable if their performance difference would translate in anything measurable in the real world.</p>
-
-<p>Once a candidate gets exposed to a sufficient amount of problems (in the range of hundreds) there comes a plateau point. That&rsquo;s completely normal and expected. Despite the acquired experience many problems won&rsquo;t seem any easier. That&rsquo;s also normal. In fact, this discourages many aspiring competitive programmers from further pursuing the challenge. Certain kinds of problems do not fall under neat patterns and require a different mindset. I personally haven&rsquo;t yet managed to overcome this plateau. The good news is that such problems are rarely, if ever, asked in interviews. The bad news is that getting good at difficult problems worsens performance at interview problems. And the reason is that one tries to apply unconvential and complex data-structures and algorithms whereas most interview coding problems are centered around a set of relatively simple tools. Dead-ends are time consuming and reduce chances of solving the problem. After going through many rounds of mock interviews (which I discuss in the 3rd part of the series) I realized that I must recalibrate my toolkit and stick to simplest tools unless everything else fails. When my first thought reaches for a suffix tree I resist and instead try one of the following (not exhaustive): sorting, using a queue/stack, traversing, reversing, doing binary search, recursing. I also find it helpful to think of a brute force solution first. The lesson is that most coding problems are simple and rarely involve anything exotic. When they do the interviewer is prepared to almost immediately spill the beans on the magic insight.</p>
-
-<p>So how to go about actually preparing? I have taken a whole month of full-time effort to specifically practice interview coding problems. There are many popular sources with coding problems, to name a few:</p>
-
-<ul>
-<li><p><a href="https://www.topcoder.com/">TopCoder</a> &mdash; not suited well for interview preparation because of the nature of the problems, weird problem classification and an arcane UI. TopCoder is really a tool for competitive programming and it&rsquo;s not designed for practicing interview problems. Given time constraints and different goals in mind I wouldn&rsquo;t spend time on TopCoder.</p></li>
-<li><p><a href="https://uva.onlinejudge.org/">UVA judge</a> &mdash; automated system for submitting solutions to various competitive programming problems. Suffers from similar problems as TopCoder. Also, just like with TopCoder, it is hard to keep track of progress or to cover all topics.</p></li>
-<li><p><a href="https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850">Cracking the Coding Interview book</a> &mdash; extremely popular book with around 150 coding problems and solutions. I went through an earlier edition years ago. Haven&rsquo;t seen or used the recent one.</p></li>
-<li><p><a href="https://www.interviewbit.com/">interviewbit</a> &mdash; a well designed system specifically for preparing for interviews. Problems are classified by topics. There&rsquo;s search functionality that lets, for example, to search for problems asked at certain companies. interviewbit also has an excellent gamified progress tracking functionality. Unfortunately, I found out too late about it. Otherwise, I would have likely used it as a primary preparation tool.</p></li>
-<li><p><a href="https://www.amazon.com/Elements-Programming-Interviews-Java-Adnan/dp/1517671272">Elements of Programming Interviews in Java (EPI) book</a> &mdash; this is my choice! The books comes with hundreds of problems with clear explanations of brute-force and optimal solutions. C++ edition is also available.</p></li>
-<li><p><a href="https://www.hackerrank.com/">HackerRank</a> &mdash; feels like a system which serves both competitive programming and interview preparation well. There are many practice problems classified by topics and regular hosted competitions. I have used HackerRank as a complementary resource.</p></li>
-<li><p><a href="http://www.geeksforgeeks.org/">GeeksForGeeks</a> &mdash; a daily blog of coding problems. I have yet to come across an interview coding problem that is not published there.</p></li>
-</ul>
-
-
-<p>Once I settled on a primary source I&rsquo;ve done two passes:</p>
-
-<ol>
-<li><p>Go through every problem in the EPI book and solve them algorithmically without writing any code. I&rsquo;ve set a time limit of 10-15 minutes per problem. Once the time limit expired I consulted the solution. I think it&rsquo;s better to have a time limit rather than get stuck for hours on a problem. Generally, I think it&rsquo;s great to sometimes persist on a problem until it cracks but given the goals of interview preparation it&rsquo;s more effective to absorb as many concepts as possible. For every problem I wrote down the main insight. It took me about 2 weeks to finish the whole book.</p></li>
-<li><p>Go through every solved problem and write code for it. This is where I realized that my previously-written notes were terrible so I often had to solve the problems again. I wrote code on paper and I felt that writing code with the insight in hand is easy. I&rsquo;m sure there are folks for whom finding the insight is easier.</p></li>
-</ol>
-
-
-<p>I complemented EPI with problems from the HackerRank site. Finally, during two weeks leading to interviews I also solved every problem marked with the company I was applying for on interviewbit. You&rsquo;d be surprised just how often widely publicized problems are still actively asked in interviews so it pays to go through them. I haven&rsquo;t actually used interviewbit as a platform. Instead, I just read the problem descriptions and solved them on paper. Whenever I got stuck I consulted the hints or complete editorials (solutions).</p>
-
-<p>After putting so much effort in the preparation can I say it was worth it? Did it help to get an offer? Getting good at solving coding interview problems takes a considerable effort and it is not a sure guarantee of success. However, a lack of such preparation is a sure guarantee of failure. There are too many factors vying for the final hire/no hire decision and success is anything but guaranteed. Just like with the algorithm and data-structure study I feel this effort made me a little bit better as a programmer. And just like with <a href="/blog/2016/06/12/the-kata-of-code/">algorithm katas</a> I would like to adopt a habit of regularly solving coding problems to improve further.</p>
-
-<p>In the concluding part 3 I will talk about the final interview preparation steps and also talk about the psychological challenges that many candidates such as myself face before and during the interviews and the ways to tackle them.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -874,6 +937,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">Internet-connected motorcycle project part 3</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">Internet-connected motorcycle project, Part 2</a>
@@ -909,10 +976,6 @@
     
       <li class="post">
         <a href="/blog/2016/07/16/first-4000m-climb/">First 4000m climb</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/">Getting Better at Solving Coding (Interview) Problems</a>
       </li>
     
   </ul>

@@ -120,7 +120,7 @@
 
 <p><a href="/images/pcvtool.jpg"><img src="/images/pcvtool.jpg" width="500"></a></p>
 
-<p>To extract the data I was after I needed to understand how the PCV interacts with the Windows tool and then write a program that mimicks the behavior. Reverse engineering USB devices is nothing new. This has been done before to create Linux drivers for devices that didn&rsquo;t have official support. The process of reverse engineering simpler devices, such as toy cars and toy missile launchers, has been documented extensively (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">Drive it yourself: USB car (Linux Voice)</a>). The plan looked like the following:</p>
+<p>To extract the data I was after I needed to understand how the PCV interacts with the Windows tool and then write a program that mimics the behavior. Reverse engineering USB devices is nothing new. This has been done before to create Linux drivers for devices that didn&rsquo;t have official support. The process of reverse engineering simpler devices, such as toy cars and toy missile launchers, has been documented extensively (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">Drive it yourself: USB car (Linux Voice)</a>). The plan looked like the following:</p>
 
 <ul>
 <li>Look at the USB traffic between the PCV and its official software</li>
@@ -142,7 +142,7 @@
 
 <p><a href="/images/usbanalyzer.png"><img src="/images/usbanalyzer.png" width="500"></a></p>
 
-<p>I couldn&rsquo;t get any insight just by looking at the tool output. I didn&rsquo;t realize that the actual packet data was in the bottom right panel and thought the data is stored in &ldquo;TransferBuffer&rdquo;. I exported the data using JSON. I then wrote a Java parser to try to wrap my head around the data. Throughtout the project I wrote at least a couple of various parsers. It&rsquo;s probably impossible to understand a binary protocol just by looking at random packets. I was looking for patterns. But I was clearly focused on the wrong piece of data. At least I learned that PCV communicates using URB (USB Request Blocks) <a href="http://www.beyondlogic.org/usbnutshell/usb4.shtml#Bulk">bulk transfers &mdash; relatively large messages transferred on the USB bus</a>.</p>
+<p>I couldn&rsquo;t get any insight just by looking at the tool output. I didn&rsquo;t realize that the actual packet data was in the bottom right panel and thought the data is stored in &ldquo;TransferBuffer&rdquo;. I exported the data using JSON. I then wrote a Java parser to try to wrap my head around the data. Throughout the project I wrote at least a couple of various parsers. It&rsquo;s probably impossible to understand a binary protocol just by looking at random packets. I was looking for patterns. But I was clearly focused on the wrong piece of data. At least I learned that PCV communicates using URB (USB Request Blocks) <a href="http://www.beyondlogic.org/usbnutshell/usb4.shtml#Bulk">bulk transfers &mdash; relatively large messages transferred on the USB bus</a>.</p>
 
 <p>After a dead end I looked for another tool and found HHD Device Monitoring Studio. HHDDMS is much better. From the statistics view I learned immediately that the number of packets exchanged between PCV and Windows tool stays constant. Giving gas or starting the engine didn&rsquo;t change the rate of messages. This was in contrast with simple toy gadgets that typically don&rsquo;t send data unless an action is triggered (e.g. button pressed in the app). That meant that data must have been constantly streamed.</p>
 
@@ -179,7 +179,7 @@
 
 <p>I imagine that my progress in reverse engineering Power Commander 5 interface is potentially reusable so please help yourself and do something with it if you want &mdash; <a href="https://github.com/pisarenko-net/pcv-streamer">the code is published on github</a>.</p>
 
-<p>&hellip;to be continued in part 3.</p>
+<p>&hellip;to be continued <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">in part 3</a>.</p>
 </div>
 
 
@@ -228,6 +228,8 @@
         <a class="basic-alignment left" href="/blog/2017/04/16/internet-connected-motorcycle-project/" title="Previous Post: Internet-connected motorcycle project, Part 1">&laquo; Internet-connected motorcycle project, Part 1</a>
       
       
+        <a class="basic-alignment right" href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/" title="Next Post: Internet-connected motorcycle project part 3">Internet-connected motorcycle project part 3 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -245,6 +247,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">Internet-connected motorcycle project part 3</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">Internet-connected motorcycle project, Part 2</a>
@@ -280,10 +286,6 @@
     
       <li class="post">
         <a href="/blog/2016/07/16/first-4000m-climb/">First 4000m climb</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/">Getting Better at Solving Coding (Interview) Problems</a>
       </li>
     
   </ul>

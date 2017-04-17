@@ -434,13 +434,19 @@
         <loc>
             http://drseergio.github.io/blog/2017/04/16/internet-connected-motorcycle-project/
         </loc>
-        <lastmod>2017-04-17T10:17:54+02:00</lastmod>
+        <lastmod>2017-04-17T12:38:17+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-2/
         </loc>
-        <lastmod>2017-04-17T12:31:02+02:00</lastmod>
+        <lastmod>2017-04-17T12:38:55+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-3/
+        </loc>
+        <lastmod>2017-04-17T14:09:40+02:00</lastmod>
     </url>
     <url>
         <loc>http://drseergio.github.io/about/</loc>
@@ -448,7 +454,7 @@
     </url>
     <url>
         <loc>http://drseergio.github.io/blog/archives/</loc>
-        <lastmod>2017-04-17T12:31:02+02:00</lastmod>
+        <lastmod>2017-04-17T14:09:40+02:00</lastmod>
     </url>
     <url>
         <loc>http://drseergio.github.io/robots.txt</loc>
@@ -456,6 +462,6 @@
     </url>
     <url>
         <loc>http://drseergio.github.io/</loc>
-        <lastmod>2017-04-17T12:31:02+02:00</lastmod>
+        <lastmod>2017-04-17T14:09:40+02:00</lastmod>
     </url>
 </urlset>

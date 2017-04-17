@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Internet-connected motorcycle project part 3 - Sergey Pisarenko</title>
+  <meta name="author" content="Sergey Pisarenko">
+
+  
+  <meta name="description" content="In the final article I finish the series about the IoT hackathon project by explaining the server side component of the system. Admittedly, it is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Sergey Pisarenko" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-45212877-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sergey Pisarenko</a></h1>
+  
+    <h2>personal home page</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:drseergio.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/categories/ai/">Data Science</a></li>
+  <li><a href="/blog/categories/training/">Training</a></li>
+  <li><a href="/blog/categories/outdoor/">Outdoor</a></li>
+  <li><a href="http://www.flickr.com/photos/68217075@N08/">Photo gallery</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Internet-connected motorcycle project part 3</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-04-17T12:36:00+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2017</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="https://www.flickr.com/photos/tentaclephotos/33707713890"><img src="https://c1.staticflickr.com/3/2817/33707713890_ebf495be81.jpg" width="500"></a></p>
+
+<p>In the final article I finish the series about the <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">IoT hackathon project</a> by explaining the server side component of the system. Admittedly, it is the smallest part and I intentionally chose to make it trivially simple. 4 days of project of work is not infinite, after all. I think it took me roughly 4-6 hours to set everything up.</p>
+
+<p><a href="https://github.com/pisarenko-net/pcv-streamer">The project source code is available at github. You&rsquo;re welcome.</a></p>
+
+<h2>Overall server-side design</h2>
+
+<p>I knew that <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">reverse engineering</a> might take longer to complete. I wasn&rsquo;t even sure I would succeed. Hence, I decided to design the backend as simple as possible. I chose to avoid writing my own service, storage and visualization. Instead, I chose to rely on Amazon IoT, Lambda and CloudWatch AWS components. The goal was to only write code that streams the data into Amazon and then configure everything else in the management console. This would also be a nice exercise in trying out AWS components and IoT-related APIs I haven&rsquo;t had a chance to work with.</p>
+
+<p>The interface between my program and Amazon services was handled by Amazon IoT. Amazon IoT is a set of components to facilitate communication with Internet-connected devices. There is a component to receive messages and another component (called &ldquo;IoT rules&rdquo;) to route messages to various destinations. Amazon IoT supports a popular messaging MQTT protocol that is designed to be used in high-latency and unreliable networks for small sensors and mobile devices.</p>
+
+<p>My overall goal was to just send the data and somehow display it. I chose Amazon CloudWatch as the visualization solution. CloudWatch is component for watching and reacting to service metrics (such as uptime, error rates). It is, however, possible to define custom metrics. So I have setup my own &ldquo;RPM&rdquo; and &ldquo;Throttle&rdquo; metrics.</p>
+
+<p>To forward messages from Amazon IoT to CloudWatch I used another Amazon component called Lambda. Lambda lets define functions to be triggered on various events. The functions themselves can be written in multiple programming languages such as Java, Python, JavaScript and others. My Lambda function would be triggered by an incoming IoT message and it would then forward the value as a CloudWatch metric.</p>
+
+<p>Overall, I ended up with a &ldquo;serverless&rdquo; backend. In other words, I avoided writing my own service and having to deal with deployments, data storage and visualization. If I had more time I would have done things differently.</p>
+
+<h2>Amazon IoT setup</h2>
+
+<p>To start with Amazon IoT it&rsquo;s necessary to create a new &ldquo;thing&rdquo; and then download a bunch of certificates to be used in communication. I found a library for Java called <a href="https://eclipse.org/paho/clients/java/">Paho</a> for the MQTT communication. Java doesn&rsquo;t support SSL certificates in the PEM format so I had to use a library called <a href="https://www.bouncycastle.org/java.html">BouncyCastle</a> and a snippet I found online to make it work.</p>
+
+<p>Once defined, sending and receiving messages is easy. Amazon also provides testing tools built into the management console to troubleshoot and try things out. After checking that messages successfully reach Amazon I defined a rule that passes received data to a Lambda function:</p>
+
+<p><a href="/images/iotrule.png"><img src="/images/iotrule.png" width="500"></a></p>
+
+<h2>Amazon CloudWatch</h2>
+
+<p>To visualize real-time data I chose an unorthodox solution to display them in a monitoring component. Clearly, CloudWatch is designed with a different purpose in mind. It&rsquo;s not built as a visualization tool. Still, it was good enough for the prototype. To display custom metrics it&rsquo;s necessary to define them. That&rsquo;s currently possible only through AWSCLI tool or the API:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>aws --profile<span class="o">=</span>private cloudwatch list-metrics
+</span><span class='line'><span class="nv">$ </span>aws --profile<span class="o">=</span>private cloudwatch put-metric-data --metric-name RPM --namespace KTMDuke390 --unit Count --value 0
+</span><span class='line'><span class="nv">$ </span>aws --profile<span class="o">=</span>private cloudwatch put-metric-data --metric-name Throttle --namespace KTMDuke390 --unit Count --value 0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The custom metrics can be then seen in CloudWatch console:</p>
+
+<p><a href="/images/cloudwatch.png"><img src="/images/cloudwatch.png" width="500"></a></p>
+
+<p><a href="/images/metrics.png"><img src="/images/metrics.png" width="500"></a></p>
+
+<h2>Amazon Lambda</h2>
+
+<p>Amazon Lambda connects the other two components together. I defined a function in JavaScript that takes the message received by Amazon IoT (the message is in JSON format, by the way) and stores it as a metric in CloudWatch. Here&rsquo;s the code I wrote:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cloudwatch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">CloudWatch</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Received event:&#39;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">MetricData</span><span class="o">:</span> <span class="p">[{</span>
+</span><span class='line'>            <span class="nx">MetricName</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">Timestamp</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">)),</span>
+</span><span class='line'>            <span class="nx">Unit</span><span class="o">:</span> <span class="s1">&#39;Count&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">Value</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">value</span>
+</span><span class='line'>        <span class="p">}],</span>
+</span><span class='line'>        <span class="nx">Namespace</span><span class="o">:</span> <span class="s1">&#39;KTMDuke390&#39;</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">cloudwatch</span><span class="p">.</span><span class="nx">putMetricData</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span> <span class="c1">// an error occurred</span>
+</span><span class='line'>        <span class="k">else</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>           <span class="c1">// successful response</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s1">&#39;OK&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&rsquo;s worth to mention that I needed to give the role account of the Lambda function access rights to CloudWatch. Otherwise, it fails.</p>
+
+<h2>Closing words</h2>
+
+<p>As you see, working with AWS is not complicated. I managed to get from no AWS account to everything in roughly a day&rsquo;s work. I also managed to achieve all this using their free tier so I paid 0$. I don&rsquo;t like how the data is displayed and the client is not very efficient (messages could be batched together, for example). The biggest improvement would come from better presentation. I&rsquo;d like to use D3.js, which is a powerful visualization library.</p>
+
+<p>In any case I completed the project goals I had set for myself: my KTM motorcycle was connected to the Internet, even if briefly. Of course, the improvement possibilities are boundless. I hope you enjoyed reading the series. I definitely enjoyed working on this project. <a href="https://github.com/pisarenko-net/pcv-streamer">Don&rsquo;t forget that the source code is published at github</a>, in case you&rsquo;re interested in further Power Commander 5 hacking.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sergey Pisarenko</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-04-17T12:36:00+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2017</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/diy/'>diy</a>, <a class='category' href='/blog/categories/pro/'>pro</a>, <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/" title="Previous Post: Internet-connected motorcycle project, Part 2">&laquo; Internet-connected motorcycle project, Part 2</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">Internet-connected motorcycle project part 3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">Internet-connected motorcycle project, Part 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">Internet-connected motorcycle project, Part 1</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/02/03/madrid-marathon-2017/">Madrid Marathon 2017</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/03/photo-report-from-first-to-bussalp/">Photo report - From First to Bussalp</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/02/the-many-faces-of-my-consumerism-addiction/">The many faces of my consumerism addiction</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/23/farewell-bmw-f800gs-adventure/">Farewell, BMW F800GS Adventure!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/20/photo-report-silent-nanztal-valley-crossing/">Photo report - Silent Nanztal Valley Crossing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/19/cube-cross-disc-mk3/">Cube Cross Disc Mk3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/16/first-4000m-climb/">First 4000m climb</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/+SergeyBelkin?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Sergey Pisarenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'drseergio';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-3/';
+        var disqus_url = 'http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-3/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
