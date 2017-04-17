@@ -18,7 +18,7 @@ I introduced what Power Commander 5 (PCV) is in the first post. It is a third-pa
 
 [{% img /images/pcvtool.jpg 500 %}](/images/pcvtool.jpg)
 
-To extract the data I was after I needed to understand how the PCV interacts with the Windows tool and then write a program that mimicks the behavior. Reverse engineering USB devices is nothing new. This has been done before to create Linux drivers for devices that didn't have official support. The process of reverse engineering simpler devices, such as toy cars and toy missile launchers, has been documented extensively ([Drive it yourself: USB car (Linux Voice)](https://www.linuxvoice.com/drive-it-yourself-usb-car-6/)). The plan looked like the following:
+To extract the data I was after I needed to understand how the PCV interacts with the Windows tool and then write a program that mimics the behavior. Reverse engineering USB devices is nothing new. This has been done before to create Linux drivers for devices that didn't have official support. The process of reverse engineering simpler devices, such as toy cars and toy missile launchers, has been documented extensively ([Drive it yourself: USB car (Linux Voice)](https://www.linuxvoice.com/drive-it-yourself-usb-car-6/)). The plan looked like the following:
 
  * Look at the USB traffic between the PCV and its official software
  * Capture USB traffic while changing one variable at time (e.g. giving throttle) while keeping everything else constant
@@ -37,7 +37,7 @@ After a quick survey of existing USB traffic capture tools I initially settled o
 
 [{% img /images/usbanalyzer.png 500 %}](/images/usbanalyzer.png)
 
-I couldn't get any insight just by looking at the tool output. I didn't realize that the actual packet data was in the bottom right panel and thought the data is stored in "TransferBuffer". I exported the data using JSON. I then wrote a Java parser to try to wrap my head around the data. Throughtout the project I wrote at least a couple of various parsers. It's probably impossible to understand a binary protocol just by looking at random packets. I was looking for patterns. But I was clearly focused on the wrong piece of data. At least I learned that PCV communicates using URB (USB Request Blocks) [bulk transfers -- relatively large messages transferred on the USB bus](http://www.beyondlogic.org/usbnutshell/usb4.shtml#Bulk).
+I couldn't get any insight just by looking at the tool output. I didn't realize that the actual packet data was in the bottom right panel and thought the data is stored in "TransferBuffer". I exported the data using JSON. I then wrote a Java parser to try to wrap my head around the data. Throughout the project I wrote at least a couple of various parsers. It's probably impossible to understand a binary protocol just by looking at random packets. I was looking for patterns. But I was clearly focused on the wrong piece of data. At least I learned that PCV communicates using URB (USB Request Blocks) [bulk transfers -- relatively large messages transferred on the USB bus](http://www.beyondlogic.org/usbnutshell/usb4.shtml#Bulk).
 
 After a dead end I looked for another tool and found HHD Device Monitoring Studio. HHDDMS is much better. From the statistics view I learned immediately that the number of packets exchanged between PCV and Windows tool stays constant. Giving gas or starting the engine didn't change the rate of messages. This was in contrast with simple toy gadgets that typically don't send data unless an action is triggered (e.g. button pressed in the app). That meant that data must have been constantly streamed.
 
@@ -73,4 +73,4 @@ I enjoyed the research part of the project immensely. It was the part of the pro
 
 I imagine that my progress in reverse engineering Power Commander 5 interface is potentially reusable so please help yourself and do something with it if you want -- [the code is published on github](https://github.com/pisarenko-net/pcv-streamer).
 
-...to be continued in part 3.
+...to be continued [in part 3](/blog/2017/04/17/internet-connected-motorcycle-project-part-3/).

@@ -10,7 +10,7 @@ categories: [diy, pro, tech]
 
 Since autumn 2016 I'm working at an IoT company -- we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!
 
-In a series of 3 posts I will give an overview of the project and the top level design, [share the reverse engineering process of connecting to the Dynojet's Power Commander 5 fuel injection adjustment unit](/blog/2017/04/17/internet-connected-motorcycle-project-part-2/) and belatedly admire the maturity and functionality of Amazon Web Services. Without further ado I'm going to introduce the actual project.
+In a series of 3 posts I will give an overview of the project and the top level design, [share the reverse engineering process of connecting to the Dynojet's Power Commander 5 fuel injection adjustment unit](/blog/2017/04/17/internet-connected-motorcycle-project-part-2/) and [belatedly admire the maturity and functionality of Amazon Web Services](/blog/2017/04/17/internet-connected-motorcycle-project-part-3/). Without further ado I'm going to introduce the actual project.
 
 [The project source code is available at github. You're welcome.](https://github.com/pisarenko-net/pcv-streamer)
 
