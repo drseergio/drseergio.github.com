@@ -1,116 +1,199 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Building a FreeNAS computer - Sergey Pisarenko</title>
-  <meta name="author" content="Sergey Pisarenko">
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  
-  <meta name="description" content="I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Sergey Pisarenko" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-45212877-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+  <title>Building a FreeNAS computer</title>
+  <meta property="og:title" content="Building a FreeNAS computer" />
+  <meta name="twitter:title" content="Building a FreeNAS computer" />
+  <meta name="description" content="I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution - acer easyStore H340.
 
 
+
+
+
+Acer H340 has 4 hot-swappable SATA slots, occupies little space and looks well. The on-board Atom N230 CPU is not powerful but has low TDP (4W). I have replaced the stock fan with a quieter one and the stock PSU with a passive one to make the server quieter.
+
+In terms of software I had installed gentoo Linux with tons of different packages: file-sharing through NFS/CIFS, DNS server, OpenVPN, Bittorrent sync, transmission-web, BackupPC, various proxies and even Pandora ripper! I&rsquo;ve run a RAID5 on 3 disks using mdadm and used the 4th drive for backups.
+
+But recently I&rsquo;ve decided to switch to a custom-built solution:
+
+
+
+
+
+">
+  <meta property="og:description" content="I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution - acer easyStore H340.
+
+
+
+
+
+Acer H340 has 4 hot-swappable SATA slots, occupies little space and looks well. The on-board Atom N230 CPU is not powerful but has low TDP (4W). I have replaced the stock fan with a quieter one and the stock PSU with a passive one to make the server quieter.
+
+In terms of software I had installed gentoo Linux with tons of different packages: file-sharing through NFS/CIFS, DNS server, OpenVPN, Bittorrent sync, transmission-web, BackupPC, various proxies and even Pandora ripper! I&rsquo;ve run a RAID5 on 3 disks using mdadm and used the 4th drive for backups.
+
+But recently I&rsquo;ve decided to switch to a custom-built solution:
+
+
+
+
+
+">
+  <meta name="twitter:description" content="I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution - acer easyStore H340. …">
+  <meta name="author" content="Sergey Pisarenko"/>
+  <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="http://pisarenko.net/blog/2013/08/28/impressions-from-freenas/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sergey Pisarenko" />
+
+  <meta name="generator" content="Hugo 0.20.2" />
+  <link rel="canonical" href="http://pisarenko.net/blog/2013/08/28/impressions-from-freenas/" />
+  <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://pisarenko.net/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/highlight.min.css" />
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Sergey Pisarenko</a></h1>
-  
-    <h2>personal home page</h2>
-  
-</hgroup>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://pisarenko.net/">Sergey Pisarenko</a>
+    </div>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:drseergio.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/categories/ai/">Data Science</a></li>
-  <li><a href="/blog/categories/training/">Training</a></li>
-  <li><a href="/blog/categories/outdoor/">Outdoor</a></li>
-  <li><a href="http://www.flickr.com/photos/68217075@N08/">Photo gallery</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="All" href="/">All</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Pro</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/pro">Posts </a>
+                
+                  <a href="https://github.com/pisarenko-net">Github</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Personal</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/personal">Posts</a>
+                
+                  <a href="http://www.flickr.com/photos/68217075@N08/">Photos</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Archives" href="/post">Archives</a>
+            </li>
+          
+        
 
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Sergey Pisarenko" href="http://pisarenko.net/">
+            <img class="avatar-img" src="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" alt="Sergey Pisarenko" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
+
+
+
+
+    
   
-  <header>
-    
-      <h1 class="entry-title">Building a FreeNAS computer</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
+  
+  
 
 
 
 
   
 
-
-<time datetime="2013-08-28T13:49:00+02:00" pubdate data-updated="true">Aug 28<span>th</span>, 2013</time>
-        
-      </p>
+  <header class="header-section ">
     
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Building a FreeNAS computer</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on August 28, 2013
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
 
-<div class="entry-content"><p>I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution &ndash; acer easyStore H340.</p>
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution - acer easyStore H340.</p>
 
-<p><a href="/images/freenas/acer.jpg"><img class="right" src="/images/freenas/acer.jpg" width="200"></a></p>
+<p><a href="/images/freenas/acer.jpg"><img src="/images/freenas/acer.jpg" class="right" width="200" />
+
+</a></p>
 
 <p><a href="http://www.trustedreviews.com/Acer-easyStore-H340-2TB_Peripheral_review">Acer H340</a> has 4 hot-swappable SATA slots, occupies little space and looks well. The on-board Atom N230 CPU is not powerful but has low TDP (4W). I have replaced the stock fan with a quieter one and the stock PSU with a passive one to make the server quieter.</p>
 
@@ -118,73 +201,96 @@
 
 <p>But recently I&rsquo;ve decided to switch to a custom-built solution:</p>
 
-<p><a href="/images/freenas/7.jpg"><img src="/images/freenas/7.jpg" width="450"></a></p>
+<p><a href="/images/freenas/7.jpg"><img src="/images/freenas/7.jpg" width="450" />
 
-<p> <!-- more --></p>
+</a></p>
 
-<h2>Why change?</h2>
+<p></p>
+
+<h2 id="why-change">Why change?</h2>
 
 <ul>
 <li><p>it&rsquo;s mostly an irrational desire to upgrade and build something</p></li>
+
 <li><p>in the hot summer time the Acer started to overheat. The symptoms were seemingly failed drives but as later SMART tests confirmed the drives were alright. Likely the SATA controller was going crazy because of heat and caused software RAID crashes.</p></li>
+
 <li><p>to overcome heating issues I have tried to spin the fan faster which apparently solved the heat problem but introduced intolerable noise. Since I keep the server running 24x7 in the living room excessive noise is not acceptable.</p></li>
+
 <li><p>I had spare computer parts available. I had a PSU, RAM and 6 2TB hard disks (4 of which were installed in Acer) and a 60GB SSD.</p></li>
+
 <li><p>I wanted a solution which would minimize software maintenance. Although you can argue that it&rsquo;s possible to keep gentoo running without upgrading it I couldn&rsquo;t keep updates too far behind. Once in a while I broke things and compiling is not particularly fast on slow hardware, not too mention the hassle of connecting a monitor when the kernel does not boot.</p></li>
 </ul>
 
+<h2 id="alternatives">Alternatives</h2>
 
-<h2>Alternatives</h2>
+<p><a href="/images/freenas/qnap.jpg"><img src="/images/freenas/qnap.jpg" class="right" width="200" />
 
-<p><a href="/images/freenas/qnap.jpg"><img class="right" src="/images/freenas/qnap.jpg" width="200"></a></p>
+</a></p>
 
 <p>My initial idea was to purchase a used QNAP. QNAP looks nice and require absolutely no fiddling with the internals. After diving into classifieds I have realized that the price of even a used one is much higher than assembling something custom. I could not find any offers for 4-bay models lower than approximately 350$. Not only QNAP is expensive but the read/write performance is worse than reported by users of custom NASes.</p>
 
 <p>Luckily, I have stumbled upon <a href="http://www.freenas.org">FreeNAS</a>! FreeNAS is a FreeBSD distribution intended for running NAS servers. FreeNAS provides a friendly yet functional <a href="http://www.freenas.org/about/screenshot.html">web-interface</a> for managing most of its aspects so once it&rsquo;s up and running it should be no harder to manage than a QNAP.</p>
 
-<h2>Hardware</h2>
+<h2 id="hardware">Hardware</h2>
 
 <p>The next step was to decide on hardware and components. As it turns out, there are a few things to keep in mind. For one, FreeNAS has ZFS file-system available which is very flexible and reliable but requires lots of RAM. 8GB is the absolute minimum.</p>
 
 <p>In the end I have settled on the following hardware:</p>
 
 <ul>
-<li><p>Fractal Node 304 miniITX case. The case has space for 6 3.5&#8221; hard drives. The case itself is nicely polished and the design is minimalistic. The build quality is very high. The only down-side is that drives are not hot-swappable so you would need to open the case to remove a failed drive.</p></li>
+<li><p>Fractal Node 304 miniITX case. The case has space for 6 3.5&rdquo; hard drives. The case itself is nicely polished and the design is minimalistic. The build quality is very high. The only down-side is that drives are not hot-swappable so you would need to open the case to remove a failed drive.</p></li>
+
 <li><p>6 2TB Western Digital Caviar Green hard drives. Not very high grade but replacing them with better ones would be prohibitively expensive at this point.</p></li>
-<li><p>ASRock E350M-1 motherboard with CPU and GPU on-board, max 16GB memory, 4 SATA connectors, 1GBit Realtek. It is not easy to find a miniITX board which fits all requirements (6 SATA, >8GB RAM, Intel network adapter, low power consumption, reasonably priced) so I had to compromise. This board is inexpensive and draws little power (18W CPU TDP) but has not enough SATA ports and is of consumer grade. Since I&rsquo;m building this for home use I believe the trade-offs are fine.</p></li>
+
+<li><p>ASRock E350M-1 motherboard with CPU and GPU on-board, max 16GB memory, 4 SATA connectors, 1GBit Realtek. It is not easy to find a miniITX board which fits all requirements (6 SATA, &gt;8GB RAM, Intel network adapter, low power consumption, reasonably priced) so I had to compromise. This board is inexpensive and draws little power (18W CPU TDP) but has not enough SATA ports and is of consumer grade. Since I&rsquo;m building this for home use I believe the trade-offs are fine.</p></li>
+
 <li><p>LSI MegaRAID SAS 9240-4i SATA controller. This is probably the most expensive part. Luckily, I could get a used one from a colleague. This gives me a total of 8 SATA ports (4 on the board + 4 on the controller).</p></li>
+
 <li><p>2x8GB Kingston RAM. Maxed out the motherboard. Also, I could not find a miniITX board that supports more than 16GB.</p></li>
-<li><p>16GB external flash drive for the FreeNAS distribution. That&rsquo;s the way FreeNAS is usually run &ndash; you write the image to a USB drive and boot off of it. Most of FreeNAS is kept in RAM while it&rsquo;s running. There&rsquo;s no need to waste a SATA port. Also, after you back-up FreeNAS configuration it&rsquo;s easier to replace the O/S should anything go wrong &ndash; just plug in another USB drive.</p></li>
-<li><p>60GB corsair SSD (had one lying around). Used it for running jails and custom software &ndash; sort of like virtualization in FreeBSD world. I was familiar with lxc (Linux containers) so the concept is a familiar one.</p></li>
+
+<li><p>16GB external flash drive for the FreeNAS distribution. That&rsquo;s the way FreeNAS is usually run - you write the image to a USB drive and boot off of it. Most of FreeNAS is kept in RAM while it&rsquo;s running. There&rsquo;s no need to waste a SATA port. Also, after you back-up FreeNAS configuration it&rsquo;s easier to replace the O/S should anything go wrong - just plug in another USB drive.</p></li>
+
+<li><p>60GB corsair SSD (had one lying around). Used it for running jails and custom software - sort of like virtualization in FreeBSD world. I was familiar with lxc (Linux containers) so the concept is a familiar one.</p></li>
+
 <li><p>Seasonic 400W passively-cooled PSU. I&rsquo;m a big fan of Seasonic PSUs. All computers in my household use Seasonic PSUs. 400W is a bit of an overkill for the purpose of NAS but I had one lying around with no use.</p></li>
 </ul>
 
-
-<h2>Assembled view</h2>
+<h2 id="assembled-view">Assembled view</h2>
 
 <p>This is how the assembled NAS looks like:</p>
 
-<p><a href="/images/freenas/2.jpg"><img src="/images/freenas/2.jpg" width="160"></a>
-<a href="/images/freenas/3.jpg"><img src="/images/freenas/3.jpg" width="160"></a>
-<a href="/images/freenas/4.jpg"><img src="/images/freenas/4.jpg" width="160"></a>
-<a href="/images/freenas/6.jpg"><img src="/images/freenas/6.jpg" width="160"></a></p>
+<p><a href="/images/freenas/2.jpg"><img src="/images/freenas/2.jpg" width="160" />
+
+</a>
+<a href="/images/freenas/3.jpg"><img src="/images/freenas/3.jpg" width="160" />
+
+</a>
+<a href="/images/freenas/4.jpg"><img src="/images/freenas/4.jpg" width="160" />
+
+</a>
+<a href="/images/freenas/6.jpg"><img src="/images/freenas/6.jpg" width="160" />
+
+</a></p>
 
 <p>I have removed the stock fan from the motherboard and instead put a 120mm fan attached by 2-sided sticky tape to the PSU so that the fan sits on top of the CPU heat-sink. The fan spins slowly and hardly makes any noise. The built-in case fans have adjustable speed. I run them at lowest speed and the system/drive temperatures are much lower than in Acer. I believe that&rsquo;s because the airflow is much better and there&rsquo;s more space between the drives.</p>
 
 <p>The NAS looks discrete in the living room and fits with the rest of the interior:</p>
 
-<p><a href="/images/freenas/8.jpg"><img src="/images/freenas/8.jpg" width="300"></a></p>
+<p><a href="/images/freenas/8.jpg"><img src="/images/freenas/8.jpg" width="300" />
 
-<h2>FreeNAS impressions</h2>
+</a></p>
+
+<h2 id="freenas-impressions">FreeNAS impressions</h2>
 
 <p>I have never worked with FreeBSD before. Getting up to speed is not difficult and the available documentation covers everything I have needed. Specifically, the handbooks are worth to read through if you&rsquo;re just starting out:</p>
 
 <ul>
 <li><p>FreeBSD handbook <a href="http://www.freebsd.org/handbook">http://www.freebsd.org/handbook</a></p></li>
+
 <li><p>FreeNAS handbook <a href="http://doc.freenas.org/">http://doc.freenas.org/</a></p></li>
 </ul>
 
-
-<h3>Setup</h3>
+<h3 id="setup">Setup</h3>
 
 <p>Initial setup has been very quick. I&rsquo;ve used a monitor and a keyboard to set-up the IP address. For the rest I&rsquo;ve relied on the UI.</p>
 
@@ -196,17 +302,21 @@
 
 <ol>
 <li><p>copy all of my data to a single drive</p></li>
+
 <li><p>using CLI initialize a 6-drive RAID-Z2 with a virtual drive</p></li>
+
 <li><p>fail the virtual drive</p></li>
+
 <li><p>transfer files from the drive containing data to the new array</p></li>
+
 <li><p>format the drive with data and put it into the array</p></li>
+
 <li><p>import the array into FreeNAS UI</p></li>
 </ol>
 
-
 <p>The article that I&rsquo;ve relied on is available at <a href="http://forums.freenas.org/threads/quick-and-dirty-creating-a-degraded-raidz-3-of-4-drives-i-e-to-allow-migration.7748/#post-31106">http://forums.freenas.org/threads/quick-and-dirty-creating-a-degraded-raidz-3-of-4-drives-i-e-to-allow-migration.7748/#post-31106</a>.</p>
 
-<h3>Software</h3>
+<h3 id="software">Software</h3>
 
 <p>Once I&rsquo;d completed the install I&rsquo;ve configured NFS, CIFS, AFP (for talking with Apple computers) and set user rights. Setting this up was a breeze!</p>
 
@@ -214,178 +324,119 @@
 
 <p>Finally, I needed to run custom applications. As it turns out, it&rsquo;s really easy to setup in FreeNAS. First, you create so-called jails which are basically virtual environments that appear as separate computers. Jails can have their own IP addresses. Inside of the jail you can install software using ports or any way you want. I&rsquo;ve created a jail for running bind DNS server, Bittorrent sync. I&rsquo;ve also installed midnight commander to move files around the NAS locally.</p>
 
-<h3>Conclusions</h3>
+<h3 id="conclusions">Conclusions</h3>
 
 <p>All in all, I&rsquo;m a very satisfied user of FreeNAS. So far the server has been running for 11 days and I had no issues whatsoever. I expect the machine to continue running without requiring any maintenance or updates. The only change I intend is to install additional services, like OpenVPN and git repositories.</p>
-</div>
+      </article>
 
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://pisarenko.net/blog/2013/07/10/replacing-preview-glass-on-canon-500d/" data-toggle="tooltip" data-placement="top" title="Replacing preview glass on Canon 500D">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://pisarenko.net/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/" data-toggle="tooltip" data-placement="top" title="Build an Android app using Google Cloud Endpoints and OAuth">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
 
-  <footer>
-    <p class="meta">
       
-  
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'drseergio';
+    var disqus_identifier = 'http:\/\/pisarenko.net\/blog\/2013\/08\/28\/impressions-from-freenas\/';
+    var disqus_title = 'Building a FreeNAS computer';
+    var disqus_url = 'http:\/\/pisarenko.net\/blog\/2013\/08\/28\/impressions-from-freenas\/';
 
-<span class="byline author vcard">Posted by <span class="fn">Sergey Pisarenko</span></span>
-
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
       
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-28T13:49:00+02:00" pubdate data-updated="true">Aug 28<span>th</span>, 2013</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/tech/'>tech</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2013/07/10/replacing-preview-glass-on-canon-500d/" title="Previous Post: Replacing preview glass on Canon 500D">&laquo; Replacing preview glass on Canon 500D</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/" title="Next Post: Build an Android app using Google Cloud Endpoints and OAuth">Build an Android app using Google Cloud Endpoints and OAuth &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">Internet-connected motorcycle project part 3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">Internet-connected motorcycle project, Part 2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">Internet-connected motorcycle project, Part 1</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/02/03/madrid-marathon-2017/">Madrid Marathon 2017</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/03/photo-report-from-first-to-bussalp/">Photo report - From First to Bussalp</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/02/the-many-faces-of-my-consumerism-addiction/">The many faces of my consumerism addiction</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/23/farewell-bmw-f800gs-adventure/">Farewell, BMW F800GS Adventure!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/20/photo-report-silent-nanztal-valley-crossing/">Photo report - Silent Nanztal Valley Crossing</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/19/cube-cross-disc-mk3/">Cube Cross Disc Mk3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/16/first-4000m-climb/">First 4000m climb</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section class="googleplus googleplus-hidden">
-  <h1>
-    <a href="https://plus.google.com/+SergeyBelkin?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2017 - Sergey Pisarenko -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+</div>
 
-</footer>
-  
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/pisarenko-net" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://pisarenko.net/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Sergey Pisarenko
+          &nbsp;&bull;&nbsp;
+          2017
 
-<script type="text/javascript">
-      var disqus_shortname = 'drseergio';
-      
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://pisarenko.net/">Sergey Pisarenko</a>
+          
+        </p>
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas/';
-        var disqus_url = 'http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+        <p class="credits theme-by text-muted">
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://pisarenko.net/js/main.js"></script>
+<script src="http://pisarenko.net/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45212877-1', 'auto');
+ga('send', 'pageview');
 </script>
 
 
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>
+

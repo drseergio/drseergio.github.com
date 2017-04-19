@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diy on Sergey Pisarenko</title>
+    <link>http://pisarenko.net/tags/diy/</link>
+    <description>Recent content in Diy on Sergey Pisarenko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Apr 2017 14:09:34 +0200</lastBuildDate>
+    
+	<atom:link href="http://pisarenko.net/tags/diy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Internet-connected motorcycle project, Part 3</title>
+      <link>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-3/</link>
+      <pubDate>Mon, 17 Apr 2017 14:09:34 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/tentaclephotos/33707713890&#34;&gt;&lt;img src=&#34;https://c1.staticflickr.com/3/2817/33707713890_ebf495be81.jpg&#34; width=&#34;500&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In the final article I finish the series about the &lt;a href=&#34;http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/&#34;&gt;IoT hackathon project&lt;/a&gt; by explaining the server side component of the system. Admittedly, it is the smallest part and I intentionally chose to make it trivially simple. 4 days of project of work is not infinite, after all. I think it took me roughly 4-6 hours to set everything up.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Internet-connected motorcycle project, Part 2</title>
+      <link>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-2/</link>
+      <pubDate>Mon, 17 Apr 2017 10:09:34 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/tentaclephotos/33959436251&#34;&gt;&lt;img src=&#34;https://c2.staticflickr.com/4/3956/33959436251_6c6d9e1c5b.jpg&#34; width=&#34;500&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In this second post I continue with the &lt;a href=&#34;http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/&#34;&gt;short hackathon project I worked on last week&lt;/a&gt;. The goal of the project was to hook into engine data of a KTM motorcycle and stream that data in real-time to the cloud. I explain how I reverse engineered the USB wire protocol of a proprietary device called Power Commander 5 from Dynojet and wrote a simple Java program that works on Linux. I also show the tools I used along the way and share my thinking process.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Internet-connected motorcycle project, Part 1</title>
+      <link>http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/</link>
+      <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://pisarenko.net/images/vitpilen.jpg&#34;&gt;&lt;img src=&#34;http://pisarenko.net/images/vitpilen.jpg&#34; width=&#34;500&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Since autumn 2016 I&amp;rsquo;m working at an IoT company &amp;ndash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Updates to the 802.11ac guide</title>
+      <link>http://pisarenko.net/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/</link>
+      <pubDate>Tue, 05 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/</guid>
+      <description>I have previuosly written a guide to configure a 802.11ac access point using hostapd in gentoo linux. Another enthusiast discovered that my guide does not lead to a working access point. Turns out I missed crucial steps to configure DFS which is required for operating on higher frequencies. In this guide I diagnose the problem and correct the mistakes. I also show how to increase transmission (TX) power of the wireless card.</description>
+    </item>
+    
+    <item>
+      <title>Beginners guide to a custom 802.11ac setup</title>
+      <link>http://pisarenko.net/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/</link>
+      <pubDate>Sun, 01 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://pisarenko.net/images/80211ac.jpg&#34;&gt;&lt;img src=&#34;http://pisarenko.net/images/80211ac.jpg&#34; class=&#34;right&#34; width=&#34;240&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;About 3 months ago I had nothing better to do so I decided to replace an off-the-shelf Linksys E4200 wireless router with a custom build running an unrestricted O/S. I admit E4200 worked reliably through the years on stock firmware but I never felt comfortable with the privacy and network vulnerability aspects of commonly sold devices. And I find third-party router firmwares too complicated to fully comprehend and tweak. There&amp;rsquo;s simply too much configuration becauase it needs to satisfy many use cases.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>My first solder job</title>
+      <link>http://pisarenko.net/blog/2014/04/13/my-first-solder-job/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2014/04/13/my-first-solder-job/</guid>
+      <description>&lt;p&gt;This year I realized that I am wasteful with photo gear so I decided to switch to one digital camera system. I&amp;rsquo;ve sold all cameras and various gear I had from before and settled on Sony A7R. One thing I appreciated from my Canon collection is Yongnuo set of flashes and remote radio triggers. Yongnuo are inexpensive and for a price of one Canon flash I got two flashes and radio controllers. However, despite the fact the flash mounts are the same on Sony A7R and Canon 70D the Yongnuo RF603 radio trigger did not work.&lt;/p&gt;
+
+&lt;p&gt;Turns out the solution is one resistor away! I&amp;rsquo;ve discovered the following YouTube video that explains how to make the trigger work with Sony cameras. The solution is to solder a 120kOhm transistor between yellow wire and battery contact plate.&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/Iiy4zGEt5xU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;p&gt;For years I have avoided any DIY job that requires soldering. I decided now it&amp;rsquo;s finally the time to purchase a solder iron and finally understand basics of electronics.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pisarenko.net/images/solder/solder_station.jpg&#34;&gt;&lt;img src=&#34;http://pisarenko.net/images/solder/solder_station_s.jpg&#34; width=&#34;400&#34; /&gt;
+
+&lt;/a&gt; &lt;a href=&#34;http://pisarenko.net/images/solder/yongnuo_solder.jpg&#34;&gt;&lt;img src=&#34;http://pisarenko.net/images/solder/yongnuo_solder_s.jpg&#34; width=&#34;400&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Aaaand success! The trigger now works great on Sony. I know this job was extremely simple but for me it has been satisfying to make a physical electronic thing work differently.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

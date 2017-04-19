@@ -1,124 +1,195 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Internet-connected motorcycle project, Part 2 - Sergey Pisarenko</title>
-  <meta name="author" content="Sergey Pisarenko">
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  
-  <meta name="description" content="In this second post I continue with the short hackathon project I worked on last week. The goal of the project was to hook into engine data of a KTM &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-2">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Sergey Pisarenko" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-45212877-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+  <title>Internet-connected motorcycle project, Part 2</title>
+  <meta property="og:title" content="Internet-connected motorcycle project, Part 2" />
+  <meta name="twitter:title" content="Internet-connected motorcycle project, Part 2" />
+  <meta name="description" content="
 
 
+
+In this second post I continue with the short hackathon project I worked on last week. The goal of the project was to hook into engine data of a KTM motorcycle and stream that data in real-time to the cloud. I explain how I reverse engineered the USB wire protocol of a proprietary device called Power Commander 5 from Dynojet and wrote a simple Java program that works on Linux. I also show the tools I used along the way and share my thinking process.
+
+">
+  <meta property="og:description" content="
+
+
+
+In this second post I continue with the short hackathon project I worked on last week. The goal of the project was to hook into engine data of a KTM motorcycle and stream that data in real-time to the cloud. I explain how I reverse engineered the USB wire protocol of a proprietary device called Power Commander 5 from Dynojet and wrote a simple Java program that works on Linux. I also show the tools I used along the way and share my thinking process.
+
+">
+  <meta name="twitter:description" content="
+
+
+
+In this second post I continue with the short hackathon project I worked on last week. The goal of the project was to hook into engine data of a KTM motorcycle and stream that data in real-time to …">
+  <meta name="author" content="Sergey Pisarenko"/>
+  <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sergey Pisarenko" />
+
+  <meta name="generator" content="Hugo 0.20.2" />
+  <link rel="canonical" href="http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-2/" />
+  <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://pisarenko.net/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/highlight.min.css" />
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Sergey Pisarenko</a></h1>
-  
-    <h2>personal home page</h2>
-  
-</hgroup>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://pisarenko.net/">Sergey Pisarenko</a>
+    </div>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:drseergio.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/categories/ai/">Data Science</a></li>
-  <li><a href="/blog/categories/training/">Training</a></li>
-  <li><a href="/blog/categories/outdoor/">Outdoor</a></li>
-  <li><a href="http://www.flickr.com/photos/68217075@N08/">Photo gallery</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="All" href="/">All</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Pro</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/pro">Posts </a>
+                
+                  <a href="https://github.com/pisarenko-net">Github</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Personal</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/personal">Posts</a>
+                
+                  <a href="http://www.flickr.com/photos/68217075@N08/">Photos</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Archives" href="/post">Archives</a>
+            </li>
+          
+        
 
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Sergey Pisarenko" href="http://pisarenko.net/">
+            <img class="avatar-img" src="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" alt="Sergey Pisarenko" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
+
+
+
+
+    
   
-  <header>
-    
-      <h1 class="entry-title">Internet-connected motorcycle project, Part 2</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
+  
+  
 
 
 
 
   
 
-
-<time datetime="2017-04-17T09:35:00+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2017</time>
-        
-      </p>
+  <header class="header-section ">
     
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Internet-connected motorcycle project, Part 2</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on April 17, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
 
-<div class="entry-content"><p><a href="https://www.flickr.com/photos/tentaclephotos/33959436251"><img src="https://c2.staticflickr.com/4/3956/33959436251_6c6d9e1c5b.jpg" width="500"></a></p>
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><a href="https://www.flickr.com/photos/tentaclephotos/33959436251"><img src="https://c2.staticflickr.com/4/3956/33959436251_6c6d9e1c5b.jpg" width="500" />
+
+</a></p>
 
 <p>In this second post I continue with the <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">short hackathon project I worked on last week</a>. The goal of the project was to hook into engine data of a KTM motorcycle and stream that data in real-time to the cloud. I explain how I reverse engineered the USB wire protocol of a proprietary device called Power Commander 5 from Dynojet and wrote a simple Java program that works on Linux. I also show the tools I used along the way and share my thinking process.</p>
 
+<p></p>
+
 <p><a href="https://github.com/pisarenko-net/pcv-streamer">The project source code is available at github. You&rsquo;re welcome.</a></p>
 
-<h2>Power Commander 5</h2>
+<h2 id="power-commander-5">Power Commander 5</h2>
 
 <p>I introduced what Power Commander 5 (PCV) is in the first post. It is a third-party module that alters engine fuel injection by intercepting and changing ECU data. It is a programmable computer that adjusts engine behavior on the fly according to a configuration uploaded by the user (called a &ldquo;map&rdquo;). PCV has a micro USB port and works with a provided tool for Windows. The underlying USB protocol is not documented and there is no known API to speak of. It is a closed-source proprietary system which works only with the official software.</p>
 
-<p><a href="/images/pcvtool.jpg"><img src="/images/pcvtool.jpg" width="500"></a></p>
+<p><a href="/images/pcvtool.jpg"><img src="/images/pcvtool.jpg" width="500" />
+
+</a></p>
 
 <p>To extract the data I was after I needed to understand how the PCV interacts with the Windows tool and then write a program that mimics the behavior. Reverse engineering USB devices is nothing new. This has been done before to create Linux drivers for devices that didn&rsquo;t have official support. The process of reverse engineering simpler devices, such as toy cars and toy missile launchers, has been documented extensively (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">Drive it yourself: USB car (Linux Voice)</a>). The plan looked like the following:</p>
 
@@ -129,226 +200,181 @@
 <li>Analyze the captures to see where the useful data is (i.e. which bits represent RPM values)</li>
 </ul>
 
-
 <p>Once the protocol was understood it remained to write a Java program for the Raspberry Pi 3 that established a USB connection and communicated with the PCV.</p>
 
-<p><a href="https://www.flickr.com/photos/tentaclephotos/33959434331"><img src="https://c1.staticflickr.com/3/2937/33959434331_defe8fc636_c.jpg" width="800"></a></p>
+<p><a href="https://www.flickr.com/photos/tentaclephotos/33959434331"><img src="https://c1.staticflickr.com/3/2937/33959434331_defe8fc636_c.jpg" width="800" />
 
-<h2>Monitoring and capturing USB traffic</h2>
+</a></p>
+
+<h2 id="monitoring-and-capturing-usb-traffic">Monitoring and capturing USB traffic</h2>
 
 <p>To capture USB traffic I relied on Windows tools. Most of the articles I found used Linux instead. The suggested path is to run Windows OS inside a virtual guest on a Linux host computer. USB traffic would be captured at the host level. The problem was that I couldn&rsquo;t pass the PCV from host to the guest. Since I had a Windows computer handy I decided to use it instead. As a first step I collected basic USB information about PCV. It turned out to be a USB HID class device. USB defines several classes of devices. Each USB class defines functions that manufacturers can use to communicate with devices. HID is normally used for keyboards, mice and various controllers. It&rsquo;s also frequently used in simple USB toy gadgets.</p>
 
 <p>After a quick survey of existing USB traffic capture tools I initially settled on a trial version of Eltima USB Analyzer. At first, the packet field names and terms were confusing. How does &ldquo;direction&rdquo; differ from &ldquo;data_direction&rdquo; and what is &ldquo;TransferBuffer&rdquo;? I had to look-up Windows USB API documentation to understand what those terms referred to. The UI of the software also left a lot to be desired. For example, I had to manually resize columns in the &ldquo;Command View&rdquo; to make the data visible. By default, the columns were too small.</p>
 
-<p><a href="/images/usbanalyzer.png"><img src="/images/usbanalyzer.png" width="500"></a></p>
+<p><a href="/images/usbanalyzer.png"><img src="/images/usbanalyzer.png" width="500" />
 
-<p>I couldn&rsquo;t get any insight just by looking at the tool output. I didn&rsquo;t realize that the actual packet data was in the bottom right panel and thought the data is stored in &ldquo;TransferBuffer&rdquo;. I exported the data using JSON. I then wrote a Java parser to try to wrap my head around the data. Throughout the project I wrote at least a couple of various parsers. It&rsquo;s probably impossible to understand a binary protocol just by looking at random packets. I was looking for patterns. But I was clearly focused on the wrong piece of data. At least I learned that PCV communicates using URB (USB Request Blocks) <a href="http://www.beyondlogic.org/usbnutshell/usb4.shtml#Bulk">bulk transfers &mdash; relatively large messages transferred on the USB bus</a>.</p>
+</a></p>
+
+<p>I couldn&rsquo;t get any insight just by looking at the tool output. I didn&rsquo;t realize that the actual packet data was in the bottom right panel and thought the data is stored in &ldquo;TransferBuffer&rdquo;. I exported the data using JSON. I then wrote a Java parser to try to wrap my head around the data. Throughout the project I wrote at least a couple of various parsers. It&rsquo;s probably impossible to understand a binary protocol just by looking at random packets. I was looking for patterns. But I was clearly focused on the wrong piece of data. At least I learned that PCV communicates using URB (USB Request Blocks) <a href="http://www.beyondlogic.org/usbnutshell/usb4.shtml#Bulk">bulk transfers &ndash; relatively large messages transferred on the USB bus</a>.</p>
 
 <p>After a dead end I looked for another tool and found HHD Device Monitoring Studio. HHDDMS is much better. From the statistics view I learned immediately that the number of packets exchanged between PCV and Windows tool stays constant. Giving gas or starting the engine didn&rsquo;t change the rate of messages. This was in contrast with simple toy gadgets that typically don&rsquo;t send data unless an action is triggered (e.g. button pressed in the app). That meant that data must have been constantly streamed.</p>
 
-<p><a href="/images/hhdwindow.png"><img src="/images/hhdwindow.png" width="800"></a></p>
+<p><a href="/images/hhdwindow.png"><img src="/images/hhdwindow.png" width="800" />
+
+</a></p>
 
 <p>In the &ldquo;URB&rdquo; view of HHDDMS I could also see messages exchanged between the app and the PCV.</p>
 
-<p><a href="/images/packets.png"><img src="/images/packets.png" width="800"></a></p>
+<p><a href="/images/packets.png"><img src="/images/packets.png" width="800" />
+
+</a></p>
 
 <p>Still, it didn&rsquo;t make much sense. Every packet appeared somewhat random and some packets even contained interspersed strings (e.g. &ldquo;Dynojet&rdquo;, &ldquo;Device error&rdquo;) that looked like they came from a resource bundle. It turned out later that these strings were just random junk to fill 64 byte packets. At the time I feared another dead end. Unexpectedly, a breakthrough came through Android. What does Android have to do with this?</p>
 
-<h2>Android breakthrough</h2>
+<h2 id="android-breakthrough">Android breakthrough</h2>
 
-<p>Turns out Dynojet released an Android app in 2015 to interface with PCV from smartphones and tablets. Unfortunately, the app didn&rsquo;t have the functionality I was after &mdash; it didn&rsquo;t expose real-time statistics but otherwise it was impressively functional. Still, the basic routines to communicate with PCV should have been there. The thing with Android apps is that it&rsquo;s extremely easy to decompile them to human readable form. So I downloaded the *.apk file, ran it through <a href="https://github.com/pxb1988/dex2jar/">dex2jar</a> and opened it in <a href="https://github.com/deathmarine/Luyten">Lyuten</a>. The results were better than expected &mdash; by looking at the decompiled code I could understand enough about how the USB packets were constructed. It was the right missing puzzle piece.</p>
+<p>Turns out Dynojet released an Android app in 2015 to interface with PCV from smartphones and tablets. Unfortunately, the app didn&rsquo;t have the functionality I was after &ndash; it didn&rsquo;t expose real-time statistics but otherwise it was impressively functional. Still, the basic routines to communicate with PCV should have been there. The thing with Android apps is that it&rsquo;s extremely easy to decompile them to human readable form. So I downloaded the *.apk file, ran it through <a href="https://github.com/pxb1988/dex2jar/">dex2jar</a> and opened it in <a href="https://github.com/deathmarine/Luyten">Lyuten</a>. The results were better than expected &ndash; by looking at the decompiled code I could understand enough about how the USB packets were constructed. It was the right missing puzzle piece.</p>
 
-<p><a href="/images/luyten.png"><img src="/images/luyten.png" width="800"></a></p>
+<p><a href="/images/luyten.png"><img src="/images/luyten.png" width="800" />
+
+</a></p>
 
 <p>PCV USB packets are formed the following way. First 4 bytes are filled with a random integer (which had confused me earlier), followed by 2 bytes command ID, followed by 2 bytes payload length, followed by payload and finally followed by random junk to fill a 64 byte packet. What&rsquo;s unusual is the little endian order. So, for example, &ldquo;0x0500&rdquo; is decoded as 5 and not as 1280. To convert to decimal one needs to reverse the bytes first, i.e. &ldquo;0x0005&rdquo;. Existing command IDs can be learned from the decompiled Android code. If anyone is interested in writing a Linux version of the PCV software the Android app is a great source of knowledge.</p>
 
 <p>Equipped with the knowledge I wrote yet another parser to analyze various packet captures I had made earlier to find where the RPM and throttle values are &ldquo;hidden&rdquo;. Finally, it occurred to me that to obtain the data from PCV I must send command &ldquo;5&rdquo; to it first. Then, the PCV responds with the data. The random integer is used in the protocol to associate requests with responses. If I make a request packet &ldquo;0x C5 59 AB 0E &hellip;&rdquo; the PCV also responds with &ldquo;0x C5 59 AB 0E &hellip;&rdquo;.</p>
 
-<h2>Putting it all together</h2>
+<h2 id="putting-it-all-together">Putting it all together</h2>
 
-<p><a href="https://www.flickr.com/photos/tentaclephotos/33247339174"><img src="https://c1.staticflickr.com/3/2947/33247339174_911a5efd4f_c.jpg" width="800"></a></p>
+<p><a href="https://www.flickr.com/photos/tentaclephotos/33247339174"><img src="https://c1.staticflickr.com/3/2947/33247339174_911a5efd4f_c.jpg" width="800" />
+
+</a></p>
 
 <p>With the protocol figured out it remained to write a program that communicates with PCV over USB. I used <a href="http://usb4java.org/">usb4java</a> Java library. It took me a couple of iterations to understand what the different concepts mean (e.g. pipe, connection) but the few available code examples were sufficient.</p>
 
 <p>Here&rsquo;s a demonstration of the program running on Raspberry Pi 3. The program prints out extracted RPM and throttle values. While recording the video I rolled the throttle on the bike and you can see the values increase (the throttle value range is 1..1000). The engine was turned off so the RPM read-out is 0.</p>
 
-<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/Vn19y9DZIvw "></iframe></div>
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/Vn19y9DZIvw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0"></iframe>
+ </div>
 
 
 <p>I enjoyed the research part of the project immensely. It was the part of the project I enjoyed the most. Figuring out a binary protocol felt like detective work. Although there were confidence valleys and dead ends I pressed on and made it work. I look forward to more challenging projects in future.</p>
 
-<p>I imagine that my progress in reverse engineering Power Commander 5 interface is potentially reusable so please help yourself and do something with it if you want &mdash; <a href="https://github.com/pisarenko-net/pcv-streamer">the code is published on github</a>.</p>
+<p>I imagine that my progress in reverse engineering Power Commander 5 interface is potentially reusable so please help yourself and do something with it if you want &ndash; <a href="https://github.com/pisarenko-net/pcv-streamer">the code is published on github</a>.</p>
 
 <p>&hellip;to be continued <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">in part 3</a>.</p>
-</div>
+      </article>
 
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/" data-toggle="tooltip" data-placement="top" title="Internet-connected motorcycle project, Part 1">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-3/" data-toggle="tooltip" data-placement="top" title="Internet-connected motorcycle project, Part 3">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
 
-  <footer>
-    <p class="meta">
       
-  
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'drseergio';
+    var disqus_identifier = 'http:\/\/pisarenko.net\/blog\/2017\/04\/17\/internet-connected-motorcycle-project-part-2\/';
+    var disqus_title = 'Internet-connected motorcycle project, Part 2';
+    var disqus_url = 'http:\/\/pisarenko.net\/blog\/2017\/04\/17\/internet-connected-motorcycle-project-part-2\/';
 
-<span class="byline author vcard">Posted by <span class="fn">Sergey Pisarenko</span></span>
-
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
       
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2017-04-17T09:35:00+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2017</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/diy/'>diy</a>, <a class='category' href='/blog/categories/pro/'>pro</a>, <a class='category' href='/blog/categories/tech/'>tech</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2017/04/16/internet-connected-motorcycle-project/" title="Previous Post: Internet-connected motorcycle project, Part 1">&laquo; Internet-connected motorcycle project, Part 1</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/" title="Next Post: Internet-connected motorcycle project part 3">Internet-connected motorcycle project part 3 &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">Internet-connected motorcycle project part 3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">Internet-connected motorcycle project, Part 2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">Internet-connected motorcycle project, Part 1</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/02/03/madrid-marathon-2017/">Madrid Marathon 2017</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/03/photo-report-from-first-to-bussalp/">Photo report - From First to Bussalp</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/02/the-many-faces-of-my-consumerism-addiction/">The many faces of my consumerism addiction</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/23/farewell-bmw-f800gs-adventure/">Farewell, BMW F800GS Adventure!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/20/photo-report-silent-nanztal-valley-crossing/">Photo report - Silent Nanztal Valley Crossing</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/19/cube-cross-disc-mk3/">Cube Cross Disc Mk3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/16/first-4000m-climb/">First 4000m climb</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section class="googleplus googleplus-hidden">
-  <h1>
-    <a href="https://plus.google.com/+SergeyBelkin?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2017 - Sergey Pisarenko -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+</div>
 
-</footer>
-  
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/pisarenko-net" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://pisarenko.net/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Sergey Pisarenko
+          &nbsp;&bull;&nbsp;
+          2017
 
-<script type="text/javascript">
-      var disqus_shortname = 'drseergio';
-      
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://pisarenko.net/">Sergey Pisarenko</a>
+          
+        </p>
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-2/';
-        var disqus_url = 'http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-2/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+        <p class="credits theme-by text-muted">
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://pisarenko.net/js/main.js"></script>
+<script src="http://pisarenko.net/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45212877-1', 'auto');
+ga('send', 'pageview');
 </script>
 
 
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>
+

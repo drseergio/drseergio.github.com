@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Sergey Pisarenko</title>
+    <link>http://pisarenko.net/tags/</link>
+    <description>Recent content in Tags on Sergey Pisarenko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 19 Jul 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://pisarenko.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bicycle</title>
+      <link>http://pisarenko.net/tags/bicycle/</link>
+      <pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/tags/bicycle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diy</title>
+      <link>http://pisarenko.net/tags/diy/</link>
+      <pubDate>Mon, 17 Apr 2017 14:09:34 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/tags/diy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Investments</title>
+      <link>http://pisarenko.net/tags/investments/</link>
+      <pubDate>Thu, 02 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/tags/investments/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Outdoor</title>
+      <link>http://pisarenko.net/tags/outdoor/</link>
+      <pubDate>Wed, 03 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/tags/outdoor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photo</title>
+      <link>http://pisarenko.net/tags/photo/</link>
+      <pubDate>Thu, 18 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/tags/photo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reflections</title>
+      <link>http://pisarenko.net/tags/reflections/</link>
+      <pubDate>Tue, 02 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/tags/reflections/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tech</title>
+      <link>http://pisarenko.net/tags/tech/</link>
+      <pubDate>Mon, 17 Apr 2017 14:09:34 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/tags/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Training</title>
+      <link>http://pisarenko.net/tags/training/</link>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/tags/training/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

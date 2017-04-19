@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech on Sergey Pisarenko</title>
+    <link>http://pisarenko.net/tags/tech/</link>
+    <description>Recent content in Tech on Sergey Pisarenko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Apr 2017 14:09:34 +0200</lastBuildDate>
+    
+	<atom:link href="http://pisarenko.net/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Internet-connected motorcycle project, Part 3</title>
+      <link>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-3/</link>
+      <pubDate>Mon, 17 Apr 2017 14:09:34 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/tentaclephotos/33707713890&#34;&gt;&lt;img src=&#34;https://c1.staticflickr.com/3/2817/33707713890_ebf495be81.jpg&#34; width=&#34;500&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In the final article I finish the series about the &lt;a href=&#34;http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/&#34;&gt;IoT hackathon project&lt;/a&gt; by explaining the server side component of the system. Admittedly, it is the smallest part and I intentionally chose to make it trivially simple. 4 days of project of work is not infinite, after all. I think it took me roughly 4-6 hours to set everything up.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Internet-connected motorcycle project, Part 2</title>
+      <link>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-2/</link>
+      <pubDate>Mon, 17 Apr 2017 10:09:34 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/tentaclephotos/33959436251&#34;&gt;&lt;img src=&#34;https://c2.staticflickr.com/4/3956/33959436251_6c6d9e1c5b.jpg&#34; width=&#34;500&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In this second post I continue with the &lt;a href=&#34;http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/&#34;&gt;short hackathon project I worked on last week&lt;/a&gt;. The goal of the project was to hook into engine data of a KTM motorcycle and stream that data in real-time to the cloud. I explain how I reverse engineered the USB wire protocol of a proprietary device called Power Commander 5 from Dynojet and wrote a simple Java program that works on Linux. I also show the tools I used along the way and share my thinking process.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Internet-connected motorcycle project, Part 1</title>
+      <link>http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/</link>
+      <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://pisarenko.net/images/vitpilen.jpg&#34;&gt;&lt;img src=&#34;http://pisarenko.net/images/vitpilen.jpg&#34; width=&#34;500&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Since autumn 2016 I&amp;rsquo;m working at an IoT company &amp;ndash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Getting Better at Solving Coding (Interview) Problems</title>
+      <link>http://pisarenko.net/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/</link>
+      <pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/</guid>
+      <description>This is part 2 of a series of articles themed &amp;ldquo;Preparing for Software Engineer Interviews&amp;rdquo;. My goal with the series is to document the steps I took while preparing for interviews for a software engineering position after working six years in predominantly support-leaning roles. I won&amp;rsquo;t break new ground here but rather share personal experience &amp;ndash; anything you see here is an echo of what you can find elsewhere on the Internet.</description>
+    </item>
+    
+    <item>
+      <title>The Kata of Code</title>
+      <link>http://pisarenko.net/blog/2016/06/12/the-kata-of-code/</link>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2016/06/12/the-kata-of-code/</guid>
+      <description>This is part 1 of a series of articles themed &amp;ldquo;Preparing for Software Engineer Interviews&amp;rdquo;. My goal with the series is to document the steps I took while preparing for interviews for a software engineering position after working six years in predominantly support-leaning roles. I won&amp;rsquo;t break new ground here but rather share personal experience &amp;ndash; anything you see here is an echo of what you can find elsewhere on the Internet.</description>
+    </item>
+    
+    <item>
+      <title>How to order Dell XPS 13 with US keyboard in Europe</title>
+      <link>http://pisarenko.net/blog/2015/04/05/how-to-order-dell-xps-13-with-us-keyboard-in-europe/</link>
+      <pubDate>Sun, 05 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2015/04/05/how-to-order-dell-xps-13-with-us-keyboard-in-europe/</guid>
+      <description>I decided to purchase a laptop as I find myself longing for a computer away from my beloved workstation more often. Last time I bought a laptop was 8 years ago.
+Dell built a laptop I feel genuinely excited about - the new XPS 13. It&amp;rsquo;s as small as 11&amp;rdquo; machine with really narrow bezel. It comes with specs that are just right for me.
+
+However, I&amp;rsquo;ve learned that buying from Dell is not that easy!</description>
+    </item>
+    
+    <item>
+      <title>5 sold gadgets later or welcome back to Microsoft Windows</title>
+      <link>http://pisarenko.net/blog/2013/10/21/5-sold-gadgets-later-or-welcome-back-to-microsoft-windows/</link>
+      <pubDate>Mon, 21 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/10/21/5-sold-gadgets-later-or-welcome-back-to-microsoft-windows/</guid>
+      <description>&lt;p&gt;I honestly would not anticipate writing about Microsoft Windows. Not after I have irrevocably and irreversibly switched to Linux and OSX years ago when I was studying at the university.&lt;/p&gt;
+
+&lt;p&gt;But here I am, happily typing this in Sublime2 editor on my desktop computer running nothing else but Microsoft Windows 8. Yes, the same computer that had been running Gentoo Linux a week or so ago!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>My lucky night with a FreeNAS failure</title>
+      <link>http://pisarenko.net/blog/2013/09/08/my-lucky-night-with-freenas-failure/</link>
+      <pubDate>Sun, 08 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/09/08/my-lucky-night-with-freenas-failure/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s 1:35am right now and something really bad has happened about 4 hours ago. First, Time Machine on my Mac Mini complained that the backup network disk became inaccessible. Then network shares have stopped responding on all computers. This means something wrong has happened with the wonderful reliable NAS server that I had built weeks ago.&lt;/p&gt;
+
+&lt;p&gt;First, I connect to the server via SSH and start poking around. Once I notice that file-system commands, such as &lt;code&gt;ls&lt;/code&gt;, cause sessions to hang I become worrisome. I do a reboot hoping that solves the problem. 10 minutes pass. The server does not start.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creating dynamic task scheduler on AppEngine</title>
+      <link>http://pisarenko.net/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/</link>
+      <pubDate>Tue, 03 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/</guid>
+      <description>&lt;img src=&#34;http://pisarenko.net/images/app-engine.png&#34; class=&#34;right&#34; /&gt;
+
+
+
+&lt;p&gt;I&amp;rsquo;ve been working on a simple hobby project. The goal is to build an Android application which, as it turns out, requires a backend. The most important task of the backend is to perform certain things at specified times in future.&lt;/p&gt;
+
+&lt;p&gt;In this post I will explain how I&amp;rsquo;ve designed a simple scheduler which relies on AppEngine cron, tasks and the datastore. We will make a new trivial AppEngine application that ties everything together. Although I normally prefer Python but I&amp;rsquo;ve chosen Java for this project. I guess that&amp;rsquo;s because I wanted some consistency with the Android counter-part that I&amp;rsquo;m also developing.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HTPC build I&#39;m proud of</title>
+      <link>http://pisarenko.net/blog/2013/09/01/htpc-build-i-slash-m-proud-of/</link>
+      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/09/01/htpc-build-i-slash-m-proud-of/</guid>
+      <description>&lt;p&gt;You may notice that I am somewhat obsessed with reducing the number of possessions in my life. This directly contradicts another, though negative, characteristic of mine - to get more gadgets and possessions.&lt;/p&gt;
+
+&lt;p&gt;Recently, I have had a lot of good progress on challenging the negative trait. Not only I&amp;rsquo;ve been more successful on overcoming the purchasing obsession but I&amp;rsquo;ve also found ways to enjoy more and get creative at reusing what I already have.&lt;/p&gt;
+
+&lt;p&gt;One of my recent projects was to combine several devices into one. I&amp;rsquo;ve got rid of Sony Playstation 3 and merged 2 computers together. Here&amp;rsquo;s the end-result:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pisarenko.net/images/htpc/2.jpg&#34;&gt;&lt;img src=&#34;http://pisarenko.net/images/htpc/2.jpg&#34; width=&#34;500&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Build an Android app using Google Cloud Endpoints and OAuth</title>
+      <link>http://pisarenko.net/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/</link>
+      <pubDate>Thu, 29 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/</guid>
+      <description>Recently I came up with an idea for a mobile application. To be honest, it&amp;rsquo;s more of an excuse to try my hand at writing Android applications and do something new. Since I had almost zero experience with Android I have started by reading the official Google guides and then doing some napkin grade designs of the application architecture.
+Immediately I have realized that app requires a back-end as some of the things cannot be reliably performed on the handset itself.</description>
+    </item>
+    
+    <item>
+      <title>Building a FreeNAS computer</title>
+      <link>http://pisarenko.net/blog/2013/08/28/impressions-from-freenas/</link>
+      <pubDate>Wed, 28 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/08/28/impressions-from-freenas/</guid>
+      <description>&lt;p&gt;I have always fancied the idea of having a dedicated storage system to keep personal data and backups. For the last 3 years I have been happily using an off-the-shelf solution - acer easyStore H340.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pisarenko.net/images/freenas/acer.jpg&#34;&gt;&lt;img src=&#34;http://pisarenko.net/images/freenas/acer.jpg&#34; class=&#34;right&#34; width=&#34;200&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.trustedreviews.com/Acer-easyStore-H340-2TB_Peripheral_review&#34;&gt;Acer H340&lt;/a&gt; has 4 hot-swappable SATA slots, occupies little space and looks well. The on-board Atom N230 CPU is not powerful but has low TDP (4W). I have replaced the stock fan with a quieter one and the stock PSU with a passive one to make the server quieter.&lt;/p&gt;
+
+&lt;p&gt;In terms of software I had installed gentoo Linux with tons of different packages: file-sharing through NFS/CIFS, DNS server, OpenVPN, Bittorrent sync, transmission-web, BackupPC, various proxies and even Pandora ripper! I&amp;rsquo;ve run a RAID5 on 3 disks using mdadm and used the 4th drive for backups.&lt;/p&gt;
+
+&lt;p&gt;But recently I&amp;rsquo;ve decided to switch to a custom-built solution:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pisarenko.net/images/freenas/7.jpg&#34;&gt;&lt;img src=&#34;http://pisarenko.net/images/freenas/7.jpg&#34; width=&#34;450&#34; /&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Replacing preview glass on Canon 500D</title>
+      <link>http://pisarenko.net/blog/2013/07/10/replacing-preview-glass-on-canon-500d/</link>
+      <pubDate>Wed, 10 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/07/10/replacing-preview-glass-on-canon-500d/</guid>
+      <description>&lt;p&gt;Material things break all the time - one slightly wrong move and your beloved possession is cracked, damaged or shattered. My camera is no exception. Another SLR has slipped from a hand of my friend and landed on the corner of the preview screen of my Canon 500D causing an ugly crack:&lt;/p&gt;
+
+&lt;img src=&#34;http://pisarenko.net/images/canonrepair/01.jpg&#34; /&gt;
+
+
+
+&lt;p&gt;Many folks like to buy new things whenever old ones break or pay a lot for repair. I prefer to fix as much as I can myself. It&amp;rsquo;s fun and very much in-line with the growing stoic inside of me.&lt;/p&gt;
+
+&lt;p&gt;Is it possible to fix this problem yourself?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Introducing photofs: FUSE file-system for browsing photos</title>
+      <link>http://pisarenko.net/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos/</link>
+      <pubDate>Sun, 02 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos/</guid>
+      <description>&lt;p&gt;With yeach passing year the number of photos in my collection is growing. The trend only hockey-sticked once I got my own camera. I&amp;rsquo;ve tried various programs to organize and browse photos. I recall using or trying ACDSee, digiKam, Adobe Bridge, IrfanView, F-Spot, Shotwell and possibly others that I don&amp;rsquo;t recall.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Introducing qeytaks: trivial photo tag editor</title>
+      <link>http://pisarenko.net/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/</link>
+      <pubDate>Sun, 02 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/</guid>
+      <description>&lt;p&gt;In the previous post I have introduced &lt;strong&gt;photofs&lt;/strong&gt; - a tool I have written for myself that universally solves my photo management problems.&lt;/p&gt;
+
+&lt;p&gt;With &lt;strong&gt;photofs&lt;/strong&gt; I can easily locate photos by albums, tags, dates. But how would I add the tags in the first place? I use Adobe Lightroom and absolutely love it! I don&amp;rsquo;t use it to manage photos. Lightroom is a gateway from the camera to my collection. Once I&amp;rsquo;m done processing photos Lightroom kisses them goodbye.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>fruitcoins.com: on complexity and solutions to wrong problems</title>
+      <link>http://pisarenko.net/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/</link>
+      <pubDate>Sun, 02 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/</guid>
+      <description>&lt;p&gt;About two years ago I had very little experience in programming in Python. I&amp;rsquo;ve heard of Django and felt excited how flexible it is and how complicated web applications can be elegantly written.&lt;/p&gt;
+
+&lt;p&gt;Tracking expenses has always been important for me. At the time I&amp;rsquo;ve relied on KMyMoney program. Frankly, I did not (and still don&amp;rsquo;t) like any such programs. They&amp;rsquo;re either clunky and look like Windows 95 or too complicated or too inefficient. I&amp;rsquo;ve decided to write my own web application in Python using the Django framework.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

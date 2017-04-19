@@ -1,4 +1,0 @@
-net-wireless/wpa_supplicant ap
-net-wireless/hostapd madwifi
-net-dns/bind dlz
-dev-libs/openssl -bindist

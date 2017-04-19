@@ -1,126 +1,197 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Internet-connected motorcycle project, Part 1 - Sergey Pisarenko</title>
-  <meta name="author" content="Sergey Pisarenko">
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  
-  <meta name="description" content="Since autumn 2016 I&rsquo;m working at an IoT company &mdash; we build Internet-connected home automation devices. Last week we had an internal &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://drseergio.github.io/blog/2017/04/16/internet-connected-motorcycle-project">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Sergey Pisarenko" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-45212877-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+  <title>Internet-connected motorcycle project, Part 1</title>
+  <meta property="og:title" content="Internet-connected motorcycle project, Part 1" />
+  <meta name="twitter:title" content="Internet-connected motorcycle project, Part 1" />
+  <meta name="description" content="
 
 
+
+Since autumn 2016 I&rsquo;m working at an IoT company &ndash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!
+
+">
+  <meta property="og:description" content="
+
+
+
+Since autumn 2016 I&rsquo;m working at an IoT company &ndash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!
+
+">
+  <meta name="twitter:description" content="
+
+
+
+Since autumn 2016 I&rsquo;m working at an IoT company &ndash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was …">
+  <meta name="author" content="Sergey Pisarenko"/>
+  <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sergey Pisarenko" />
+
+  <meta name="generator" content="Hugo 0.20.2" />
+  <link rel="canonical" href="http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/" />
+  <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://pisarenko.net/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/highlight.min.css" />
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Sergey Pisarenko</a></h1>
-  
-    <h2>personal home page</h2>
-  
-</hgroup>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://pisarenko.net/">Sergey Pisarenko</a>
+    </div>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:drseergio.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/categories/ai/">Data Science</a></li>
-  <li><a href="/blog/categories/training/">Training</a></li>
-  <li><a href="/blog/categories/outdoor/">Outdoor</a></li>
-  <li><a href="http://www.flickr.com/photos/68217075@N08/">Photo gallery</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="All" href="/">All</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Pro</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/pro">Posts </a>
+                
+                  <a href="https://github.com/pisarenko-net">Github</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Personal</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/personal">Posts</a>
+                
+                  <a href="http://www.flickr.com/photos/68217075@N08/">Photos</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Archives" href="/post">Archives</a>
+            </li>
+          
+        
 
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Sergey Pisarenko" href="http://pisarenko.net/">
+            <img class="avatar-img" src="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" alt="Sergey Pisarenko" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
+
+
+
+
+    
   
-  <header>
-    
-      <h1 class="entry-title">Internet-connected motorcycle project, Part 1</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
+  
+  
 
 
 
 
   
 
-
-<time datetime="2017-04-16T17:44:00+02:00" pubdate data-updated="true">Apr 16<span>th</span>, 2017</time>
-        
-      </p>
+  <header class="header-section ">
     
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Internet-connected motorcycle project, Part 1</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on April 16, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
 
-<div class="entry-content"><p><a href="/images/vitpilen.jpg"><img src="/images/vitpilen.jpg" width="500"></a></p>
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><a href="/images/vitpilen.jpg"><img src="/images/vitpilen.jpg" width="500" />
 
-<p>Since autumn 2016 I&rsquo;m working at an IoT company &mdash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!</p>
+</a></p>
+
+<p>Since autumn 2016 I&rsquo;m working at an IoT company &ndash; we build Internet-connected home automation devices. Last week we had an internal hackathon to try something new. Essentially, it was a chance to work outside of the comfort zone and try out new APIs and hardware in the vast world of IoT. At first I was struggling to come up with an idea. Some ideas seemed trivial, others unrealistic. Finally, I brainstormed over available hardware and my surroundings and decided to make my KTM Duke 390 motorcycle join the IoT party!</p>
+
+<p></p>
 
 <p>In a series of 3 posts I will give an overview of the project and the top level design, <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">share the reverse engineering process of connecting to the Dynojet&rsquo;s Power Commander 5 fuel injection adjustment unit</a> and <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">belatedly admire the maturity and functionality of Amazon Web Services</a>. Without further ado I&rsquo;m going to introduce the actual project.</p>
 
 <p><a href="https://github.com/pisarenko-net/pcv-streamer">The project source code is available at github. You&rsquo;re welcome.</a></p>
 
-<h2>Project and goals</h2>
+<h2 id="project-and-goals">Project and goals</h2>
 
 <p>Of the things I own and use everyday KTM Duke 390 is in a league of its own. <a href="/blog/2016/07/23/farewell-bmw-f800gs-adventure/">As I previously written</a>, I don&rsquo;t like riding and owning motorcycles that much. This KTM is different. I purchased it for a practical reason. It effectively cuts my commute to about 50 minutes per day (from about 2 hours if taking public transport). It&rsquo;s cheap to buy and own, light (&lt;150kg), sufficiently powerful, maneuverable and subjectively aesthetically pleasing.</p>
 
-<p><a href="https://www.flickr.com/photos/tentaclephotos/34074232195"><img src="https://c2.staticflickr.com/4/3927/34074232195_7e8d699d84_c.jpg" width="800"></a></p>
+<p><a href="https://www.flickr.com/photos/tentaclephotos/34074232195"><img src="https://c2.staticflickr.com/4/3927/34074232195_7e8d699d84_c.jpg" width="800" />
+
+</a></p>
 
 <p>What does it actually mean to connect a motorbike to the Internet? I defined it as tapping into the data that the bike&rsquo;s engine provides, such as RPMs and how much throttle is currently given by the rider (1-100%), and sending that data to online services. The data could be used to analyze bike performance on a race circuit so that the engine could be later tuned. Since the major intent with the project was learning I also wanted to try out a couple of Amazon services, such as <a href="https://aws.amazon.com/iot-platform/how-it-works/">Amazon IoT</a> and serverless <a href="https://aws.amazon.com/lambda/">Lambda functions</a>.</p>
 
@@ -128,216 +199,167 @@
 
 <p>I limited the scope to RPMs and throttle values only. I also didn&rsquo;t want to spend time writing server side code and setting up web services and infrastructure even though that&rsquo;s not terribly difficult. The point of the project was not to exercise skills building CRUD applications and configuring standard services like message queues. I get enough of that during my day job. Instead, I chose to combine a couple of serverless Amazon services to hack something together. The cost was also important. I used a free tier and wanted to spend exactly 0$ on this.</p>
 
-<h2>Hardware</h2>
+<h2 id="hardware">Hardware</h2>
 
 <p>I was mostly guided by what&rsquo;s available. We had a bunch of Raspberry Pi 3 boards available. That was a nobrainer. These are staples of DIYers and makers. Raspberry Pi 3 needs no introduction. It&rsquo;s just a small x86 computer. It can do anything a regular computer can do. Hence, the entry barrier is nonexistent. I have set it up in 20 minutes.</p>
 
-<p><a href="/images/raspberrypi3.jpg"><img src="/images/raspberrypi3.jpg" width="500"></a></p>
+<p><a href="/images/raspberrypi3.jpg"><img src="/images/raspberrypi3.jpg" width="500" />
 
-<p>After the setup I had a complete Linux computer available to me, complete with SSH, Linux kernel (and, by extension, its wide device support) and standard environment. I also didn&rsquo;t need to learn a new programming language &mdash; I could program in virtually any language I wanted.</p>
+</a></p>
+
+<p>After the setup I had a complete Linux computer available to me, complete with SSH, Linux kernel (and, by extension, its wide device support) and standard environment. I also didn&rsquo;t need to learn a new programming language &ndash; I could program in virtually any language I wanted.</p>
 
 <p>Raspberry Pi 3 can be powered from a USB port. As an owner of a 10,000mah USB energy bank I couldn&rsquo;t be happier. That meant the Raspberry Pi 3 is essentially a battery powered device!</p>
 
-<p><a href="/images/powerbank.jpg"><img src="/images/powerbank.jpg" width="500"></a></p>
+<p><a href="/images/powerbank.jpg"><img src="/images/powerbank.jpg" width="500" />
+
+</a></p>
 
 <p>The other hardware component is more unusual. As I mentioned above, my bike has a mini USB port. But not every motorcycle has one. Last year I had installed a device from Dynojet called Power Commander 5 (PCV, for short). It is a third-party module that intercepts communication on the ECU and makes adjustments according to a predefined configuration. Typically PCV is used for performance reasons. I personally installed it to improve engine smoothness over low RPMs (during commutes). PCV is available for many bike models. The microprocessor is the same but the wiring harnesses that tap into ECUs differ for each bike model.</p>
 
-<p><a href="/images/pcv.png"><img src="/images/pcv.png" width="500"></a></p>
+<p><a href="/images/pcv.png"><img src="/images/pcv.png" width="500" />
+
+</a></p>
 
 <p>The PCV is a proprietary closed-source device. It is equipped with a micro USB port and communicates with a piece of software for Windows that lets users upload custom engine configurations and fine-tune parameters. Apart from the genuinely useful features, the software also shows real-time figures, like the RPMs and throttle values that I was after. Since the Windows tool can somehow read data from the PCV I correctly assumed it must be possible to somehow extract the data on Linux.</p>
 
-<p>Because PCV is a proprietary device there is no developer documentation or anything such as a public APIs available. That meant that I had to reverse engineer the protocol and understand how it works. There was absolutely zero information about it on the Internet. Apparently, nobody was really interested in it. Can&rsquo;t say I&rsquo;m surprised &mdash; there are many other useful things to do. In any case, the reverse engineering aspect of the project was the largest risk. I wasn&rsquo;t sure at all. The device could have had some kind of obfuscation or even packet encryption. I was also lucky along the way. I cover the reverse engineering process in part 2. All in all, reverse engineering took about 80% of the whole project time.</p>
+<p>Because PCV is a proprietary device there is no developer documentation or anything such as a public APIs available. That meant that I had to reverse engineer the protocol and understand how it works. There was absolutely zero information about it on the Internet. Apparently, nobody was really interested in it. Can&rsquo;t say I&rsquo;m surprised &ndash; there are many other useful things to do. In any case, the reverse engineering aspect of the project was the largest risk. I wasn&rsquo;t sure at all. The device could have had some kind of obfuscation or even packet encryption. I was also lucky along the way. I cover the reverse engineering process in part 2. All in all, reverse engineering took about 80% of the whole project time.</p>
 
-<h2>Software architecture and constraints</h2>
+<h2 id="software-architecture-and-constraints">Software architecture and constraints</h2>
 
 <p>The project being a hackathon the biggest constraint was time or the lack of it. I had 4 days to complete the project but I also had to take care of an occasional issue in our live system. Due to ongoing commitments I limited my engagement to regular working hours. For that reason I chose not to spend much time on familiar but time-consuming aspects, such as backend development. I didn&rsquo;t design the system to be efficient or scalable or useful. In fact, the choice of the server-side system was in the end not that great. I also settled on a familiar programming environment, namely Java.</p>
 
 <p>Java is installed by default in Raspbian, the Linux flavor Raspberry Pi 3 comes with it. I had to install JDK 8, though. Raspbian comes with version 7. I verified that Java has a good library for USB communication (<a href="http://usb4java.org/quickstart/javax-usb.html">usb4java</a>) and that I could easily interact with Amazon IoT. I carried out most of the development and debugging on an OSX host with IntelliJ IDEA. I couldn&rsquo;t get OSX to work with the PCV device without getting into low level OSX programming so in the later phases I mostly ran code from the Raspberry Pi.</p>
 
-<p><a href="https://www.flickr.com/photos/tentaclephotos/33236540854"><img src="https://c1.staticflickr.com/3/2885/33236540854_4a43119fe8_z.jpg" width="800"></a></p>
+<p><a href="https://www.flickr.com/photos/tentaclephotos/33236540854"><img src="https://c1.staticflickr.com/3/2885/33236540854_4a43119fe8_z.jpg" width="800" />
+
+</a></p>
 
 <p>The architecture of the system is very simple. The client program connects to the PCV device and to the Internet. It then streams data in real-time to the Amazon Web Services (to be explained in part 3). The only constraint was that the tool should be resilient to Internet and PCV device disconnects. The server side should accept the stream of data from the client, persist it and visualize it. Connectivity to the Internet would be provided by an Android phone through a hotspot feature.</p>
 
-<h2>Challenges and future prospects</h2>
+<h2 id="challenges-and-future-prospects">Challenges and future prospects</h2>
 
 <p>I completed the project. As I stood outside and listened to the roar of the engine, the Raspberry Pi 3 communicated with the PCV and streamed the data through MQTT protocol to Amazon IoT. Some magic trickery (not really) in Amazon services then transformed the messages into metrics that were exposed through the AWS management console. It worked!</p>
 
-<p><a href="https://www.flickr.com/photos/tentaclephotos/33267251433"><img src="https://c1.staticflickr.com/3/2938/33267251433_1f180b5215_c.jpg" width="800"></a></p>
+<p><a href="https://www.flickr.com/photos/tentaclephotos/33267251433"><img src="https://c1.staticflickr.com/3/2938/33267251433_1f180b5215_c.jpg" width="800" />
 
-<p>I have spent most of the project time on reverse engineering. And I liked it. It was a like a rewarding puzzle. I almost gave up several times but miraculously got enough breakthroughs to persevere. I imagine that my progress in reverse engineering Power Commander 5 interface is potentially the most reusable part of the project so please help yourself and do something with it if you want &mdash; <a href="https://github.com/pisarenko-net/pcv-streamer">the code is published on github</a>. I will share how I analyzed the PCV devices and learned its wire protocol in the next part.</p>
+</a></p>
+
+<p>I have spent most of the project time on reverse engineering. And I liked it. It was a like a rewarding puzzle. I almost gave up several times but miraculously got enough breakthroughs to persevere. I imagine that my progress in reverse engineering Power Commander 5 interface is potentially the most reusable part of the project so please help yourself and do something with it if you want &ndash; <a href="https://github.com/pisarenko-net/pcv-streamer">the code is published on github</a>. I will share how I analyzed the PCV devices and learned its wire protocol in the next part.</p>
 
 <p>The final result is crude but it&rsquo;s a 0.0.1 version. I imagine this could be used to write a complete Linux software for the PCV device. An even more ambitious goal is to make a cloud-based system that uploads engine configurations on the fly and tunes parameters on the go. <a href="https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/">I&rsquo;m not sure I&rsquo;d like that on my bike though&hellip;</a></p>
 
 <p>&hellip;to be continued with the juicy reverse engineering bits (pun intended) <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">in part 2</a>.</p>
-</div>
+      </article>
 
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://pisarenko.net/blog/2017/02/03/madrid-marathon-2017/" data-toggle="tooltip" data-placement="top" title="Madrid Marathon 2017">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-2/" data-toggle="tooltip" data-placement="top" title="Internet-connected motorcycle project, Part 2">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
 
-  <footer>
-    <p class="meta">
       
-  
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'drseergio';
+    var disqus_identifier = 'http:\/\/pisarenko.net\/blog\/2017\/04\/16\/internet-connected-motorcycle-project\/';
+    var disqus_title = 'Internet-connected motorcycle project, Part 1';
+    var disqus_url = 'http:\/\/pisarenko.net\/blog\/2017\/04\/16\/internet-connected-motorcycle-project\/';
 
-<span class="byline author vcard">Posted by <span class="fn">Sergey Pisarenko</span></span>
-
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
       
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2017-04-16T17:44:00+02:00" pubdate data-updated="true">Apr 16<span>th</span>, 2017</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/diy/'>diy</a>, <a class='category' href='/blog/categories/pro/'>pro</a>, <a class='category' href='/blog/categories/tech/'>tech</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2017/02/03/madrid-marathon-2017/" title="Previous Post: Madrid Marathon 2017">&laquo; Madrid Marathon 2017</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/" title="Next Post: Internet-connected motorcycle project, Part 2">Internet-connected motorcycle project, Part 2 &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-3/">Internet-connected motorcycle project part 3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/04/17/internet-connected-motorcycle-project-part-2/">Internet-connected motorcycle project, Part 2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/04/16/internet-connected-motorcycle-project/">Internet-connected motorcycle project, Part 1</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/02/03/madrid-marathon-2017/">Madrid Marathon 2017</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/03/photo-report-from-first-to-bussalp/">Photo report - From First to Bussalp</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/02/the-many-faces-of-my-consumerism-addiction/">The many faces of my consumerism addiction</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/23/farewell-bmw-f800gs-adventure/">Farewell, BMW F800GS Adventure!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/20/photo-report-silent-nanztal-valley-crossing/">Photo report - Silent Nanztal Valley Crossing</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/19/cube-cross-disc-mk3/">Cube Cross Disc Mk3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/07/16/first-4000m-climb/">First 4000m climb</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section class="googleplus googleplus-hidden">
-  <h1>
-    <a href="https://plus.google.com/+SergeyBelkin?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2017 - Sergey Pisarenko -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+</div>
 
-</footer>
-  
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/pisarenko-net" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://pisarenko.net/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Sergey Pisarenko
+          &nbsp;&bull;&nbsp;
+          2017
 
-<script type="text/javascript">
-      var disqus_shortname = 'drseergio';
-      
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://pisarenko.net/">Sergey Pisarenko</a>
+          
+        </p>
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://drseergio.github.io/blog/2017/04/16/internet-connected-motorcycle-project/';
-        var disqus_url = 'http://drseergio.github.io/blog/2017/04/16/internet-connected-motorcycle-project/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+        <p class="credits theme-by text-muted">
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://pisarenko.net/js/main.js"></script>
+<script src="http://pisarenko.net/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45212877-1', 'auto');
+ga('send', 'pageview');
 </script>
 
 
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>
+

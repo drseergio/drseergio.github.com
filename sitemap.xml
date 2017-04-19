@@ -1,467 +1,496 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/07/10/replacing-preview-glass-on-canon-500d/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/08/28/impressions-from-freenas/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/09/01/htpc-build-i-slash-m-proud-of/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/09/08/my-lucky-night-with-freenas-failure/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/10/21/why-write-at-all/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/10/21/5-sold-gadgets-later-or-welcome-back-to-microsoft-windows/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/10/27/photo-report-climbing-up-via-ferrata-in-pinut/
-        </loc>
-        <lastmod>2016-07-19T20:10:22+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/10/27/the-photo-curse/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/10/30/investment-portfolio-update-october-2013/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/10/31/photo-report-halloween-special/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/11/03/photo-report-climbing-up-via-ferrata-feurenwand/
-        </loc>
-        <lastmod>2016-07-19T20:10:01+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/11/21/photo-report-snowshoeing-in-arosa/</loc>
-        <lastmod>2016-07-19T20:09:48+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/11/25/doing-it-my-way/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/11/26/feeding-brains/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/11/27/enigmatic-encounter/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/11/30/investment-portfolio-update-november-2013/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2013/12/14/photo-report-snowshoeing-in-braunwald/
-        </loc>
-        <lastmod>2016-07-19T20:09:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/12/14/matt-and-jessica/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/12/14/updated-news-sources/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2013/12/25/on-goals-and-purpose/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/01/02/investment-portfolio-update-december-2013/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/01/02/photo-report-snowshoeing-in-leukerbad/
-        </loc>
-        <lastmod>2016-07-19T20:09:17+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/01/02/6-months-on-a-bike/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/01/07/dilbert-cartoonist-on-goals/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/02/02/investment-portfolio-update-january-2014/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/02/02/photo-report-essential-seattle/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/02/02/photo-report-intentionality/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/02/07/coffee-is-not-my-friend/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/02/07/sinister-camper/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/03/01/investment-portfolio-update-february-2014/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/03/31/investment-portfolio-update-march-2014/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/04/03/cyclo-cross-bicycle-build-part-1/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/04/07/coffee-experiment-2-months-later/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/04/13/cyclo-cross-bicycle-build-part-2/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/04/13/my-first-solder-job/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/04/30/investment-portfolio-update-april-2014/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/05/25/bmw-enduro-park-hechlingen/</loc>
-        <lastmod>2016-07-19T20:06:16+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/05/26/cyclo-cross-bicycle-build-part-3/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/05/29/to-the-north/</loc>
-        <lastmod>2016-07-19T20:06:30+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/07/01/investment-portfolio-update-june-2014/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/12/03/what-i-learned-from-a-10-day-bicycle-tour/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2014/12/06/and-so-it-begins-dot-dot-dot/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/12/06/investment-portfolio-update-november-2014/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2014/12/15/what-i-learned-from-a-10-day-bicycle-tour/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/01/02/investment-portfolio-update-december-2014/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/01/25/motorcycle-adventure-in-norway/</loc>
-        <lastmod>2016-07-19T20:06:41+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/02/01/investment-portfolio-update-january-2015/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/03/03/the-problems-i-dont-have/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/03/03/investment-portfolio-update-february-2015/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/04/05/credit-card-tour-of-italian-slash-swiss-lakes/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/04/05/how-to-order-dell-xps-13-with-us-keyboard-in-europe/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/04/22/centovalli-bike-ride/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/05/24/longest-non-stop-hike-in-my-life/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/06/04/zug-to-ziegelbrucke-ride/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/06/11/twenty-first-century-ride/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/06/16/why-i-have-quit-an-awesome-job/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/06/18/startlit-silk-factory/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/06/23/across-the-switzerland-in-one-day/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/06/26/longest-non-stop-bicycle-ride-in-my-life/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/07/03/photo-report-summer-walk-in-flumserberg/
-        </loc>
-        <lastmod>2016-07-19T20:08:48+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/07/03/photo-report-walk-along-the-mont-blanc-massif/
-        </loc>
-        <lastmod>2016-07-19T20:08:37+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/07/03/going-to-a-first-alpine-tour/</loc>
-        <lastmod>2016-07-19T20:09:00+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/07/10/mountaineering-in-valais/</loc>
-        <lastmod>2016-07-19T20:08:26+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/07/25/across-france-on-a-bicycle/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2015/08/07/trip-report-from-bicycle-tour-across-france/
-        </loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/09/03/salsa-fargo-rohloff/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/10/31/goals/</loc>
-        <lastmod>2017-02-03T17:48:11+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/11/05/the-wonderful-way-of-carabike/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/12/14/a-long-new-journey-ahead/</loc>
-        <lastmod>2017-02-03T17:48:24+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2015/12/19/bike-fitting-basics-for-triathlon/</loc>
-        <lastmod>2017-02-03T17:47:13+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/05/27/rigimarsch-2016/</loc>
-        <lastmod>2016-05-27T22:04:28+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/05/28/indoor-cycling-lab/</loc>
-        <lastmod>2017-02-03T17:47:57+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/05/30/samaria-gorge-hike/</loc>
-        <lastmod>2016-05-30T22:53:52+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/06/12/the-kata-of-code/</loc>
-        <lastmod>2016-07-08T18:56:07+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/06/23/triathlon-progress-update/</loc>
-        <lastmod>2017-02-03T17:47:42+01:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/
-        </loc>
-        <lastmod>2016-07-08T19:02:36+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/07/16/first-4000m-climb/</loc>
-        <lastmod>2016-07-16T12:01:13+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/07/19/cube-cross-disc-mk3/</loc>
-        <lastmod>2016-07-20T10:10:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2016/07/20/photo-report-silent-nanztal-valley-crossing/
-        </loc>
-        <lastmod>2016-07-20T21:25:06+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/07/23/farewell-bmw-f800gs-adventure/</loc>
-        <lastmod>2016-07-23T22:14:03+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2016/08/02/the-many-faces-of-my-consumerism-addiction/
-        </loc>
-        <lastmod>2016-08-02T20:01:44+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2016/08/03/photo-report-from-first-to-bussalp/</loc>
-        <lastmod>2016-08-03T22:01:39+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/2017/02/03/madrid-marathon-2017/</loc>
-        <lastmod>2017-02-03T19:11:53+01:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2017/04/16/internet-connected-motorcycle-project/
-        </loc>
-        <lastmod>2017-04-17T12:38:17+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-2/
-        </loc>
-        <lastmod>2017-04-17T12:38:55+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://drseergio.github.io/blog/2017/04/17/internet-connected-motorcycle-project-part-3/
-        </loc>
-        <lastmod>2017-04-17T14:09:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/about/</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/blog/archives/</loc>
-        <lastmod>2017-04-17T14:09:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/robots.txt</loc>
-        <lastmod>2016-05-27T19:47:40+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://drseergio.github.io/</loc>
-        <lastmod>2017-04-17T14:09:40+02:00</lastmod>
-    </url>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://pisarenko.net/about/</loc>
+    <lastmod>2017-04-17T20:37:33+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-3/</loc>
+    <lastmod>2017-04-17T14:09:34+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-2/</loc>
+    <lastmod>2017-04-17T10:09:34+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2017/04/16/internet-connected-motorcycle-project/</loc>
+    <lastmod>2017-04-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2017/02/03/madrid-marathon-2017/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/08/03/photo-report-from-first-to-bussalp/</loc>
+    <lastmod>2016-08-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/08/02/the-many-faces-of-my-consumerism-addiction/</loc>
+    <lastmod>2016-08-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/07/23/farewell-bmw-f800gs-adventure/</loc>
+    <lastmod>2016-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/07/20/photo-report-silent-nanztal-valley-crossing/</loc>
+    <lastmod>2016-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/07/19/cube-cross-disc-mk3/</loc>
+    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/07/16/first-4000m-climb/</loc>
+    <lastmod>2016-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/07/08/getting-better-at-solving-coding-interview-problems/</loc>
+    <lastmod>2016-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/06/23/triathlon-progress-update/</loc>
+    <lastmod>2016-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/06/12/the-kata-of-code/</loc>
+    <lastmod>2016-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/05/30/samaria-gorge-hike/</loc>
+    <lastmod>2016-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/05/28/indoor-cycling-lab/</loc>
+    <lastmod>2016-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2016/05/27/rigimarsch-2016/</loc>
+    <lastmod>2016-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/12/19/bike-fitting-basics-for-triathlon/</loc>
+    <lastmod>2015-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/12/14/a-long-new-journey-ahead/</loc>
+    <lastmod>2015-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/11/05/the-wonderful-way-of-carabike/</loc>
+    <lastmod>2015-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/10/31/goals/</loc>
+    <lastmod>2015-10-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/09/03/salsa-fargo-rohloff/</loc>
+    <lastmod>2015-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/08/07/trip-report-from-bicycle-tour-across-france/</loc>
+    <lastmod>2015-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/07/25/across-france-on-a-bicycle/</loc>
+    <lastmod>2015-07-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/07/10/mountaineering-in-valais/</loc>
+    <lastmod>2015-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/07/03/going-to-a-first-alpine-tour/</loc>
+    <lastmod>2015-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/07/03/photo-report-summer-walk-in-flumserberg/</loc>
+    <lastmod>2015-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/07/03/photo-report-walk-along-the-mont-blanc-massif/</loc>
+    <lastmod>2015-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/06/26/longest-non-stop-bicycle-ride-in-my-life/</loc>
+    <lastmod>2015-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/06/23/across-the-switzerland-in-one-day/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/06/18/startlit-silk-factory/</loc>
+    <lastmod>2015-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/06/16/why-i-have-quit-an-awesome-job/</loc>
+    <lastmod>2015-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/06/11/twenty-first-century-ride/</loc>
+    <lastmod>2015-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/06/04/zug-to-ziegelbrucke-ride/</loc>
+    <lastmod>2015-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/05/24/longest-non-stop-hike-in-my-life/</loc>
+    <lastmod>2015-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/</loc>
+    <lastmod>2015-05-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/04/22/centovalli-bike-ride/</loc>
+    <lastmod>2015-04-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/04/05/credit-card-tour-of-italian-slash-swiss-lakes/</loc>
+    <lastmod>2015-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/04/05/how-to-order-dell-xps-13-with-us-keyboard-in-europe/</loc>
+    <lastmod>2015-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/03/03/the-problems-i-dont-have/</loc>
+    <lastmod>2015-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/</loc>
+    <lastmod>2015-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2015/01/25/motorcycle-adventure-in-norway/</loc>
+    <lastmod>2015-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/12/15/what-i-learned-from-a-10-day-bicycle-tour/</loc>
+    <lastmod>2014-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/12/03/what-i-learned-from-a-10-day-bicycle-tour/</loc>
+    <lastmod>2014-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/05/29/to-the-north/</loc>
+    <lastmod>2014-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/05/26/cyclo-cross-bicycle-build-part-3/</loc>
+    <lastmod>2014-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/05/25/bmw-enduro-park-hechlingen/</loc>
+    <lastmod>2014-05-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/04/13/cyclo-cross-bicycle-build-part-2/</loc>
+    <lastmod>2014-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/04/13/my-first-solder-job/</loc>
+    <lastmod>2014-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/04/07/coffee-experiment-2-months-later/</loc>
+    <lastmod>2014-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/04/03/cyclo-cross-bicycle-build-part-1/</loc>
+    <lastmod>2014-04-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/02/07/sinister-camper/</loc>
+    <lastmod>2014-02-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/02/07/coffee-is-not-my-friend/</loc>
+    <lastmod>2014-02-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/02/02/photo-report-essential-seattle/</loc>
+    <lastmod>2014-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/02/02/photo-report-intentionality/</loc>
+    <lastmod>2014-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/01/07/dilbert-cartoonist-on-goals/</loc>
+    <lastmod>2014-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/01/02/6-months-on-a-bike/</loc>
+    <lastmod>2014-01-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/01/02/investment-portfolio-update-december-2013/</loc>
+    <lastmod>2014-01-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2014/01/02/photo-report-snowshoeing-in-leukerbad/</loc>
+    <lastmod>2014-01-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/12/25/on-goals-and-purpose/</loc>
+    <lastmod>2013-12-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/12/14/photo-report-snowshoeing-in-braunwald/</loc>
+    <lastmod>2013-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/12/14/updated-news-sources/</loc>
+    <lastmod>2013-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/11/30/investment-portfolio-update-november-2013/</loc>
+    <lastmod>2013-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/11/26/feeding-brains/</loc>
+    <lastmod>2013-11-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/11/25/doing-it-my-way/</loc>
+    <lastmod>2013-11-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/11/21/photo-report-snowshoeing-in-arosa/</loc>
+    <lastmod>2013-11-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/11/03/photo-report-climbing-up-via-ferrata-feurenwand/</loc>
+    <lastmod>2013-11-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/10/31/photo-report-halloween-special/</loc>
+    <lastmod>2013-10-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/10/30/investment-portfolio-update-october-2013/</loc>
+    <lastmod>2013-10-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/10/27/photo-report-climbing-up-via-ferrata-in-pinut/</loc>
+    <lastmod>2013-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/10/27/the-photo-curse/</loc>
+    <lastmod>2013-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/10/21/5-sold-gadgets-later-or-welcome-back-to-microsoft-windows/</loc>
+    <lastmod>2013-10-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/10/21/why-write-at-all/</loc>
+    <lastmod>2013-10-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/09/08/my-lucky-night-with-freenas-failure/</loc>
+    <lastmod>2013-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/</loc>
+    <lastmod>2013-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/09/01/htpc-build-i-slash-m-proud-of/</loc>
+    <lastmod>2013-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/08/29/build-an-android-app-using-google-cloud-endpoints-with-oauth/</loc>
+    <lastmod>2013-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/08/28/impressions-from-freenas/</loc>
+    <lastmod>2013-08-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/07/10/replacing-preview-glass-on-canon-500d/</loc>
+    <lastmod>2013-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/06/02/introducing-photofs-fuse-file-system-for-browsing-photos/</loc>
+    <lastmod>2013-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/06/02/introducing-qeytaks-trivial-photo-tag-editor/</loc>
+    <lastmod>2013-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/</loc>
+    <lastmod>2013-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/</loc>
+    <lastmod>2017-04-17T20:37:33+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/bicycle/</loc>
+    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/diy/</loc>
+    <lastmod>2017-04-17T14:09:34+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/investments/</loc>
+    <lastmod>2014-01-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/outdoor/</loc>
+    <lastmod>2016-08-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/categories/personal/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/photo/</loc>
+    <lastmod>2015-06-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/post/</loc>
+    <lastmod>2017-04-17T14:09:34+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/categories/pro/</loc>
+    <lastmod>2017-04-17T14:09:34+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/reflections/</loc>
+    <lastmod>2016-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/</loc>
+    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/tech/</loc>
+    <lastmod>2017-04-17T14:09:34+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/training/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
 </urlset>
