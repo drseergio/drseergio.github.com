@@ -1,0 +1,39 @@
+{{ define "header" }}
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              <h2>Blog Archive</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{{ end }}
+
+{{ define "main" }}
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="posts-list">
+        {{ range .Data.Pages.GroupByDate "2006" }}
+        <div class="archive-year">
+        <h3>{{ .Key }}</h3>
+        <ul>
+        {{ range .Pages }}
+        <li>
+        <div class="">{{ .Date.Format "Jan 2" }}</div>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+        </ul>
+        </div>
+        {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}

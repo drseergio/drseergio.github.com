@@ -1,0 +1,103 @@
+baseurl = "http://pisarenko.net"
+title = "Sergey Pisarenko"
+theme = "beautifulhugo"
+metaDataFormat = "yaml"
+DefaultContentLanguage = "en"
+pygmentsUseClasses = true
+pygmentCodeFences = true
+disqusShortname = "drseergio"
+googleAnalytics = "UA-45212877-1"
+paginate = 7
+
+[Params]
+  truncated = false
+  subtitle = "personal home page of Sergey Pisarenko"
+  logo = "images/sergey_pisarenko_logo.jpg"
+  favicon = "images/favicon.ico"
+  dateFormat = "January 2, 2006"
+  commit = false
+  rss = true
+  comments = true
+  #gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+
+#[[Params.bigimg]]
+#  src = "img/triangle.jpg"
+#  desc = "Triangle"
+#[[Params.bigimg]]
+#  src = "img/sphere.jpg"
+#  desc = "Sphere"
+#[[Params.bigimg]]
+#  src = "img/hexagon.jpg"
+#  desc = "Hexagon"
+
+[Permalinks]
+  post = "/blog/:year/:month/:day/:title/"
+
+[Author]
+  name = "Sergey Pisarenko"
+#  email = "youremail@domain.com"
+#  facebook = "username"
+#  googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
+  github = "pisarenko-net"
+#  twitter = "username"
+#  reddit = "username"
+#  linkedin = "username"
+#  xing = "username"
+#  stackoverflow = "users/XXXXXXX/username"
+#  snapchat = "username"
+#  instagram = "username"
+#  youtube = "user/username" # or channel/channelname
+#  soundcloud = "username"
+#  spotify = "username"
+#  bandcamp = "username"
+#  itchio = "username"
+
+[[menu.main]]
+  name = "All"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Pro"
+  identifier = "pro"
+  weight = 2
+
+[[menu.main]]
+  parent = "pro"
+  name = "Posts "
+  weight = 1
+  url = "/categories/pro"
+
+[[menu.main]]
+  parent = "pro"
+  name = "Github"
+  weight = 2
+  url = "https://github.com/pisarenko-net"
+
+[[menu.main]]
+  name = "Personal"
+  identifier = "personal"
+  url = "/categories/personal"
+  weight = 3
+
+[[menu.main]]
+  parent = "personal"
+  name = "Posts"
+  url = "/categories/personal"
+  weight = 1
+
+[[menu.main]]
+  parent = "personal"
+  name = "Photos"
+  url = "http://www.flickr.com/photos/68217075@N08/"
+  weight = 2
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 4
+
+[[menu.main]]
+  name = "Archives"
+  url = "/post"
+  weight = 6
