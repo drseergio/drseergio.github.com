@@ -5,10 +5,25 @@
     <link>http://pisarenko.net/categories/personal/</link>
     <description>Recent content in Personal on Sergey Pisarenko</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Apr 2017 17:53:55 +0200</lastBuildDate>
     
 	<atom:link href="http://pisarenko.net/categories/personal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Learning math</title>
+      <link>http://pisarenko.net/blog/2017/04/25/learning-math/</link>
+      <pubDate>Tue, 25 Apr 2017 17:53:55 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/04/25/learning-math/</guid>
+      <description>&lt;p&gt;$$
+\int_{1}^2 x^2\,e^{2x}cos(x)\,dx
+$$&lt;/p&gt;
+
+&lt;p&gt;If you asked me early last year what these symbols mean I would not have had a clue! For the past 6 months I was on a mission to improve my understanding of mathematics from that of a rusty high school level to at least college level. One could call it a &amp;ldquo;side project&amp;rdquo; as I was averaging about 8-20 hours per week on it. I&amp;rsquo;d like to share the approach I took, explain my reasons for doing it as well as uncover the challenges I faced along the journey. Of course, this journey towards knowledge never ends and is still ongoing!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Madrid Marathon 2017</title>

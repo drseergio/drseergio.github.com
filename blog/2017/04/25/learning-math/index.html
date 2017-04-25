@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Learning math</title>
+  <meta property="og:title" content="Learning math" />
+  <meta name="twitter:title" content="Learning math" />
+  <meta name="description" content="not because it&#39;s easy">
+  <meta property="og:description" content="not because it&#39;s easy">
+  <meta name="twitter:description" content="not because it&#39;s easy">
+  <meta name="author" content="Sergey Pisarenko"/>
+  <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="http://pisarenko.net/blog/2017/04/25/learning-math/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sergey Pisarenko" />
+
+  <meta name="generator" content="Hugo 0.20.2" />
+  <link rel="canonical" href="http://pisarenko.net/blog/2017/04/25/learning-math/" />
+  <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://pisarenko.net/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/highlight.min.css" />
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://pisarenko.net/">Sergey Pisarenko</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="All" href="/">All</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Pro</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/pro">Posts </a>
+                
+                  <a href="https://github.com/pisarenko-net">Github</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Personal</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/personal">Posts</a>
+                
+                  <a href="http://www.flickr.com/photos/68217075@N08/">Photos</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Archives" href="/post">Archives</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Sergey Pisarenko" href="http://pisarenko.net/">
+            <img class="avatar-img" src="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" alt="Sergey Pisarenko" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Learning math</h1>
+                
+                  
+                    <h2 class="post-subheading">not because it&#39;s easy</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on April 25, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>$$
+\int_{1}^2 x^2\,e^{2x}cos(x)\,dx
+$$</p>
+
+<p>If you asked me early last year what these symbols mean I would not have had a clue! For the past 6 months I was on a mission to improve my understanding of mathematics from that of a rusty high school level to at least college level. One could call it a &ldquo;side project&rdquo; as I was averaging about 8-20 hours per week on it. I&rsquo;d like to share the approach I took, explain my reasons for doing it as well as uncover the challenges I faced along the journey. Of course, this journey towards knowledge never ends and is still ongoing!</p>
+
+<p></p>
+
+<p>Last summer, as <a href="/blog/2016/06/12/the-kata-of-code/">I was meticulously preparing for software engineering interviews</a>, I stumbled into a few programming puzzles that relied on Probability Theory as a solution approach. I decided right then that I&rsquo;m not happy with superficial understanding of coin tossing that my knowledge of Probability Theory mostly consisted of. My background, however, was woefully inadequate to comprehend an introductory Probability Theory course. At a fourth lecture I couldn&rsquo;t follow the lecturer because I never studied Calculus. So I had to take another course before I could continue. One thing led to another and here I am: ~15 online courses (MOOCs) later!</p>
+
+<p>Why did I dedicate myself to learn mathematics? I think it&rsquo;s because I genuinely like to understand things. From the moment <a href="/blog/2015/06/16/why-i-have-quit-an-awesome-job/">I left a high paying but unfulfilling job</a> I wanted to do challenging and difficult software engineering work. And many challenging and difficult problems are intricately tied to mathematics. I have studied almost no mathematics since I left high school. The program I studied at University was driven by practice and applied projects. The approach has its merits but leaves students responsible to chart their own way into the hard sciences. What sort of difficult problems I&rsquo;m looking to solve? I find the current landscape of large scale data analysis highly appealing. At the same time I believe that it&rsquo;s not constructive without understanding of underlying theory. Learning a new tool is one thing but understanding everything conceptually is markedly different. Although learning through doing is often perfectly acceptable certain things cannot be easily looked-up in a moment&rsquo;s notice. For example, I can&rsquo;t imagine quickly grasping concepts from Calculus while trying to solve a difficult problem. A problem is already difficult in itself. Is it realistic to quickly look-up integral calculus like one would look-up APIs? It appears that certain fundamental concepts must be understood beforehand.</p>
+
+<p>There are many ways to go about learning. One could sign-up for a full program at a University or conversely learn from books alone. Instead, I chose to rely on semi-free online courses instead. Online courses have matured significantly during the last 5-7 years or so. I remember when <a href="https://coursera.org">Coursera</a> appeared for the first time. There were maybe at most 1-2 distinguished courses. Most courses were run poorly. It is a new media after all and both, students and teachers, still gather experience to figure out what&rsquo;s the effective way to teach and to learn. Right now, however, there are already excellent courses on many subjects from the world&rsquo;s best institutions, educators and presenters. The appeal of online courses is that one could benefit from the cream of the crop. I presume that in most Universities there are a couple of professors that are world-leading experts in their fields of study who also engagingly run their courses. Other courses, however, are average or below average. Those are run without passion and are a dread to everyone involved. Not every subject is currently represented by an amazing online course. In my search for curriculum I was driven as much by supply as by personal learning goals. It&rsquo;s not a deal breaker for me &ndash; there is so much to learn that by the time I go through the existing outstanding courses the gaps will be filled with new offerings.</p>
+
+<p>My search for courses was guided by a rough idea of what I wanted to achieve. Initially, that was to complete a Probability Theory course (a goal I still haven&rsquo;t quite completed). I gradually refined the plan by striving for a well-rounded background in mathematics for Software Engineering and Machine Learning. I recognized that I couldn&rsquo;t jump into Calculus straight away because my high-school algebra was a bit rusty. In the end, I went to review Algebra and Trigonometry before completing a &ldquo;Pre-Calculus&rdquo; course. It is humbling to honestly assess one&rsquo;s abilities and skills but progress is not attainable otherwise. It&rsquo;s better not to fool oneself. I am doing it for myself so I gain absolutely nothing by being dishonest or pretending to know more than I actually do. It feels amazing to progress from one concept to another when it all fits together. On the other hand, it is maddeningly discouraging and unsatisfying to listen to a lecture without the necessary background. It feels like trying to put together a jigsaw puzzle that had 70% of its pieces lost. Whenever such a feeling persists it is a sign to take a step back. Here&rsquo;s a list of courses and materials I have completed so far:</p>
+
+<p>2017</p>
+
+<ul>
+<li><a href="https://www.khanacademy.org/math/statistics-probability/probability-library">Khan Academy Probability</a></li>
+<li><a href="https://www.edx.org/course/linear-algebra-foundations-frontiers-utaustinx-ut-5-04x#!">Linear algebra</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of Linear Algebra</a></li>
+<li><a href="https://www.khanacademy.org/math/linear-algebra">Khan Academy Linear Algebra</a></li>
+</ul>
+
+<p>2016</p>
+
+<ul>
+<li><a href="https://www.coursera.org/learn/discrete-calculus">Calculus (3): Single Variable Part 5 - Discrete Calculus</a></li>
+<li><a href="https://www.coursera.org/learn/applications-calculus">Calculus (3): Single Variable Part 4 - Applications</a></li>
+<li><a href="https://www.coursera.org/learn/integration-calculus">Calculus (3): Single Variable Part 3 - Integration</a></li>
+<li><a href="https://www.coursera.org/learn/differentiation-calculus">Calculus (3): Single Variable Part 2 - Differentiation</a></li>
+<li><a href="https://www.coursera.org/learn/single-variable-calculus">Calculus (3): Single Variable Part 1 - Functions</a></li>
+<li><a href="https://www.coursera.org/learn/advanced-calculus">Calculus Two</a></li>
+<li><a href="https://www.coursera.org/learn/calculus1">Calculus One</a></li>
+<li><a href="https://www.khanacademy.org/math/calculus-home/integral-calculus">Khan Academy Integral Calculus</a></li>
+<li><a href="https://www.khanacademy.org/math/calculus-home/differential-calculus">Khan Academy Differential Calculus</a></li>
+<li><a href="https://www.edx.org/course/pre-university-calculus-delftx-calc001x-0">Pre-University Calculus</a></li>
+<li><a href="https://www.khanacademy.org/math/precalculus">Khan Academy Pre-Calculus</a></li>
+<li><a href="https://www.khanacademy.org/math/algebra2">Khan Academy Algebra II</a></li>
+<li><a href="https://www.khanacademy.org/math/algebra-home/algebra">Khan Academy Algebra I</a></li>
+<li><a href="https://www.coursera.org/learn/kombinatorika-dlya-nachinayushchikh/">Комбинаторика для начинающих</a></li>
+</ul>
+
+<p>I find Khan Academy a perfect starting point for many subjects. One could argue that such resources don&rsquo;t count as complete courses. Perhaps, but the whole point of self-directed learning is to learn and not to receive a credential or to complete an &ldquo;achievement&rdquo;. Though when a certificate is available within a course I always pay for one. I don&rsquo;t restrict myself to any particular platform. As a rule, most of the courses I take come from either <a href="https://www.edx.org/">edX</a> and <a href="https://www.coursera.org/">Coursera</a> platforms. I try to find the best courses by reading through online reviews and sometimes doing 1-2 week trials. Course presentation is important for me. For example, I don&rsquo;t consider recorded lectures at a white board to be well presented. I find practice and exercises equally important. I maintain a list of courses I would like to take in future. I revise the list regularly as I find new information on the course platforms and shift my learning priorities.</p>
+
+<p>The biggest struggle, surprisingly, comes not from the content itself. I personally don&rsquo;t find math courses that difficult when the prerequisites are sufficiently covered. New material builds upon the previous foundations (with an occasional refresher here and there). I feel the biggest struggle is psychological and I have noticed several distinct causes. Studying and understanding concepts of mathematics is a time consuming endeavor. Every step forward feels insignificant when viewed against the whole body of knowledge. Hence, progress feels extremely slow. And all that slow progress happens while others are already pushing frontiers of science and technology. It&rsquo;s hard not to compare oneself to others and to avoid the fear of missing out. But refusal to give in and perseverance are the only ways to grow. It doesn&rsquo;t matter what others are doing. Whenever I catch myself in these negative comparisons I think of where I was just few months ago. Being smarter today than yesterday is the only thing that matters.</p>
+
+<p>Mathematics is also vast. There are so many directions and branches one can dedicate his whole life on some subjects. It is an ongoing challenge to make the right call as to how deep to study each subject. With infinite time available it is certainly possible to complete every possible exercise and to read every published paper. But I am human being constrained by a full time job, family, sports and ambitions. I ultimately want to delve into the world of data analysis and machine learning and not publish math papers.</p>
+
+<p>Could one seek support and encouragement in others? Unfortunately, only in confines of close friendships could I find much needed support. Everywhere else I found discouragement, lack of understanding or, at best, harmless ignorance. I regularly meet folks whore are:</p>
+
+<ul>
+<li>completely disinterested and couldn&rsquo;t care less (&rdquo;<em>why do you waste your time when you could do X instead?</em>&rdquo;)</li>
+<li>too advanced (e.g. PhDs, post-docs) in their study and dismissive (pushing too soon &ndash; &ldquo;<em>are you already doing Y?</em>&rdquo;)</li>
+<li>those who have studied the same or similar subjects but already forgot it as something unnecessary and torturous (&rdquo;<em>I had it at University, couldn&rsquo;t understand a thing, so glad it&rsquo;s over</em>&rdquo;)</li>
+</ul>
+
+<p>What many can&rsquo;t understand is that any complicated skill takes time and it&rsquo;s not possible to cut corners. It takes discipline to hold the same direction and not get too enticed by possible shortcuts. At any given moment there are millions of alternatives available. It is difficult to keep studying and doing tiring exercises against the backdrop of exciting opportunities. But quit and start with a shiny new thing too soon and you will find yourself stuck because of lack of knowledge, more frustrated than ever before. I can see a certain benefit in being engulfed by a complete program at a University. The program shields students from tyranny of choice and lets them peacefully focus on whatever they are doing that moment, without a hint of prejudice or judgment.</p>
+
+<p>Fancy terms and words are another annoyance. It takes years to build up knowledge and expertise but it takes a few minutes to remember the most important words and pretend you know a thing. It feels extremely discouraging to dedicate months of work only later to see everyone else already ahead seemingly without putting any measurable effort into it. Just like with comparing oneself to others it shouldn&rsquo;t matter what others are saying as long as you&rsquo;re confident in your own work.</p>
+
+<p>Where do I stand right now? Well, I didn&rsquo;t complete a course on Probability yet that the whole saga started with. Most recently, I attempted a <a href="https://www.edx.org/course/introduction-probability-science-mitx-6-041x-2">fantastic Probability course from MIT on edX</a>. I failed it not because I&rsquo;m insufficiently prepared but because of schedule conflicts. I came to the course too late to catch up. Very soon I&rsquo;m starting <a href="https://www.coursera.org/specializations/statistics">a course on Statistics</a> which is going to be the last course for a while. I&rsquo;m finally getting to a point where I feel I&rsquo;m ready to get hands dirty with applied machine learning and data analysis subjects.</p>
+
+<p>For the most part, if you want to fill your gaps in math knowledge or start from scratch in any difficult skill the recipe is simple but hard: honestly assess your current level, make a list of courses and then complete them one by one. Care only about your own progress and ignore everyone else. In due time you&rsquo;ll be pleasantly surprised by how far you&rsquo;ve gone. I certainly am!</p>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-3/" data-toggle="tooltip" data-placement="top" title="Internet-connected motorcycle project, Part 3">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'drseergio';
+    var disqus_identifier = 'http:\/\/pisarenko.net\/blog\/2017\/04\/25\/learning-math\/';
+    var disqus_title = 'Learning math';
+    var disqus_url = 'http:\/\/pisarenko.net\/blog\/2017\/04\/25\/learning-math\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/pisarenko-net" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://pisarenko.net/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Sergey Pisarenko
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://pisarenko.net/">Sergey Pisarenko</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://pisarenko.net/js/main.js"></script>
+<script src="http://pisarenko.net/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45212877-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+
