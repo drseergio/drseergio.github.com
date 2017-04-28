@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Hugo static site generator</title>
+  <meta property="og:title" content="Hugo static site generator" />
+  <meta name="twitter:title" content="Hugo static site generator" />
+  <meta name="description" content="migrating from Octopress to Hugo">
+  <meta property="og:description" content="migrating from Octopress to Hugo">
+  <meta name="twitter:description" content="migrating from Octopress to Hugo">
+  <meta name="author" content="Sergey Pisarenko"/>
+  <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="http://pisarenko.net/blog/2017/04/28/hugo-static-site-generator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sergey Pisarenko" />
+
+  <meta name="generator" content="Hugo 0.20.2" />
+  <link rel="canonical" href="http://pisarenko.net/blog/2017/04/28/hugo-static-site-generator/" />
+  <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://pisarenko.net/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/highlight.min.css" />
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://pisarenko.net/">Sergey Pisarenko</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="All" href="/">All</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Pro</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/pro">Posts </a>
+                
+                  <a href="https://github.com/pisarenko-net">Github</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Personal</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/personal">Posts</a>
+                
+                  <a href="http://www.flickr.com/photos/68217075@N08/">Photos</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Archives" href="/post">Archives</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Sergey Pisarenko" href="http://pisarenko.net/">
+            <img class="avatar-img" src="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" alt="Sergey Pisarenko" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Hugo static site generator</h1>
+                
+                  
+                    <h2 class="post-subheading">migrating from Octopress to Hugo</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on April 28, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <img src="/images/hugo-logo.png" class="center noborder" />
+
+
+
+<p>I don&rsquo;t like talking about blog platforms. Usually, you find such posts on abandoned personal web pages. As a rule, such a post goes on to talk in length about the technical solution and the configuration. Unfortunately, the author then posts a couple of brief updates and disappears forever. In other words, posting about the blogging platform is a bad omen. I have restrained myself from discussing this blog&rsquo;s setup until now and I hope this won&rsquo;t ruin it.</p>
+
+<p>This blog is powered by a static site generator. I type content into plain text files and then a program generates a complete website with all the links, styles and pages. There is no admin console and no WYSIWYG editor. There is no database and no dynamic server-side environment. Last week I have migrated from one generator (<a href="http://octopress.org/">Octopress</a>) to another (<a href="https://gohugo.io/">Hugo</a>). In this post I&rsquo;d like to briefly share how I run this blog and how the migration went.</p>
+
+<p></p>
+
+<h2 id="benefits-of-a-static-generator">Benefits of a static generator</h2>
+
+<p>After a string of abandoned blogs I chose a static generator mostly for the ease of maintenance and for the pleasure of editing. It just works. A system that requires almost no maintenance leaves time for actual writing. A typical dynamic content management system requires a database, a server-side runtime and usually lots of plugins. All of these moving parts need to be regularly updated. Also, the interfaces between components are not simple and one regularly needs to dive into code to change a minor a thing. Scripts and stylesheets are also typically complex.</p>
+
+<p>There are many hosted blog portals, such as wordpress.com and blogpost, available. But the hosted platforms still suffer from complexity and at the same time are limited in customization. The most annoying problem though is the editing process. Most of the content management systems have awkward input fields and intrusive formatting. It&rsquo;s just not pleasant to type long articles into a small box in a browser. Also, most of the platforms won&rsquo;t work offline.</p>
+
+<p>Instead, I find typing articles in my favorite text editor (<a href="https://www.sublimetext.com/">Sublime</a>) using Markdown markup language vastly superior. I don&rsquo;t need to fiddle with plugins, dependencies, server maintenance, upgrades. Instead, to create a new page I just run one command <code>$ hugo new post/my-new-post.md</code> which then creates a file I can edit. When I&rsquo;m done editing I run <code>./deploy.sh</code> and the site is generated and published on the world wide web. Of course, I can preview the site locally on my computer and see the changes appear dynamically as I type.</p>
+
+<p>There are many site generators available and I have been using Octopress since 2013 but after a bit of hesitation I decided to migrate to Hugo.</p>
+
+<h2 id="reasons-to-migrate">Reasons to migrate</h2>
+
+<p>First and foremost, my switch from Octopress to Hugo hasn&rsquo;t been grounded in a chase for the next great thing. I couldn&rsquo;t easily modify the existing blog to introduce thematic sections that display complete articles (see <a href="/categories/pro">Pro</a> and <a href="/categories/personal">Personal</a>). Before trying to modify Octopress I looked around and found Hugo. Hugo had the functionality I wanted and the effort to migrate seemed smaller than trying to modify Octopress to suit my needs.</p>
+
+<p>In addition, Hugo presented a couple of significant advantages over Octopress. Namely:</p>
+
+<ul>
+<li>Hugo is built as a single binary that does everything. Octopress, on the other hand, requires a whole folder of Ruby scripts and various files. I never programmed in Ruby and I was getting concerned that at some point it may stop working and I won&rsquo;t have desire to fix it.</li>
+<li>I didn&rsquo;t like the fact that creating new Octopress environments wasn&rsquo;t easy. I&rsquo;ve mostly used the same Virtual Machine and hoped I won&rsquo;t need to create a new one. In contrast, installing Hugo is easy:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ apt-get install golang-go <span class="c1"># not necessary when running a prebuilt Hugo binary</span>
+$ dpkg -i hugo.deb
+$ apt-get install python-pip <span class="c1"># for syntax highlighting</span>
+$ pip install Pygments
+</code></pre></div>
+
+
+<ul>
+<li><a href="https://gohugo.io/overview/introduction/">Excellent documentation</a>.</li>
+<li>Simpler theme and template modifications.</li>
+<li>Immediate and reliable preview generation. I had to sometimes wait for minutes for Octopress to update the preview. That&rsquo;s painful when you would like an immediate feedback.</li>
+</ul>
+
+<p>Unlike others, I haven&rsquo;t praised that Hugo is written in Go. I really don&rsquo;t care what language is the generator written in as I have no intention of modifying it. I just want it to work reliably. For that reason I&rsquo;m glad Hugo is compiled to a binary that I can keep using even if fancier incompatible versions come out.</p>
+
+<p>Octopress has been a venerable tool and I&rsquo;ve enjoyed using it. At this point, however, I&rsquo;d be pressed to find a reason to keep using it or choose it over Hugo. Hugo is better. The only department Hugo lacks in is themes. It doesn&rsquo;t come with a good default blogging theme. There&rsquo;s a whole bunch of themes on the site but I&rsquo;d appreciate if there was a default official Hugo theme that looked decent and could be minimally customized (e.g. color).</p>
+
+<h2 id="migration">Migration</h2>
+
+<p>Both Hugo and Octopress use Markdown text files so migrating from one to another is a matter of slight modifications to the content pages. I imagine migrating from one hosted blogging platform to another is a nightmare. Each might use its own syntax, have weird export or import problems. The worst part is going through hundreds of pages and doing manual changes to make sure everything looks and works right. The benefit of simple text files is that they are amenable to powerful command line text editing utilities available in most modern operating systems, such as sed, grep, awk and their various combinations.</p>
+
+<p>There are a couple of blog posts on the Internet about migration from Octopress to Hugo. <a href="https://nathanleclaire.com/blog/2014/12/22/migrating-to-hugo-from-octopress/">https://nathanleclaire.com/blog/2014/12/22/migrating-to-hugo-from-octopress/</a> helped me to get started. Basically, I&rsquo;ve run into the same problems as the author. Also, the linked page is from late 2014 which speaks for Hugo&rsquo;s maturity.</p>
+
+<h3 id="basics">Basics</h3>
+
+<p>The folder structure of a Hugo site is not complicated.</p>
+
+<p><code>archetypes</code> contains skeletons for new pages. When you create a new post Hugo will insert a corresponding skeleton. For example, the front matter with the current date and necessary tags would be there.</p>
+
+<p><code>content</code> contains content of the blog. By default, <code>post</code> folder is treated specially as a folder with blog articles. If necessary, custom page types can be created.</p>
+
+<p><code>layouts</code> contains templates of how various content pages should be generated. I used this to create an &ldquo;Archives&rdquo; page (like in Octopress) to display a list of all blog entries.</p>
+
+<p><code>public</code> contains the complete generated site. After Hugo generates the site this folder can be copied to the web server.</p>
+
+<p><code>static</code> contains miscellaneous files that will be served from the site, for example stylesheets, JavaScript and images.</p>
+
+<p><code>themes</code> contains folders with themes. Each theme folder, in turn, contains a folder substructure that is similar to the parent Hugo folder.</p>
+
+<p>Configuration is stored in one file <code>config.toml</code>.</p>
+
+<p>As a first thing I copied all <code>*.markdown</code> files from my Octopress installation to the <code>content/post/</code> folder. Then, I changed file extensions to <code>*.md</code>:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ find . -name <span class="s2">&quot;*.markdown&quot;</span> -exec rename <span class="s1">&#39;s/.markdown$/.md/&#39;</span> <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
+
+
+<p>Then I removed <code>layout: post</code> line from all files (it causes problems in Hugo because it&rsquo;s likely used for something else):</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed --in-place <span class="s1">&#39;/layout: post/d&#39;</span> *md
+</code></pre></div>
+
+
+<p>The date format is different so that also needs to be changed:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>find -type f -exec sed -i <span class="s1">&#39;s/\([0-9]\+-[0-9]\+-[0-9]\+\).*$/&quot;\1&quot;/&#39;</span> <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
+
+
+<p>I intended to use few categories and a couple of tags. The way I used categories in Octopress maps to tags in Hugo so I changed all Octopress categories to tags:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;s/^categories: \(.*\)$/tags: [\1]/g&#39;</span> *.md
+</code></pre></div>
+
+
+<p>and inserted a default <code>personal</code> category into to each post:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;/^tags:/a categories: personal&#39;</span>  *.md
+</code></pre></div>
+
+
+<p>To change YouTube embed links I ran the following:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;s/{% \(youtube.*\) %}/\{\{&lt; \1 &gt;}}/g&#39;</span> *
+</code></pre></div>
+
+
+<p>I was pretty happy with the Octopress appearance so I initially tried the Octopress theme for Hugo. Unfortunately, there&rsquo;s something wrong with it. It doesn&rsquo;t render correctly and I sense that the look isn&rsquo;t clean anymore. I think whoever ported the theme made minor adjustments and it doesn&rsquo;t look right anymore.</p>
+
+<p>I won&rsquo;t pretend there weren&rsquo;t manual changes in the process. I figure it&rsquo;s quicker to do changes manually when there aren&rsquo;t that many occurrences rather than to come up with scripts. I&rsquo;ve spent most of the migration time on making sure that existing URLs remain unchanged and on the image tags. Since there isn&rsquo;t standard syntax for images in Markdown each static generator comes up with an own approach.</p>
+
+<h3 id="urls-and-permalinks">URLs and permalinks</h3>
+
+<p>Hugo generates URLs differently by default. It was a critical requirement to keep all existing links working. As a first measure it&rsquo;s necessary to configure Hugo so that it uses a specified link structure so I&rsquo;ve put the following in the configuration file:</p>
+
+<pre><code>[Permalinks]
+  post = &quot;/blog/:year/:month/:day/:title/&quot;
+</code></pre>
+
+<p>This partially solves the problem. However, Hugo treats punctuation differently. To make sure that URLs are completely consisted I downloaded the &ldquo;Archives&rdquo; page from my existing blog, extracted all URLs and then compared them to a similar list compiled from the new blog. Hugo allows individual pages to override their URL so I inserted static URLs into the front matter for all pages that differed in their URLs. A third of all pages required URL overrides.</p>
+
+<h3 id="archives-page">Archives page</h3>
+
+<p>Hugo doesn&rsquo;t come by default with a page that displays links to all posts. To create a page that lists all posts grouped by year (like Octopress does) I modified layout for the <code>post</code> page type. Basically, I modified how the &ldquo;list&rdquo; view is generated. This change doesn&rsquo;t interfere with &ldquo;home&rdquo; (that displays all blog articles) because &ldquo;home&rdquo; is treated as a separate view. By default &ldquo;list&rdquo; and &ldquo;home&rdquo; behave identically. Since &ldquo;home&rdquo; view was all I needed I didn&rsquo;t care about keeping the existing &ldquo;list&rdquo; view behavior.</p>
+
+<p><code>layouts/post/list.html</code>:</p>
+
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span></span><span class="p">{{</span> <span class="nx">define</span> <span class="s">&quot;header&quot;</span> <span class="p">}}</span>
+  <span class="p">&lt;</span><span class="nx">header</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;header-section &quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;intro-header no-img&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;page-heading&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nx">h2</span><span class="p">&gt;</span><span class="nx">Blog</span> <span class="nx">Archive</span><span class="p">&lt;</span><span class="o">/</span><span class="nx">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="o">/</span><span class="nx">header</span><span class="p">&gt;</span>
+<span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+
+<span class="p">{{</span> <span class="nx">define</span> <span class="s">&quot;main&quot;</span> <span class="p">}}</span>
+  <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;container&quot;</span> <span class="nx">role</span><span class="p">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;posts-list&quot;</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Data</span><span class="p">.</span><span class="nx">Pages</span><span class="p">.</span><span class="nx">GroupByDate</span> <span class="s">&quot;2006&quot;</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;archive-year&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">h3</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Key</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">h3</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">ul</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Pages</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="nx">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Date</span><span class="p">.</span><span class="nx">Format</span> <span class="s">&quot;Jan 2&quot;</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="p">=</span><span class="s">&quot;{{ .Permalink }}&quot;</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">li</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+<span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</code></pre></div>
+
+
+<h3 id="image-tags">Image tags</h3>
+
+<p>Octopress uses <code>{% img %}</code> tag to insert images. It&rsquo;s possible to set dimensions, alignment and a caption. Hugo doesn&rsquo;t have such functionality by default but creating a so-called &ldquo;shortcode&rdquo; is straightforward. Essentially, I created a new shortcode that looks similar. <code>layouts/shortcodes/img.html</code>:</p>
+
+<pre><code>&lt;img src=&quot;{{ .Get &quot;src&quot; }}&quot;
+{{ with .Get &quot;class&quot; }} class=&quot;{{.}}&quot;{{ end }}
+{{ with .Get &quot;width&quot;}} width=&quot;{{.}}&quot;{{ end }}
+{{ with .Get &quot;height&quot;}} height=&quot;{{.}}&quot;{{ end }} /&gt;
+{{ with .Get &quot;caption&quot;}}&lt;div class=&quot;caption&quot;&gt;{{.}}&lt;/div&gt;{{ end }}
+</code></pre>
+
+<p>To convert existing Octopress image tags I used sed. Unfortunately, I initially used a snippet from another blog and that had messed up the files because of a greedy regular expression. Now image tags look like (<code>%</code> is escaped with <code>\</code>):</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span>{{\% img class=&quot;center noborder&quot; src=&quot;/images/hugo-logo.png&quot; %}}
+</code></pre></div>
+
+
+<p>The end result is a bit more verbose than I would prefer but on the other hand it&rsquo;s clearer than positional argument image tag in Octopress. I was always forgetting the order in which the arguments are given.</p>
+
+<h2 id="current-setup">Current setup</h2>
+
+<p>I&rsquo;m satisfied with the end result. The new generator simplifies maintenance, improves editing process and all while retaining the existing content. To serve generated pages I use a free service that&rsquo;s available on GitHub. It&rsquo;s called <a href="https://pages.github.com/">GitHub pages</a>. It&rsquo;s configured with a custom domain.</p>
+
+<p>Files are stored in a GitHub repository. <code>master</code> branch contains files that are served on the Internet. <code>source</code> contains a folder with Hugo&rsquo;s files. I configure a local repository using git&rsquo;s workspace functionality. I clone the <code>source</code> branch and then I attach the <code>master</code> branch to the <code>public</code> subfolder. With this setup I don&rsquo;t need to switch between branches or keep two copies of the repository to modify source files and push generated site. All works from the same place.</p>
+
+<p>I wrote a couple of scripts that automate two recurring tasks.</p>
+
+<p><code>preview.sh</code> starts the Hugo&rsquo;s internal web server to serve a preview version of the site:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
+hugo server -b http://192.168.69.108 --bind <span class="m">0</span>.0.0.0 -p <span class="m">4000</span>
+</code></pre></div>
+
+
+<p><code>deploy.sh</code> generates a new version of the site and deploys it to GitHub pages:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
+rm -rf public/*
+hugo
+<span class="nb">cd</span> public
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&quot;Site updated at `date +&quot;</span>%Y-%m-%d %H:%M:%S %Z<span class="s2">&quot;`&quot;</span>
+git add .
+git commit -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MESSAGE</span><span class="si">}</span><span class="s2">&quot;</span>
+git push origin master
+<span class="nb">cd</span> ..
+</code></pre></div>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://pisarenko.net/blog/2017/04/25/learning-math/" data-toggle="tooltip" data-placement="top" title="Learning math">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'drseergio';
+    var disqus_identifier = 'http:\/\/pisarenko.net\/blog\/2017\/04\/28\/hugo-static-site-generator\/';
+    var disqus_title = 'Hugo static site generator';
+    var disqus_url = 'http:\/\/pisarenko.net\/blog\/2017\/04\/28\/hugo-static-site-generator\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/pisarenko-net" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://pisarenko.net/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Sergey Pisarenko
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://pisarenko.net/">Sergey Pisarenko</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://pisarenko.net/js/main.js"></script>
+<script src="http://pisarenko.net/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45212877-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+

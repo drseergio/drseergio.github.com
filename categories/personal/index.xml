@@ -5,10 +5,27 @@
     <link>http://pisarenko.net/categories/personal/</link>
     <description>Recent content in Personal on Sergey Pisarenko</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 25 Apr 2017 17:53:55 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 28 Apr 2017 21:00:05 +0200</lastBuildDate>
     
 	<atom:link href="http://pisarenko.net/categories/personal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo static site generator</title>
+      <link>http://pisarenko.net/blog/2017/04/28/hugo-static-site-generator/</link>
+      <pubDate>Fri, 28 Apr 2017 21:00:05 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/04/28/hugo-static-site-generator/</guid>
+      <description>&lt;img src=&#34;http://pisarenko.net/images/hugo-logo.png&#34; class=&#34;center noborder&#34; /&gt;
+
+
+
+&lt;p&gt;I don&amp;rsquo;t like talking about blog platforms. Usually, you find such posts on abandoned personal web pages. As a rule, such a post goes on to talk in length about the technical solution and the configuration. Unfortunately, the author then posts a couple of brief updates and disappears forever. In other words, posting about the blogging platform is a bad omen. I have restrained myself from discussing this blog&amp;rsquo;s setup until now and I hope this won&amp;rsquo;t ruin it.&lt;/p&gt;
+
+&lt;p&gt;This blog is powered by a static site generator. I type content into plain text files and then a program generates a complete website with all the links, styles and pages. There is no admin console and no WYSIWYG editor. There is no database and no dynamic server-side environment. Last week I have migrated from one generator (&lt;a href=&#34;http://octopress.org/&#34;&gt;Octopress&lt;/a&gt;) to another (&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;). In this post I&amp;rsquo;d like to briefly share how I run this blog and how the migration went.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Learning math</title>
