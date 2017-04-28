@@ -22,41 +22,41 @@ However, as I've already learned, the chosen method of study is critical. It's a
 
 As there are many more algorithms than the time available to me I had to optimize. It makes little sense to study the most esoteric and domain-specific algorithms for the purpose of preparing for software interviews. I made a survey of interview-related Q&As and websites and came up with the following initial list of algorithms and data structures (in no particular order):
 
-	* Stack/Queue (based on LinkedList)
-	* Selection Sort
-	* SeparateChainingHashST
-	* LSD/MSD sort (Radix)
-	* Graph/Digraph/WeightedGraph
-	* Edge/EdgeWeightedGraph
-	* DFS/BFS
-	* Binary Search
-	* Weighted Quick Union
-	* Insertion Sort
-	* Shell Sort
-	* DFSPaths/BFSPaths
-	* Cycle detection in undirected graph
-	* Connected Components with DFS in undirected graph
-	* Bipartite check in undirected graph (two color)
-	* Merge Sort
-	* Bottom-up Merge Sort
-	* Quicksort
-	* 3-way Quicksort
-	* CountSort
-	* Min/MaxPQ
-	* Heapsort
-	* BST
-	* Red-black BST
-	* LinearProbingHashST
-	* Cycle detection in directed graph
-	* DFS order and Topological sort
-	* Kosaraju-Sharir Strong Connected Components in directed graph
-	* Kruskal MST
-	* Prim MST
-	* Dijkstra SP
-	* Acyclic SP
-	* Bellman-Ford SP
-	* Knuth-Morris-Prath search
-	* Boyer-Moore search
+ * Stack/Queue (based on LinkedList)
+ * Selection Sort
+ * SeparateChainingHashST
+ * LSD/MSD sort (Radix)
+ * Graph/Digraph/WeightedGraph
+ * Edge/EdgeWeightedGraph
+ * DFS/BFS
+ * Binary Search
+ * Weighted Quick Union
+ * Insertion Sort
+ * Shell Sort
+ * DFSPaths/BFSPaths
+ * Cycle detection in undirected graph
+ * Connected Components with DFS in undirected graph
+ * Bipartite check in undirected graph (two color)
+ * Merge Sort
+ * Bottom-up Merge Sort
+ * Quicksort
+ * 3-way Quicksort
+ * CountSort
+ * Min/MaxPQ
+ * Heapsort
+ * BST
+ * Red-black BST
+ * LinearProbingHashST
+ * Cycle detection in directed graph
+ * DFS order and Topological sort
+ * Kosaraju-Sharir Strong Connected Components in directed graph
+ * Kruskal MST
+ * Prim MST
+ * Dijkstra SP
+ * Acyclic SP
+ * Bellman-Ford SP
+ * Knuth-Morris-Prath search
+ * Boyer-Moore search
 
 It is debatable if some of the algorithms in this list are already too complex for general software engineering interviews (knowledge of esoteric algorithms might be required for more senior or specialized roles). In fact, as practice went by I added a few additional ones and removed a few.
 
