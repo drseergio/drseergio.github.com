@@ -93,6 +93,12 @@ paginate = 7
   weight = 2
 
 [[menu.main]]
+  parent = "personal"
+  name = "Rides/runs"
+  url = "https://www.strava.com/athletes/6411230"
+  weight = 3
+
+[[menu.main]]
   name = "About"
   url = "/about/"
   weight = 4
