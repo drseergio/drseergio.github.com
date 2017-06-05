@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://pisarenko.net/blog/2017/06/05/bike-tour-in-canton-jura/</loc>
+    <lastmod>2017-06-05T19:36:39+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pisarenko.net/blog/2017/05/16/sprechen-wir-lieber-deutsch/</loc>
     <lastmod>2017-05-16T17:12:34+02:00</lastmod>
   </url>
@@ -433,12 +438,12 @@
   
   <url>
     <loc>http://pisarenko.net/</loc>
-    <lastmod>2017-05-16T17:12:34+02:00</lastmod>
+    <lastmod>2017-06-05T19:36:39+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://pisarenko.net/tags/bicycle/</loc>
-    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-05T19:36:39+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -450,6 +455,12 @@
   <url>
     <loc>http://pisarenko.net/tags/diy/</loc>
     <lastmod>2017-04-17T14:09:34+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pisarenko.net/tags/education/</loc>
+    <lastmod>2017-05-16T17:12:34+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -479,7 +490,7 @@
   
   <url>
     <loc>http://pisarenko.net/post/</loc>
-    <lastmod>2017-05-16T17:12:34+02:00</lastmod>
+    <lastmod>2017-06-05T19:36:39+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -497,7 +508,7 @@
   
   <url>
     <loc>http://pisarenko.net/tags/</loc>
-    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-05T19:36:39+02:00</lastmod>
     <priority>0</priority>
   </url>
   

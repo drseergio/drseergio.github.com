@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Education on Sergey Pisarenko</title>
+    <link>http://pisarenko.net/tags/education/</link>
+    <description>Recent content in Education on Sergey Pisarenko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 16 May 2017 17:12:34 +0200</lastBuildDate>
+    
+	<atom:link href="http://pisarenko.net/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sprechen wir lieber Deutsch?</title>
+      <link>http://pisarenko.net/blog/2017/05/16/sprechen-wir-lieber-deutsch/</link>
+      <pubDate>Tue, 16 May 2017 17:12:34 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2017/05/16/sprechen-wir-lieber-deutsch/</guid>
+      <description>Last Friday I completed German B2 examination. B2 is a fairly difficult level and it&amp;rsquo;s one step away (although a significant one) from complete fluency (C1). I&amp;rsquo;d like to share my experience of going from almost zero working German level to being employed at a German speaking company (I&amp;rsquo;m the only person at the office whose native language isn&amp;rsquo;t Swiss German or German) in roughly 1 year&amp;rsquo;s time. I should add that I started the job about 6 months after starting with German.</description>
+    </item>
+    
+  </channel>
+</rss>
