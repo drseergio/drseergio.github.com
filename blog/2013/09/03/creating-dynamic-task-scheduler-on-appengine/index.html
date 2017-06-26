@@ -40,7 +40,7 @@ I&rsquo;ve been working on a simple hobby project. The goal is to build an Andro
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.24.1" />
   <link rel="canonical" href="http://pisarenko.net/blog/2013/09/03/creating-dynamic-task-scheduler-on-appengine/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -211,42 +211,42 @@ I&rsquo;ve been working on a simple hobby project. The goal is to build an Andro
 
 <p>In order to test our scheduler we must be able to create some tasks first. So our first goal is to create a handler which creates scheduled tasks. I&rsquo;ve called my test class <code>TestGenerator</code>:</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kn">package</span> <span class="nn">net.pisarenko.backend.scheduler</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;</span>
+package net.pisarenko.backend.scheduler;
 
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreService</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreServiceFactory</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Entity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Key</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.KeyFactory</span><span class="o">;</span>
+import java.io.IOException;
+import java.util.logging.Logger;
 
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 
-<span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&quot;serial&quot;</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestGenerator</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
-	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">TestGenerator</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">JOB_PARENT</span> <span class="o">=</span> <span class="s">&quot;notification_job_parent&quot;</span><span class="o">;</span>
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@SuppressWarnings("serial")
+public class TestGenerator extends HttpServlet {
+	private static final Logger log = Logger.getLogger(TestGenerator.class.getName());
+	public static final String JOB_PARENT = "notification_job_parent";
 	
-	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-		<span class="c1">// set parent to ensure data consistency</span>
-		<span class="n">Key</span> <span class="n">jobKey</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="o">.</span><span class="na">createKey</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">JOB_PARENT</span><span class="o">);</span>
-		<span class="n">Entity</span> <span class="n">job</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Entity</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">jobKey</span><span class="o">);</span>
-		<span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span><span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		// set parent to ensure data consistency
+		Key jobKey = KeyFactory.createKey("NotificationJob", JOB_PARENT);
+		Entity job = new Entity("NotificationJob", jobKey);
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		
-		<span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span> <span class="o">+</span> <span class="mi">10</span><span class="o">);</span>
-		<span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;frequency&quot;</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
-		<span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+		job.setProperty("next_run_ts", System.currentTimeMillis() / 1000L + 10);
+		job.setProperty("frequency", 10);
+		job.setProperty("remaining", 5);
 		
-		<span class="n">datastore</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+		datastore.put(job);
 		
-		<span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Created new job to run every 10 seconds 5 times&quot;</span><span class="o">);</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+		log.severe("Created new job to run every 10 seconds 5 times");
+	}
+}
 
 
 <p>All the code does is it creates a new AppEngine data-store entity of kind <code>NotificationJob</code> when a HTTP GET request is made to this handler. Notice that I use UNIX timestamp as the specification when to run the task. I also take precautions to ensure that written data is consistent by setting a non-existent parent to the saved entity. If you&rsquo;re not familiar with AppEngine&rsquo;s data-store I highly recommend reading about <a href="https://developers.google.com/appengine/docs/java/datastore/structuring_for_strong_consistency">eventual consistency</a> as AppEngine data-store is very different from RDBMS and you must have the right mindset when designing storage for your system.</p>
@@ -257,20 +257,20 @@ I&rsquo;ve been working on a simple hobby project. The goal is to build an Andro
 
 <p>Let&rsquo;s register our handler at <code>/test</code> by modifying the <code>web.xml</code> file under <code>war/WEB-INF/</code> in the project structure:</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span>...
-
-	<span class="nt">&lt;servlet&gt;</span>
-		<span class="nt">&lt;servlet-name&gt;</span>test<span class="nt">&lt;/servlet-name&gt;</span>
-		<span class="nt">&lt;servlet-class&gt;</span>net.pisarenko.backend.scheduler.TestGenerator<span class="nt">&lt;/servlet-class&gt;</span>
-	<span class="nt">&lt;/servlet&gt;</span>
-
-	<span class="nt">&lt;servlet-mapping&gt;</span>
-		<span class="nt">&lt;servlet-name&gt;</span>test<span class="nt">&lt;/servlet-name&gt;</span>
-		<span class="nt">&lt;url-pattern&gt;</span>/test<span class="nt">&lt;/url-pattern&gt;</span>
-	<span class="nt">&lt;/servlet-mapping&gt;</span>
 
 ...
-</code></pre></div>
+
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>net.pisarenko.backend.scheduler.TestGenerator</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+
+...
 
 
 <p>For testing/development/debugging purposes I&rsquo;ve put a log statement. Let&rsquo;s try our generator. Run the project by pressing Ctrl+F11. By default, the development server starts at <code>http://127.0.0.1:8888</code> so our handler is accessible at <code>http://127.0.0.1:8888/test</code>.</p>
@@ -287,111 +287,111 @@ I&rsquo;ve been working on a simple hobby project. The goal is to build an Andro
 
 <p>To run our scheduler loop every minute using AppEngine&rsquo;s cron we must create a <code>cron.xml</code> config file in <code>war/WEB-INF</code>:</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;cronentries&gt;</span>
-  <span class="nt">&lt;cron&gt;</span>
-    <span class="nt">&lt;url&gt;</span>/cron<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;description&gt;</span>Send pending notifications<span class="nt">&lt;/description&gt;</span>
-    <span class="nt">&lt;schedule&gt;</span>every 1 minute<span class="nt">&lt;/schedule&gt;</span>
-  <span class="nt">&lt;/cron&gt;</span>
-<span class="nt">&lt;/cronentries&gt;</span>
-</code></pre></div>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/cron</url>
+    <description>Send pending notifications</description>
+    <schedule>every 1 minute</schedule>
+  </cron>
+</cronentries>
 
 
 <p>Effectively, this will execute <code>/cron</code> endpoint every minute. Note that development server will not run cron so we will manually trigger it through the browser by accessing <code>http://127.0.0.1:8888/cron</code>.</p>
 
 <p>Now let&rsquo;s write the code behind the <code>/cron</code> endpoint. The code will check current time, retrieve all scheduled tasks which have next run either in the past or right now and execute them. If the task is supposed to be run several times we will reduce the remaining run counter, calculate the next execution time and save the changes. If the task has no more runs we delete the entity from the data-store:</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kn">package</span> <span class="nn">net.pisarenko.backend.scheduler</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;</span>
+package net.pisarenko.backend.scheduler;
 
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+import java.io.IOException;
+import java.util.logging.Logger;
 
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreService</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.DatastoreServiceFactory</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Entity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Key</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.KeyFactory</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.PreparedQuery</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query.FilterPredicate</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.datastore.Query.FilterOperator</span><span class="o">;</span>
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.taskqueue.Queue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.appengine.api.taskqueue.QueueFactory</span><span class="o">;</span>
-<span class="kn">import static</span> <span class="nn">com.google.appengine.api.taskqueue.TaskOptions.Builder.*</span><span class="o">;</span>
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.Query.FilterOperator;
+
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import static com.google.appengine.api.taskqueue.TaskOptions.Builder.*;
 
 
-<span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&quot;serial&quot;</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotificationScheduler</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">NotificationScheduler</span><span class="o">.</span><span class="na">class</span>
-            <span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+@SuppressWarnings("serial")
+public class NotificationScheduler extends HttpServlet {
+    private static final Logger log = Logger.getLogger(NotificationScheduler.class
+            .getName());
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
-            <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-        <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Running cron loop&quot;</span><span class="o">);</span>
-        <span class="kt">long</span> <span class="n">currentTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span><span class="o">;</span>
-        <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;Current time: &quot;</span> <span class="o">+</span> <span class="n">currentTime</span><span class="o">);</span>
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
+        log.severe("Running cron loop");
+        long currentTime = System.currentTimeMillis() / 1000L;
+        log.severe("Current time: " + currentTime);
 
-        <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span>
-                <span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
-        <span class="n">Key</span> <span class="n">jobKey</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="o">.</span><span class="na">createKey</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span>
-                <span class="n">TestGenerator</span><span class="o">.</span><span class="na">JOB_PARENT</span><span class="o">);</span>
-        <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="s">&quot;NotificationJob&quot;</span><span class="o">,</span> <span class="n">jobKey</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">setAncestor</span><span class="o">(</span><span class="n">jobKey</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">setFilter</span><span class="o">(</span>
-                        <span class="k">new</span> <span class="n">FilterPredicate</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span>
-                                <span class="n">FilterOperator</span><span class="o">.</span><span class="na">LESS_THAN_OR_EQUAL</span><span class="o">,</span> <span class="n">currentTime</span><span class="o">));</span>
-        <span class="n">PreparedQuery</span> <span class="n">pq</span> <span class="o">=</span> <span class="n">datastore</span><span class="o">.</span><span class="na">prepare</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+        DatastoreService datastore = DatastoreServiceFactory
+                .getDatastoreService();
+        Key jobKey = KeyFactory.createKey("NotificationJob",
+                TestGenerator.JOB_PARENT);
+        Query query = new Query("NotificationJob", jobKey)
+                .setAncestor(jobKey)
+                .setFilter(
+                        new FilterPredicate("next_run_ts",
+                                FilterOperator.LESS_THAN_OR_EQUAL, currentTime));
+        PreparedQuery pq = datastore.prepare(query);
 
-        <span class="k">for</span> <span class="o">(</span><span class="n">Entity</span> <span class="n">job</span> <span class="o">:</span> <span class="n">pq</span><span class="o">.</span><span class="na">asIterable</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">processJob</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+        for (Entity job : pq.asIterable()) {
+            processJob(job);
+        }
+    }
 
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">processJob</span><span class="o">(</span><span class="n">Entity</span> <span class="n">job</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Queue</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">QueueFactory</span><span class="o">.</span><span class="na">getDefaultQueue</span><span class="o">();</span>
-        <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">withUrl</span><span class="o">(</span><span class="s">&quot;/sender&quot;</span><span class="o">).</span><span class="na">param</span><span class="o">(</span><span class="s">&quot;job_id&quot;</span><span class="o">,</span> <span class="s">&quot;job_id&quot;</span><span class="o">));</span>
+    private void processJob(Entity job) {
+        Queue queue = QueueFactory.getDefaultQueue();
+        queue.add(withUrl("/sender").param("job_id", "job_id"));
         
-        <span class="n">DatastoreService</span> <span class="n">datastore</span> <span class="o">=</span> <span class="n">DatastoreServiceFactory</span>
-                <span class="o">.</span><span class="na">getDatastoreService</span><span class="o">();</span>
-		<span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">,</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span> <span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">))</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        DatastoreService datastore = DatastoreServiceFactory
+                .getDatastoreService();
+		job.setProperty("remaining", ((Long) job.getProperty("remaining")) - 1);
 		
-		<span class="k">if</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;remaining&quot;</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-		    <span class="n">datastore</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">getKey</span><span class="o">());</span>
-		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-		    <span class="n">job</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">,</span>
-		        <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;next_run_ts&quot;</span><span class="o">))</span> <span class="o">+</span> <span class="o">((</span><span class="n">Long</span><span class="o">)</span><span class="n">job</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;frequency&quot;</span><span class="o">)));</span> 
-			<span class="n">datastore</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
-		<span class="o">}</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+		if ((Long)job.getProperty("remaining") == 0) {
+		    datastore.delete(job.getKey());
+		} else {
+		    job.setProperty("next_run_ts",
+		        ((Long)job.getProperty("next_run_ts")) + ((Long)job.getProperty("frequency"))); 
+			datastore.put(job);
+		}
+	}
+}
 
 
 <p>The handler executes a query against the data-store to retrieve due scheduled tasks. Note that it uses ancestor query to ensure that return values are consistent. Then we iterate through retrieved scheduled tasks and execute <code>processJob</code> method. The <code>processJob</code> introduces AppEngine default queue which we use for executing our scheduled tasks in the background.</p>
 
 <p>Update <code>web.xml</code> for the new handler:</p>
 
-<p><div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span>...
-
-	<span class="nt">&lt;servlet&gt;</span>
-		<span class="nt">&lt;servlet-name&gt;</span>cron<span class="nt">&lt;/servlet-name&gt;</span>
-		<span class="nt">&lt;servlet-class&gt;</span>net.pisarenko.backend.scheduler.NotificationScheduler<span class="nt">&lt;/servlet-class&gt;</span>
-	<span class="nt">&lt;/servlet&gt;</span>
-
-	<span class="nt">&lt;servlet-mapping&gt;</span>
-		<span class="nt">&lt;servlet-name&gt;</span>cron<span class="nt">&lt;/servlet-name&gt;</span>
-		<span class="nt">&lt;url-pattern&gt;</span>/cron<span class="nt">&lt;/url-pattern&gt;</span>
-	<span class="nt">&lt;/servlet-mapping&gt;</span>
 
 ...
-</code></pre></div>
-</p>
+
+	<servlet>
+		<servlet-name>cron</servlet-name>
+		<servlet-class>net.pisarenko.backend.scheduler.NotificationScheduler</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>cron</servlet-name>
+		<url-pattern>/cron</url-pattern>
+	</servlet-mapping>
+
+...
+
 
 <p>At this point the code won&rsquo;t work because the <code>processJob</code> method is creating queue tasks (not to confuse with our custom scheduled tasks) to be run in the background. Let&rsquo;s fix that!</p>
 
@@ -403,42 +403,42 @@ I&rsquo;ve been working on a simple hobby project. The goal is to build an Andro
 
 <p>The code for the <code>/sender</code> handler:</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kn">package</span> <span class="nn">net.pisarenko.backend.scheduler</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;</span>
+package net.pisarenko.backend.scheduler;
 
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+import java.io.IOException;
+import java.util.logging.Logger;
 
-<span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&quot;serial&quot;</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotificationSender</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">NotificationSender</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-        <span class="n">log</span><span class="o">.</span><span class="na">severe</span><span class="o">(</span><span class="s">&quot;EXECUTING TASK FROM QUEUE &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&quot;job_id&quot;</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+@SuppressWarnings("serial")
+public class NotificationSender extends HttpServlet {
+    private static final Logger log = Logger.getLogger(NotificationSender.class.getName());
+
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        log.severe("EXECUTING TASK FROM QUEUE " + req.getParameter("job_id"));
+    }
+}
 
 
 <p>As you see, it does not do much but it provides the almighty log statement which we will use to confirm that our code is working as we want it to. Finally, update <code>web.xml</code> with <code>/sender</code>:</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span>...
-
-    <span class="nt">&lt;servlet&gt;</span>
-        <span class="nt">&lt;servlet-name&gt;</span>sender<span class="nt">&lt;/servlet-name&gt;</span>
-        <span class="nt">&lt;servlet-class&gt;</span>net.pisarenko.backend.scheduler.NotificationSender<span class="nt">&lt;/servlet-class&gt;</span>
-    <span class="nt">&lt;/servlet&gt;</span>
-	
-    <span class="nt">&lt;servlet-mapping&gt;</span>
-        <span class="nt">&lt;servlet-name&gt;</span>sender<span class="nt">&lt;/servlet-name&gt;</span>
-        <span class="nt">&lt;url-pattern&gt;</span>/sender<span class="nt">&lt;/url-pattern&gt;</span>
-    <span class="nt">&lt;/servlet-mapping&gt;</span>
 
 ...
-</code></pre></div>
+
+    <servlet>
+        <servlet-name>sender</servlet-name>
+        <servlet-class>net.pisarenko.backend.scheduler.NotificationSender</servlet-class>
+    </servlet>
+	
+    <servlet-mapping>
+        <servlet-name>sender</servlet-name>
+        <url-pattern>/sender</url-pattern>
+    </servlet-mapping>
+
+...
 
 
 <h2 id="final-run">Final run</h2>

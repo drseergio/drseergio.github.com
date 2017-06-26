@@ -34,7 +34,7 @@ About 3 months ago I had nothing better to do so I decided to replace an off-the
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.24.1" />
   <link rel="canonical" href="http://pisarenko.net/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -258,20 +258,20 @@ About 3 months ago I had nothing better to do so I decided to replace an off-the
 
 <p>To check which channels are allowed by the regulations run <strong>iw reg get</strong>:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap ~ <span class="c1"># iw reg get</span>
+
+ap ~ # iw reg get
 country CH: DFS-UNSET
-        <span class="o">(</span><span class="m">2402</span> - <span class="m">2482</span> @ <span class="m">40</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">20</span><span class="o">)</span>, <span class="o">(</span>N/A<span class="o">)</span>
-        <span class="o">(</span><span class="m">5170</span> - <span class="m">5250</span> @ <span class="m">80</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">20</span><span class="o">)</span>, <span class="o">(</span>N/A<span class="o">)</span>
-        <span class="o">(</span><span class="m">5250</span> - <span class="m">5330</span> @ <span class="m">80</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">20</span><span class="o">)</span>, <span class="o">(</span><span class="m">0</span> ms<span class="o">)</span>, DFS
-        <span class="o">(</span><span class="m">5490</span> - <span class="m">5710</span> @ <span class="m">160</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">27</span><span class="o">)</span>, <span class="o">(</span><span class="m">0</span> ms<span class="o">)</span>, DFS
-        <span class="o">(</span><span class="m">57000</span> - <span class="m">66000</span> @ <span class="m">2160</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">40</span><span class="o">)</span>, <span class="o">(</span>N/A<span class="o">)</span>
-</code></pre></div>
+        (2402 - 2482 @ 40), (N/A, 20), (N/A)
+        (5170 - 5250 @ 80), (N/A, 20), (N/A)
+        (5250 - 5330 @ 80), (N/A, 20), (0 ms), DFS
+        (5490 - 5710 @ 160), (N/A, 27), (0 ms), DFS
+        (57000 - 66000 @ 2160), (N/A, 40), (N/A)
 
 
 <p>The output shows the regulation for Switzerland (CH) because I have previously set the country using <strong>iw reg set</strong> command:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap ~ <span class="c1"># iw reg set CH</span>
-</code></pre></div>
+
+ap ~ # iw reg set CH
 
 
 <p>By the way, unless you change the domain to the country where you reside the radio will be restricted by the set of all countries. In reality this means that almost all channels will be out of bounds. I set the domain in a startup script.</p>
@@ -280,29 +280,29 @@ country CH: DFS-UNSET
 
 <p>The channels supported by radio can be listed using <strong>iw list</strong>:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap ~ <span class="c1"># iw list</span>
+
+ap ~ # iw list
 ...
-                        * <span class="m">5180</span> MHz <span class="o">[</span><span class="m">36</span><span class="o">]</span> <span class="o">(</span><span class="m">17</span>.0 dBm<span class="o">)</span>
-                        * <span class="m">5200</span> MHz <span class="o">[</span><span class="m">40</span><span class="o">]</span> <span class="o">(</span><span class="m">17</span>.0 dBm<span class="o">)</span>
-                        * <span class="m">5220</span> MHz <span class="o">[</span><span class="m">44</span><span class="o">]</span> <span class="o">(</span><span class="m">17</span>.0 dBm<span class="o">)</span>
-                        * <span class="m">5240</span> MHz <span class="o">[</span><span class="m">48</span><span class="o">]</span> <span class="o">(</span><span class="m">17</span>.0 dBm<span class="o">)</span>
-                        * <span class="m">5260</span> MHz <span class="o">[</span><span class="m">52</span><span class="o">]</span> <span class="o">(</span><span class="m">20</span>.0 dBm<span class="o">)</span> <span class="o">(</span>no IR, radar detection<span class="o">)</span>
-                          DFS state: usable <span class="o">(</span><span class="k">for</span> <span class="m">440</span> sec<span class="o">)</span>
-                          DFS CAC time: <span class="m">60000</span> ms
-                        * <span class="m">5280</span> MHz <span class="o">[</span><span class="m">56</span><span class="o">]</span> <span class="o">(</span><span class="m">20</span>.0 dBm<span class="o">)</span> <span class="o">(</span>no IR, radar detection<span class="o">)</span>
-                          DFS state: usable <span class="o">(</span><span class="k">for</span> <span class="m">440</span> sec<span class="o">)</span>
-                          DFS CAC time: <span class="m">60000</span> ms
-                        * <span class="m">5300</span> MHz <span class="o">[</span><span class="m">60</span><span class="o">]</span> <span class="o">(</span><span class="m">20</span>.0 dBm<span class="o">)</span> <span class="o">(</span>no IR, radar detection<span class="o">)</span>
-                          DFS state: usable <span class="o">(</span><span class="k">for</span> <span class="m">440</span> sec<span class="o">)</span>
-                          DFS CAC time: <span class="m">60000</span> ms
-                        * <span class="m">5320</span> MHz <span class="o">[</span><span class="m">64</span><span class="o">]</span> <span class="o">(</span><span class="m">20</span>.0 dBm<span class="o">)</span> <span class="o">(</span>no IR, radar detection<span class="o">)</span>
-                          DFS state: usable <span class="o">(</span><span class="k">for</span> <span class="m">440</span> sec<span class="o">)</span>
-                          DFS CAC time: <span class="m">60000</span> ms
-                        * <span class="m">5500</span> MHz <span class="o">[</span><span class="m">100</span><span class="o">]</span> <span class="o">(</span>disabled<span class="o">)</span>
+                        * 5180 MHz [36] (17.0 dBm)
+                        * 5200 MHz [40] (17.0 dBm)
+                        * 5220 MHz [44] (17.0 dBm)
+                        * 5240 MHz [48] (17.0 dBm)
+                        * 5260 MHz [52] (20.0 dBm) (no IR, radar detection)
+                          DFS state: usable (for 440 sec)
+                          DFS CAC time: 60000 ms
+                        * 5280 MHz [56] (20.0 dBm) (no IR, radar detection)
+                          DFS state: usable (for 440 sec)
+                          DFS CAC time: 60000 ms
+                        * 5300 MHz [60] (20.0 dBm) (no IR, radar detection)
+                          DFS state: usable (for 440 sec)
+                          DFS CAC time: 60000 ms
+                        * 5320 MHz [64] (20.0 dBm) (no IR, radar detection)
+                          DFS state: usable (for 440 sec)
+                          DFS CAC time: 60000 ms
+                        * 5500 MHz [100] (disabled)
 ...
-                        * <span class="m">5825</span> MHz <span class="o">[</span><span class="m">165</span><span class="o">]</span> <span class="o">(</span>disabled<span class="o">)</span>
+                        * 5825 MHz [165] (disabled)
 ...
-</code></pre></div>
 
 
 <h3 id="radio-firmware">Radio firmware</h3>
@@ -311,10 +311,10 @@ country CH: DFS-UNSET
 
 <p>I&rsquo;ve obtained the firmware from <a href="https://github.com/kvalo/ath10k-firmware.git">ath10k git repository</a>. I&rsquo;ve then placed the <strong>ath10k</strong> directory in <strong>firmware</strong> directory in the kernel source tree. Finally, I&rsquo;ve changed the following kernel settings to build the firmware into the kernel:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">CONFIG_FIRMWARE_IN_KERNEL</span><span class="o">=</span>y
-<span class="nv">CONFIG_EXTRA_FIRMWARE</span><span class="o">=</span><span class="s2">&quot;ath10k/QCA988X/hw2.0/firmware-2.bin ath10k/QCA988X/hw2.0/board.bin&quot;</span>
-<span class="nv">CONFIG_EXTRA_FIRMWARE_DIR</span><span class="o">=</span><span class="s2">&quot;firmware&quot;</span>
-</code></pre></div>
+
+CONFIG_FIRMWARE_IN_KERNEL=y
+CONFIG_EXTRA_FIRMWARE="ath10k/QCA988X/hw2.0/firmware-2.bin ath10k/QCA988X/hw2.0/board.bin"
+CONFIG_EXTRA_FIRMWARE_DIR="firmware"
 
 
 <h3 id="network-setup-and-hostapd">Network setup and hostapd</h3>
@@ -323,118 +323,118 @@ country CH: DFS-UNSET
 
 <p>I&rsquo;m using OpenRC. Configuration in <strong>/etc/conf.d/net</strong> is very simple. There is a bridge configuration linked to the wired interface:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap linux <span class="c1"># cat /etc/conf.d/net</span>
 
-<span class="nv">dns_domain_lo</span><span class="o">=</span><span class="s2">&quot;bethania&quot;</span>
-<span class="nv">dns_search</span><span class="o">=</span><span class="s2">&quot;bethania&quot;</span>
+ap linux # cat /etc/conf.d/net
 
-<span class="c1"># AP bridge setup</span>
-<span class="nv">config_enp1s0</span><span class="o">=</span><span class="s2">&quot;null&quot;</span>
-<span class="nv">bridge_br0</span><span class="o">=</span><span class="s2">&quot;enp1s0&quot;</span>
-<span class="nv">rc_net_br0</span><span class="o">=</span><span class="s2">&quot;net.enp1s0&quot;</span>
-<span class="nv">config_br0</span><span class="o">=</span><span class="s2">&quot;192.168.69.2/24&quot;</span>
-<span class="nv">routes_br0</span><span class="o">=</span><span class="s2">&quot;default via 192.168.69.1&quot;</span>
-<span class="nv">dns_servers_br0</span><span class="o">=</span><span class="s2">&quot;192.168.69.1&quot;</span>
-</code></pre></div>
+dns_domain_lo="bethania"
+dns_search="bethania"
+
+# AP bridge setup
+config_enp1s0="null"
+bridge_br0="enp1s0"
+rc_net_br0="net.enp1s0"
+config_br0="192.168.69.2/24"
+routes_br0="default via 192.168.69.1"
+dns_servers_br0="192.168.69.1"
 
 
 <p>Configuration of the hostapd init script:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap linux <span class="c1"># cat /etc/conf.d/hostapd</span>
 
-<span class="nv">INTERFACES</span><span class="o">=</span><span class="s2">&quot;br0&quot;</span>
-<span class="nv">CONFIGS</span><span class="o">=</span><span class="s2">&quot;/etc/hostapd/hostapd.conf&quot;</span>
-<span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-</code></pre></div>
+ap linux # cat /etc/conf.d/hostapd
+
+INTERFACES="br0"
+CONFIGS="/etc/hostapd/hostapd.conf"
+OPTIONS=""
 
 
 <p><strong>hostapd</strong> configuration describes capabilities of the radio and sets up the frequencies, security and useful features. For example, to use wireless on <strong>DFS</strong> controlled frequencies it is required to enable <strong>ieee80211d</strong> and <strong>ieee80211h</strong> settings. Here&rsquo;s a working and tested 802.11ac setup that I&rsquo;m using right now:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap linux <span class="c1"># cat /etc/hostapd/hostapd.conf</span>
 
-<span class="c1">### hostapd configuration file</span>
-<span class="nv">ctrl_interface</span><span class="o">=</span>/var/run/hostapd
-<span class="nv">ctrl_interface_group</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">interface</span><span class="o">=</span>wlp4s0
-<span class="nv">driver</span><span class="o">=</span>nl80211
-<span class="nv">bridge</span><span class="o">=</span>br0
+ap linux # cat /etc/hostapd/hostapd.conf
 
-<span class="c1">### IEEE 802.11</span>
-<span class="nv">ssid</span><span class="o">=</span>bethaniaven9
-<span class="nv">hw_mode</span><span class="o">=</span>a
-<span class="nv">channel</span><span class="o">=</span><span class="m">52</span>
-<span class="nv">max_num_sta</span><span class="o">=</span><span class="m">128</span>
-<span class="nv">auth_algs</span><span class="o">=</span><span class="m">1</span>
+### hostapd configuration file
+ctrl_interface=/var/run/hostapd
+ctrl_interface_group=0
+interface=wlp4s0
+driver=nl80211
+bridge=br0
 
-<span class="c1">### DFS</span>
-<span class="nv">country_code</span><span class="o">=</span>CH
-<span class="nv">ieee80211d</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">ieee80211h</span><span class="o">=</span><span class="m">1</span>
+### IEEE 802.11
+ssid=bethaniaven9
+hw_mode=a
+channel=52
+max_num_sta=128
+auth_algs=1
 
-<span class="c1">### IEEE 802.11n</span>
-<span class="nv">ieee80211n</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">ht_capab</span><span class="o">=[</span>HT40+<span class="o">][</span>LDPC<span class="o">][</span>SHORT-GI-20<span class="o">][</span>SHORT-GI-40<span class="o">][</span>TX-STBC<span class="o">][</span>RX-STBC1<span class="o">][</span>DSSS_CCK-40<span class="o">]</span>
+### DFS
+country_code=CH
+ieee80211d=1
+ieee80211h=1
 
-<span class="c1">### IEEE 802.11ac</span>
-<span class="nv">ieee80211ac</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">vht_oper_chwidth</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">vht_capab</span><span class="o">=[</span>MAX-MPDU-11454<span class="o">][</span>RXLDPC<span class="o">][</span>SHORT-GI-80<span class="o">][</span>TX-STBC-2BY1<span class="o">][</span>RX-STBC-1<span class="o">]</span>
-<span class="nv">vht_oper_centr_freq_seg0_idx</span><span class="o">=</span><span class="m">62</span>
+### IEEE 802.11n
+ieee80211n=1
+ht_capab=[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][DSSS_CCK-40]
 
-<span class="c1">### IEEE 802.11i</span>
-<span class="nv">wpa</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">wpa_key_mgmt</span><span class="o">=</span>WPA-PSK
-<span class="nv">wpa_passphrase</span><span class="o">=</span>XXX
-<span class="nv">rsn_pairwise</span><span class="o">=</span>CCMP
+### IEEE 802.11ac
+ieee80211ac=1
+vht_oper_chwidth=1
+vht_capab=[MAX-MPDU-11454][RXLDPC][SHORT-GI-80][TX-STBC-2BY1][RX-STBC-1]
+vht_oper_centr_freq_seg0_idx=62
 
-<span class="c1">### hostapd event logger</span>
-<span class="nv">logger_syslog</span><span class="o">=</span>-1
-<span class="nv">logger_syslog_level</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">logger_stdout</span><span class="o">=</span>-1
-<span class="nv">logger_stdout_level</span><span class="o">=</span><span class="m">2</span>
+### IEEE 802.11i
+wpa=2
+wpa_key_mgmt=WPA-PSK
+wpa_passphrase=XXX
+rsn_pairwise=CCMP
 
-<span class="c1">### WMM</span>
-<span class="nv">wmm_enabled</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">uapsd_advertisement_enabled</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">wmm_ac_bk_cwmin</span><span class="o">=</span><span class="m">4</span>
-<span class="nv">wmm_ac_bk_cwmax</span><span class="o">=</span><span class="m">10</span>
-<span class="nv">wmm_ac_bk_aifs</span><span class="o">=</span><span class="m">7</span>
-<span class="nv">wmm_ac_bk_txop_limit</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">wmm_ac_bk_acm</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">wmm_ac_be_aifs</span><span class="o">=</span><span class="m">3</span>
-<span class="nv">wmm_ac_be_cwmin</span><span class="o">=</span><span class="m">4</span>
-<span class="nv">wmm_ac_be_cwmax</span><span class="o">=</span><span class="m">10</span>
-<span class="nv">wmm_ac_be_txop_limit</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">wmm_ac_be_acm</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">wmm_ac_vi_aifs</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">wmm_ac_vi_cwmin</span><span class="o">=</span><span class="m">3</span>
-<span class="nv">wmm_ac_vi_cwmax</span><span class="o">=</span><span class="m">4</span>
-<span class="nv">wmm_ac_vi_txop_limit</span><span class="o">=</span><span class="m">94</span>
-<span class="nv">wmm_ac_vi_acm</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">wmm_ac_vo_aifs</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">wmm_ac_vo_cwmin</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">wmm_ac_vo_cwmax</span><span class="o">=</span><span class="m">3</span>
-<span class="nv">wmm_ac_vo_txop_limit</span><span class="o">=</span><span class="m">47</span>
-<span class="nv">wmm_ac_vo_acm</span><span class="o">=</span><span class="m">0</span>
+### hostapd event logger
+logger_syslog=-1
+logger_syslog_level=2
+logger_stdout=-1
+logger_stdout_level=2
 
-<span class="c1">### TX queue parameters</span>
-<span class="nv">tx_queue_data3_aifs</span><span class="o">=</span><span class="m">7</span>
-<span class="nv">tx_queue_data3_cwmin</span><span class="o">=</span><span class="m">15</span>
-<span class="nv">tx_queue_data3_cwmax</span><span class="o">=</span><span class="m">1023</span>
-<span class="nv">tx_queue_data3_burst</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">tx_queue_data2_aifs</span><span class="o">=</span><span class="m">3</span>
-<span class="nv">tx_queue_data2_cwmin</span><span class="o">=</span><span class="m">15</span>
-<span class="nv">tx_queue_data2_cwmax</span><span class="o">=</span><span class="m">63</span>
-<span class="nv">tx_queue_data2_burst</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">tx_queue_data1_aifs</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">tx_queue_data1_cwmin</span><span class="o">=</span><span class="m">7</span>
-<span class="nv">tx_queue_data1_cwmax</span><span class="o">=</span><span class="m">15</span>
-<span class="nv">tx_queue_data1_burst</span><span class="o">=</span><span class="m">3</span>.0
-<span class="nv">tx_queue_data0_aifs</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">tx_queue_data0_cwmin</span><span class="o">=</span><span class="m">3</span>
-<span class="nv">tx_queue_data0_cwmax</span><span class="o">=</span><span class="m">7</span>
-<span class="nv">tx_queue_data0_burst</span><span class="o">=</span><span class="m">1</span>.5
-</code></pre></div>
+### WMM
+wmm_enabled=1
+uapsd_advertisement_enabled=1
+wmm_ac_bk_cwmin=4
+wmm_ac_bk_cwmax=10
+wmm_ac_bk_aifs=7
+wmm_ac_bk_txop_limit=0
+wmm_ac_bk_acm=0
+wmm_ac_be_aifs=3
+wmm_ac_be_cwmin=4
+wmm_ac_be_cwmax=10
+wmm_ac_be_txop_limit=0
+wmm_ac_be_acm=0
+wmm_ac_vi_aifs=2
+wmm_ac_vi_cwmin=3
+wmm_ac_vi_cwmax=4
+wmm_ac_vi_txop_limit=94
+wmm_ac_vi_acm=0
+wmm_ac_vo_aifs=2
+wmm_ac_vo_cwmin=2
+wmm_ac_vo_cwmax=3
+wmm_ac_vo_txop_limit=47
+wmm_ac_vo_acm=0
+
+### TX queue parameters
+tx_queue_data3_aifs=7
+tx_queue_data3_cwmin=15
+tx_queue_data3_cwmax=1023
+tx_queue_data3_burst=0
+tx_queue_data2_aifs=3
+tx_queue_data2_cwmin=15
+tx_queue_data2_cwmax=63
+tx_queue_data2_burst=0
+tx_queue_data1_aifs=1
+tx_queue_data1_cwmin=7
+tx_queue_data1_cwmax=15
+tx_queue_data1_burst=3.0
+tx_queue_data0_aifs=1
+tx_queue_data0_cwmin=3
+tx_queue_data0_cwmax=7
+tx_queue_data0_burst=1.5
 
 
 <h2 id="final-words-and-config-files">Final words and config files</h2>

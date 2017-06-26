@@ -36,7 +36,7 @@ In the final article I finish the series about the IoT hackathon project by expl
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.24.1" />
   <link rel="canonical" href="http://pisarenko.net/blog/2017/04/17/internet-connected-motorcycle-project-part-3/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -211,10 +211,10 @@ In the final article I finish the series about the IoT hackathon project by expl
 
 <p>To visualize real-time data I chose an unorthodox solution to display them in a monitoring component. Clearly, CloudWatch is designed with a different purpose in mind. It&rsquo;s not built as a visualization tool. Still, it was good enough for the prototype. To display custom metrics it&rsquo;s necessary to define them. That&rsquo;s currently possible only through AWSCLI tool or the API:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ aws --profile<span class="o">=</span>private cloudwatch list-metrics
-$ aws --profile<span class="o">=</span>private cloudwatch put-metric-data --metric-name RPM --namespace KTMDuke390 --unit Count --value <span class="m">0</span>
-$ aws --profile<span class="o">=</span>private cloudwatch put-metric-data --metric-name Throttle --namespace KTMDuke390 --unit Count --value <span class="m">0</span>
-</code></pre></div>
+
+$ aws --profile=private cloudwatch list-metrics
+$ aws --profile=private cloudwatch put-metric-data --metric-name RPM --namespace KTMDuke390 --unit Count --value 0
+$ aws --profile=private cloudwatch put-metric-data --metric-name Throttle --namespace KTMDuke390 --unit Count --value 0
 
 
 <p>The custom metrics can be then seen in CloudWatch console:</p>
@@ -231,29 +231,29 @@ $ aws --profile<span class="o">=</span>private cloudwatch put-metric-data --metr
 
 <p>Amazon Lambda connects the other two components together. I defined a function in JavaScript that takes the message received by Amazon IoT (the message is in JSON format, by the way) and stores it as a metric in CloudWatch. Here&rsquo;s the code I wrote:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kd">var</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">cloudwatch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">CloudWatch</span><span class="p">();</span>
 
-<span class="nx">exports</span><span class="p">.</span><span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Received event:&#39;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
-    <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">MetricData</span><span class="o">:</span> <span class="p">[{</span>
-            <span class="nx">MetricName</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>
-            <span class="nx">Timestamp</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">)),</span>
-            <span class="nx">Unit</span><span class="o">:</span> <span class="s1">&#39;Count&#39;</span><span class="p">,</span>
-            <span class="nx">Value</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">value</span>
-        <span class="p">}],</span>
-        <span class="nx">Namespace</span><span class="o">:</span> <span class="s1">&#39;KTMDuke390&#39;</span>
-    <span class="p">};</span>
+var AWS = require('aws-sdk');
+var cloudwatch = new AWS.CloudWatch();
+
+exports.handler = (event, context, callback) => {
+    console.log('Received event:', JSON.stringify(event, null, 2));
+    var params = {
+        MetricData: [{
+            MetricName: event.type,
+            Timestamp: new Date(Date.parse(event.timestamp)),
+            Unit: 'Count',
+            Value: event.value
+        }],
+        Namespace: 'KTMDuke390'
+    };
     
-    <span class="nx">cloudwatch</span><span class="p">.</span><span class="nx">putMetricData</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span> <span class="c1">// an error occurred</span>
-        <span class="k">else</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>           <span class="c1">// successful response</span>
-    <span class="p">});</span>
+    cloudwatch.putMetricData(params, function(err, data) {
+        if (err) console.log(err, err.stack); // an error occurred
+        else     console.log(data);           // successful response
+    });
 
-    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s1">&#39;OK&#39;</span><span class="p">);</span>
-<span class="p">};</span>
-</code></pre></div>
+    callback(null, 'OK');
+};
 
 
 <p>It&rsquo;s worth to mention that I needed to give the role account of the Lambda function access rights to CloudWatch. Otherwise, it fails.</p>
