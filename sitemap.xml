@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2017/07/02/cycling-in-gran-canaria/</loc>
+    <lastmod>2017-07-02T09:39:55+02:00</lastmod>
+  </url>
   
   <url>
     <loc>http://pisarenko.net/blog/2017/06/26/the-sorrows-of-high-paid-work/</loc>
@@ -454,12 +458,12 @@
   
   <url>
     <loc>http://pisarenko.net/</loc>
-    <lastmod>2017-06-26T17:00:45+02:00</lastmod>
+    <lastmod>2017-07-02T09:39:55+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://pisarenko.net/tags/bicycle/</loc>
-    <lastmod>2017-06-21T17:00:45+02:00</lastmod>
+    <lastmod>2017-07-02T09:39:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -506,7 +510,7 @@
   
   <url>
     <loc>http://pisarenko.net/post/</loc>
-    <lastmod>2017-06-26T17:00:45+02:00</lastmod>
+    <lastmod>2017-07-02T09:39:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -524,7 +528,7 @@
   
   <url>
     <loc>http://pisarenko.net/tags/</loc>
-    <lastmod>2017-06-21T17:00:45+02:00</lastmod>
+    <lastmod>2017-07-02T09:39:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <link rel="canonical" href="http://pisarenko.net/blog/2017/04/28/hugo-static-site-generator/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -194,11 +194,11 @@
 <li>I didn&rsquo;t like the fact that creating new Octopress environments wasn&rsquo;t easy. I&rsquo;ve mostly used the same Virtual Machine and hoped I won&rsquo;t need to create a new one. In contrast, installing Hugo is easy:</li>
 </ul>
 
-
-$ apt-get install golang-go # not necessary when running a prebuilt Hugo binary
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ apt-get install golang-go <span class="c1"># not necessary when running a prebuilt Hugo binary</span>
 $ dpkg -i hugo.deb
-$ apt-get install python-pip # for syntax highlighting
+$ apt-get install python-pip <span class="c1"># for syntax highlighting</span>
 $ pip install Pygments
+</code></pre></div>
 
 
 <ul>
@@ -237,38 +237,38 @@ $ pip install Pygments
 
 <p>As a first thing I copied all <code>*.markdown</code> files from my Octopress installation to the <code>content/post/</code> folder. Then, I changed file extensions to <code>*.md</code>:</p>
 
-
-$ find . -name "*.markdown" -exec rename 's/.markdown$/.md/' {} \;
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ find . -name <span class="s2">&quot;*.markdown&quot;</span> -exec rename <span class="s1">&#39;s/.markdown$/.md/&#39;</span> <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
 
 
 <p>Then I removed <code>layout: post</code> line from all files (it causes problems in Hugo because it&rsquo;s likely used for something else):</p>
 
-
-$ sed --in-place '/layout: post/d' *md
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed --in-place <span class="s1">&#39;/layout: post/d&#39;</span> *md
+</code></pre></div>
 
 
 <p>The date format is different so that also needs to be changed:</p>
 
-
-find -type f -exec sed -i 's/\([0-9]\+-[0-9]\+-[0-9]\+\).*$/"\1"/' {} \;
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>find -type f -exec sed -i <span class="s1">&#39;s/\([0-9]\+-[0-9]\+-[0-9]\+\).*$/&quot;\1&quot;/&#39;</span> <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
 
 
 <p>I intended to use few categories and a couple of tags. The way I used categories in Octopress maps to tags in Hugo so I changed all Octopress categories to tags:</p>
 
-
-$ sed -i 's/^categories: \(.*\)$/tags: [\1]/g' *.md
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;s/^categories: \(.*\)$/tags: [\1]/g&#39;</span> *.md
+</code></pre></div>
 
 
 <p>and inserted a default <code>personal</code> category into to each post:</p>
 
-
-$ sed -i '/^tags:/a categories: personal'  *.md
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;/^tags:/a categories: personal&#39;</span>  *.md
+</code></pre></div>
 
 
 <p>To change YouTube embed links I ran the following:</p>
 
-
-$ sed -i 's/{% \(youtube.*\) %}/\{\{< \1 >}}/g' *
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;s/{% \(youtube.*\) %}/\{\{&lt; \1 &gt;}}/g&#39;</span> *
+</code></pre></div>
 
 
 <p>I was pretty happy with the Octopress appearance so I initially tried the Octopress theme for Hugo. Unfortunately, there&rsquo;s something wrong with it. It doesn&rsquo;t render correctly and I sense that the look isn&rsquo;t clean anymore. I think whoever ported the theme made minor adjustments and it doesn&rsquo;t look right anymore.</p>
@@ -291,46 +291,46 @@ $ sed -i 's/{% \(youtube.*\) %}/\{\{< \1 >}}/g' *
 
 <p><code>layouts/post/list.html</code>:</p>
 
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span></span><span class="p">{{</span> <span class="nx">define</span> <span class="s">&quot;header&quot;</span> <span class="p">}}</span>
+  <span class="p">&lt;</span><span class="nx">header</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;header-section &quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;intro-header no-img&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;page-heading&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nx">h2</span><span class="p">&gt;</span><span class="nx">Blog</span> <span class="nx">Archive</span><span class="p">&lt;</span><span class="o">/</span><span class="nx">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="o">/</span><span class="nx">header</span><span class="p">&gt;</span>
+<span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
 
-{{ define "header" }}
-  <header class="header-section ">
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h2>Blog Archive</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-{{ end }}
-
-{{ define "main" }}
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="posts-list">
-        {{ range .Data.Pages.GroupByDate "2006" }}
-        <div class="archive-year">
-        <h3>{{ .Key }}</h3>
-        <ul>
-        {{ range .Pages }}
-        <li>
-        <div class="">{{ .Date.Format "Jan 2" }}</div>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
-        {{ end }}
-        </ul>
-        </div>
-        {{ end }}
-        </div>
-      </div>
-    </div>
-  </div>
-{{ end }}
+<span class="p">{{</span> <span class="nx">define</span> <span class="s">&quot;main&quot;</span> <span class="p">}}</span>
+  <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;container&quot;</span> <span class="nx">role</span><span class="p">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;posts-list&quot;</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Data</span><span class="p">.</span><span class="nx">Pages</span><span class="p">.</span><span class="nx">GroupByDate</span> <span class="s">&quot;2006&quot;</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;archive-year&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">h3</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Key</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">h3</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">ul</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Pages</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="nx">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Date</span><span class="p">.</span><span class="nx">Format</span> <span class="s">&quot;Jan 2&quot;</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="p">=</span><span class="s">&quot;{{ .Permalink }}&quot;</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">li</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+<span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</code></pre></div>
 
 
 <h3 id="image-tags">Image tags</h3>
@@ -346,8 +346,8 @@ $ sed -i 's/{% \(youtube.*\) %}/\{\{< \1 >}}/g' *
 
 <p>To convert existing Octopress image tags I used sed. Unfortunately, I initially used a snippet from another blog and that had messed up the files because of a greedy regular expression. Now image tags look like (<code>%</code> is escaped with <code>\</code>):</p>
 
-
-{{\% img class="center noborder" src="/images/hugo-logo.png" %}}
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span>{{\% img class=&quot;center noborder&quot; src=&quot;/images/hugo-logo.png&quot; %}}
+</code></pre></div>
 
 
 <p>The end result is a bit more verbose than I would prefer but on the other hand it&rsquo;s clearer than positional argument image tag in Octopress. I was always forgetting the order in which the arguments are given.</p>
@@ -362,23 +362,23 @@ $ sed -i 's/{% \(youtube.*\) %}/\{\{< \1 >}}/g' *
 
 <p><code>preview.sh</code> starts the Hugo&rsquo;s internal web server to serve a preview version of the site:</p>
 
-
-#!/bin/bash
-hugo server -b http://192.168.69.108 --bind 0.0.0.0 -p 4000
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
+hugo server -b http://192.168.69.108 --bind <span class="m">0</span>.0.0.0 -p <span class="m">4000</span>
+</code></pre></div>
 
 
 <p><code>deploy.sh</code> generates a new version of the site and deploys it to GitHub pages:</p>
 
-
-#!/bin/bash
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
 rm -rf public/*
 hugo
-cd public
-MESSAGE="Site updated at `date +"%Y-%m-%d %H:%M:%S %Z"`"
+<span class="nb">cd</span> public
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&quot;Site updated at `date +&quot;</span>%Y-%m-%d %H:%M:%S %Z<span class="s2">&quot;`&quot;</span>
 git add .
-git commit -m "${MESSAGE}"
+git commit -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MESSAGE</span><span class="si">}</span><span class="s2">&quot;</span>
 git push origin master
-cd ..
+<span class="nb">cd</span> ..
+</code></pre></div>
       </article>
 
       <ul class="pager blog-pager">
