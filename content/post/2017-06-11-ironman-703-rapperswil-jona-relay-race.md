@@ -1,5 +1,5 @@
 ---
-category: personal
+categories: personal
 date: 2017-06-20T17:28:58+02:00
 subtitle: "Bike leg of Ironman 70.3 Rapperswil-Jona team relay race"
 tags: [bicycle, training]

@@ -1,5 +1,5 @@
 ---
-category: pro
+categories: pro
 date: 2017-09-10T13:34:13+02:00
 subtitle: "From Calculus to Jupyter"
 tags: [ml]

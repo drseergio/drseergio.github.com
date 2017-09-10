@@ -1,7 +1,7 @@
 ---
 date: 2017-05-04T21:12:09+02:00
-tags: [training, trip]
-category: personal
+tags: [training, travel]
+categories: personal
 title: Fail
 subtitle: in Madrid, no less
 ---

@@ -1,5 +1,5 @@
 ---
-category: personal
+categories: personal
 date: 2017-06-21T17:00:45+02:00
 subtitle: "2 days, from North to South along route 3"
 tags: [bicycle]

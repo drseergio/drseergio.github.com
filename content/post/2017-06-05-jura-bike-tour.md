@@ -1,5 +1,5 @@
 ---
-category: personal
+categories: personal
 date: 2017-06-05T19:36:39+02:00
 subtitle: "Summer is starting well..."
 tags: [bicycle]

@@ -1,5 +1,5 @@
 ---
-category: personal
+categories: personal
 date: 2017-07-02T09:39:55+02:00
 subtitle: "Holidays will never be the same again"
 tags: [bicycle]

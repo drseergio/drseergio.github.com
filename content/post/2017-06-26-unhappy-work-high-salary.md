@@ -2,7 +2,7 @@
 title: "The sorrows of high-paid work"
 date: 2017-06-26T17:00:45+02:00
 tags: [reflections]
-category: personal
+categories: personal
 ---
 
 What to do when you're in a handsomely paid position but feel dreadful of most working days? When you feel like you're not challenged, your mind rotting away while others are excited about their work? What to do when you're paid a fortune to do the work you hate or even abhor? I wish I have come across a post like this 2, 3, maybe 4 years ago. I probably won't open anyone's eyes but if just one person in the same pair of shoes finds this post encouraging and gets provoked to think further I consider my mission complete. <!--more-->
