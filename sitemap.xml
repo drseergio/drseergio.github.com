@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://pisarenko.net/blog/2017/09/17/two-day-three-pass-bike-tour/</loc>
+    <lastmod>2017-09-17T17:59:27+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pisarenko.net/blog/2017/09/10/applied-machine-learning/</loc>
     <lastmod>2017-09-10T13:34:13+02:00</lastmod>
   </url>
@@ -463,12 +468,12 @@
   
   <url>
     <loc>http://pisarenko.net/</loc>
-    <lastmod>2017-09-10T13:34:13+02:00</lastmod>
+    <lastmod>2017-09-17T17:59:27+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://pisarenko.net/tags/bicycle/</loc>
-    <lastmod>2017-07-02T09:39:55+02:00</lastmod>
+    <lastmod>2017-09-17T17:59:27+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -521,7 +526,7 @@
   
   <url>
     <loc>http://pisarenko.net/post/</loc>
-    <lastmod>2017-09-10T13:34:13+02:00</lastmod>
+    <lastmod>2017-09-17T17:59:27+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -539,7 +544,7 @@
   
   <url>
     <loc>http://pisarenko.net/tags/</loc>
-    <lastmod>2017-07-02T09:39:55+02:00</lastmod>
+    <lastmod>2017-09-17T17:59:27+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -557,7 +562,7 @@
   
   <url>
     <loc>http://pisarenko.net/tags/travel/</loc>
-    <lastmod>2017-05-04T21:12:09+02:00</lastmod>
+    <lastmod>2017-09-17T17:59:27+02:00</lastmod>
     <priority>0</priority>
   </url>
   
