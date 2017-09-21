@@ -1,5 +1,5 @@
 ---
-category: pro
+categories: [pro]
 date: 2017-09-20T20:23:07+02:00
 subtitle: "Just use one and stick to it"
 tags: [ml]

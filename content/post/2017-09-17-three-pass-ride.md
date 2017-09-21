@@ -1,5 +1,5 @@
 ---
-category: personal
+categories: [personal]
 date: 2017-09-17T17:59:27+02:00
 subtitle: "A ride through Furka, Grimsel and Brunig passes"
 tags: [bicycle, travel]

@@ -1,5 +1,5 @@
 ---
 subtitle: ""
 tags: []
-category: personal
+categories: [personal]
 ---
