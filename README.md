@@ -15,3 +15,10 @@ Running hugo will put content in the 'public' folder.
  1. Clone repository and checkout branch 'source'
  2. Map 'public' folder to the 'master' branch:
     git worktree add -B master public origin/master
+
+# Editing
+
+To create a new post type:
+```
+$ hugo new post/2018-01-01-my-new-article.md
+```
