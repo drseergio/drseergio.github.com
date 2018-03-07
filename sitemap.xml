@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://pisarenko.net/blog/2018/03/07/customized-disposable-desktop-vms-fast/</loc>
+    <lastmod>2018-03-07T12:57:58+01:00</lastmod>
+  </url>
   
   <url>
     <loc>http://pisarenko.net/blog/2017/11/05/three-wonderful-bike-rides/</loc>
@@ -478,7 +484,7 @@
   
   <url>
     <loc>http://pisarenko.net/</loc>
-    <lastmod>2017-11-05T16:31:34+01:00</lastmod>
+    <lastmod>2018-03-07T12:57:58+01:00</lastmod>
   </url>
   
   <url>
@@ -511,6 +517,12 @@
   </url>
   
   <url>
+    <loc>http://pisarenko.net/tags/linux/</loc>
+    <lastmod>2018-03-07T12:57:58+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://pisarenko.net/tags/ml/</loc>
     <lastmod>2017-09-20T20:23:07+02:00</lastmod>
     <priority>0</priority>
@@ -536,13 +548,13 @@
   
   <url>
     <loc>http://pisarenko.net/post/</loc>
-    <lastmod>2017-11-05T16:31:34+01:00</lastmod>
+    <lastmod>2018-03-07T12:57:58+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://pisarenko.net/categories/pro/</loc>
-    <lastmod>2017-09-20T20:23:07+02:00</lastmod>
+    <lastmod>2018-03-07T12:57:58+01:00</lastmod>
     <priority>0</priority>
   </url>
   

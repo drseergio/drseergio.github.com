@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.37" />
   <link rel="canonical" href="http://pisarenko.net/blog/2015/05/05/updates-to-the-802-dot-11ac-guide/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -167,8 +167,8 @@
 
 <p>First, let&rsquo;s see what&rsquo;s wrong with the existing configuration. We will look at the daemon output to troubleshoot. Stop the hostapd service and then start it manually in foreground with:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap linux <span class="c1"># hostapd -d /etc/hostapd/hostapd.conf</span>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ap linux <span class="c1"># hostapd -d /etc/hostapd/hostapd.conf
+</span><span class="c1"></span>
 ...
 Completing interface initialization
 Mode: IEEE <span class="m">802</span>.11a  Channel: <span class="m">52</span>  Frequency: <span class="m">5260</span> MHz
@@ -183,26 +183,22 @@ DFS start_dfs_cac<span class="o">()</span> failed, -1
 Interface initialization failed
 wlp4s0: interface state DFS-&gt;DISABLED
 wlp4s0: AP-DISABLED
-...
-</code></pre></div>
-
+...</code></pre></div>
 
 <p>The output shows us that hostapd was unable to start due to DFS failure (line &ldquo;DFS start_dfs_cac() failed, -1&rdquo;). It means that DFS is not available so we can&rsquo;t choose a channel that requires DFS. We can double check the local regulations using:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap ~ <span class="c1"># iw reg get</span>
-country CH: DFS-ETSI
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ap ~ <span class="c1"># iw reg get
+</span><span class="c1"></span>country CH: DFS-ETSI
         <span class="o">(</span><span class="m">2402</span> - <span class="m">2482</span> @ <span class="m">40</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">20</span><span class="o">)</span>, <span class="o">(</span>N/A<span class="o">)</span>
         <span class="o">(</span><span class="m">5170</span> - <span class="m">5250</span> @ <span class="m">80</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">20</span><span class="o">)</span>, <span class="o">(</span>N/A<span class="o">)</span>
         <span class="o">(</span><span class="m">5250</span> - <span class="m">5330</span> @ <span class="m">80</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">20</span><span class="o">)</span>, <span class="o">(</span><span class="m">0</span> ms<span class="o">)</span>, DFS
         <span class="o">(</span><span class="m">5490</span> - <span class="m">5710</span> @ <span class="m">160</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">27</span><span class="o">)</span>, <span class="o">(</span><span class="m">0</span> ms<span class="o">)</span>, DFS
-        <span class="o">(</span><span class="m">57000</span> - <span class="m">66000</span> @ <span class="m">2160</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">40</span><span class="o">)</span>, <span class="o">(</span>N/A<span class="o">)</span>
-</code></pre></div>
-
+        <span class="o">(</span><span class="m">57000</span> - <span class="m">66000</span> @ <span class="m">2160</span><span class="o">)</span>, <span class="o">(</span>N/A, <span class="m">40</span><span class="o">)</span>, <span class="o">(</span>N/A<span class="o">)</span></code></pre></div>
 
 <p>The output shows that frequencies above 5250 Mhz require DFS. This means that channels &gt;52 won&rsquo;t work unless DFS is functional. Let&rsquo;s cross check supported radio channels using &ldquo;iw&rdquo;:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap ~ <span class="c1"># iw list</span>
-...
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ap ~ <span class="c1"># iw list
+</span><span class="c1"></span>...
 Frequencies:
     * <span class="m">5180</span> MHz <span class="o">[</span><span class="m">36</span><span class="o">]</span> <span class="o">(</span><span class="m">17</span>.0 dBm<span class="o">)</span>
     * <span class="m">5200</span> MHz <span class="o">[</span><span class="m">40</span><span class="o">]</span> <span class="o">(</span><span class="m">17</span>.0 dBm<span class="o">)</span>
@@ -214,9 +210,7 @@ Frequencies:
     * <span class="m">5280</span> MHz <span class="o">[</span><span class="m">56</span><span class="o">]</span> <span class="o">(</span><span class="m">20</span>.0 dBm<span class="o">)</span> <span class="o">(</span>no IR, radar detection<span class="o">)</span>
         DFS state: usable <span class="o">(</span><span class="k">for</span> <span class="m">62</span> sec<span class="o">)</span>
         DFS CAC time: <span class="m">60000</span> ms
-...
-</code></pre></div>
-
+...</code></pre></div>
 
 <p>&ldquo;no IR&rdquo; stands for &ldquo;no initiate radiation&rdquo;. It essentially means that the card cannot be used as an access point on that frequency. However, when &ldquo;no IR&rdquo; goes in hand with &ldquo;radar detection&rdquo; it means that the card can be used but only with DFS. It&rsquo;s another reminder that DFS is required.</p>
 
@@ -226,15 +220,13 @@ Frequencies:
 
 <p>To disable DFS and to choose a channel that does not require DFS do following changes to the configuration file:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap ~ <span class="c1"># vi /etc/hostapd/hostapd.conf</span>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ap ~ <span class="c1"># vi /etc/hostapd/hostapd.conf
+</span><span class="c1"></span>
 ...
 <span class="nv">channel</span><span class="o">=</span><span class="m">44</span>
 ...
 <span class="nv">ieee80211h</span><span class="o">=</span><span class="m">0</span>
-...
-</code></pre></div>
-
+...</code></pre></div>
 
 <p>Save the changes and restart hostapd. Everything should work now. Enabling DFS is by no means necessary. In fact, I&rsquo;m running my access point on a frequency which does not require DFS. I observe significantly better transfer rates on non-DFS channels.</p>
 
@@ -244,12 +236,10 @@ Frequencies:
 
 <p>It turns out that DFS must be enabled in kernel and by default the option is hidden from kernel configuration dialogs. To check if DFS is enabled look through kernel message output:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ap ~ <span class="c1"># dmesg</span>
-...
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ap ~ <span class="c1"># dmesg
+</span><span class="c1"></span>...
 <span class="o">[</span>    <span class="m">2</span>.850086<span class="o">]</span> ath10k_pci <span class="m">0000</span>:04:00.0: debug <span class="m">1</span> debugfs <span class="m">1</span> tracing <span class="m">0</span> dfs <span class="m">0</span> testmode <span class="m">0</span>
-...
-</code></pre></div>
-
+...</code></pre></div>
 
 <p>The output indicates that DFS is disabled (&ldquo;dfs 0&rdquo;). To enable DFS you must enable following options:</p>
 
@@ -263,24 +253,22 @@ Frequencies:
 
 <p>I have experimented with the higher channels but I discovered throughput was significantly worse. In addition, not all client machines recognize upper 5Ghz channels. For example, EU version of Asus PCE-AC68 card in Windows doesn&rsquo;t function on channels &gt;48. A <a href="http://www.snbforums.com/threads/pce-ac66-wifi-card-not-picking-up-5ghz-149-161-channels.10932/">work-around soltion</a> is to alter the driver&rsquo;s *.ini file and re-install the driver:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>After install find the driver<span class="s1">&#39;s INF in C:\Program Files (x86)\ASUS\PCE-AC68 WLAN Card Utilities\Driver\PCE-AC68\Win81\bcmwl64.inf</span>
-
-<span class="s1">Here is the modified lines on the INF to make the card working with channels &gt;= 149 :</span>
-
-<span class="s1">- Line 3784, section [a.channels.reg], under the comment &quot;Additional channels supported only on SPROM map version 2&quot; : uncomment the next five lines to enable channels 149 to 165.</span>
-
-<span class="s1">- Line 3356, section [common.reg] : uncomment each lines containing Ndi\params\Country (lines 3356 to 3598)</span>
-
-<span class="s1">To continue, you must uninstall (with removing) the driver with the windows device manager and deactivate windows driver integrity check with an admin console:</span>
-
-<span class="s1">bcdedit -set loadoptions DISABLE_INTEGRITY_CHECKS</span>
-<span class="s1">bcdedit -set TESTSIGNING ON</span>
-
-<span class="s1">After rebooting, go to the device manager and install the modified INF on the newly discovered uknown network adapter.</span>
-
-<span class="s1">After installtion, got to the PCE-AC68 adapter&#39;</span>s properties in the device manager, in the advance section you can choose the country <span class="o">(</span><span class="k">for</span> channel <span class="m">149</span>, i<span class="err">&#39;</span>ve chosen %UnitedState%<span class="o">)</span>.
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">After install find the driver<span class="s1">&#39;s INF in C:\Program Files (x86)\ASUS\PCE-AC68 WLAN Card Utilities\Driver\PCE-AC68\Win81\bcmwl64.inf
+</span><span class="s1">
+</span><span class="s1">Here is the modified lines on the INF to make the card working with channels &gt;= 149 :
+</span><span class="s1">
+</span><span class="s1">- Line 3784, section [a.channels.reg], under the comment &#34;Additional channels supported only on SPROM map version 2&#34; : uncomment the next five lines to enable channels 149 to 165.
+</span><span class="s1">
+</span><span class="s1">- Line 3356, section [common.reg] : uncomment each lines containing Ndi\params\Country (lines 3356 to 3598)
+</span><span class="s1">
+</span><span class="s1">To continue, you must uninstall (with removing) the driver with the windows device manager and deactivate windows driver integrity check with an admin console:
+</span><span class="s1">
+</span><span class="s1">bcdedit -set loadoptions DISABLE_INTEGRITY_CHECKS
+</span><span class="s1">bcdedit -set TESTSIGNING ON
+</span><span class="s1">
+</span><span class="s1">After rebooting, go to the device manager and install the modified INF on the newly discovered uknown network adapter.
+</span><span class="s1">
+</span><span class="s1">After installtion, got to the PCE-AC68 adapter&#39;</span>s properties in the device manager, in the advance section you can choose the country <span class="o">(</span><span class="k">for</span> channel <span class="m">149</span>, i<span class="err">&#39;</span>ve chosen %UnitedState%<span class="o">)</span>.</code></pre></div>
 
 <h2 id="fix-dfs-unset-problem">Fix DFS-UNSET problem</h2>
 
@@ -326,20 +314,25 @@ Frequencies:
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'drseergio';
-    var disqus_identifier = 'http:\/\/pisarenko.net\/blog\/2015\/05\/05\/updates-to-the-802-dot-11ac-guide\/';
-    var disqus_title = 'Updates to the 802.11ac guide';
-    var disqus_url = 'http:\/\/pisarenko.net\/blog\/2015\/05\/05\/updates-to-the-802-dot-11ac-guide\/';
-
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "drseergio" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
           </div>
         
       
@@ -376,7 +369,7 @@ Frequencies:
         <p class="credits copyright text-muted">
           Sergey Pisarenko
           &nbsp;&bull;&nbsp;
-          2017
+          2018
 
           
             &nbsp;&bull;&nbsp;

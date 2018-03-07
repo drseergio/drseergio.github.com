@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Customized disposable desktop VMs, fast!</title>
+  <meta property="og:title" content="Customized disposable desktop VMs, fast!" />
+  <meta name="twitter:title" content="Customized disposable desktop VMs, fast!" />
+  <meta name="description" content="Provisioning VMs on-demand from scratch with Vagrant, Packer and Arch Linux">
+  <meta property="og:description" content="Provisioning VMs on-demand from scratch with Vagrant, Packer and Arch Linux">
+  <meta name="twitter:description" content="Provisioning VMs on-demand from scratch with Vagrant, Packer and Arch Linux">
+  <meta name="author" content="Sergey Pisarenko"/>
+  <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="http://pisarenko.net/blog/2018/03/07/customized-disposable-desktop-vms-fast/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sergey Pisarenko" />
+
+  <meta name="generator" content="Hugo 0.37" />
+  <link rel="canonical" href="http://pisarenko.net/blog/2018/03/07/customized-disposable-desktop-vms-fast/" />
+  <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://pisarenko.net/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://pisarenko.net/css/highlight.min.css" />
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://pisarenko.net/">Sergey Pisarenko</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="All" href="/">All</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Pro</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/pro">Posts </a>
+                
+                  <a href="https://github.com/pisarenko-net">Github</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Personal</a>
+              <div class="navlinks-children">
+                
+                  <a href="/categories/personal">Posts</a>
+                
+                  <a href="http://www.flickr.com/photos/68217075@N08/">Photos</a>
+                
+                  <a href="https://www.strava.com/athletes/6411230">Rides/runs</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Archives" href="/post">Archives</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Sergey Pisarenko" href="http://pisarenko.net/">
+            <img class="avatar-img" src="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" alt="Sergey Pisarenko" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Customized disposable desktop VMs, fast!</h1>
+                
+                  
+                    <h2 class="post-subheading">Provisioning VMs on-demand from scratch with Vagrant, Packer and Arch Linux</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on March 7, 2018
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>I&rsquo;ve been running virtualized desktop environments for a couple of years now, doing various tasks from within Virtualbox VMs. I like the fact the tools and libraries for the job at hand are isolated from other environments. But I have been missing on the dynamic aspect, somehow ending up with VMs which are as prone to maintenance as physical installations. Recently, I&rsquo;ve decided to solve this issue once and for all with the help from <a href="https://www.archlinux.org/">Arch Linux</a>, <a href="https://www.vagrantup.com/">Vagrant</a> and <a href="https://www.packer.io">Packer</a>.</p>
+
+<p></p>
+
+<h2 id="virtual-machine-maintenance-chores">Virtual Machine maintenance chores</h2>
+
+<p>My host operating system has relatively few things installed. A terminal client, a browser, some productivity tools and Virtualbox. I carry out most of tasks and projects from within VMs, and that includes my full-time software engineering duties. That way I don&rsquo;t have to worry about hardware compatibility and at the same time enjoy my favorite development tools. With VMs I&rsquo;m never concerned about mixing dependencies. Side projects can&rsquo;t disrupt my main project because they&rsquo;re running in isolated VMs. There&rsquo;s a perceptible hit on UI responsiveness and usability, even with 3D acceleration enabled, but the benefits outweigh the costs and I consider the performance acceptable.</p>
+
+<p>Yet my biggest concern was not the UI performance but the ongoing maintenance. Virtual machines offer the prospect of cheap and disposable instances that are easy to provision and destroy whenever necessary. In reality, however, I ended up with several VMs that were maintained just as if they were physical machines. I was also concerned about losing them. For that reason I kept their backups. It is certainly easier to backup VMs and recover than physical machines but that&rsquo;s far from the dream of on-demand disposable instances.</p>
+
+<p>Getting a new VM to usable state was also a chore. I chose Ubuntu because it is widely used and supported but it comes prepackaged with hundreds of programs. Every time it took me a couple of hours to get rid of all the stuff I don&rsquo;t need and a couple of days until I&rsquo;ve got everything set up the way I like it. My favorite distribution is Gentoo but that would be too much work and compile time for every single VM. Installing Gentoo every time would be a nightmare. And upgrading all the VMs even more so. Nowadays, I keep Gentoo on custom routers and servers only.</p>
+
+<p>I have decided to use this opportunity to come with a scripted solution to make the best use of disposable VMs. My goal was to create customizable VMs that are built from scratch and include only the packages I want.</p>
+
+<h2 id="time-for-a-new-linux-distro">Time for a new Linux distro</h2>
+
+<p>Before building out the infrastructure I chose Arch Linux as the base distribution. Arch is as flexible as Gentoo, sans the compilation. A minimal Arch system contains very few packages. It was a natural choice and a much wanted upgrade from the Ubuntu images I had been using.</p>
+
+<h2 id="automated-vm-provisioning">Automated VM provisioning</h2>
+
+<p>I already had a tool in mind - <a href="https://www.vagrantup.com">Vagrant</a>. I remember trying it years ago so I vaguely recalled it could help me automate VM management. Vagrant integrates nicely with Virtualbox, which I&rsquo;m using to run all my VMs. Vagrant provisions VMs from configuration files using a specified base box. After studying Vagrant documentation I have realized that having a base box is a requirement. In other words, Vagrant cannot build a complete system from scratch, i.e. from an installation ISO. Using someone else&rsquo;s Arch base image is unacceptable to me as it defies the purpose &ndash; I can&rsquo;t be sure there&rsquo;s no superflous software installed. I wanted a solution that produces VMs from scratch: partitioning, bootloader installation, etc.</p>
+
+<p>Luckily, the company behind Vagrant also provides a tool called <a href="https://packer.io">Packer</a>. Packer fills the gap by building base images from scripts. The combination of Vagrant + Packer is perfect for getting complete VMs from scratch. The way Packer works is rather spectacular. First, it boots the VM and programmatically types commands in the terminal &ndash; a somewhat unusual sight. The commands Packer types download a script from a shared folder and runs it. The script then sets up SSH to which Packer connects to. From there on no direct interaction is needed and further steps are executed through SSH.</p>
+
+<h2 id="learning-arch">Learning Arch</h2>
+
+<p>With the tools in hand, my first step was to experiment with Arch and install it manually under Virtualbox while documenting every step. I chose EFI, grub and btrfs, among other things. The beauty of the setup is, that once a script works, I can change and test these small things without going through the whole setup manually. It is like unit testing. While Arch is not Gentoo it still takes effort to build. I first built a base cli system and then built a minimal X system.</p>
+
+<h2 id="building-base-box-with-packer">Building base box with Packer</h2>
+
+<p>Once the Arch installation steps were complete I began with the corresponding Packer script. I looked for and discovered a couple of existing examples online and added my changes on top. The complete script is roughly 100 lines long and takes care of everything &ndash; partitioning, installing bootloader, setting up locales and network, installing Virtualbox modules and few essential packages (e.g. ssh, neovim). The goal of the base image is to be as light as possible &ndash; other tools are installed later through Vagrant.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
+</span><span class="cp"></span>
+<span class="c1"># stop on errors
+</span><span class="c1"></span><span class="nb">set</span> -eu
+
+<span class="nv">DISK</span><span class="o">=</span><span class="s1">&#39;/dev/sda&#39;</span>
+
+<span class="nv">FQDN</span><span class="o">=</span><span class="s1">&#39;arch.bethania&#39;</span>
+<span class="nv">KEYMAP</span><span class="o">=</span><span class="s1">&#39;us&#39;</span>
+<span class="nv">LANGUAGE</span><span class="o">=</span><span class="s1">&#39;en_US.UTF-8&#39;</span>
+<span class="nv">PASSWORD</span><span class="o">=</span><span class="k">$(</span>/usr/bin/openssl passwd -crypt <span class="s1">&#39;vagrant&#39;</span><span class="k">)</span>
+<span class="nv">TIMEZONE</span><span class="o">=</span><span class="s1">&#39;Europe/Zurich&#39;</span>
+
+<span class="nv">CONFIG_SCRIPT</span><span class="o">=</span><span class="s1">&#39;/usr/local/bin/arch-config.sh&#39;</span>
+<span class="nv">BOOT_PARTITION</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">DISK</span><span class="si">}</span><span class="s2">1&#34;</span>
+<span class="nv">ROOT_PARTITION</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">DISK</span><span class="si">}</span><span class="s2">2&#34;</span>
+<span class="nv">TARGET_DIR</span><span class="o">=</span><span class="s1">&#39;/mnt&#39;</span>
+<span class="nv">MIRRORLIST</span><span class="o">=</span><span class="s2">&#34;https://www.archlinux.org/mirrorlist/?country=</span><span class="si">${</span><span class="nv">COUNTRY</span><span class="si">}</span><span class="s2">&amp;protocol=http&amp;protocol=https&amp;ip_version=4&amp;use_mirror_status=on&#34;</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;==&gt; Create GPT partition table on </span><span class="si">${</span><span class="nv">DISK</span><span class="si">}</span><span class="s2">&#34;</span>
+/usr/bin/sgdisk -og <span class="si">${</span><span class="nv">DISK</span><span class="si">}</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;==&gt; Destroying magic strings and signatures on </span><span class="si">${</span><span class="nv">DISK</span><span class="si">}</span><span class="s2">&#34;</span>
+/usr/bin/dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span><span class="si">${</span><span class="nv">DISK</span><span class="si">}</span> <span class="nv">bs</span><span class="o">=</span><span class="m">512</span> <span class="nv">count</span><span class="o">=</span><span class="m">2048</span>
+/usr/bin/wipefs --all <span class="si">${</span><span class="nv">DISK</span><span class="si">}</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;==&gt; Creating /boot EFI partition on </span><span class="si">${</span><span class="nv">DISK</span><span class="si">}</span><span class="s2">&#34;</span>
+/usr/bin/sgdisk -n <span class="m">1</span>:2048:2098175 -c <span class="m">1</span>:<span class="s2">&#34;EFI boot partition&#34;</span> -t <span class="m">1</span>:ef00 <span class="si">${</span><span class="nv">DISK</span><span class="si">}</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;==&gt; Creating /root partition on </span><span class="si">${</span><span class="nv">DISK</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="nv">ENDSECTOR</span><span class="o">=</span><span class="sb">`</span>/usr/bin/sgdisk -E <span class="si">${</span><span class="nv">DISK</span><span class="si">}</span><span class="sb">`</span>
+/usr/bin/sgdisk -n <span class="m">2</span>:2098176:<span class="nv">$ENDSECTOR</span> -c <span class="m">2</span>:<span class="s2">&#34;Linux root partition&#34;</span> -t <span class="m">2</span>:8300 <span class="si">${</span><span class="nv">DISK</span><span class="si">}</span>
+
+<span class="nb">echo</span> <span class="s1">&#39;==&gt; Creating /boot filesystem (FAT32)&#39;</span>
+/usr/bin/mkfs.fat -F32 <span class="nv">$BOOT_PARTITION</span>
+
+<span class="nb">echo</span> <span class="s1">&#39;==&gt; Creating /root filesystem (btrfs)&#39;</span>
+/usr/bin/mkfs.btrfs <span class="nv">$ROOT_PARTITION</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;==&gt; Mounting </span><span class="si">${</span><span class="nv">ROOT_PARTITION</span><span class="si">}</span><span class="s2"> to </span><span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span><span class="s2">&#34;</span>
+/usr/bin/mount <span class="si">${</span><span class="nv">ROOT_PARTITION</span><span class="si">}</span> <span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="s2">&#34;==&gt; Mounting </span><span class="si">${</span><span class="nv">BOOT_PARTITION</span><span class="si">}</span><span class="s2"> to </span><span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span><span class="s2">/boot&#34;</span>
+/usr/bin/mkdir <span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span>/boot
+/usr/bin/mount <span class="si">${</span><span class="nv">BOOT_PARTITION</span><span class="si">}</span> <span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span>/boot
+
+<span class="nb">echo</span> <span class="s2">&#34;==&gt; Setting local mirror&#34;</span>
+curl -s <span class="s2">&#34;</span><span class="nv">$MIRRORLIST</span><span class="s2">&#34;</span> <span class="p">|</span>  sed <span class="s1">&#39;s/^#Server/Server/&#39;</span> &gt; /etc/pacman.d/mirrorlist
+
+<span class="nb">echo</span> <span class="s1">&#39;==&gt; Bootstrapping the base installation&#39;</span>
+/usr/bin/pacstrap <span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span> base base-devel btrfs-progs neovim openssh grub efibootmgr net-tools
+
+<span class="nb">echo</span> <span class="s1">&#39;==&gt; Generating the filesystem table&#39;</span>
+/usr/bin/genfstab -U <span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span> &gt;&gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span><span class="s2">/etc/fstab&#34;</span>
+
+<span class="nb">echo</span> <span class="s1">&#39;==&gt; Installing GRUB&#39;</span>
+/usr/bin/sed -i <span class="s1">&#39;s/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/&#39;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span><span class="s2">/etc/default/grub&#34;</span>
+/usr/bin/sed -i <span class="s1">&#39;s/GRUB_CMDLINE_LINUX_DEFAULT=&#34;.*&#34;/GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet video=1360x768&#34;/&#39;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span><span class="s2">/etc/default/grub&#34;</span>
+
+<span class="nb">echo</span> <span class="s1">&#39;==&gt; Generating the system configuration script&#39;</span>
+/usr/bin/install --mode<span class="o">=</span><span class="m">0755</span> /dev/null <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}${</span><span class="nv">CONFIG_SCRIPT</span><span class="si">}</span><span class="s2">&#34;</span>
+
+cat <span class="s">&lt;&lt;-EOF &gt; &#34;${TARGET_DIR}${CONFIG_SCRIPT}&#34;
+</span><span class="s">    # GRUB bootloader installation
+</span><span class="s">    /usr/bin/grub-install --target=x86_64-efi --efi-directory=/boot
+</span><span class="s">    /usr/bin/grub-mkconfig -o /boot/grub/grub.cfg
+</span><span class="s">    /usr/bin/mkdir /boot/EFI/BOOT
+</span><span class="s">    /usr/bin/cp /boot/EFI/arch/grubx64.efi /boot/EFI/BOOT/bootx64.efi
+</span><span class="s">
+</span><span class="s">	echo &#39;${FQDN}&#39; &gt; /etc/hostname
+</span><span class="s">	/usr/bin/ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+</span><span class="s">	echo &#39;KEYMAP=${KEYMAP}&#39; &gt; /etc/vconsole.conf
+</span><span class="s">	echo &#39;LANG=en_US.UTF-8&#39; &gt; /etc/locale.conf
+</span><span class="s">	/usr/bin/sed -i &#39;s/#${LANGUAGE}/${LANGUAGE}/&#39; /etc/locale.gen
+</span><span class="s">	/usr/bin/locale-gen
+</span><span class="s">	/usr/bin/usermod --password ${PASSWORD} root
+</span><span class="s">	# https://wiki.archlinux.org/index.php/Network_Configuration#Device_names
+</span><span class="s">	/usr/bin/ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+</span><span class="s">	/usr/bin/ln -s &#39;/usr/lib/systemd/system/dhcpcd@.service&#39; &#39;/etc/systemd/system/multi-user.target.wants/dhcpcd@eth0.service&#39;
+</span><span class="s">	/usr/bin/sed -i &#39;s/#UseDNS yes/UseDNS no/&#39; /etc/ssh/sshd_config
+</span><span class="s">	/usr/bin/systemctl enable sshd.service
+</span><span class="s">
+</span><span class="s">	# Vagrant-specific configuration
+</span><span class="s">	/usr/bin/useradd --password ${PASSWORD} --comment &#39;Vagrant User&#39; --create-home --user-group vagrant
+</span><span class="s">	echo &#39;Defaults env_keep += &#34;SSH_AUTH_SOCK&#34;&#39; &gt; /etc/sudoers.d/10_vagrant
+</span><span class="s">	echo &#39;vagrant ALL=(ALL) NOPASSWD: ALL&#39; &gt;&gt; /etc/sudoers.d/10_vagrant
+</span><span class="s">	/usr/bin/chmod 0440 /etc/sudoers.d/10_vagrant
+</span><span class="s">	/usr/bin/install --directory --owner=vagrant --group=vagrant --mode=0700 /home/vagrant/.ssh
+</span><span class="s">	/usr/bin/curl --output /home/vagrant/.ssh/authorized_keys --location https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub
+</span><span class="s">	/usr/bin/chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
+</span><span class="s">	/usr/bin/chmod 0600 /home/vagrant/.ssh/authorized_keys
+</span><span class="s">
+</span><span class="s">    # virtualbox integration
+</span><span class="s">    /usr/bin/pacman -S --noconfirm virtualbox-guest-utils-nox virtualbox-guest-modules-arch 
+</span><span class="s">    echo -e &#39;vboxguest\nvboxsf\nvboxvideo&#39; &gt; /etc/modules-load.d/virtualbox.conf
+</span><span class="s">    /usr/bin/systemctl enable vboxservice.service
+</span><span class="s">    /usr/bin/systemctl enable rpcbind.service
+</span><span class="s">    # Add groups for VirtualBox folder sharing
+</span><span class="s">    /usr/bin/usermod --append --groups vagrant,vboxsf vagrant
+</span><span class="s">
+</span><span class="s">    # Clean the pacman cache.
+</span><span class="s">    /usr/bin/yes | /usr/bin/pacman -Scc
+</span><span class="s">    /usr/bin/pacman-optimize
+</span><span class="s">EOF</span>
+
+<span class="nb">echo</span> <span class="s1">&#39;==&gt; Entering chroot and configuring system&#39;</span>
+/usr/bin/arch-chroot <span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span> <span class="si">${</span><span class="nv">CONFIG_SCRIPT</span><span class="si">}</span>
+rm <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}${</span><span class="nv">CONFIG_SCRIPT</span><span class="si">}</span><span class="s2">&#34;</span>
+
+<span class="nb">echo</span> <span class="s1">&#39;==&gt; Installation complete!&#39;</span>
+/usr/bin/sleep <span class="m">3</span>
+/usr/bin/umount <span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span>/boot
+/usr/bin/umount <span class="si">${</span><span class="nv">TARGET_DIR</span><span class="si">}</span></code></pre></div>
+
+<p>Packer produces a base box which can then be imported into vagrant and specified in vagrant configuration files:</p>
+
+<pre><code>$ ./packer.exe build -force arch-base.json
+$ ./vagrant.exe box add output/arch_vagrant_base.box --name arch-base --force
+</code></pre>
+
+<h2 id="defining-vms-in-vagrant">Defining VMs in Vagrant</h2>
+
+<p>With the most minimal base image produced, Vagrant steps in to fully define what goes into the VMs. Vagrant is flexible and supports Puppet, Chef and Ansible for provisioning. As I didn&rsquo;t have experience with any of those tools and since I only needed the setup for myself I decided to avoid complexity. Vagrant also supports plain shell scripts, which are sufficiently expressive and simple.</p>
+
+<p>I chose to structure provisioning scripts in a layering scheme, in which layers are executed in succession to add functionality. I came up with 2 layers: CLI and X. CLI installs everything I&rsquo;d want on a console VM, including tools, SSH keys, shell customizations, etc. Similarly, the X layer installs a minimal system with XFCE, a launcher, Sublime editor (along with my personal license), fonts, browser and my favorite diff tool. All of the tools are preconfigured with my preferences, such as the right wallpaper, color scheme, keyboard shortcuts and fonts.</p>
+
+<p>The actual VMs are then defined with setup scripts of their own on top of the standard layers. So, the VM I use to author this post has nothing else but <a href="https://gohugo.io/">Hugo</a> installation defined in its script. As another example, I defined a VM to complete an online course. Since the course made use of Java-based tools I specified that JDK should be installed.</p>
+
+<p>Scripting so much of the setup requires a slight mindset change. Anytime I&rsquo;d like to tweak or change something in the environment (say, shell settings)
+I need to consider whether to update the corresponding scripts. The beauty is that the setup lives on as configuration and is made apparent. No more fear that something was left behind after an upgrade!</p>
+
+<p>The provisioning script for the VM I&rsquo;m writing this post contains the following:</p>
+
+<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">AS</span><span class="o">=</span><span class="s2">&#34;/usr/bin/sudo -u sergey&#34;</span>
+
+<span class="c1"># install hugo
+</span><span class="c1"></span>pacman -S --noconfirm hugo
+
+<span class="c1"># check out repository
+</span><span class="c1"></span><span class="nb">echo</span> <span class="s1">&#39;==&gt; Checking out repository&#39;</span>
+<span class="nb">cd</span> /home/sergey
+<span class="nv">$AS</span> /usr/bin/git clone git@github.com:drseergio/drseergio.github.com.git hugoblog
+<span class="nb">cd</span> /home/sergey/hugoblog
+<span class="nv">$AS</span> git checkout <span class="nb">source</span>
+<span class="nv">$AS</span> git worktree add -B master public origin/master
+
+<span class="c1"># Reboot!
+</span><span class="c1"></span><span class="nb">echo</span> <span class="s1">&#39;==&gt; Rebooting!&#39;</span>
+/usr/bin/reboot</code></pre></div></p>
+
+<p>Here&rsquo;s the complete Vagrantfile for the blogging VM:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&#34;2&#34;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">variables</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&#34;EMAIL&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;sergey@pisarenko.net&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;FULL_NAME&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Sergey Pisarenko&#34;</span>
+  <span class="p">}</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&#34;arch-base&#34;</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&#34;hugoblog.bethania&#34;</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s1">&#39;C:\Users\drsee\UbuntuShared&#39;</span><span class="p">,</span> <span class="s2">&#34;/shared&#34;</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;public_network&#34;</span><span class="p">,</span> <span class="ss">:bridge</span> <span class="o">=&gt;</span> <span class="s1">&#39;Wireless LAN adapter Wi-Fi&#39;</span><span class="p">,</span> <span class="ss">:mac</span> <span class="o">=&gt;</span> <span class="s2">&#34;XXX&#34;</span> <span class="c1"># mac has been edited out</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Hugoblog 18.02&#34;</span>
+
+    <span class="c1"># Display the VirtualBox GUI when booting the machine</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="kp">true</span>
+ 
+    <span class="c1"># Customize the amount of memory on the VM:</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="s2">&#34;1024&#34;</span>
+
+    <span class="c1"># EFI boot</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--firmware&#34;</span><span class="p">,</span> <span class="s2">&#34;efi64&#34;</span><span class="o">]</span>
+
+    <span class="c1"># disable audio</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--audio&#34;</span><span class="p">,</span> <span class="s2">&#34;none&#34;</span><span class="o">]</span>
+
+    <span class="c1"># better video</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--accelerate3d&#34;</span><span class="p">,</span> <span class="s2">&#34;on&#34;</span><span class="o">]</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--vram&#34;</span><span class="p">,</span> <span class="s2">&#34;128&#34;</span><span class="o">]</span>
+
+    <span class="c1"># integration with desktop</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--clipboard&#34;</span><span class="p">,</span> <span class="s2">&#34;bidirectional&#34;</span><span class="o">]</span>
+    <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--draganddrop&#34;</span><span class="p">,</span> <span class="s2">&#34;bidirectional&#34;</span><span class="o">]</span>
+
+    <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--cpus&#34;</span><span class="p">,</span> <span class="s2">&#34;2&#34;</span><span class="o">]</span>
+  <span class="k">end</span>
+
+  <span class="c1"># note how the layers are specified below</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;file&#34;</span><span class="p">,</span> <span class="ss">source</span><span class="p">:</span> <span class="s2">&#34;../../configs&#34;</span><span class="p">,</span> <span class="ss">destination</span><span class="p">:</span> <span class="s2">&#34;/tmp/configs&#34;</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;file&#34;</span><span class="p">,</span> <span class="ss">source</span><span class="p">:</span> <span class="s2">&#34;../../wallpapers&#34;</span><span class="p">,</span> <span class="ss">destination</span><span class="p">:</span> <span class="s2">&#34;/tmp/wallpapers&#34;</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;../../layers/cli-setup.sh&#34;</span><span class="p">,</span> <span class="ss">env</span><span class="p">:</span> <span class="n">variables</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;../../layers/xorg-setup.sh&#34;</span><span class="p">,</span> <span class="ss">env</span><span class="p">:</span> <span class="n">variables</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;hugoblog-setup.sh&#34;</span><span class="p">,</span> <span class="ss">env</span><span class="p">:</span> <span class="n">variables</span>
+<span class="k">end</span></code></pre></div>
+
+<p>Once all the scripts are in place, getting a complete VM up and running is as simple as:</p>
+
+<pre><code>$ vagrant up
+</code></pre>
+
+<p>The VM can then be used in Virtualbox just like a normal VM until it&rsquo;s no longer necessary:</p>
+
+<pre><code>$ vagrant destroy  # ...and it's gone!
+</code></pre>
+
+<h2 id="closing-words">Closing words</h2>
+
+<p>I&rsquo;ve been trialing the solution for several weeks now and using this approach for everything but my full-time work. Though there are few minor things to iron out, like shell preferences and environment variables, I&rsquo;m deeply satisfied with the result! Getting a new machine is just a matter of running a command and then preparing a cup of tea. By the time I get back with a hot ☕ the VM is ready and booted.</p>
+
+<p>The best part is that this also allows me provision physical machines. I can build VM images, test them locally in Virtualbox and then transfer them to physical drives and boot them. Maybe I&rsquo;d need to install an additional module or two (say, nvidia binary driver) but otherwise it&rsquo;ll work great.</p>
+
+<p>I have uploaded all the configuration files on my github account <a href="https://github.com/pisarenko-net/arch-packer-vagrant">https://github.com/pisarenko-net/arch-packer-vagrant</a>. The configurations are customized to my needs (e.g. include user &ldquo;sergey&rdquo;) but could serve as a good starting point.</p>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://pisarenko.net/blog/2017/11/05/three-wonderful-bike-rides/" data-toggle="tooltip" data-placement="top" title="Three wonderful bike rides">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "drseergio" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/pisarenko-net" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://pisarenko.net/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Sergey Pisarenko
+          &nbsp;&bull;&nbsp;
+          2018
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://pisarenko.net/">Sergey Pisarenko</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://pisarenko.net/js/main.js"></script>
+<script src="http://pisarenko.net/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45212877-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+

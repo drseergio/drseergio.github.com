@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.37" />
   <link rel="canonical" href="http://pisarenko.net/blog/2017/04/28/hugo-static-site-generator/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -194,12 +194,10 @@
 <li>I didn&rsquo;t like the fact that creating new Octopress environments wasn&rsquo;t easy. I&rsquo;ve mostly used the same Virtual Machine and hoped I won&rsquo;t need to create a new one. In contrast, installing Hugo is easy:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ apt-get install golang-go <span class="c1"># not necessary when running a prebuilt Hugo binary</span>
-$ dpkg -i hugo.deb
-$ apt-get install python-pip <span class="c1"># for syntax highlighting</span>
-$ pip install Pygments
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ apt-get install golang-go <span class="c1"># not necessary when running a prebuilt Hugo binary
+</span><span class="c1"></span>$ dpkg -i hugo.deb
+$ apt-get install python-pip <span class="c1"># for syntax highlighting
+</span><span class="c1"></span>$ pip install Pygments</code></pre></div>
 
 <ul>
 <li><a href="https://gohugo.io/overview/introduction/">Excellent documentation</a>.</li>
@@ -237,39 +235,27 @@ $ pip install Pygments
 
 <p>As a first thing I copied all <code>*.markdown</code> files from my Octopress installation to the <code>content/post/</code> folder. Then, I changed file extensions to <code>*.md</code>:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ find . -name <span class="s2">&quot;*.markdown&quot;</span> -exec rename <span class="s1">&#39;s/.markdown$/.md/&#39;</span> <span class="o">{}</span> <span class="se">\;</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ find . -name <span class="s2">&#34;*.markdown&#34;</span> -exec rename <span class="s1">&#39;s/.markdown$/.md/&#39;</span> <span class="o">{}</span> <span class="se">\;</span></code></pre></div>
 
 <p>Then I removed <code>layout: post</code> line from all files (it causes problems in Hugo because it&rsquo;s likely used for something else):</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed --in-place <span class="s1">&#39;/layout: post/d&#39;</span> *md
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sed --in-place <span class="s1">&#39;/layout: post/d&#39;</span> *md</code></pre></div>
 
 <p>The date format is different so that also needs to be changed:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>find -type f -exec sed -i <span class="s1">&#39;s/\([0-9]\+-[0-9]\+-[0-9]\+\).*$/&quot;\1&quot;/&#39;</span> <span class="o">{}</span> <span class="se">\;</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">find -type f -exec sed -i <span class="s1">&#39;s/\([0-9]\+-[0-9]\+-[0-9]\+\).*$/&#34;\1&#34;/&#39;</span> <span class="o">{}</span> <span class="se">\;</span></code></pre></div>
 
 <p>I intended to use few categories and a couple of tags. The way I used categories in Octopress maps to tags in Hugo so I changed all Octopress categories to tags:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;s/^categories: \(.*\)$/tags: [\1]/g&#39;</span> *.md
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sed -i <span class="s1">&#39;s/^categories: \(.*\)$/tags: [\1]/g&#39;</span> *.md</code></pre></div>
 
 <p>and inserted a default <code>personal</code> category into to each post:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;/^tags:/a categories: personal&#39;</span>  *.md
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sed -i <span class="s1">&#39;/^tags:/a categories: personal&#39;</span>  *.md</code></pre></div>
 
 <p>To change YouTube embed links I ran the following:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sed -i <span class="s1">&#39;s/{% \(youtube.*\) %}/\{\{&lt; \1 &gt;}}/g&#39;</span> *
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sed -i <span class="s1">&#39;s/{% \(youtube.*\) %}/\{\{&lt; \1 &gt;}}/g&#39;</span> *</code></pre></div>
 
 <p>I was pretty happy with the Octopress appearance so I initially tried the Octopress theme for Hugo. Unfortunately, there&rsquo;s something wrong with it. It doesn&rsquo;t render correctly and I sense that the look isn&rsquo;t clean anymore. I think whoever ported the theme made minor adjustments and it doesn&rsquo;t look right anymore.</p>
 
@@ -291,13 +277,13 @@ $ pip install Pygments
 
 <p><code>layouts/post/list.html</code>:</p>
 
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span></span><span class="p">{{</span> <span class="nx">define</span> <span class="s">&quot;header&quot;</span> <span class="p">}}</span>
-  <span class="p">&lt;</span><span class="nx">header</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;header-section &quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;intro-header no-img&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;page-heading&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="p">{{</span> <span class="nx">define</span> <span class="s">&#34;header&#34;</span> <span class="p">}}</span>
+  <span class="p">&lt;</span><span class="nx">header</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;header-section &#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;intro-header no-img&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;page-heading&#34;</span><span class="p">&gt;</span>
               <span class="p">&lt;</span><span class="nx">h2</span><span class="p">&gt;</span><span class="nx">Blog</span> <span class="nx">Archive</span><span class="p">&lt;</span><span class="o">/</span><span class="nx">h2</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
           <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
@@ -307,19 +293,19 @@ $ pip install Pygments
   <span class="p">&lt;</span><span class="o">/</span><span class="nx">header</span><span class="p">&gt;</span>
 <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
 
-<span class="p">{{</span> <span class="nx">define</span> <span class="s">&quot;main&quot;</span> <span class="p">}}</span>
-  <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;container&quot;</span> <span class="nx">role</span><span class="p">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;posts-list&quot;</span><span class="p">&gt;</span>
-        <span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Data</span><span class="p">.</span><span class="nx">Pages</span><span class="p">.</span><span class="nx">GroupByDate</span> <span class="s">&quot;2006&quot;</span> <span class="p">}}</span>
-        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;archive-year&quot;</span><span class="p">&gt;</span>
+<span class="p">{{</span> <span class="nx">define</span> <span class="s">&#34;main&#34;</span> <span class="p">}}</span>
+  <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;container&#34;</span> <span class="nx">role</span><span class="p">=</span><span class="s">&#34;main&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;posts-list&#34;</span><span class="p">&gt;</span>
+        <span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Data</span><span class="p">.</span><span class="nx">Pages</span><span class="p">.</span><span class="nx">GroupByDate</span> <span class="s">&#34;2006&#34;</span> <span class="p">}}</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;archive-year&#34;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nx">h3</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Key</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">h3</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nx">ul</span><span class="p">&gt;</span>
         <span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Pages</span> <span class="p">}}</span>
         <span class="p">&lt;</span><span class="nx">li</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Date</span><span class="p">.</span><span class="nx">Format</span> <span class="s">&quot;Jan 2&quot;</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="p">=</span><span class="s">&quot;{{ .Permalink }}&quot;</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Date</span><span class="p">.</span><span class="nx">Format</span> <span class="s">&#34;Jan 2&#34;</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;{{ .Permalink }}&#34;</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">a</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="o">/</span><span class="nx">li</span><span class="p">&gt;</span>
         <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
         <span class="p">&lt;</span><span class="o">/</span><span class="nx">ul</span><span class="p">&gt;</span>
@@ -329,9 +315,7 @@ $ pip install Pygments
       <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
-<span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
-</code></pre></div>
-
+<span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span></code></pre></div>
 
 <h3 id="image-tags">Image tags</h3>
 
@@ -346,9 +330,7 @@ $ pip install Pygments
 
 <p>To convert existing Octopress image tags I used sed. Unfortunately, I initially used a snippet from another blog and that had messed up the files because of a greedy regular expression. Now image tags look like (<code>%</code> is escaped with <code>\</code>):</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span>{{\% img class=&quot;center noborder&quot; src=&quot;/images/hugo-logo.png&quot; %}}
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">{{\% img class=&#34;center noborder&#34; src=&#34;/images/hugo-logo.png&#34; %}}</code></pre></div>
 
 <p>The end result is a bit more verbose than I would prefer but on the other hand it&rsquo;s clearer than positional argument image tag in Octopress. I was always forgetting the order in which the arguments are given.</p>
 
@@ -362,23 +344,20 @@ $ pip install Pygments
 
 <p><code>preview.sh</code> starts the Hugo&rsquo;s internal web server to serve a preview version of the site:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
-hugo server -b http://192.168.69.108 --bind <span class="m">0</span>.0.0.0 -p <span class="m">4000</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>hugo server -b http://192.168.69.108 --bind <span class="m">0</span>.0.0.0 -p <span class="m">4000</span></code></pre></div>
 
 <p><code>deploy.sh</code> generates a new version of the site and deploys it to GitHub pages:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
-rm -rf public/*
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>rm -rf public/*
 hugo
 <span class="nb">cd</span> public
-<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&quot;Site updated at `date +&quot;</span>%Y-%m-%d %H:%M:%S %Z<span class="s2">&quot;`&quot;</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&#34;Site updated at `date +&#34;</span>%Y-%m-%d %H:%M:%S %Z<span class="s2">&#34;`&#34;</span>
 git add .
-git commit -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MESSAGE</span><span class="si">}</span><span class="s2">&quot;</span>
+git commit -m <span class="s2">&#34;</span><span class="si">${</span><span class="nv">MESSAGE</span><span class="si">}</span><span class="s2">&#34;</span>
 git push origin master
-<span class="nb">cd</span> ..
-</code></pre></div>
+<span class="nb">cd</span> ..</code></pre></div>
       </article>
 
       <ul class="pager blog-pager">
@@ -398,20 +377,25 @@ git push origin master
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'drseergio';
-    var disqus_identifier = 'http:\/\/pisarenko.net\/blog\/2017\/04\/28\/hugo-static-site-generator\/';
-    var disqus_title = 'Hugo static site generator';
-    var disqus_url = 'http:\/\/pisarenko.net\/blog\/2017\/04\/28\/hugo-static-site-generator\/';
-
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "drseergio" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
           </div>
         
       
@@ -448,7 +432,7 @@ git push origin master
         <p class="credits copyright text-muted">
           Sergey Pisarenko
           &nbsp;&bull;&nbsp;
-          2017
+          2018
 
           
             &nbsp;&bull;&nbsp;
