@@ -5,20 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Categories</title>
-  <meta property="og:title" content="Categories" />
-  <meta name="twitter:title" content="Categories" />
+  <title>From DIY to off-the-shelf</title>
+  <meta property="og:title" content="From DIY to off-the-shelf" />
+  <meta name="twitter:title" content="From DIY to off-the-shelf" />
+  <meta name="description" content="Synology NAS and commercial 802.11ac access points">
+  <meta property="og:description" content="Synology NAS and commercial 802.11ac access points">
+  <meta name="twitter:description" content="Synology NAS and commercial 802.11ac access points">
   <meta name="author" content="Sergey Pisarenko"/>
   <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
   <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="http://pisarenko.net/categories/" />
+  <meta property="og:url" content="http://pisarenko.net/blog/2018/03/12/from-diy-to-off-the-shelf/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
   <meta name="generator" content="Hugo 0.37" />
-  <link rel="canonical" href="http://pisarenko.net/categories/" />
+  <link rel="canonical" href="http://pisarenko.net/blog/2018/03/12/from-diy-to-off-the-shelf/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -132,9 +135,20 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="categories-heading">
-              <h1>Categories</h1>
+            <div class="post-heading">
+              <h1>From DIY to off-the-shelf</h1>
                 
+                  
+                    <h2 class="post-subheading">Synology NAS and commercial 802.11ac access points</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on March 12, 2018
+  
+</span>
+
+
                 
             </div>
           </div>
@@ -145,20 +159,74 @@
 
 
     
-  
-  <div class="container" role="main">
-    <article class="post-preview">
-      <div class="list-group col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>I&rsquo;ve been using custom assembled computer appliances at home, such as routers, access points and a NAS. But recently I&rsquo;ve acquired an off-the-shelf NAS from Synology that I&rsquo;m really satisfied with.</p>
+
+<p></p>
+
+<p>I wrote about building a custom NAS <a href="/blog/2013/08/28/impressions-from-freenas/">on this blog before</a>. Equipped with 6 drives, 16GB RAM, Fractal Node 304 miniITX case and Freenas running ZFS the machine was seemingly a perfect storage system. Not perfect though &ndash; the RAM was not ECC and NAS&rsquo;s existence did not obviate the need for an off-site backup solution. Then, the time came to expand the storage and I shrieked from the prospect of purchasing 6 new hard drives.</p>
+
+<p>In general, building a reliable storage system is unreasonably expensive. Enthusiasts on forums consider things like ECC memory a basic requirement. Just the mainboard with ECC support costs a lot. Then come the drives. Nothing less than 6 drives. Particular network chipsets and drive controllers. And of course, everything twice. One for the main node and another for an offsite replica.</p>
+
+<p>Bonkers, if you ask me. I decided to tackle the data durability from another angle. Amazon offers inexpensive Glacier storage for a very reasonable price so I figured I&rsquo;d rather pay a fee for backing-up data to Amazon than trying to replicate a data-center at home. With that in mind, I settled on a 4-bay Synology enclosure. It&rsquo;s one fourth of the size of the existing NAS. It comes with a 4 core CPU, dual gigabit ports, USB3 and an outstanding software suite!</p>
+
+<p>Actually, the software was the deciding factor. It&rsquo;s brilliant. DSM is intuitive, clean-looking and functional. There are plenty of high-quality packages available in the store. The system can be further controlled through SSH, which basically means the customization potential is unlimited. DSM comes with the aforementioned Amazon Glacier synchronization support. Other cloud providers are also supported.</p>
+
+<p>NAS wouldn&rsquo;t be of much use if it didn&rsquo;t perform well. I&rsquo;m impressed with the I/O performance. I achieve 75-80MB/sec in Samba/CIFS over Wi-Fi. Admittedly, the Wi-Fi link is point-to-point with only 1 client, using a pair of identical Asus 802.11ac access points. The previous NAS delivered read speeds of up to 65MB/sec but the write speeds were abysmal.</p>
+
+<p>By the way, I&rsquo;m not using a <a href="/blog/2015/02/01/beginners-guide-to-802-dot-11ac-setup/">custom 802.11ac access point</a> anymore as I couldn&rsquo;t achieve predictable performance. I&rsquo;m still satisfied with a Gentoo powered router and a similarly specced extension access point. But getting high 802.11ac speeds was too brittle.</p>
+
+<p>The Synology NAS needed a couple of hacks though. For one, there was too much noise and vibration for my taste. I took out the standard fans and replaced them with a single 140mm at the back (attached with dual-sided sticky tape). I used the second fan connector, along with a long extension cable, to power an external fan that I&rsquo;ve put over the router. To eradicate vibration I used a few layers of foam and cleverly put the NAS over a subwoofer opening in the TV furniture. That opening is covered with cloth which acts perfectly as a vibration damper. The end result is far from a polished fancy appliance (room for improvement, Synology) but more of a Frankenstein.</p>
+
+<img src="/images/synology_fan.jpg" class="center noborder" />
+
+
+
+<p>But it works!</p>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://pisarenko.net/blog/2018/03/09/voxxed-days-zurich-2018/" data-toggle="tooltip" data-placement="top" title="Voxxed Days Zurich 2018">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
       
-      <a href="/categories/personal" class="list-group-item">
-          personal<span class="badge">83</span></a>
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "drseergio" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
       
-      <a href="/categories/pro" class="list-group-item">
-          pro<span class="badge">14</span></a>
-      
-      </div>
-    </article>
+
+    </div>
   </div>
+</div>
 
     <footer>
   <div class="container">

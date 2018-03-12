@@ -5,10 +5,21 @@
     <link>http://pisarenko.net/post/</link>
     <description>Recent content in Posts on Sergey Pisarenko</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 09 Mar 2018 19:34:43 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 12 Mar 2018 19:59:27 +0100</lastBuildDate>
     
 	<atom:link href="http://pisarenko.net/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>From DIY to off-the-shelf</title>
+      <link>http://pisarenko.net/blog/2018/03/12/from-diy-to-off-the-shelf/</link>
+      <pubDate>Mon, 12 Mar 2018 19:59:27 +0100</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2018/03/12/from-diy-to-off-the-shelf/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been using custom assembled computer appliances at home, such as routers, access points and a NAS. But recently I&amp;rsquo;ve acquired an off-the-shelf NAS from Synology that I&amp;rsquo;m really satisfied with.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Voxxed Days Zurich 2018</title>
