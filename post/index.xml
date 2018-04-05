@@ -5,10 +5,20 @@
     <link>http://pisarenko.net/post/</link>
     <description>Recent content in Posts on Sergey Pisarenko</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 12 Mar 2018 19:59:27 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Apr 2018 19:17:26 +0200</lastBuildDate>
     
 	<atom:link href="http://pisarenko.net/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>From NAND to Game of Life</title>
+      <link>http://pisarenko.net/blog/2018/04/05/from-nand-to-game-of-life/</link>
+      <pubDate>Thu, 05 Apr 2018 19:17:26 +0200</pubDate>
+      
+      <guid>http://pisarenko.net/blog/2018/04/05/from-nand-to-game-of-life/</guid>
+      <description>Few weeks ago I finished an online course that deserves an honorable mention. The course is called Nand2Tetris and the goal of the course is to develop a computer from scratch, starting with primitive logic gates all the way up to a high-level application written in a custom object-oriented programming language. By the way, I chose to implement a Game of Life simulation.
+It&amp;rsquo;s an outstanding well thought-through course. It has taken the authors six years to develop and it shows.</description>
+    </item>
     
     <item>
       <title>From DIY to off-the-shelf</title>

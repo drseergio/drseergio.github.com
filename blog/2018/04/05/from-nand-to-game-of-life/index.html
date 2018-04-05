@@ -5,32 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Photo report - essential Seattle</title>
-  <meta property="og:title" content="Photo report - essential Seattle" />
-  <meta name="twitter:title" content="Photo report - essential Seattle" />
-  <meta name="description" content="Visiting Seattle for the first time has been an unexpectedly pleasant experience.
-
-    
-The city is walkable and has great infrastructure. I found bike lanes everywhere and public transport. It&rsquo;s the first US city that I find appealing.">
-  <meta property="og:description" content="Visiting Seattle for the first time has been an unexpectedly pleasant experience.
-
-    
-The city is walkable and has great infrastructure. I found bike lanes everywhere and public transport. It&rsquo;s the first US city that I find appealing.">
-  <meta name="twitter:description" content="Visiting Seattle for the first time has been an unexpectedly pleasant experience.
-
-    
-The city is walkable and has great infrastructure. I found bike lanes everywhere and public transport. …">
+  <title>From NAND to Game of Life</title>
+  <meta property="og:title" content="From NAND to Game of Life" />
+  <meta name="twitter:title" content="From NAND to Game of Life" />
+  <meta name="description" content="Build a computer system from scratch">
+  <meta property="og:description" content="Build a computer system from scratch">
+  <meta name="twitter:description" content="Build a computer system from scratch">
   <meta name="author" content="Sergey Pisarenko"/>
   <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
   <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="http://pisarenko.net/blog/2014/02/02/photo-report-essential-seattle/" />
+  <meta property="og:url" content="http://pisarenko.net/blog/2018/04/05/from-nand-to-game-of-life/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
   <meta name="generator" content="Hugo 0.38" />
-  <link rel="canonical" href="http://pisarenko.net/blog/2014/02/02/photo-report-essential-seattle/" />
+  <link rel="canonical" href="http://pisarenko.net/blog/2018/04/05/from-nand-to-game-of-life/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -145,11 +136,15 @@ The city is walkable and has great infrastructure. I found bike lanes everywhere
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
-              <h1>Photo report - essential Seattle</h1>
+              <h1>From NAND to Game of Life</h1>
+                
+                  
+                    <h2 class="post-subheading">Build a computer system from scratch</h2>
+                  
                 
                 
                   <span class="post-meta">
-  Posted on February 2, 2014
+  Posted on April 5, 2018
   
 </span>
 
@@ -168,44 +163,26 @@ The city is walkable and has great infrastructure. I found bike lanes everywhere
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Visiting Seattle for the first time has been an unexpectedly pleasant experience.</p>
+        <p>Few weeks ago I finished an online course that deserves an honorable mention. The course is called <a href="http://nand2tetris.org/">Nand2Tetris</a> and the goal of the course is to develop a computer from scratch, starting with primitive logic gates all the way up to a high-level application written in a custom object-oriented programming language. By the way, I chose to implement a Game of Life simulation.</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12253777934"><img src="http://farm3.staticflickr.com/2872/12253777934_0750e120d5_c.jpg" width="800" />
+<p>It&rsquo;s an outstanding well thought-through course. It has taken the authors six years to develop and it shows. The course is completely self-contained and the duration is roughly two months for both parts (assuming a full-time job, high degree of motivation and roughly 6-10 hours per week). Part one is about building the hardware using NAND gates in various constellations. You get to develop the CPU, including ALU and memory chips. The end result is a completely functional 8-bit system. The second part is about building the software stack on top of it, including an assembler, a virtual machine and, finally, a compiler. Obviously, the course doesn&rsquo;t cover every possible detail but as a student you get hands-on experience building the whole thing.</p>
 
-</a></p>
+<p>Before taking this course I&rsquo;ve never studied computer architecture, compilers or computer language design, except for an occasional ad-hoc book. Thanks to the course I now have an appreciation for the clever machine design and better intuition for future work. Without strong fundamentals it is difficult to reason about performance. Knowing fundamentals also increases confidence as previously inaccessible systems become demystified and come within reach. This kind of knowledge is empowering and motivating. I was so excited during these two months that I&rsquo;ve used every spare moment to progress further, going as far as coding during commutes. Normally on the go I can&rsquo;t even imagine opening a laptop!</p>
 
-<p><a href="http://www.flickr.com/photos/68217075@N08/12253417785"><img src="http://farm8.staticflickr.com/7454/12253417785_76421992d7_q.jpg" width="150" />
+<p>Working on various parts of a computer system made me practically realize how important the concept of abstraction really is. When working in an object-oriented programming language it is easy to get wishy-washy defining interfaces and boundaries. With this course I&rsquo;ve seen that abstractions are very real and extremely important. It&rsquo;s nearly impossible to develop any useful application if it&rsquo;s necessary to keep every system layer in head. Working at one layer at a time is liberating and effective. You build the stack one step at a time and you only care about fulfilling a certain API, be that a set of CPU instructions or a programming language syntax. This lesson was delivered just at the right time as I find myself currently building a system that spans multiple architectural layers.</p>
 
-</a> <a href="http://www.flickr.com/photos/68217075@N08/12253405445"><img src="http://farm4.staticflickr.com/3827/12253405445_43dab938b7_q.jpg" width="150" />
+<p>Another useful realization is that compilers and programming languages are glorified text processing systems. I apologize in advance to all researchers and engineers as there&rsquo;s surely lots of nuances and improvements yet conceptually what compilers do is take source code, tokenize it, make sure the code follows the syntax and then translate the code to assembly (or virtual machine instructions) using predefined transformations. Again, a rough simplification but at the same time liberating and empowering one.</p>
 
-</a> <a href="http://www.flickr.com/photos/68217075@N08/12253615903"><img src="http://farm6.staticflickr.com/5544/12253615903_406075b80b_q.jpg" width="150" />
-
-</a> <a href="http://www.flickr.com/photos/68217075@N08/12253957076"><img src="http://farm8.staticflickr.com/7290/12253957076_c1ef14bef8_q.jpg" width="150" />
-
-</a> <a href="http://www.flickr.com/photos/68217075@N08/12253774264"><img src="http://farm4.staticflickr.com/3771/12253774264_64d3b09a4b_q.jpg" width="150" />
-
-</a></p>
-
-<p>The city is walkable and has great infrastructure. I found bike lanes everywhere and public transport. It&rsquo;s the first US city that I find appealing.</p>
-
-<p><a href="http://www.flickr.com/photos/68217075@N08/12253560863"><img src="http://farm4.staticflickr.com/3683/12253560863_26b1f97b32_n.jpg" width="320" />
-
-</a> <a href="http://www.flickr.com/photos/68217075@N08/12253790984"><img src="http://farm6.staticflickr.com/5522/12253790984_1cac831c33_n.jpg" width="320" />
-
-</a></p>
+<p>Studying and continued learning is important to me. Just as I love movement and sports I can&rsquo;t imagine taking a long break from learning. I realize I don&rsquo;t even do it for any particular purpose or goal. I am grateful high-quality online courses exist and I look forward to discovering more of these gems.</p>
 
       </article>
 
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="http://pisarenko.net/blog/2014/02/02/photo-report-intentionality/" data-toggle="tooltip" data-placement="top" title="Photo report - intentionality">&larr; Previous Post</a>
+            <a href="http://pisarenko.net/blog/2018/03/12/from-diy-to-off-the-shelf/" data-toggle="tooltip" data-placement="top" title="From DIY to off-the-shelf">&larr; Previous Post</a>
           </li>
         
-        
-          <li class="next">
-            <a href="http://pisarenko.net/blog/2014/02/07/coffee-is-not-my-friend/" data-toggle="tooltip" data-placement="top" title="Coffee is not my friend">Next Post &rarr;</a>
-          </li>
         
       </ul>
 
