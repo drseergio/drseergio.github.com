@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://pisarenko.net/blog/2018/04/24/third-times-a-charm/</loc>
+    <lastmod>2018-04-24T21:08:13+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pisarenko.net/blog/2018/04/05/from-nand-to-game-of-life/</loc>
     <lastmod>2018-04-05T19:17:26+02:00</lastmod>
   </url>
@@ -499,7 +504,7 @@
   
   <url>
     <loc>http://pisarenko.net/</loc>
-    <lastmod>2018-04-05T19:17:26+02:00</lastmod>
+    <lastmod>2018-04-24T21:08:13+02:00</lastmod>
   </url>
   
   <url>
@@ -551,7 +556,7 @@
   
   <url>
     <loc>http://pisarenko.net/categories/personal/</loc>
-    <lastmod>2017-11-05T16:31:34+01:00</lastmod>
+    <lastmod>2018-04-24T21:08:13+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -563,7 +568,7 @@
   
   <url>
     <loc>http://pisarenko.net/post/</loc>
-    <lastmod>2018-04-05T19:17:26+02:00</lastmod>
+    <lastmod>2018-04-24T21:08:13+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -593,7 +598,7 @@
   
   <url>
     <loc>http://pisarenko.net/tags/training/</loc>
-    <lastmod>2017-06-20T17:28:58+02:00</lastmod>
+    <lastmod>2018-04-24T21:08:13+02:00</lastmod>
     <priority>0</priority>
   </url>
   

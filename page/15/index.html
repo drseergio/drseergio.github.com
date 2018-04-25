@@ -5,23 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>From NAND to Game of Life</title>
-  <meta property="og:title" content="From NAND to Game of Life" />
-  <meta name="twitter:title" content="From NAND to Game of Life" />
-  <meta name="description" content="Build a computer system from scratch">
-  <meta property="og:description" content="Build a computer system from scratch">
-  <meta name="twitter:description" content="Build a computer system from scratch">
+  <title>Sergey Pisarenko</title>
+  <meta property="og:title" content="Sergey Pisarenko" />
+  <meta name="twitter:title" content="Sergey Pisarenko" />
   <meta name="author" content="Sergey Pisarenko"/>
   <link href='http://pisarenko.net/images/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
   <meta name="twitter:image" content="http://pisarenko.net/images/sergey_pisarenko_logo.jpg" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="http://pisarenko.net/blog/2018/04/05/from-nand-to-game-of-life/" />
+  <meta property="og:url" content="http://pisarenko.net/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sergey Pisarenko" />
 
   <meta name="generator" content="Hugo 0.38" />
-  <link rel="canonical" href="http://pisarenko.net/blog/2018/04/05/from-nand-to-game-of-life/" />
+  <link rel="canonical" href="http://pisarenko.net/" />
   <link rel="alternate" href="http://pisarenko.net/index.xml" type="application/rss+xml" title="Sergey Pisarenko">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -135,20 +132,14 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
-              <h1>From NAND to Game of Life</h1>
+            <div class="page-heading">
+              <h1>Sergey Pisarenko</h1>
                 
                   
-                    <h2 class="post-subheading">Build a computer system from scratch</h2>
+                    <hr class="small">
+                    <span class="page-subheading">personal home page of Sergey Pisarenko</span>
                   
                 
-                
-                  <span class="post-meta">
-  Posted on April 5, 2018
-  
-</span>
-
-
                 
             </div>
           </div>
@@ -159,67 +150,61 @@
 
 
     
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <p>Few weeks ago I finished an online course that deserves an honorable mention. The course is called <a href="http://nand2tetris.org/">Nand2Tetris</a> and the goal of the course is to develop a computer from scratch, starting with primitive logic gates all the way up to a high-level application written in a custom object-oriented programming language. By the way, I chose to implement a Game of Life simulation.</p>
-
-<p>It&rsquo;s an outstanding well thought-through course. It has taken the authors six years to develop and it shows. The course is completely self-contained and the duration is roughly two months for both parts (assuming a full-time job, high degree of motivation and roughly 6-10 hours per week). Part one is about building the hardware using NAND gates in various constellations. You get to develop the CPU, including ALU and memory chips. The end result is a completely functional 8-bit system. The second part is about building the software stack on top of it, including an assembler, a virtual machine and, finally, a compiler. Obviously, the course doesn&rsquo;t cover every possible detail but as a student you get hands-on experience building the whole thing.</p>
-
-<p>Before taking this course I&rsquo;ve never studied computer architecture, compilers or computer language design, except for an occasional ad-hoc book. Thanks to the course I now have an appreciation for the clever machine design and better intuition for future work. Without strong fundamentals it is difficult to reason about performance. Knowing fundamentals also increases confidence as previously inaccessible systems become demystified and come within reach. This kind of knowledge is empowering and motivating. I was so excited during these two months that I&rsquo;ve used every spare moment to progress further, going as far as coding during commutes. Normally on the go I can&rsquo;t even imagine opening a laptop!</p>
-
-<p>Working on various parts of a computer system made me practically realize how important the concept of abstraction really is. When working in an object-oriented programming language it is easy to get wishy-washy defining interfaces and boundaries. With this course I&rsquo;ve seen that abstractions are very real and extremely important. It&rsquo;s nearly impossible to develop any useful application if it&rsquo;s necessary to keep every system layer in head. Working at one layer at a time is liberating and effective. You build the stack one step at a time and you only care about fulfilling a certain API, be that a set of CPU instructions or a programming language syntax. This lesson was delivered just at the right time as I find myself currently building a system that spans multiple architectural layers.</p>
-
-<p>Another useful realization is that compilers and programming languages are glorified text processing systems. I apologize in advance to all researchers and engineers as there&rsquo;s surely lots of nuances and improvements yet conceptually what compilers do is take source code, tokenize it, make sure the code follows the syntax and then translate the code to assembly (or virtual machine instructions) using predefined transformations. Again, a rough simplification but at the same time liberating and empowering one.</p>
-
-<p>Studying and continued learning is important to me. Just as I love movement and sports I can&rsquo;t imagine taking a long break from learning. I realize I don&rsquo;t even do it for any particular purpose or goal. I am grateful high-quality online courses exist and I look forward to discovering more of these gems.</p>
-
-      </article>
-
-      <ul class="pager blog-pager">
+  <div role="main" class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-          <li class="previous">
-            <a href="http://pisarenko.net/blog/2018/03/12/from-diy-to-off-the-shelf/" data-toggle="tooltip" data-placement="top" title="From DIY to off-the-shelf">&larr; Previous Post</a>
-          </li>
-        
-        
-          <li class="next">
-            <a href="http://pisarenko.net/blog/2018/04/24/third-times-a-charm/" data-toggle="tooltip" data-placement="top" title="Third time&#39;s a charm">Next Post &rarr;</a>
-          </li>
-        
-      </ul>
 
-      
-        
-          <div class="disqus-comments">
-            <div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "drseergio" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-          </div>
-        
-      
+        <div class="posts-list">
+          
+          
+            <article class="post-preview">
+              <a href="http://pisarenko.net/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/">
+                <h2 class="post-title">fruitcoins.com: on complexity and solutions to wrong problems</h2>
+                
+              </a>
 
+              <span class="post-meta">
+  Posted on June 2, 2013
+  
+</span>
+
+
+              <div class="post-entry">
+                
+                  <p>About two years ago I had very little experience in programming in Python. I&rsquo;ve heard of Django and felt excited how flexible it is and how complicated web applications can be elegantly written.</p>
+
+<p>Tracking expenses has always been important for me. At the time I&rsquo;ve relied on KMyMoney program. Frankly, I did not (and still don&rsquo;t) like any such programs. They&rsquo;re either clunky and look like Windows 95 or too complicated or too inefficient. I&rsquo;ve decided to write my own web application in Python using the Django framework.</p>
+
+<p></p>
+                  <a href="http://pisarenko.net/blog/2013/06/02/fruitcoins-dot-com-on-complexity-and-solutions-to-the-wrong-problem/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                
+                  #<a href="/tags/tech">tech</a>&nbsp;
+                
+                </span>
+              
+            </article>
+          
+        </div>
+
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="/page/14">&larr; Newer Posts</a>
+              </li>
+            
+            
+          </ul>
+        
+      </div>
     </div>
   </div>
-</div>
 
     <footer>
   <div class="container">
